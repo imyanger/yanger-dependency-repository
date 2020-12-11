@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>third-party-tools</artifactId>
+        <version>1.0.0.RELEASE</version>
+    </parent>
+
+    <groupId>com.yanger</groupId>
+    <artifactId>yanger-common-tools</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <packaging>pom</packaging>
+
+    <name>yanger-common-tools</name>
+    <description>yanger common tools project</description>
+
+    <modules>
+        <module>yanger-general-tools</module>
+        <module>yanger-web-tools</module>
+    </modules>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <skip>true</skip>
+                    <compilerId>javac</compilerId>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerVersion>1.8</compilerVersion>
+                    <verbose>true</verbose>
+                    <optimize>true</optimize>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
