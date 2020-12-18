@@ -24,6 +24,19 @@
         <module>yanger-web-tools</module>
     </modules>
 
+    <properties>
+        <jetbrains-annotations.version>19.0.0</jetbrains-annotations.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains-annotations.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <resource>

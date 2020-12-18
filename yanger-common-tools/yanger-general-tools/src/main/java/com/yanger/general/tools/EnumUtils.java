@@ -13,10 +13,11 @@ import java.util.function.Predicate;
  */
 public class EnumUtils {
 
-    private static Map<Class,Object> map = new ConcurrentHashMap<>();
+    private static Map<Class, Object> map = new ConcurrentHashMap<>();
 
     /**
      * 根据条件获取枚举对象
+     *
      * @param className 枚举类
      * @param predicate 筛选条件
      * @param <T>
@@ -24,16 +25,16 @@ public class EnumUtils {
      */
     @SuppressWarnings("unchecked")
     public static <T> Optional<T> getEnumObject(Class<T> className, Predicate<T> predicate) {
-        if(!className.isEnum()){
+        if (!className.isEnum()) {
             return null;
         }
         Object obj = map.get(className);
         T[] ts;
-        if(obj == null){
+        if (obj == null) {
             ts = className.getEnumConstants();
-            map.put(className,ts);
-        }else{
-            ts = (T[])obj;
+            map.put(className, ts);
+        } else {
+            ts = (T[]) obj;
         }
         return Arrays.stream(ts).filter(predicate).findAny();
     }

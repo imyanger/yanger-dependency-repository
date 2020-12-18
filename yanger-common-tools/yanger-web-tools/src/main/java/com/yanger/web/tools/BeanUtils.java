@@ -1,7 +1,5 @@
 package com.yanger.web.tools;
 
-import org.springframework.beans.BeanUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -11,11 +9,11 @@ import java.util.function.Supplier;
  * @Author yanger
  * @Date 2020/7/17 18:34
  */
-public class ConverterUtils extends BeanUtils {
+public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * @Description 单个对象拷贝，方便函数式调用
-     * @author yanger
+
      * @date 2020/7/17
      * @param source 数据源类
      * @param target 目标类::new(eg: UserVO::new)
@@ -29,7 +27,7 @@ public class ConverterUtils extends BeanUtils {
 
     /**
      * @Description 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
-     * @author yanger
+
      * @date 2020/7/17
      * @param source 数据源类
      * @param target 目标类::new(eg: UserVO::new)
@@ -45,7 +43,7 @@ public class ConverterUtils extends BeanUtils {
 
     /**
      * @Description 集合数据的拷贝
-     * @author yanger
+
      * @date 2020/7/17
      * @param sources 数据源类
      * @param target 目标类::new(eg: UserVO::new)
@@ -57,7 +55,7 @@ public class ConverterUtils extends BeanUtils {
 
     /**
      * @Description 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
-     * @author yanger
+
      * @date 2020/7/17
      * @param sources 数据源类
      * @param target 目标类::new(eg: UserVO::new)
