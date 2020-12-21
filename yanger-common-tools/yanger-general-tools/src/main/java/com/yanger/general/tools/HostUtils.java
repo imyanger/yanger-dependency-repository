@@ -28,7 +28,6 @@ public class HostUtils {
      * 读取 hosts, 排除注释项, 将一行记录解析为 [ip + 空格 + domain}
      *
      * @return the set
-     * @since 1.5.0
      */
     public static Set<String> read() {
         return FileUtil.readLines(getHostFile(), Charsets.UTF_8).stream()
@@ -43,7 +42,6 @@ public class HostUtils {
      * @param ip     ip
      * @param domain domain
      * @return the string
-     * @since 1.5.0
      */
     @Contract(pure = true)
     public static @NotNull String combine(String ip, String domain) {
@@ -58,7 +56,6 @@ public class HostUtils {
      *
      * @param domain domain
      * @return the boolean
-     * @since 1.5.0
      */
     public static boolean exists(String domain) {
         return exists(StringPool.EMPTY, domain);
@@ -70,7 +67,6 @@ public class HostUtils {
      * @param ip     ip
      * @param domain domain
      * @return the boolean
-     * @since 1.5.0
      */
     public static boolean exists(String ip, String domain) {
         return exists(read(), ip, domain);
@@ -83,7 +79,6 @@ public class HostUtils {
      * @param ip      ip
      * @param domain  domain
      * @return the boolean
-     * @since 1.5.0
      */
     public static boolean exists(@NotNull Set<String> records, String ip, String domain) {
         String combine = combine(ip, domain);
@@ -101,7 +96,6 @@ public class HostUtils {
      * @param records records
      * @param domain  domain
      * @return the set
-     * @since 1.5.0
      */
     public static @NotNull Set<String> getIps(@NotNull Set<String> records, String domain) {
         Set<String> ips = new HashSet<>(4);
@@ -121,7 +115,6 @@ public class HostUtils {
      *
      * @param record record
      * @return the string
-     * @since 1.5.0
      */
     public static String ip(@NotNull String record) {
         String[] split = check(record);
@@ -133,7 +126,6 @@ public class HostUtils {
      *
      * @param record record
      * @return the string
-     * @since 1.5.0
      */
     public static String doamin(@NotNull String record) {
         String[] split = check(record);
@@ -145,7 +137,6 @@ public class HostUtils {
      *
      * @param record record
      * @return the string [ ]
-     * @since 1.5.0
      */
     @NotNull
     @SuppressWarnings("PMD.UndefineMagicConstantRule")
@@ -161,7 +152,6 @@ public class HostUtils {
      * 获取 host 文件路径
      *
      * @return host file
-     * @since 1.5.0
      */
     public static @NotNull String getHostFile() {
         String fileName;
@@ -181,7 +171,6 @@ public class HostUtils {
      * @param ip     ip
      * @param domain domain
      * @return boolean boolean
-     * @since 1.5.0
      */
     public static synchronized boolean deleteHost(String ip, String domain) {
 
@@ -202,7 +191,6 @@ public class HostUtils {
      * @param ip     ip
      * @param domain domain
      * @return boolean boolean
-     * @since 1.5.0
      */
     @Contract("null, _ -> fail")
     public static synchronized boolean updateHost(String ip, String domain) {

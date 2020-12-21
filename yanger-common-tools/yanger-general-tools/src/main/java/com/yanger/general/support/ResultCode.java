@@ -1,11 +1,11 @@
 package com.yanger.general.support;
 
 /**
- * @Description TODO
+ * @Description 请求响应代码接口枚举
  * @Author yanger
  * @Date 2020/12/18 18:01
  */
-public enum  ResultCode implements IResultCode {
+public enum ResultCode implements IResultCode {
 
     /** token过期 */
     TOKE_INVALID(-200, "token过期"),
@@ -25,33 +25,6 @@ public enum  ResultCode implements IResultCode {
     /** 权限不足 */
     AUTHORITY_INVALID_PERCH(-102, "权限不足，{}"),
 
-    /** 参数错误 */
-    PARAMETER_ERROR(400, "参数错误"),
-
-    /** 参数错误 */
-    PARAMETER_ERROR_MSG(401, null),
-
-    /** 参数错误 */
-    PARAMETER_ERROR_PERCH(402, "参数错误，{}"),
-
-    /** 业务处理异常 */
-    BUSINESS_ERROR(500, "业务处理异常"),
-
-    /** 业务处理异常 */
-    BUSINESS_ERROR_MSG(501, null),
-
-    /** 业务处理异常 */
-    BUSINESS_ERROR_PERCH(502, "业务处理异常，{}"),
-
-    /** 调用第三方服务异常 */
-    THIRD_ERROR(600, "调用第三方服务异常"),
-
-    /** 调用第三方服务异常 */
-    THIRD_ERROR_MSG(601, null),
-
-    /** 调用第三方服务异常 */
-    THIRD_ERROR_PERCH(602, "调用第三方服务异常，{}"),
-
     /** 处理成功 */
     OK(200, "处理成功"),
 
@@ -59,7 +32,43 @@ public enum  ResultCode implements IResultCode {
     OK_MSG(201, null),
 
     /** 处理成功 */
-    OK_PERCH(202, "处理成功，{}");
+    OK_PERCH(202, "处理成功，{}"),
+
+    /** 服务器异常 */
+    ERROR(400, "服务器异常"),
+
+    /** 服务器异常 */
+    ERROR_MSG(401, null),
+
+    /** 服务器异常 */
+    ERROR_PERCH(402, "服务器异常，{}"),
+
+    /** 参数错误 */
+    PARAMETER_ERROR(500, "参数错误"),
+
+    /** 参数错误 */
+    PARAMETER_ERROR_MSG(501, null),
+
+    /** 参数错误 */
+    PARAMETER_ERROR_PERCH(502, "参数错误，{}"),
+
+    /** 业务处理异常 */
+    BUSINESS_ERROR(600, "业务处理异常"),
+
+    /** 业务处理异常 */
+    BUSINESS_ERROR_MSG(601, null),
+
+    /** 业务处理异常 */
+    BUSINESS_ERROR_PERCH(602, "业务处理异常，{}"),
+
+    /** 调用第三方服务异常 */
+    THIRD_ERROR(700, "调用第三方服务异常"),
+
+    /** 调用第三方服务异常 */
+    THIRD_ERROR_MSG(701, null),
+
+    /** 调用第三方服务异常 */
+    THIRD_ERROR_PERCH(702, "调用第三方服务异常，{}");
 
     /** 状态码 */
     private Integer code;

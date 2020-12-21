@@ -21,7 +21,6 @@ public class AssertUtils extends Asserts {
      * 失败结果
      *
      * @param errorCode 异常错误码
-     * @since 1.2.3
      */
     @Contract("_ -> fail")
     public static void fail(@NotNull IResultCode errorCode) {
@@ -32,8 +31,7 @@ public class AssertUtils extends Asserts {
      * 失败结果
      *
      * @param errorCode 异常错误码
-     * @param params 参数占位符
-     * @since 1.2.3
+     * @param params    参数占位符
      */
     @Contract("_ -> fail")
     public static void fail(@NotNull IResultCode errorCode, Object... params) {
@@ -45,7 +43,6 @@ public class AssertUtils extends Asserts {
      *
      * @param num       the num
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void gtZero(Integer num, IResultCode errorCode) {
         if (num == null || num <= 0) {
@@ -58,7 +55,6 @@ public class AssertUtils extends Asserts {
      *
      * @param num       the num
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void gtZero(Integer num, IResultCode errorCode, Object... params) {
         if (num == null || num <= 0) {
@@ -71,7 +67,6 @@ public class AssertUtils extends Asserts {
      *
      * @param num       the num
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void geZero(Integer num, IResultCode errorCode) {
         if (num == null || num < 0) {
@@ -84,7 +79,6 @@ public class AssertUtils extends Asserts {
      *
      * @param num       the num
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void geZero(Integer num, IResultCode errorCode, Object... params) {
         if (num == null || num < 0) {
@@ -98,7 +92,6 @@ public class AssertUtils extends Asserts {
      * @param num1      the num 1
      * @param num2      the num 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void gt(Integer num1, Integer num2, IResultCode errorCode) {
         if (num1 <= num2) {
@@ -112,7 +105,6 @@ public class AssertUtils extends Asserts {
      * @param num1      the num 1
      * @param num2      the num 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void gt(Integer num1, Integer num2, IResultCode errorCode, Object... params) {
         if (num1 <= num2) {
@@ -126,7 +118,6 @@ public class AssertUtils extends Asserts {
      * @param num1      the num 1
      * @param num2      the num 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void ge(Integer num1, Integer num2, IResultCode errorCode) {
         if (num1 < num2) {
@@ -140,7 +131,6 @@ public class AssertUtils extends Asserts {
      * @param num1      the num 1
      * @param num2      the num 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void ge(Integer num1, Integer num2, IResultCode errorCode, Object... params) {
         if (num1 < num2) {
@@ -154,7 +144,6 @@ public class AssertUtils extends Asserts {
      * @param obj1      the obj 1
      * @param obj2      the obj 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void eq(@NotNull Object obj1, Object obj2, IResultCode errorCode) {
         if (!obj1.equals(obj2)) {
@@ -168,7 +157,6 @@ public class AssertUtils extends Asserts {
      * @param obj1      the obj 1
      * @param obj2      the obj 2
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void eq(@NotNull Object obj1, Object obj2, IResultCode errorCode, Object... params) {
         if (!obj1.equals(obj2)) {
@@ -181,7 +169,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isTrue(boolean condition, IResultCode errorCode) {
         if (!condition) {
@@ -194,7 +181,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isTrue(boolean condition, IResultCode errorCode, Object... params) {
         if (!condition) {
@@ -207,7 +193,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isFalse(boolean condition, IResultCode errorCode) {
         if (condition) {
@@ -220,7 +205,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isFalse(boolean condition, IResultCode errorCode, Object... params) {
         if (condition) {
@@ -231,9 +215,8 @@ public class AssertUtils extends Asserts {
     /**
      * Is null.
      *
-     * @param errorCode  the error codes
-     * @param target     target
-     * @since 1.2.3
+     * @param errorCode the error codes
+     * @param target    target
      */
     public static void isNull(Object target, IResultCode errorCode) {
         if (!ObjectUtils.isEmpty(target)) {
@@ -244,9 +227,8 @@ public class AssertUtils extends Asserts {
     /**
      * Is null.
      *
-     * @param errorCode  the error codes
-     * @param target     target
-     * @since 1.2.3
+     * @param errorCode the error codes
+     * @param target    target
      */
     public static void isNull(Object target, IResultCode errorCode, Object... params) {
         if (!ObjectUtils.isEmpty(target)) {
@@ -259,7 +241,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void fail(boolean condition, IResultCode errorCode) {
         if (condition) {
@@ -272,7 +253,6 @@ public class AssertUtils extends Asserts {
      *
      * @param condition the condition
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void fail(boolean condition, IResultCode errorCode, Object... params) {
         if (condition) {
@@ -285,7 +265,6 @@ public class AssertUtils extends Asserts {
      *
      * @param array     the array
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Object[] array, IResultCode errorCode) {
         if (ObjectUtils.isEmpty(array)) {
@@ -298,7 +277,6 @@ public class AssertUtils extends Asserts {
      *
      * @param array     the array
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Object[] array, IResultCode errorCode, Object... params) {
         if (ObjectUtils.isEmpty(array)) {
@@ -311,7 +289,6 @@ public class AssertUtils extends Asserts {
      *
      * @param array     the array
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void noNullElements(Object[] array, IResultCode errorCode) {
         if (array != null) {
@@ -328,7 +305,6 @@ public class AssertUtils extends Asserts {
      *
      * @param array     the array
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void noNullElements(Object[] array, IResultCode errorCode, Object... params) {
         if (array != null) {
@@ -345,7 +321,6 @@ public class AssertUtils extends Asserts {
      *
      * @param collection the collection
      * @param errorCode  the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Collection<?> collection, IResultCode errorCode) {
         if (!CollectionUtils.isEmpty(collection)) {
@@ -358,7 +333,6 @@ public class AssertUtils extends Asserts {
      *
      * @param collection the collection
      * @param errorCode  the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Collection<?> collection, IResultCode errorCode, Object... params) {
         if (!CollectionUtils.isEmpty(collection)) {
@@ -371,7 +345,6 @@ public class AssertUtils extends Asserts {
      *
      * @param map       the map
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Map<?, ?> map, IResultCode errorCode) {
         if (ObjectUtils.isEmpty(map)) {
@@ -384,7 +357,6 @@ public class AssertUtils extends Asserts {
      *
      * @param map       the map
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void notEmpty(Map<?, ?> map, IResultCode errorCode, Object... params) {
         if (ObjectUtils.isEmpty(map)) {
@@ -398,7 +370,6 @@ public class AssertUtils extends Asserts {
      * @param type      the type
      * @param obj       the obj
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isInstanceOf(Class<?> type, Object obj, IResultCode errorCode) {
         AssertUtils.notNull(type, errorCode);
@@ -413,7 +384,6 @@ public class AssertUtils extends Asserts {
      * @param type      the type
      * @param obj       the obj
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isInstanceOf(Class<?> type, Object obj, IResultCode errorCode, Object... params) {
         AssertUtils.notNull(type, errorCode);
@@ -425,9 +395,8 @@ public class AssertUtils extends Asserts {
     /**
      * Not null.
      *
-     * @param errorCode  the error codes
-     * @param target     target
-     * @since 1.2.3
+     * @param errorCode the error codes
+     * @param target    target
      */
     public static void notNull(Object target, IResultCode errorCode) {
         if (ObjectUtils.isEmpty(target)) {
@@ -438,9 +407,8 @@ public class AssertUtils extends Asserts {
     /**
      * Not null.
      *
-     * @param errorCode  the error codes
-     * @param target     target
-     * @since 1.2.3
+     * @param errorCode the error codes
+     * @param target    target
      */
     public static void notNull(Object target, IResultCode errorCode, Object... params) {
         if (ObjectUtils.isEmpty(target)) {
@@ -454,7 +422,6 @@ public class AssertUtils extends Asserts {
      * @param superType the super type
      * @param subType   the sub type
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode errorCode) {
         AssertUtils.notNull(superType, errorCode);
@@ -469,7 +436,6 @@ public class AssertUtils extends Asserts {
      * @param superType the super type
      * @param subType   the sub type
      * @param errorCode the error code
-     * @since 1.2.3
      */
     public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode errorCode, Object... params) {
         AssertUtils.notNull(superType, errorCode);

@@ -6,15 +6,14 @@ package com.yanger.web.tools;
  * @Date 2020/7/17 18:36
  */
 @FunctionalInterface
-public interface ConverterUtilsCallBack <S, T> {
+public interface ConverterUtilsCallBack<S, T> {
 
     /**
-     * @Description 定义默认回调方法
-    
+     * 定义默认回调方法
+     *
+     * @param t t
+     * @param s s
      * @date 2020/7/17
-     * @param t
-     * @param s
-     * @return void
      */
     void callBack(S t, T s);
 

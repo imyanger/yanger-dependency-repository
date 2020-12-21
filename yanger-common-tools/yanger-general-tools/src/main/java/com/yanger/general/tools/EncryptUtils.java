@@ -6,9 +6,9 @@ import javax.crypto.spec.SecretKeySpec;
 import cn.hutool.core.codec.Base64;
 
 /**
- * 加密工具类
- *
  * @author YangHao
+ * @Description 加密工具类
+ * @Author yanger
  */
 public class EncryptUtils {
 
@@ -20,8 +20,7 @@ public class EncryptUtils {
 
     /**
      * @param source
-     * @return
-     * @description MD5加密
+     * @return MD5加密
      * @author YangHao
      * @date 2018年9月18日-上午12:03:25
      */
@@ -30,9 +29,10 @@ public class EncryptUtils {
     }
 
     /**
+     * MD5加密
+     *
      * @param source
-     * @return
-     * @description MD5加密
+     * @return MD5加密
      * @author YangHao
      * @date 2018年9月18日-上午12:03:25
      */
@@ -66,10 +66,11 @@ public class EncryptUtils {
     }
 
     /**
+     * AES加密
+     *
      * @param src 加密内容
      * @param key 加密key
-     * @return
-     * @description AES加密
+     * @return AES加密
      * @author YangHao
      * @date 2018年9月18日-上午12:03:25
      */
@@ -86,10 +87,11 @@ public class EncryptUtils {
     }
 
     /**
+     * AES解密
+     *
      * @param src 解密内容
      * @param key 解密key
-     * @return
-     * @description AES解密
+     * @return AES解密
      * @author YangHao
      * @date 2018年9月18日-上午12:03:25
      */
@@ -108,8 +110,8 @@ public class EncryptUtils {
     }
 
     /**
-     * @throws
-     * @Description 十六进制转字节
+     * 十六进制转字节
+     *
      * @Author yanger
      * @Date 2020/12/11 18:33
      * @param: strhex
@@ -131,8 +133,8 @@ public class EncryptUtils {
     }
 
     /**
-     * @throws
-     * @Description 字节转十六进制
+     * 字节转十六进制
+     *
      * @Author yanger
      * @Date 2020/12/11 18:34
      * @param: b
@@ -153,9 +155,10 @@ public class EncryptUtils {
     }
 
     /**
+     * Base64编码
+     *
      * @param data：待编码数据
      * @return String-编码数据
-     * @description Base64编码
      */
     public static String encode(String data) {
         // 执行编码
@@ -163,9 +166,10 @@ public class EncryptUtils {
     }
 
     /**
+     * Base64解码
+     *
      * @param data：待解码数据
      * @return String：解码数据
-     * @description Base64解码
      */
     public static String decode(String data) {
         // 执行解码

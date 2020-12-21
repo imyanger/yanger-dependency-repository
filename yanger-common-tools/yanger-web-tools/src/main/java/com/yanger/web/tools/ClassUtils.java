@@ -31,8 +31,10 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /** PARAMETER_NAME_DISCOVERER */
     public static final ParameterNameDiscoverer PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
+
     /** PACKAGE_SEPARATOR */
     public static final char PACKAGE_SEPARATOR = '.';
+
     /** 代理 class 的名称 */
     public static final List<String> PROXY_CLASS_NAMES = Arrays.asList(
         "net.sf.cglib.proxy.Factory",
@@ -46,7 +48,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param constructor    构造器
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
-     * @since 1.0.0
      */
     public static @NotNull MethodParameter getMethodParameter(Constructor<?> constructor, int parameterIndex) {
         MethodParameter methodParameter = new SynthesizingMethodParameter(constructor, parameterIndex);
@@ -60,7 +61,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param method         方法
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
-     * @since 1.0.0
      */
     public static @NotNull MethodParameter getMethodParameter(Method method, int parameterIndex) {
         MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);
@@ -75,7 +75,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param method         Method
      * @param annotationType 注解类
      * @return {Annotation}
-     * @since 1.0.0
      */
     public static <A extends Annotation> A getAnnotation(@NotNull Method method, Class<A> annotationType) {
         Class<?> targetClass = method.getDeclaringClass();
@@ -100,7 +99,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param handlerMethod  HandlerMethod
      * @param annotationType 注解类
      * @return {Annotation}
-     * @since 1.0.0
      */
     public static <A extends Annotation> A getAnnotation(@NotNull HandlerMethod handlerMethod, Class<A> annotationType) {
         // 先找方法,再找方法上的类
@@ -120,7 +118,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param interfaceClass interface class
      * @param index          泛型索引
      * @return the interface t
-     * @since 1.0.0
      */
     public static @NotNull Class<?> getInterfaceT(@NotNull Class<?> clazz, Class<?> interfaceClass, int index) {
         Type[] types = clazz.getGenericInterfaces();
@@ -139,7 +136,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param clazz clazz
      * @param index index
      * @return the class
-     * @since 1.0.0
      */
     public static @NotNull Class<?> getSuperClassT(@NotNull Class<?> clazz, @NotNull Integer index) {
         Type type = clazz.getGenericSuperclass();
@@ -154,7 +150,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param type  type
      * @param index index
      * @return the class
-     * @since 1.0.0
      */
     @Contract("null, _ -> fail")
     private static @NotNull Class<?> checkType(Type type, int index) {
@@ -175,7 +170,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param type 类型
      * @return 如果是原生布尔或者包装类型布尔 , 均返回 true
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static boolean isBoolean(Class<?> type) {
@@ -187,7 +181,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param clazz 传入 class 对象
      * @return 如果对象class是代理 class, 返回 true
-     * @since 1.0.0
      */
     @Contract("null -> false")
     public static boolean isProxy(Class<?> clazz) {
@@ -206,7 +199,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param clazz 传入
      * @return 如果是代理的class , 返回父 class, 否则返回自身
-     * @since 1.0.0
      */
     public static @NotNull Class<?> getUserClass(Class<?> clazz) {
         return isProxy(clazz) ? clazz.getSuperclass() : clazz;
@@ -217,7 +209,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param object 对象
      * @return 返回对象的 user class
-     * @since 1.0.0
      */
     public static @NotNull Class<?> getUserClass(Object object) {
         Assert.notNull(object, "Error: Instance must not be null");
@@ -231,7 +222,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      * @param <T>   类型, 由输入类型决定
      * @param clazz 需要实例化的对象
      * @return 返回新的实例 @ not null t
-     * @since 1.0.0
      */
     public static <T> @NotNull T newInstance(@NotNull Class<T> clazz) {
         try {
@@ -248,7 +238,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param name 类名称
      * @return 返回转换后的 Class
-     * @since 1.0.0
      */
     public static @NotNull Class<?> toClassConfident(String name) {
         try {
@@ -265,7 +254,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param clazz the class
      * @return the package name, or the empty String if the class     is defined in the default package
-     * @since 1.0.0
      */
     public static @NotNull String getPackageName(Class<?> clazz) {
         Assert.notNull(clazz, "Class must not be null");
@@ -278,7 +266,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
      *
      * @param fqClassName the fully-qualified class name
      * @return the package name, or the empty String if the class     is defined in the default package
-     * @since 1.0.0
      */
     public static @NotNull String getPackageName(String fqClassName) {
         Assert.notNull(fqClassName, "Class name must not be null");

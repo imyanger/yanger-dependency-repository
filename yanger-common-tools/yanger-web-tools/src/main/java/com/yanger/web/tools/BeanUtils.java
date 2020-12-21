@@ -9,15 +9,16 @@ import java.util.function.Supplier;
  * @Author yanger
  * @Date 2020/7/17 18:34
  */
+@SuppressWarnings("all")
 public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
-     * @Description 单个对象拷贝，方便函数式调用
-
-     * @date 2020/7/17
+     * 单个对象拷贝，方便函数式调用
+     *
      * @param source 数据源类
      * @param target 目标类::new(eg: UserVO::new)
      * @return T
+     * @date 2020/7/17
      */
     public static <S, T> T copyProperties(S source, Supplier<T> target) {
         T t = target.get();
@@ -26,13 +27,13 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     }
 
     /**
-     * @Description 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
-
-     * @date 2020/7/17
-     * @param source 数据源类
-     * @param target 目标类::new(eg: UserVO::new)
+     * 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
+     *
+     * @param source   数据源类
+     * @param target   目标类::new(eg: UserVO::new)
      * @param callBack 回调函数
      * @return T
+     * @date 2020/7/17
      */
     public static <S, T> T copyProperties(S source, Supplier<T> target, ConverterUtilsCallBack<S, T> callBack) {
         T t = target.get();
@@ -42,25 +43,25 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     }
 
     /**
-     * @Description 集合数据的拷贝
-
-     * @date 2020/7/17
+     * 集合数据的拷贝
+     *
      * @param sources 数据源类
-     * @param target 目标类::new(eg: UserVO::new)
+     * @param target  目标类::new(eg: UserVO::new)
      * @return java.util.List<T>
+     * @date 2020/7/17
      */
     public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target) {
         return copyListProperties(sources, target, null);
     }
 
     /**
-     * @Description 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
-
-     * @date 2020/7/17
-     * @param sources 数据源类
-     * @param target 目标类::new(eg: UserVO::new)
+     * 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
+     *
+     * @param sources  数据源类
+     * @param target   目标类::new(eg: UserVO::new)
      * @param callBack 回调函数
      * @return java.util.List<T>
+     * @date 2020/7/17
      */
     public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target, ConverterUtilsCallBack<S, T> callBack) {
         List<T> list = new ArrayList<>(sources.size());

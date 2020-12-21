@@ -36,8 +36,6 @@ public class BasicException extends RuntimeException {
 
     /**
      * Basic exception
-     *
-
      */
     public BasicException() {
         super(DEFAULT_MESSAGE);
@@ -51,7 +49,6 @@ public class BasicException extends RuntimeException {
      *
      * @param message message
      * @param args    args
-
      */
     public BasicException(String message, Object... args) {
         this(StringFormatter.mergeFormat(message, args));
@@ -65,7 +62,6 @@ public class BasicException extends RuntimeException {
      *
      * @param code    code
      * @param message message
-
      */
     public BasicException(String code, String message) {
         super(message);
@@ -78,7 +74,6 @@ public class BasicException extends RuntimeException {
      * Instantiates a new Base exception.
      *
      * @param message message
-
      */
     public BasicException(String message) {
         super(message);
@@ -91,7 +86,6 @@ public class BasicException extends RuntimeException {
      * Base exception
      *
      * @param cause cause
-
      */
     public BasicException(Throwable cause) {
         super(cause);
@@ -105,7 +99,6 @@ public class BasicException extends RuntimeException {
      *
      * @param message message
      * @param cause   cause
-
      */
     public BasicException(String message, Throwable cause) {
         super(message, cause);
@@ -120,7 +113,6 @@ public class BasicException extends RuntimeException {
      * @param code    code
      * @param message message
      * @param cause   cause
-
      */
     public BasicException(String code, String message, Throwable cause) {
         super(message, cause);

@@ -188,5 +188,4 @@ public class StringPool {
     /** any_PATH */
     public static final String ANY_PATH = SLASH + DOUBLE_ASTERISK;
 
-
 }

@@ -4,16 +4,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @description 对日期操作的公共方法类
+ * @Description 对日期操作的公共方法类
+ * @Author yanger
  * @date 2018年10月13日
  */
 public class DateUtils {
 
     /**
+     * 格式化日期的方法
+     *
      * @param date：带格式化的日期
      * @param pattern：格式化的表达式，比如 yyyy-MM-dd
      * @return 格式化后的字符串
-     * @description 格式化日期的方法
      * @date 2018年10月13日-下午4:27:03
      */
     public static String formatDate(Date date, String pattern) {
@@ -23,9 +25,10 @@ public class DateUtils {
     }
 
     /**
+     * 格式化日期的方法
+     *
      * @param date：带格式化的日期，默认为yyyy-MM-dd
      * @return 格式化后的字符串
-     * @description 格式化日期的方法
      * @date 2018年10月13日-下午4:27:49
      */
     public static String formatDate(Date date) {
@@ -33,10 +36,11 @@ public class DateUtils {
     }
 
     /**
+     * 获取N天以后的日期对象
+     *
      * @param date：传入的日期对象
      * @param n：往后顺延的天数
      * @return 顺延后的日期对象
-     * @description 获取N天以后的日期对象
      * @date 2018年10月13日-下午4:42:58
      */
     public static Date getPreviousNDate(Date date, long n) {
@@ -47,10 +51,11 @@ public class DateUtils {
     }
 
     /**
+     * 获取N天以前的日期对象
+     *
      * @param date：传入的日期对象
      * @param n：往后顺延的天数
      * @return 往前推算后的日期对象
-     * @description 获取N天以前的日期对象
      * @date 2018年10月13日-下午5:03:07
      */
     public static Date getNextNDate(Date date, long n) {
@@ -61,9 +66,10 @@ public class DateUtils {
     }
 
     /**
+     * 计算传入日期的前一天
+     *
      * @param date：传入日期
      * @return 传入日期的前一天的日期对象
-     * @description 计算传入日期的前一天
      * @date 2018年10月13日-下午5:04:05
      */
     public static Date getPreviousDate(Date date) {
@@ -71,9 +77,10 @@ public class DateUtils {
     }
 
     /**
+     * 计算传入日期的后一天
+     *
      * @param date：传入日期
      * @return 传入日期的后一天的日期对象
-     * @description 计算传入日期的后一天
      * @date 2018年10月13日-下午5:04:33
      */
     public static Date getNextDate(Date date) {
@@ -81,10 +88,11 @@ public class DateUtils {
     }
 
     /**
+     * 根据起始日期、终止日期计算天数
+     *
      * @param startDate：起始日期
      * @param endDate：终止日期
      * @return 天数区间
-     * @description 根据起始日期、终止日期计算天数
      * @date 2018年10月13日-下午5:04:57
      */
     public static int getDaysCount(Date startDate, Date endDate) {
@@ -92,9 +100,10 @@ public class DateUtils {
     }
 
     /**
+     * 根据年数返回所包含的天数
+     *
      * @param year：年数
      * @return 该年所包含的天数
-     * @description 根据年数返回所包含的天数
      * @date 2018年10月13日-下午5:05:24
      */
     public static int getDaysFromYear(int year) {
@@ -107,12 +116,13 @@ public class DateUtils {
     }
 
     /**
+     * 根据起始日期、起始时间、终止日期、终止时间计算天数
+     *
      * @param startDate：起始日期
      * @param startHour：起始小时
      * @param endDate：终止日期
      * @param endHour：终止小时
-     * @return
-     * @description 根据起始日期、起始时间、终止日期、终止时间计算天数
+     * @return 根据起始日期、起始时间、终止日期、终止时间计算天数
      * @date 2018年10月13日-下午5:08:22
      */
     public static int getDaysCount(Date startDate, int startHour, Date endDate, int endHour) {
@@ -134,10 +144,11 @@ public class DateUtils {
     }
 
     /**
+     * 比较两个日期的大小
+     *
      * @param startDate：开始日期
      * @param endDate：结束日期
      * @return 开始日期小于结束日期 0 ： 开始日期等于结束日期 1 ： 开始日期大于结束日期
-     * @description 比较两个日期的大小
      * @date 2018年10月13日-下午5:08:52
      */
     public static int compareDate(Date startDate, Date endDate) {

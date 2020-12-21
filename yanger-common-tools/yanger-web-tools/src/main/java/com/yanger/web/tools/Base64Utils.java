@@ -1,9 +1,9 @@
 package com.yanger.web.tools;
 
-import com.sun.istack.internal.NotNull;
 import com.yanger.general.constant.Charsets;
 
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @Description Base64工具
@@ -17,7 +17,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      *
      * @param value 字符串
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String encode(String value) {
@@ -30,7 +29,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_, _ -> new")
@@ -44,7 +42,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      *
      * @param value 字符串
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String encodeUrlSafe(String value) {
@@ -57,7 +54,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_, _ -> new")
@@ -71,7 +67,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      *
      * @param value 字符串
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String decode(String value) {
@@ -84,7 +79,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String decode(@NotNull String value, java.nio.charset.Charset charset) {
@@ -98,7 +92,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      *
      * @param value 字符串
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String decodeUrlSafe(String value) {
@@ -111,7 +104,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
-     * @since 1.0.0
      */
     @NotNull
     public static String decodeUrlSafe(@NotNull String value, java.nio.charset.Charset charset) {

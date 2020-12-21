@@ -61,8 +61,8 @@ public interface IResultCode extends Serializable {
         if (StringTools.contains(message, StringPool.EMPTY_JSON)) {
             return StringFormatter.format(message, customerMessage);
         } else if (first != null && StringTools.contains(first.toString(), StringPool.EMPTY_JSON)) {
-            Object[] params = new String[customerMessage.length -1 ];
-            System.arraycopy(customerMessage, 1, params, 0, customerMessage.length -1);
+            Object[] params = new String[customerMessage.length - 1];
+            System.arraycopy(customerMessage, 1, params, 0, customerMessage.length - 1);
             return StringFormatter.format(first.toString(), params);
         }
         return first == null || StringTools.isBlank(first.toString()) ? message : first.toString();

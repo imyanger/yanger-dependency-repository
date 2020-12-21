@@ -1,5 +1,7 @@
 package com.yanger.general.tools;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
@@ -26,7 +28,7 @@ public class EnumUtils {
     @SuppressWarnings("unchecked")
     public static <T> Optional<T> getEnumObject(Class<T> className, Predicate<T> predicate) {
         if (!className.isEnum()) {
-            return null;
+            return Optional.empty();
         }
         Object obj = map.get(className);
         T[] ts;
@@ -37,6 +39,33 @@ public class EnumUtils {
             ts = (T[]) obj;
         }
         return Arrays.stream(ts).filter(predicate).findAny();
+    }
+
+    /**
+     * 通过枚举的 index 获取枚举
+     *
+     * @param <T>     the type parameter
+     * @param clazz   the clazz
+     * @param ordinal the ordinal   需要的枚举值在设定的枚举类中的顺序, 以 0 开始
+     * @return t t
+     * @author xiehao
+     */
+    public static <T extends Enum<T>> T indexOf(@NotNull Class<T> clazz, int ordinal) {
+        return clazz.getEnumConstants()[ordinal];
+    }
+
+    /**
+     * 传入的参数 name 指的是枚举值的名称, 一般是大写加下划线的
+     *
+     * @param <T>   the type parameter
+     * @param clazz the clazz
+     * @param name  the name
+     * @return Enum T
+     * @author xiehao
+     */
+    @NotNull
+    public static <T extends Enum<T>> T nameOf(Class<T> clazz, String name) {
+        return Enum.valueOf(clazz, name);
     }
 
 }
