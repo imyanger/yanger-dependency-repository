@@ -109,6 +109,7 @@ mvn clean install
 |   | password | 数据库密码 | -- | 是（与sqlFilePath二选一） | -- |
 |   | schema | 数据库schema名称，便于区分多schema下存在相同表名 | -- | 否 | -- |
 |   | tables | 需要生成的表名  | -- | 是（在使用数据源情况下） | -- |
+| templateTypes | -- | 设置需要生成模板的类型，调用addTemplate方法进行设置，参数为TemplateType枚举 | -- | -- | -- |
 
 #### 特别注意
 * GeneralConfig 配置中的 codePath 与 codePackage 必须设置，否则无法生成代码

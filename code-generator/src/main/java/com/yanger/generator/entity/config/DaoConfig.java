@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @Description Service配置
+ * @Description dao配置
  * @Author yanger
  * @Date 2020/7/20 17:38
  */

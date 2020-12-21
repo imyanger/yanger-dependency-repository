@@ -24,6 +24,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,6 +69,7 @@ public class Generator {
      */
     private void generate(GeneratorConfig generatorConfig, TableInfo tableInfo, String codePath) {
         List<TemplateStructure> templateStructures = TemplateStructureParser.parse(generatorConfig, tableInfo);
+        removeExclusiveTemplates(templateStructures, generatorConfig.getTemplateTypes());
         templateStructures.forEach(templateStructure -> {
             try {
                 String codeContent = FreemarkerUtils.processString(templateStructure.getTemplatePath(), templateStructure.getParam());
@@ -93,6 +95,26 @@ public class Generator {
         });
     }
 
+    /**
+     * @Description 移除不包含的模板类型
+     * @Author yanger
+     * @Date 2020/12/17 14:17
+     * @param: templateStructures
+     * @param: templateTypes
+     * @throws
+     */
+    private void removeExclusiveTemplates(List<TemplateStructure> templateStructures, List<TemplateType> templateTypes) {
+        if(templateTypes == null || templateTypes.size() == 0) {
+            return;
+        }
+        Iterator<TemplateStructure> iterator = templateStructures.iterator();
+        while (iterator.hasNext()) {
+            TemplateStructure templateStructure = iterator.next();
+            if(!templateTypes.contains(templateStructure.getTemplateType())){
+                iterator.remove();
+            }
+        }
+    }
 
     /**
      * @Description 解析 sql 获取 TableInfo
