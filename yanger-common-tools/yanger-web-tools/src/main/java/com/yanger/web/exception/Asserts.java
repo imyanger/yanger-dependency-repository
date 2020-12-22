@@ -1,4 +1,4 @@
-package com.yanger.general.exception;
+package com.yanger.web.exception;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

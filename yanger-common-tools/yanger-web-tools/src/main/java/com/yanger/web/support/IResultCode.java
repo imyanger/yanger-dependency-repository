@@ -1,4 +1,4 @@
-package com.yanger.general.support;
+package com.yanger.web.support;
 
 import com.yanger.general.constant.StringPool;
 import com.yanger.general.format.StringFormatter;

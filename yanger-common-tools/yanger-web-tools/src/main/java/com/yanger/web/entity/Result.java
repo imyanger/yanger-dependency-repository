@@ -73,7 +73,6 @@ public abstract class Result<T> implements Serializable {
      * @param message message
      * @param data    data
      * @param traceId trace id
-     * @since 1.0.0
      */
     @Contract(pure = true)
     protected Result(@NotNull Integer code, String message, T data, String traceId, boolean success) {
@@ -88,7 +87,6 @@ public abstract class Result<T> implements Serializable {
      * Is ok boolean
      *
      * @return the boolean
-     * @since 1.0.0
      */
     @JsonIgnore
     public boolean isOk() {
@@ -100,7 +98,6 @@ public abstract class Result<T> implements Serializable {
      *
      * @param result result
      * @return the boolean
-     * @since 1.0.0
      */
     @Contract("null -> false")
     public static boolean isOk(@Nullable Result<?> result) {
@@ -111,7 +108,6 @@ public abstract class Result<T> implements Serializable {
      * Is fail boolean
      *
      * @return the boolean
-     * @since 1.0.0
      */
     @JsonIgnore
     public boolean isFail() {
@@ -123,7 +119,6 @@ public abstract class Result<T> implements Serializable {
      *
      * @param result result
      * @return the boolean
-     * @since 1.0.0
      */
     @Contract("null -> true")
     public static boolean isFail(@Nullable Result<?> result) {

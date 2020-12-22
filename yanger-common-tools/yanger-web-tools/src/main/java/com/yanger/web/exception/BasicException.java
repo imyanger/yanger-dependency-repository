@@ -1,7 +1,7 @@
-package com.yanger.general.exception;
+package com.yanger.web.exception;
 
 import com.yanger.general.format.StringFormatter;
-import com.yanger.general.support.Trace;
+import com.yanger.web.support.Trace;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

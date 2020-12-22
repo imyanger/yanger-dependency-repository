@@ -1,6 +1,6 @@
-package com.yanger.general.exception;
+package com.yanger.web.exception;
 
-import com.yanger.general.support.IResultCode;
+import com.yanger.web.support.IResultCode;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

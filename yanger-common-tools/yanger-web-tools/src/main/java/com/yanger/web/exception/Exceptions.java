@@ -1,4 +1,4 @@
-package com.yanger.general.exception;
+package com.yanger.web.exception;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

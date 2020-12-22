@@ -1,7 +1,7 @@
 package com.yanger.web.tools;
 
 import com.yanger.general.constant.Charsets;
-import com.yanger.general.exception.Exceptions;
+import com.yanger.web.exception.Exceptions;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

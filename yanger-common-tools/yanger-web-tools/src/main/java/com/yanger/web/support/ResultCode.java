@@ -1,4 +1,4 @@
-package com.yanger.general.support;
+package com.yanger.web.support;
 
 /**
  * @Description 请求响应代码接口枚举

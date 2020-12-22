@@ -1,7 +1,7 @@
 package com.yanger.web.entity;
 
-import com.yanger.general.support.IResultCode;
-import com.yanger.general.support.ResultCode;
+import com.yanger.web.support.IResultCode;
+import com.yanger.web.support.ResultCode;
 import com.yanger.web.support.Trace;
 
 import org.jetbrains.annotations.Contract;
@@ -23,8 +23,7 @@ public final class R<T> extends Result<T> {
      * @param code    code
      * @param message message
      * @param data    data
-     * @param success    success
-     * @since 1.0.0
+     * @param success success
      */
     @Contract(pure = true)
     private R(Integer code, String message, T data, boolean success) {
@@ -40,7 +39,6 @@ public final class R<T> extends Result<T> {
      * @param data    data
      * @param success success
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_, _, _, _ -> new", pure = true)
     @NotNull
@@ -56,7 +54,6 @@ public final class R<T> extends Result<T> {
      * @param msg  msg
      * @param data data
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_, _, _ -> new", pure = true)
     @NotNull
@@ -71,7 +68,6 @@ public final class R<T> extends Result<T> {
      * @param msg  msg
      * @param data data
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_, _ -> new", pure = true)
     @NotNull
@@ -86,7 +82,6 @@ public final class R<T> extends Result<T> {
      * @param resultCode result code
      * @param data       data
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_, _ -> new", pure = true)
     @NotNull
@@ -102,7 +97,6 @@ public final class R<T> extends Result<T> {
      * @param data       data
      * @param msg        msg
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_, _, _ -> new", pure = true)
     @NotNull
@@ -116,7 +110,6 @@ public final class R<T> extends Result<T> {
      * @param <T>  parameter
      * @param data data
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_ -> new", pure = true)
     @NotNull
@@ -130,7 +123,6 @@ public final class R<T> extends Result<T> {
      * @param <T> parameter
      * @param msg msg
      * @return the result
-     * @since 1.0.0
      */
     @Contract(value = "_ -> new", pure = true)
     @NotNull
@@ -143,7 +135,6 @@ public final class R<T> extends Result<T> {
      *
      * @param <T> parameter
      * @return the result
-     * @since 1.0.0
      */
     @Contract(pure = true)
     @NotNull
@@ -159,7 +150,6 @@ public final class R<T> extends Result<T> {
      * @param msg  msg
      * @param data data
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_, _, _ -> new", pure = true)
@@ -174,7 +164,6 @@ public final class R<T> extends Result<T> {
      * @param resultCode result code
      * @param data       data
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_, _ -> new", pure = true)
@@ -190,7 +179,6 @@ public final class R<T> extends Result<T> {
      * @param data       data
      * @param msg        msg
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_, _, _ -> new", pure = true)
@@ -205,7 +193,6 @@ public final class R<T> extends Result<T> {
      * @param code code
      * @param msg  msg
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_, _ -> new", pure = true)
@@ -219,7 +206,6 @@ public final class R<T> extends Result<T> {
      * @param <T>        parameter
      * @param resultCode result code
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_ -> new", pure = true)
@@ -234,7 +220,6 @@ public final class R<T> extends Result<T> {
      * @param resultCode result code
      * @param msg        msg
      * @return the result
-     * @since 1.0.0
      */
     @NotNull
     @Contract(value = "_, _ -> new", pure = true)
@@ -248,7 +233,6 @@ public final class R<T> extends Result<T> {
      * @param <T> parameter
      * @param msg msg
      * @return the result
-     * @since 1.0.0
      */
     @Contract(pure = true)
     @NotNull
@@ -261,7 +245,6 @@ public final class R<T> extends Result<T> {
      *
      * @param <T> parameter
      * @return the result
-     * @since 1.0.0
      */
     @Contract(pure = true)
     @NotNull
@@ -276,7 +259,6 @@ public final class R<T> extends Result<T> {
      * @param <T>        parameter
      * @param expression expression
      * @return the result
-     * @since 1.0.0
      */
     @Contract("_ -> !null")
     public static <T> Result<T> of(boolean expression) {
@@ -290,7 +272,6 @@ public final class R<T> extends Result<T> {
      * @param expression expression
      * @param resultCode result code
      * @return the result
-     * @since 1.0.0
      */
     @Contract("_, _ -> !null")
     public static <T> Result<T> of(boolean expression, @NotNull IResultCode resultCode) {
@@ -304,7 +285,6 @@ public final class R<T> extends Result<T> {
      * @param expression expression
      * @param message    message
      * @return the result
-     * @since 1.0.0
      */
     @Contract("_, _ -> !null")
     public static <T> Result<T> of(boolean expression, String message) {

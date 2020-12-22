@@ -1,6 +1,6 @@
-package com.yanger.general.support;
+package com.yanger.web.support;
 
-import com.yanger.general.exception.BasicException;
+import com.yanger.web.exception.BasicException;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
