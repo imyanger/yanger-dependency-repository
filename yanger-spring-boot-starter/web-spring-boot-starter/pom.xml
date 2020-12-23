@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>base-spring-boot-starter</artifactId>
+        <version>1.0.0.RELEASE</version>
+    </parent>
+
+    <artifactId>web-spring-boot-starter</artifactId>
+    <version>${parent.version}</version>
+    <packaging>jar</packaging>
+
+    <name>web-spring-boot-starter</name>
+    <description>web spring boot starter</description>
+
+    <developers>
+        <developer>
+            <name>yanger</name>
+            <email>imyanger@qq.com</email>
+            <organization>yanger</organization>
+            <organizationUrl>https://github.com/imyanger</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/imyanger/yanger-dependency-repository</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
