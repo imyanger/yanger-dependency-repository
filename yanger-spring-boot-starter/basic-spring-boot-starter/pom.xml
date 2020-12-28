@@ -3,10 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yanger</groupId>
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.0.0.RELEASE</version>
+    </parent>
+
     <artifactId>base-spring-boot-starter</artifactId>
-    <version>1.0.0.RELEASE</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>base-spring-boot-starter</name>
     <description>base spring boot starter</description>
@@ -24,83 +28,16 @@
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
 
-    <modules>
-        <module>../web-spring-boot-starter</module>
-    </modules>
-
-    <properties>
-        <!-- 指定编码 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <yanger-spring-boot.version>${project.version}</yanger-spring-boot.version>
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-        <general-tools.version>1.0.0.RELEASE</general-tools.version>
-    </properties>
-
-     <dependencyManagement>
-         <dependencies>
-             <dependency>
-                 <groupId>org.springframework.boot</groupId>
-                 <artifactId>spring-boot-dependencies</artifactId>
-                 <version>${spring-boot.version}</version>
-                 <type>pom</type>
-                 <scope>import</scope>
-             </dependency>
-         </dependencies>
-     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.yanger</groupId>
-            <artifactId>web-tools</artifactId>
-            <version>${general-tools.version}</version>
-        </dependency>
-    </dependencies>
-
     <build>
         <resources>
             <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
+                <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+                <includes>
+                    <include>banner.txt</include>
+                </includes>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <skip>true</skip>
-                    <compilerId>javac</compilerId>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                    <compilerVersion>1.8</compilerVersion>
-                    <verbose>true</verbose>
-                    <optimize>true</optimize>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <includeEmptyDirs>true</includeEmptyDirs>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
 </project>

@@ -5,3 +5,6 @@ ${AnsiColor.BRIGHT_YELLOW}
    / /_/ / / /_/ /  / / / / / /_/ / /  __/ / /          ___/ /   / /_/ / / /     / /   / / / / / /_/ /  / /_/ / / /_/ // /_/ // /_
    \__, /  \__,_/  /_/ /_/  \__, /  \___/ /_/          /____/   / .___/ /_/     /_/   /_/ /_/  \__, /  /_____/  \____/ \____/ \__/
   /____/                   /____/                              /_/                            /____/
+${AnsiColor.BRIGHT_RED}
+Yanger Boot Version: ${yanger-spring-boot.version}
+Spring Boot Version: ${spring-boot.version}
