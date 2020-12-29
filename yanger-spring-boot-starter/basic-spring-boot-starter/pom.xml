@@ -28,6 +28,14 @@
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>4.8.97</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <resource>
