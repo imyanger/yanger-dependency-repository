@@ -3,6 +3,7 @@ package com.yanger.starter.basic.util;
 import com.google.common.collect.Maps;
 
 import com.yanger.starter.basic.constant.App;
+import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.exception.PropertiesException;
 import com.yanger.starter.basic.yml.YmlPropertyLoaderFactory;
 import com.yanger.tools.web.exception.BasicException;
@@ -101,6 +102,16 @@ public class ConfigKit {
             return System.getProperty(key);
         }
         return value;
+    }
+
+    /**
+     * Get app name string.
+     *
+     * @return the string
+     * @since 1.0.0
+     */
+    public static String getAppName() {
+        return getProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME);
     }
 
     /**

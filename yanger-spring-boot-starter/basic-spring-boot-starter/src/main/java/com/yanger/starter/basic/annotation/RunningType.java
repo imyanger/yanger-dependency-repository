@@ -20,11 +20,6 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface RunningType {
 
-    /**
-     * Value application type
-     *
-     * @return the application type
-     * @since 1.0.0
-     */
     ApplicationType value();
+
 }

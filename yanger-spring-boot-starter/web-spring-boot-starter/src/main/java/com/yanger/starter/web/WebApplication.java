@@ -1,6 +1,8 @@
 package com.yanger.starter.web;
 
-import org.springframework.boot.SpringApplication;
+import com.yanger.starter.basic.launcher.BasicApplication;
+import com.yanger.tools.web.exception.BasicException;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -9,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2020/12/23 21:23
  */
 @SpringBootApplication
-public class WebApplication {
+public class WebApplication extends BasicApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
-    }
+    // public static void main(String[] args) {
+    //     SpringApplication.run(WebApplication.class, args);
+    // }
 
 }

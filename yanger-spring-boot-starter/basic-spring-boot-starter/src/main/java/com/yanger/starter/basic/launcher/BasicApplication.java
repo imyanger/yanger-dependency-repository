@@ -1,6 +1,7 @@
 package com.yanger.starter.basic.launcher;
 
 import com.yanger.starter.basic.annotation.RunningType;
+import com.yanger.starter.basic.constant.ClassName;
 import com.yanger.starter.basic.enums.ApplicationType;
 
 import org.apache.commons.lang3.StringUtils;
@@ -39,14 +40,6 @@ public abstract class BasicApplication implements CommandLineRunner {
 
     /** applicationType */
     private static ApplicationType applicationType = ApplicationType.deduceFromClasspath();
-
-
-    /** SPRING_BOOT_APPLICATION */
-    private static final String SPRING_BOOT_APPLICATION = "org.springframework.boot.autoconfigure.SpringBootApplication";
-
-    /** ENABLE_AUTOCONFIGURATION */
-    private static final String ENABLE_AUTOCONFIGURATION = "org.springframework.boot.autoconfigure.EnableAutoConfiguration";
-
 
     /** START_CLASS_ARGS */
     public static final String START_CLASS_ARGS = "--start.class=";
@@ -90,8 +83,8 @@ public abstract class BasicApplication implements CommandLineRunner {
     public static void main(String[] args) {
         try {
             if (!started) {
-                // 处理启动参数
-                processorArgs(args);
+                // 获取参数中应用名称
+                processAppNameFromArgs(args);
                 // 启动类检查
                 check();
                 // 处理应用类型
@@ -134,7 +127,7 @@ public abstract class BasicApplication implements CommandLineRunner {
      * @param args args
      * @since 1.0.0
      */
-    private static void processorArgs(String @NotNull [] args) {
+    private static void processAppNameFromArgs(String @NotNull [] args) {
         for (String arg : args) {
             if (arg.startsWith(START_CLASS_ARGS)) {
                 applicationClassName = arg.substring(START_CLASS_ARGS.length());
@@ -150,20 +143,18 @@ public abstract class BasicApplication implements CommandLineRunner {
      */
     private static void check() {
         if (StringUtils.isBlank(applicationClassName)) {
-            // 扫描所有 FkhStarter 的子类
             ClassInfoList subclasses = new ClassGraph()
                 .enableClassInfo()
                 .scan()
                 .getSubclasses(BasicApplication.class.getName());
             if (CollectionUtils.isEmpty(subclasses)) {
                 throw new IllegalStateException("错误原因: \n"
-                                                + "没有找到 FkhStarter 的子类: 不能直接通过 FkhStarter.main() 启动, 必须通过子类启动, 写法如下: \n"
+                                                + "没有找到 BasicApplication 的子类: 不能直接通过 BasicApplication.main() 启动, 必须通过子类启动, 写法如下: \n"
                                                 + "@SpringBootApplication\n"
                                                 + "public class DemoApplication extends BasicApplication {\n"
                                                 + "    // 不需要写 main()\n"
                                                 + "}");
             }
-
             if (subclasses.size() > 1) {
                 throw new IllegalStateException("一个应用只允许存在一个启动类!");
             }
@@ -183,8 +174,8 @@ public abstract class BasicApplication implements CommandLineRunner {
         try {
             Class<?> mainClass = ClassLoaderUtil.getClassLoader().loadClass(startClassName);
             boolean matched = Arrays.stream(mainClass.getAnnotations())
-                .anyMatch(m -> m.annotationType().getName().matches(SPRING_BOOT_APPLICATION) ||
-                               m.annotationType().getName().matches(ENABLE_AUTOCONFIGURATION));
+                .anyMatch(m -> m.annotationType().getName().matches(ClassName.SPRING_BOOT_APPLICATION) ||
+                               m.annotationType().getName().matches(ClassName.ENABLE_AUTOCONFIGURATION));
             if (!matched) {
                 throw new IllegalStateException("启动类必须标注 @SpringBootApplication 或者 @EnableAutoConfiguration 注解");
             }

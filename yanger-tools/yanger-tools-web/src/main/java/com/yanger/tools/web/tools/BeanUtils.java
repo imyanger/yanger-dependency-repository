@@ -3,7 +3,7 @@ package com.yanger.tools.web.tools;
 import com.google.common.collect.Maps;
 
 import com.yanger.tools.web.exception.BasicException;
-import com.yanger.tools.web.support.BaseBeanCopier;
+import com.yanger.tools.web.support.BeanCopier;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -198,7 +198,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      */
     @Contract("null, _, _ -> null")
     public static <T> T copy(Object source, Class sourceClazz, Class<T> targetClazz) {
-        BaseBeanCopier copier = BaseBeanCopier.create(sourceClazz, targetClazz, false);
+        BeanCopier copier = BeanCopier.create(sourceClazz, targetClazz, false);
         T to = newInstance(targetClazz);
         copier.copy(source, to, null);
         return to;
@@ -318,7 +318,6 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     @Contract("null -> !null")
     public static Map<String, String> toStringMap(Object bean) {
         Map<String, Object> map = toMap(bean);
-
         Map<String, String> stringMap = Maps.newHashMapWithExpectedSize(map.size());
         map.forEach((k, v) -> {
             if (ObjectUtils.isNotNull(v)) {
@@ -356,7 +355,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @since 1.0.0
      */
     public static void copy(@NotNull Object source, @NotNull Object targetBean) {
-        BaseBeanCopier copier = BaseBeanCopier
+        BeanCopier copier = BeanCopier
             .create(source.getClass(), targetBean.getClass(), false);
 
         copier.copy(source, targetBean, null);

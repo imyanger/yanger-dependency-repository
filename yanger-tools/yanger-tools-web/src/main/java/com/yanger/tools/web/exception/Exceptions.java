@@ -41,15 +41,15 @@ public class Exceptions extends ExceptionUtil {
         RuntimeException runtimeException;
         if (e instanceof IllegalAccessException || e instanceof IllegalArgumentException
             || e instanceof NoSuchMethodException) {
-            runtimeException = new IllegalArgumentException(e);
+            runtimeException = new IllegalArgumentException(message, e);
         } else if (e instanceof InvocationTargetException) {
-            runtimeException = new RuntimeException(((InvocationTargetException) e).getTargetException());
+            runtimeException = new RuntimeException(message, ((InvocationTargetException) e).getTargetException());
         } else if (e instanceof BasicException) {
             runtimeException = (BasicException) e;
         } else if (e instanceof RuntimeException) {
             runtimeException = (RuntimeException) e;
         } else {
-            runtimeException = new RuntimeException(e);
+            runtimeException = new RuntimeException(message, e);
         }
         return runtimeException;
     }

@@ -28,8 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractBundle {
 
     /** ourCache */
-    private static final Map<ClassLoader, Map<String, ResourceBundle>> CACHE =
-        ConcurrentFactoryMap.createWeakMap(k -> new ConcurrentSoftValueHashMap<>());
+    private static final Map<ClassLoader, Map<String, ResourceBundle>> CACHE = ConcurrentFactoryMap.createWeakMap(k -> new ConcurrentSoftValueHashMap<>());
 
     /** My path to bundle */
     @NonNls
@@ -83,7 +82,7 @@ public abstract class AbstractBundle {
     @Nls
     @NotNull
     public static String message(@NotNull ResourceBundle bundle, @NotNull String key, Object... params) {
-        return BundleBase.message(bundle, key, params);
+        return BaseBundle.message(bundle, key, params);
     }
 
     /**
@@ -188,16 +187,14 @@ public abstract class AbstractBundle {
      * @return the string
      */
     @Contract("null, _, _, _ -> param3")
-    public static String messageOrDefault(@Nullable ResourceBundle bundle,
-                                          @NotNull String key,
-                                          @Nullable String defaultValue,
-                                          Object... params) {
+    public static String messageOrDefault(@Nullable ResourceBundle bundle, @NotNull String key,
+                                          @Nullable String defaultValue, Object... params) {
         if (bundle == null) {
             return defaultValue;
         } else if (!bundle.containsKey(key)) {
-            return BundleBase.postprocessValue(bundle, BundleBase.useDefaultValue(bundle, key, defaultValue), params);
+            return BaseBundle.postprocessValue(bundle, BaseBundle.useDefaultValue(bundle, key, defaultValue), params);
         }
-        return BundleBase.messageOrDefault(bundle, key, defaultValue, params);
+        return BaseBundle.messageOrDefault(bundle, key, defaultValue, params);
     }
 
     /**
@@ -208,9 +205,7 @@ public abstract class AbstractBundle {
      * @param params       params
      * @return the string
      */
-    public String messageOrDefault(@NotNull String key,
-                                   @Nullable String defaultValue,
-                                   Object... params) {
+    public String messageOrDefault(@NotNull String key, @Nullable String defaultValue, Object... params) {
         return messageOrDefault(this.getResourceBundle(), key, defaultValue, params);
     }
 

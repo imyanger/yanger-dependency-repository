@@ -13,6 +13,8 @@ import java.io.*;
  */
 public interface IResultCode extends Serializable {
 
+    String DEFAULT_SERVER_NAME = "BASIC";
+
     /**
      * 获取返回消息, 可使用占位符
      *
@@ -33,7 +35,7 @@ public interface IResultCode extends Serializable {
      * @return the string
      */
     default String serverName() {
-        return "BASIC";
+        return DEFAULT_SERVER_NAME;
     }
 
     /**

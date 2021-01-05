@@ -30,14 +30,14 @@ import java.util.Map;
  * @Author yanger
  * @Date 2020/12/29 19:33
  */
-public abstract class BaseBeanCopier {
+public abstract class BeanCopier {
 
     /** KEY_FACTORY */
     private static final BeanCopierKey KEY_FACTORY = (BeanCopierKey) KeyFactory.create(BeanCopierKey.class);
     /** CONVERTER */
     private static final Type CONVERTER = TypeUtils.parseType("org.springframework.cglib.core.Converter");
     /** BEAN_COPIER */
-    private static final Type BEAN_COPIER = TypeUtils.parseType(BaseBeanCopier.class.getName());
+    private static final Type BEAN_COPIER = TypeUtils.parseType(BeanCopier.class.getName());
     /** COPY */
     private static final Signature COPY = new Signature("copy",
                                                         Type.VOID_TYPE,
@@ -54,8 +54,8 @@ public abstract class BaseBeanCopier {
      * @return the base bean copier
      * @since 1.0.0
      */
-    public static BaseBeanCopier create(Class<?> source, Class<?> target, boolean useConverter) {
-        return BaseBeanCopier.create(source, target, null, useConverter);
+    public static BeanCopier create(Class<?> source, Class<?> target, boolean useConverter) {
+        return BeanCopier.create(source, target, null, useConverter);
     }
 
     /**
@@ -68,7 +68,7 @@ public abstract class BaseBeanCopier {
      * @return the base bean copier
      * @since 1.0.0
      */
-    public static BaseBeanCopier create(Class<?> source, Class<?> target, ClassLoader classLoader, boolean useConverter) {
+    public static BeanCopier create(Class<?> source, Class<?> target, ClassLoader classLoader, boolean useConverter) {
         Generator gen;
         if (classLoader == null) {
             gen = new Generator();
@@ -124,7 +124,7 @@ public abstract class BaseBeanCopier {
      */
     public static class Generator extends AbstractClassGenerator<Object> {
         /** SOURCE */
-        private static final AbstractClassGenerator.Source SOURCE = new Source(BaseBeanCopier.class.getName());
+        private static final AbstractClassGenerator.Source SOURCE = new Source(BeanCopier.class.getName());
         /** Class loader */
         private final ClassLoader classLoader;
         /** Source */
@@ -244,9 +244,9 @@ public abstract class BaseBeanCopier {
          * @return the base bean copier
          * @since 1.0.0
          */
-        public BaseBeanCopier create() {
+        public BeanCopier create() {
             Object key = KEY_FACTORY.newInstance(this.source.getName(), this.target.getName(), this.useConverter);
-            return (BaseBeanCopier) super.create(key);
+            return (BeanCopier) super.create(key);
         }
 
         /**

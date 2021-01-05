@@ -2,10 +2,10 @@ package com.yanger.starter.basic.launcher;
 
 import com.google.common.collect.Maps;
 
-import com.yanger.starter.basic.annotation.SpringApplicationType;
 import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.enums.ApplicationType;
+import com.yanger.starter.basic.enums.SpringApplicationType;
 import com.yanger.starter.basic.env.DefaultEnvironment;
 import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.starter.basic.util.ConvertUtils;
@@ -47,10 +47,7 @@ public final class BasicRunner {
     /** 保存最主要的配置 */
     private static final Properties MAIN_PROPERTIES;
 
-
     static {
-        log.info("App NameSpace: [{}], 如果不正确请设置 JVM 变量/系统环境变量: 「user.namespace」或: [FKH_NAME_SPACE]", App.FKH_NAME_SPACE);
-        log.info("本地开发时, 默认为 local 环境, 如果需要连接 dev 或 test 环境, 请修改 [fkh-plugin/profile/spring.profiles.active] 配置");
         MAIN_PROPERTIES = loadMainProperties();
     }
 
@@ -120,7 +117,6 @@ public final class BasicRunner {
                 }
             }
         }
-
         // 环境变量是最高级别
         applicationName = System.getProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME, applicationName);
         properties.put(ConfigKey.SpringConfigKey.APPLICATION_NAME, applicationName);
@@ -158,15 +154,13 @@ public final class BasicRunner {
      */
     public static ConfigurableApplicationContext start(String appName, Class<?> source, ApplicationType applicationType,
                                                        String... args) throws Exception {
-        // 设置是否使用 FkhApplication 启动标识
+        // 设置 BasicApplication 启动标识
         System.setProperty(App.YANGER_BASIC_APPLICATION_STARTER, App.YANGER_BASIC_APPLICATION_STARTER);
-        ConfigurableApplicationContext context;
         // 优先使用启动类中设置的 application name
         MAIN_PROPERTIES.setProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME, appName);
         SpringApplicationBuilder builder = createSpringApplicationBuilder(appName, source, applicationType, args);
         builder.registerShutdownHook(true);
-        context = builder.run(args);
-        return context;
+        return builder.run(args);
     }
 
     /**
@@ -181,11 +175,9 @@ public final class BasicRunner {
      * @since 1.0.0
      */
     @NotNull
-    private static SpringApplicationBuilder createSpringApplicationBuilder(String appName,
-                                                                           Class<?> source,
-                                                                           @NotNull ApplicationType applicationType,
-                                                                           String... args) throws Exception {
-        Assert.hasText(appName, "[appName] 服务名不能为空");
+    private static SpringApplicationBuilder createSpringApplicationBuilder(String appName, Class<?> source,
+                                                                           @NotNull ApplicationType applicationType, String... args) throws Exception {
+        Assert.hasText(appName, "[application.name] 服务名不能为空");
 
         // 生成默认的配置
         Properties defaultProperties = buildDefaultProperties(appName);
@@ -200,8 +192,7 @@ public final class BasicRunner {
 
         List<LauncherInitiation> list = IteratorUtils.toList(loader.iterator());
         list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
-            .forEach(launcherService ->
-                         launcherService.launcherWrapper(environment, defaultProperties, appName, ConfigKit.isLocalLaunch()));
+            .forEach(launcherService -> launcherService.launcherWrapper(environment, defaultProperties, appName, ConfigKit.isLocalLaunch()));
 
         log.debug("应用类型: ApplicationType = {}", applicationType.name());
         ConfigKit.setSystemProperties(App.APPLICATION_TYPE, applicationType.name());
@@ -252,17 +243,11 @@ public final class BasicRunner {
     @NotNull
     private static Properties buildDefaultProperties(String appName) {
         Properties defaultProperties = new Properties();
-        defaultProperties.setProperty(ConfigKey.POM_INFO_VERSION,
-                                      MAIN_PROPERTIES.getProperty("version",
-                                                                  System.getProperty(ConfigKey.SERVICE_VERSION)));
-        defaultProperties.setProperty(ConfigKey.POM_INFO_GROUPID,
-                                      MAIN_PROPERTIES.getProperty("groupId", App.BASE_PACKAGES));
-        defaultProperties.setProperty(ConfigKey.POM_INFO_ARTIFACTID,
-                                      appName);
-        defaultProperties.setProperty(ConfigKey.SERVICE_VERSION,
-                                      MAIN_PROPERTIES.getProperty("version",
-                                                                  System.getProperty(ConfigKey.SERVICE_VERSION)));
-
+        String version = MAIN_PROPERTIES.getProperty("version", System.getProperty(App.SERVICE_VERSION));
+        defaultProperties.setProperty(ConfigKey.POM_INFO_VERSION, version);
+        defaultProperties.setProperty(ConfigKey.POM_INFO_GROUPID, MAIN_PROPERTIES.getProperty("groupId", App.BASE_PACKAGES));
+        defaultProperties.setProperty(ConfigKey.POM_INFO_ARTIFACTID, appName);
+        defaultProperties.setProperty(App.SERVICE_VERSION, version);
         // 设置默认应用名, 可以通过环境变量修改或者是配置文件修改
         defaultProperties.setProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME, appName);
         defaultProperties.putAll(MAIN_PROPERTIES);

@@ -185,14 +185,14 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
     }
 
     /**
-     * 将 long 转短字符串 为 62 进制
+     * 将 long 转短字符串为 64 进制
      *
      * @param i 数字
      * @return 短字符串 string
      */
     @NotNull
     @Contract(value = "_ -> new", pure = true)
-    public static String to62String(long i) {
+    public static String to64String(long i) {
         int radix = DIGITS.length;
         char[] buf = new char[65];
         int charPos = 64;
@@ -202,7 +202,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
             i = i / radix;
         }
         buf[charPos] = DIGITS[(int) (-i)];
-
         return new String(buf, charPos, (65 - charPos));
     }
 

@@ -35,40 +35,40 @@ public enum ResultCode implements IResultCode {
     OK_PERCH(202, "处理成功，{}"),
 
     /** 服务器异常 */
-    ERROR(400, "服务器异常"),
+    ERROR(500, "服务器异常"),
 
     /** 服务器异常 */
-    ERROR_MSG(401, null),
+    ERROR_MSG(501, null),
 
     /** 服务器异常 */
-    ERROR_PERCH(402, "服务器异常，{}"),
+    ERROR_PERCH(502, "服务器异常，{}"),
 
     /** 参数错误 */
-    PARAMETER_ERROR(500, "参数错误"),
+    PARAMETER_ERROR(600, "参数错误"),
 
     /** 参数错误 */
-    PARAMETER_ERROR_MSG(501, null),
+    PARAMETER_ERROR_MSG(601, null),
 
     /** 参数错误 */
-    PARAMETER_ERROR_PERCH(502, "参数错误，{}"),
+    PARAMETER_ERROR_PERCH(602, "参数错误，{}"),
 
     /** 业务处理异常 */
-    BUSINESS_ERROR(600, "业务处理异常"),
+    BUSINESS_ERROR(700, "业务处理异常"),
 
     /** 业务处理异常 */
-    BUSINESS_ERROR_MSG(601, null),
+    BUSINESS_ERROR_MSG(701, null),
 
     /** 业务处理异常 */
-    BUSINESS_ERROR_PERCH(602, "业务处理异常，{}"),
+    BUSINESS_ERROR_PERCH(702, "业务处理异常，{}"),
 
     /** 调用第三方服务异常 */
-    THIRD_ERROR(700, "调用第三方服务异常"),
+    THIRD_ERROR(800, "调用第三方服务异常"),
 
     /** 调用第三方服务异常 */
-    THIRD_ERROR_MSG(701, null),
+    THIRD_ERROR_MSG(801, null),
 
     /** 调用第三方服务异常 */
-    THIRD_ERROR_PERCH(702, "调用第三方服务异常，{}");
+    THIRD_ERROR_PERCH(802, "调用第三方服务异常，{}");
 
     /** 状态码 */
     private Integer code;

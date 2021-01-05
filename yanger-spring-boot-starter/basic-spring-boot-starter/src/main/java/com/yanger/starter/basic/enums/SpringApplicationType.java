@@ -1,6 +1,6 @@
-package com.yanger.starter.basic.annotation;
+package com.yanger.starter.basic.enums;
 
-import com.yanger.starter.basic.constant.ClassConstant;
+import com.yanger.starter.basic.constant.ClassName;
 
 import org.springframework.util.ClassUtils;
 
@@ -23,10 +23,10 @@ public enum SpringApplicationType {
      * @return the web application type
      */
     public static SpringApplicationType deduceFromClasspath() {
-        if (ClassUtils.isPresent(ClassConstant.CLOUD_CLASS, null)) {
+        if (ClassUtils.isPresent(ClassName.CLOUD_CLASS, null)) {
             return SpringApplicationType.CLOUD;
         }
-        if (ClassUtils.isPresent(ClassConstant.BOOT_CLASS, null)) {
+        if (ClassUtils.isPresent(ClassName.BOOT_CLASS, null)) {
             return SpringApplicationType.BOOT;
         }
         throw new IllegalStateException("不是 Spring Boot/Cloud 应用.");

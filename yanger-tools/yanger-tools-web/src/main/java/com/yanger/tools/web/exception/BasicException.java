@@ -29,7 +29,7 @@ public class BasicException extends RuntimeException {
     protected String traceId;
 
     /** DEFAULT_ERROR_CODE */
-    public static final String DEFAULT_ERROR_CODE = "Basic-500";
+    public static final String DEFAULT_ERROR_CODE = "BASIC-500";
 
     /** DEFAULT_MESSAGE */
     public static final String DEFAULT_MESSAGE = "服务内部错误";

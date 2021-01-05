@@ -168,7 +168,7 @@ public class ${modelName}${apiSuffixName} {
      </#if>
      */
     @GetMapping("page")
-    public <#if 3 == pageType.value>PageInfo<#elseif 4 == pageType.value>Page<#elseif 5 == pageType.value>Page</#if><${retObjName}> findPageByQuery(${queryObjName} ${queryObjName?uncap_first}, @RequestParam(value = "1") int pageNo, @RequestParam(value = "10") int pageSize) {
+    public <#if 3 == pageType.value>PageInfo<#elseif 4 == pageType.value>Page<#elseif 5 == pageType.value>Page</#if><${retObjName}> findPageByQuery(${queryObjName} ${queryObjName?uncap_first}, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
         <#if (acp.queryCp)??>
         ${acp.queryCp}
         </#if>

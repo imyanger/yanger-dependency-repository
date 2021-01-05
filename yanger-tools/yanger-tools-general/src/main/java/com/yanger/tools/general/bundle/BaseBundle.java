@@ -19,7 +19,7 @@ import cn.hutool.core.text.StrFormatter;
  * @Author yanger
  * @Date 2020/12/25 11:53
  */
-public abstract class BundleBase {
+public abstract class BaseBundle {
 
     /** MNEMONIC */
     public static final char MNEMONIC = 0x1B;

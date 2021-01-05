@@ -5,7 +5,13 @@ package com.yanger.starter.basic.constant;
  * @Author yanger
  * @Date 2020/12/29 17:14
  */
-public class ClassConstant {
+public class ClassName {
+
+    /** SPRING_BOOT_APPLICATION */
+    public static final String SPRING_BOOT_APPLICATION = "org.springframework.boot.autoconfigure.SpringBootApplication";
+
+    /** ENABLE_AUTOCONFIGURATION */
+    public static final String ENABLE_AUTOCONFIGURATION = "org.springframework.boot.autoconfigure.EnableAutoConfiguration";
 
     /** spring-cloud-context 中的 class */
     public static final String CLOUD_CLASS = "org.springframework.cloud.bootstrap.BootstrapImportSelectorConfiguration";

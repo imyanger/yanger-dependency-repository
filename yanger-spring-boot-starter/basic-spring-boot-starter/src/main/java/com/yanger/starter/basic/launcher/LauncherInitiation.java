@@ -18,6 +18,7 @@ import java.util.Properties;
  * @Date 2020/12/29 18:57
  */
 public interface LauncherInitiation extends Ordered {
+
     /** log */
     Logger LOG = LoggerFactory.getLogger(LauncherInitiation.class);
 

@@ -14,12 +14,16 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
     /** serialVersionUID */
     private static final long serialVersionUID = -5167631809472116969L;
+
     /** DEFAULT_LOAD_FACTOR */
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
     /** DEFAULT_MAX_CAPACITY */
     private static final int DEFAULT_MAX_CAPACITY = 1000;
+
     /** Lock */
     private final Lock lock = new ReentrantLock();
+
     /** Max capacity */
     private volatile int maxCapacity;
 

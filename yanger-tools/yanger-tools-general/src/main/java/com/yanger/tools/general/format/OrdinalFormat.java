@@ -18,6 +18,7 @@ import java.util.Locale;
  * @Date 2020/12/25 11:59
  */
 public class OrdinalFormat {
+
     /** LOCATION_EN */
     private static final String LOCATION_EN = "en";
 

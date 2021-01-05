@@ -46,28 +46,16 @@ public final class CustomConversionService extends ApplicationConversionService 
     }
 
     /**
-     * <p>Company: 成都返空汇网络技术有限公司</p>
-     * <p>Description: 静态内部类实现单例</p>
-     *
-     * @author dong4j
-     * @version 1.2.3
-     * @email "mailto:dongshijie@fkhwl.com"
-     * @date 2020.01.27 18:06
-     * @since 1.0.0
+     * 静态内部类实现单例
      */
     private static final class SingletonHolder {
+
         /** INSTANCE */
         private static final CustomConversionService INSTANCE = new CustomConversionService();
 
-        /**
-         * Singleton holder
-         *
-         * @since 1.0.0
-         */
         @Contract(pure = true)
-        private SingletonHolder() {
+        private SingletonHolder() {}
 
-        }
     }
 
 }

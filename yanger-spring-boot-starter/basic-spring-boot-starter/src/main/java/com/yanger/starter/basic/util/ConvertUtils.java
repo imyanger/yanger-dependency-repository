@@ -2,7 +2,7 @@ package com.yanger.starter.basic.util;
 
 import com.yanger.starter.basic.convert.CustomConversionService;
 import com.yanger.starter.basic.convert.CustomConverter;
-import com.yanger.tools.web.support.BaseBeanCopier;
+import com.yanger.tools.web.support.BeanCopier;
 import com.yanger.tools.web.tools.BeanUtils;
 import com.yanger.tools.web.tools.ClassUtils;
 
@@ -138,7 +138,7 @@ public class ConvertUtils {
         if (source == null) {
             return null;
         }
-        BaseBeanCopier copier = BaseBeanCopier.create(sourceClazz, targetClazz, true);
+        BeanCopier copier = BeanCopier.create(sourceClazz, targetClazz, true);
         T to = BeanUtils.newInstance(targetClazz);
         copier.copy(source, to, new CustomConverter(sourceClazz, targetClazz));
         return to;
