@@ -63,7 +63,7 @@ public class TemplateStructureParser {
         }
         // service-impl
         templateStructures.add(TemplateStructure.builder().templateType(TemplateType.SERVICE_IMPL).param(serviceParam)
-                .fileName(serviceParam.getServiceImplName())
+                .fileName(interfaceNeed ? serviceParam.getServiceImplName() : serviceParam.getServiceInterfaceName())
                 .codePackage(serviceImplPackage).templatePath(getServiceImplTemplateName(daoUtilType, interfaceNeed)).build());
         // dao
         templateStructures.add(TemplateStructure.builder().templateType(TemplateType.DAO).param(daoParam)
