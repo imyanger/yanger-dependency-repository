@@ -1,0 +1,12 @@
+dubbo:
+  cloud:
+    subscribed-services: fkh-earthwork-service
+  consumer:
+    timeout: 30000
+    validation: false
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 20MB

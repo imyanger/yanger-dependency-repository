@@ -3,6 +3,7 @@ package com.yanger.starter.basic.launcher;
 import com.yanger.starter.basic.annotation.RunningType;
 import com.yanger.starter.basic.constant.ClassName;
 import com.yanger.starter.basic.enums.ApplicationType;
+import com.yanger.starter.basic.util.YmlUtils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -11,10 +12,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ResourceUtils;
 
 import java.lang.reflect.Constructor;
+import java.net.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Map;
 
 import cn.hutool.core.util.ClassLoaderUtil;
 import io.github.classgraph.ClassGraph;
@@ -83,6 +87,7 @@ public abstract class BasicApplication implements CommandLineRunner {
     public static void main(String[] args) {
         try {
             if (!started) {
+                getYaml();
                 // 获取参数中应用名称
                 processAppNameFromArgs(args);
                 // 启动类检查
@@ -255,6 +260,18 @@ public abstract class BasicApplication implements CommandLineRunner {
     private void callRunners(@NotNull ApplicationContext context) {
         Collection<BasicApplication> values = context.getBeansOfType(BasicApplication.class).values();
         values.forEach(BasicApplication::after);
+    }
+
+    private static void getYaml(){
+        try{
+
+            // ResourceUtils.getURL("classpath:").getPath().
+            Map<String,Object> map = YmlUtils.getYamlPropValue(ResourceUtils.getURL("classpath:").getPath() + "/application.yml");
+            System.out.println(map);
+            // Object val = YmlUtils.getPropValue(map, "spring.servlet.multipart.max-file-size");
+        }catch (Exception e){
+
+        }
     }
 
 }

@@ -28,7 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractBundle {
 
     /** ourCache */
-    private static final Map<ClassLoader, Map<String, ResourceBundle>> CACHE = ConcurrentFactoryMap.createWeakMap(k -> new ConcurrentSoftValueHashMap<>());
+    private static final Map<ClassLoader, Map<String, ResourceBundle>> CACHE =
+        ConcurrentFactoryMap.createWeakMap(k -> new ConcurrentSoftValueHashMap<>());
 
     /** My path to bundle */
     @NonNls
