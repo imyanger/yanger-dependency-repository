@@ -1,6 +1,9 @@
 package com.yanger.starter.basic.util;
 
+import com.yanger.starter.basic.constant.App;
+
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
@@ -43,11 +46,41 @@ public class YmlUtils {
         return null;
     }
 
-    public static Map<String, Object> getYamlPropValue(String filePath) {
+    public static Map<String, Object> getYamlProperties(@NotNull String yamlName) {
         Map<String, Object> propValue = new HashMap<>();
-        Map<String, Object> map = getYaml(filePath);
+        String yamlPath = getYamlPath(yamlName);
+        if (yamlPath == null) {
+            return null;
+        }
+        Map<String, Object> map = getYaml(yamlPath);
         getValue(propValue, "", map);
         return propValue;
+    }
+
+    /**
+     * 获取yaml文件路径
+     * @Date 2021/1/22 17:55
+     * @param: yamlName
+     * @return: java.lang.String
+     * @throws
+     */
+    public static String getYamlPath(@NotNull String yamlName) {
+        String configPath = ConfigKit.getConfigPath();
+        String propertiesPath = configPath + yamlName;
+        File file = new File(propertiesPath);
+        if (file.exists()) {
+            return propertiesPath;
+        }
+        // 如果单元测试时在 test-classes 下不存在 configFileName 配置, 则查找 target/classes 下的 configFileName 配置
+        if (!configPath.contains(App.Const.JUNIT_FLAG)) {
+            return null;
+        }
+        propertiesPath = propertiesPath.replace(App.Const.JUNIT_FLAG, "classes");
+        file = new File(propertiesPath);
+        if (file.exists()) {
+            return propertiesPath;
+        }
+        return null;
     }
 
     private static void getValue(Map<String, Object> propValue, String pre, Map<String, Object> map){

@@ -101,7 +101,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param <T>      泛型标记
      * @param clazzStr 类名
      * @return 对象 t
-     * @since 1.0.0
+
      */
     @NotNull
     public static <T> T newInstance(String clazzStr) {
@@ -119,7 +119,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param <T>   泛型标记
      * @param clazz 类
      * @return 对象 t
-     * @since 1.0.0
+
      */
     @NotNull
     public static <T> T newInstance(Class<?> clazz) {
@@ -132,7 +132,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param bean         bean
      * @param propertyName 属性名
      * @return 属性值 property
-     * @since 1.0.0
+
      */
     public static Object getProperty(Object bean, String propertyName) {
         Assert.notNull(bean, "bean Could not null");
@@ -145,7 +145,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param bean         bean
      * @param propertyName 属性名
      * @param value        属性值
-     * @since 1.0.0
+
      */
     public static void setProperty(Object bean, String propertyName, Object value) {
         Assert.notNull(bean, "bean Could not null");
@@ -159,7 +159,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param <T>    泛型标记
      * @param source 源对象
      * @return T t
-     * @since 1.0.0
+
      */
     public static <T> T clone(T source) {
         return (T) BeanUtils.copy(source, source.getClass());
@@ -173,7 +173,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param source 源对象
      * @param clazz  类名
      * @return T t
-     * @since 1.0.0
+
      */
     @Contract("null, _ -> null")
     public static <T> T copy(Object source, Class<T> clazz) {
@@ -194,7 +194,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param sourceClazz 源类型
      * @param targetClazz 转换成的类型
      * @return T t
-     * @since 1.0.0
+
      */
     @Contract("null, _, _ -> null")
     public static <T> T copy(Object source, Class sourceClazz, Class<T> targetClazz) {
@@ -214,7 +214,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param sourceList  源列表
      * @param targetClazz 转换成的类型
      * @return T list
-     * @since 1.0.0
+
      */
     @Contract("null, _ -> !null")
     public static <T> List<T> copy(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -248,7 +248,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param targetClazz the target bean class
      * @return List list
      * @throws BeansException if the copying failed
-     * @since 1.0.0
+
      */
     @Contract("null, _ -> !null")
     public static <T> List<T> copyProperties(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -278,7 +278,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param targetClazz the target bean class
      * @return T t
      * @throws BeansException if the copying failed
-     * @since 1.0.0
+
      */
     @Contract("null, _ -> null")
     @Nullable
@@ -297,7 +297,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      *
      * @param bean 源对象
      * @return {Map}
-     * @since 1.0.0
+
      */
     @Contract("null -> new")
     @SuppressWarnings("unchecked")
@@ -313,7 +313,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      *
      * @param bean bean
      * @return the map
-     * @since 1.0.0
+
      */
     @Contract("null -> !null")
     public static Map<String, String> toStringMap(Object bean) {
@@ -334,7 +334,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param beanMap   map
      * @param valueType 对象类型
      * @return {T}
-     * @since 1.0.0
+
      */
     public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {
         Objects.requireNonNull(beanMap, "beanMap Could not null");
@@ -352,7 +352,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      *
      * @param source     源对象
      * @param targetBean 需要赋值的对象
-     * @since 1.0.0
+
      */
     public static void copy(@NotNull Object source, @NotNull Object targetBean) {
         BeanCopier copier = BeanCopier
@@ -366,7 +366,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
-     * @since 1.0.0
+
      */
     public static PropertyDescriptor[] getBeanGetters(Class<?> type) {
         return getPropertiesHelper(type, true, false);
@@ -379,7 +379,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * @param read  read
      * @param write write
      * @return the property descriptor [ ]
-     * @since 1.0.0
+
      */
     private static PropertyDescriptor[] getPropertiesHelper(Class<?> type, boolean read, boolean write) {
         try {
@@ -407,7 +407,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
-     * @since 1.0.0
+
      */
     public static PropertyDescriptor[] getBeanSetters(Class<?> type) {
         return getPropertiesHelper(type, false, true);

@@ -44,13 +44,9 @@ public class ConfigKit {
     private static final Map<String, Object> CONSUMER_MAP = Maps.newHashMapWithExpectedSize(16);
 
     /** yaml 类型的配置文件 */
-    public static final String YAML_FILE_EXTENSION = "yml";
+    private static final String YAML_FILE_EXTENSION = "yml";
 
-    /** spring cloud 启动配置文件名 */
-    public static final String CLOUD_CONFIG_FILE_NAME = "bootstrap.yml";
 
-    /** spring boot 启动配置文件名 */
-    public static final String BOOT_CONFIG_FILE_NAME = "application.yml";
 
     /** properties 类型的配置文件 */
     public static final String PROPERTIES_FILE_EXTENSION = "properties";
@@ -66,7 +62,7 @@ public class ConfigKit {
      * 使用时, 优先从 map 缓存中取, 然后才是 environment {@link #getProperty(String)}
      *
      * @param env the environment
-     * @since 1.0.0
+
      */
     public static void init(@NotNull ConfigurableEnvironment env) {
         ConfigKit.environment = env;
@@ -77,7 +73,7 @@ public class ConfigKit {
      *
      * @param key the key
      * @return the property
-     * @since 1.0.0
+
      */
     public static String getProperty(String key) {
         return getProperty(environment, key);
@@ -108,7 +104,7 @@ public class ConfigKit {
      * Get app name string.
      *
      * @return the string
-     * @since 1.0.0
+
      */
     public static String getAppName() {
         return getProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME);
@@ -119,7 +115,7 @@ public class ConfigKit {
      *
      * @param key   key
      * @param value value
-     * @since 1.0.0
+
      */
     public static void setSystemProperties(String key, String value) {
         System.setProperty(key, value);
@@ -130,7 +126,7 @@ public class ConfigKit {
      * 本地开发模式还是服务器部署模式
      *
      * @return the string
-     * @since 1.0.0
+
      */
     @NotNull
     public static Boolean isLocalLaunch() {
@@ -141,11 +137,11 @@ public class ConfigKit {
      * 非本地开发环境 (只要 start.type = shell 都认为是非开发环境)
      *
      * @return the boolean
-     * @since 1.0.0
+
      */
     @NotNull
     public static Boolean notLocalLaunch() {
-        return App.START_SHELL.equals(System.getProperty(App.START_TYPE));
+        return App.START_SHELL.equals(System.getProperty(App.applicationStartType));
     }
 
     /**
@@ -163,11 +159,11 @@ public class ConfigKit {
      * </code>
      *
      * @return the config path
-     * @since 1.0.0
+
      */
     public static @NotNull String getConfigPath() {
         String configPath;
-        String startType = System.getProperty(App.START_TYPE);
+        String startType = System.getProperty(App.applicationStartType);
         // 脚本启动
         if (StringUtils.isNotBlank(startType) && App.START_SHELL.equals(startType)) {
             // 获取 config 路径
@@ -191,7 +187,7 @@ public class ConfigKit {
      *
      * @param configFileName config file name
      * @return the property source
-     * @since 1.0.0
+
      */
     @NotNull
     public static PropertySource<?> getPropertySource(@NotNull String configFileName) {
@@ -233,7 +229,7 @@ public class ConfigKit {
      * 是否为 debug 模式
      *
      * @return the boolean
-     * @since 1.0.0
+
      */
     public static boolean isDebugModel() {
         String debugModel = System.getProperty(App.DEBUG_MODEL);

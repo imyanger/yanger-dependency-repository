@@ -23,7 +23,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name   name
      * @param source source
-     * @since 1.0.0
+
      */
     public DefaultEnvironmentPropertySource(String name, Map<String, Object> source) {
         super(name, source);
@@ -36,7 +36,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the boolean
-     * @since 1.0.0
+
      */
     @Override
     public boolean containsProperty(@NotNull String name) {
@@ -49,7 +49,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the property
-     * @since 1.0.0
+
      */
     @Override
     @Nullable
@@ -69,7 +69,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the string
-     * @since 1.0.0
+
      */
     protected final @NotNull String resolvePropertyName(String name) {
         Assert.notNull(name, "Property name must not be null");
@@ -92,7 +92,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the string
-     * @since 1.0.0
+
      */
     @Nullable
     private String checkPropertyName(String name) {
@@ -124,7 +124,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the boolean
-     * @since 1.0.0
+
      */
     private boolean containsKey(String name) {
         return (this.isSecurityManagerPresent() ? this.source.containsKey(name) : this.source.containsKey(name));
@@ -134,7 +134,7 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      * Is security manager present boolean
      *
      * @return the boolean
-     * @since 1.0.0
+
      */
     protected boolean isSecurityManagerPresent() {
         return (System.getSecurityManager() != null);

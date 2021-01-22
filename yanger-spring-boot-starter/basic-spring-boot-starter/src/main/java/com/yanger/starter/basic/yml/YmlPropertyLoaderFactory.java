@@ -38,7 +38,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the property source
      * @throws Exception exception
-     * @since 1.0.0
+
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String fullPathFileName) throws Exception {
@@ -52,7 +52,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the property source
      * @throws Exception exception
-     * @since 1.0.0
+
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String name, String fullPathFileName) throws Exception {
@@ -67,7 +67,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param resource resource
      * @return the property source
      * @throws Exception exception
-     * @since 1.0.0
+
      */
     @NotNull
     public static PropertySource<?> createPropertySource(Resource resource) throws Exception {
@@ -96,7 +96,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param resource resource
      * @return the property source
      * @throws Exception exception
-     * @since 1.0.0
+
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String name, Resource resource) throws Exception {
@@ -110,7 +110,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the resource
      * @throws Exception exception
-     * @since 1.0.0
+
      */
     @NotNull
     public static Resource getResource(String fullPathFileName) throws Exception {
@@ -125,7 +125,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param encodedResource encoded resource
      * @return the property source
      * @throws IOException io exception
-     * @since 1.0.0
+
      */
     @NotNull
     @Override
@@ -143,7 +143,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      *
      * @param name name
      * @return the property source
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract("_ -> new")
@@ -156,7 +156,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      *
      * @param names names
      * @return the source name
-     * @since 1.0.0
+
      */
     @Contract("_ -> !null")
     private static String getSourceName(String... names) {

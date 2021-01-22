@@ -45,11 +45,10 @@ public enum ApplicationType {
      * Deduce from classpath web application type
      *
      * @return the web application type
-     * @since 1.0.0
+
      */
     public static ApplicationType deduceFromClasspath() {
-        if (ClassUtils.isPresent(WEBFLUX_INDICATOR_CLASS, null)
-            && !ClassUtils.isPresent(WEBMVC_INDICATOR_CLASS, null)
+        if (ClassUtils.isPresent(WEBFLUX_INDICATOR_CLASS, null) && !ClassUtils.isPresent(WEBMVC_INDICATOR_CLASS, null)
             && !ClassUtils.isPresent(JERSEY_INDICATOR_CLASS, null)) {
             return ApplicationType.REACTIVE;
         }
@@ -66,7 +65,7 @@ public enum ApplicationType {
      *
      * @param applicationContextClass application context class
      * @return the web application type
-     * @since 1.0.0
+
      */
     public static ApplicationType deduceFromApplicationContext(Class<?> applicationContextClass) {
         if (isAssignable(SERVLET_APPLICATION_CONTEXT_CLASS, applicationContextClass)) {
@@ -84,7 +83,7 @@ public enum ApplicationType {
      * @param target target
      * @param type   type
      * @return the boolean
-     * @since 1.0.0
+
      */
     private static boolean isAssignable(String target, Class<?> type) {
         try {

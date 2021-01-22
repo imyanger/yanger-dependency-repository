@@ -5,7 +5,7 @@ package com.yanger.starter.basic.constant;
  * @Author yanger
  * @Date 2020/12/29 17:14
  */
-public class ClassName {
+public class FullyQualifiedName {
 
     /** SPRING_BOOT_APPLICATION */
     public static final String SPRING_BOOT_APPLICATION = "org.springframework.boot.autoconfigure.SpringBootApplication";

@@ -52,7 +52,7 @@ public abstract class BeanCopier {
      * @param target       the target
      * @param useConverter the use converter
      * @return the base bean copier
-     * @since 1.0.0
+
      */
     public static BeanCopier create(Class<?> source, Class<?> target, boolean useConverter) {
         return BeanCopier.create(source, target, null, useConverter);
@@ -66,7 +66,7 @@ public abstract class BeanCopier {
      * @param classLoader  the class loader
      * @param useConverter the use converter
      * @return the base bean copier
-     * @since 1.0.0
+
      */
     public static BeanCopier create(Class<?> source, Class<?> target, ClassLoader classLoader, boolean useConverter) {
         Generator gen;
@@ -87,7 +87,7 @@ public abstract class BeanCopier {
      * @param from      源
      * @param to        目标
      * @param converter 转换器
-     * @since 1.0.0
+
      */
     public abstract void copy(Object from, Object to, Converter converter);
 
@@ -98,7 +98,7 @@ public abstract class BeanCopier {
      * @version 1.2.3
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2019.12.26 21:46
-     * @since 1.0.0
+
      */
     interface BeanCopierKey {
         /**
@@ -108,7 +108,7 @@ public abstract class BeanCopier {
          * @param target       目标
          * @param useConverter 是否使用转换
          * @return object object
-         * @since 1.0.0
+
          */
         Object newInstance(String source, String target, boolean useConverter);
     }
@@ -120,7 +120,7 @@ public abstract class BeanCopier {
      * @version 1.2.3
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2019.12.26 21:46
-     * @since 1.0.0
+
      */
     public static class Generator extends AbstractClassGenerator<Object> {
         /** SOURCE */
@@ -137,7 +137,7 @@ public abstract class BeanCopier {
         /**
          * Instantiates a new Generator.
          *
-         * @since 1.0.0
+
          */
         Generator() {
             super(SOURCE);
@@ -148,7 +148,7 @@ public abstract class BeanCopier {
          * Instantiates a new Generator.
          *
          * @param classLoader the class loader
-         * @since 1.0.0
+
          */
         Generator(ClassLoader classLoader) {
             super(SOURCE);
@@ -159,7 +159,7 @@ public abstract class BeanCopier {
          * Sets source.
          *
          * @param source the source
-         * @since 1.0.0
+
          */
         public void setSource(@NotNull Class<?> source) {
             if (!Modifier.isPublic(source.getModifiers())) {
@@ -172,7 +172,7 @@ public abstract class BeanCopier {
          * Sets target.
          *
          * @param target the target
-         * @since 1.0.0
+
          */
         public void setTarget(@NotNull Class<?> target) {
             if (!Modifier.isPublic(target.getModifiers())) {
@@ -186,7 +186,7 @@ public abstract class BeanCopier {
          * Sets use converter.
          *
          * @param useConverter the use converter
-         * @since 1.0.0
+
          */
         public void setUseConverter(boolean useConverter) {
             this.useConverter = useConverter;
@@ -196,7 +196,7 @@ public abstract class BeanCopier {
          * Gets default class loader *
          *
          * @return the default class loader
-         * @since 1.0.0
+
          */
         @Override
         protected ClassLoader getDefaultClassLoader() {
@@ -207,7 +207,7 @@ public abstract class BeanCopier {
          * Gets protection domain *
          *
          * @return the protection domain
-         * @since 1.0.0
+
          */
         @Override
         protected ProtectionDomain getProtectionDomain() {
@@ -219,7 +219,7 @@ public abstract class BeanCopier {
          *
          * @param type type
          * @return the object
-         * @since 1.0.0
+
          */
         @Override
         protected Object firstInstance(Class type) {
@@ -231,7 +231,7 @@ public abstract class BeanCopier {
          *
          * @param instance instance
          * @return the object
-         * @since 1.0.0
+
          */
         @Override
         protected Object nextInstance(Object instance) {
@@ -242,7 +242,7 @@ public abstract class BeanCopier {
          * Create base bean copier.
          *
          * @return the base bean copier
-         * @since 1.0.0
+
          */
         public BeanCopier create() {
             Object key = KEY_FACTORY.newInstance(this.source.getName(), this.target.getName(), this.useConverter);
@@ -253,7 +253,7 @@ public abstract class BeanCopier {
          * Generate class *
          *
          * @param v v
-         * @since 1.0.0
+
          */
         @Override
         public void generateClass(ClassVisitor v) {
@@ -324,7 +324,7 @@ public abstract class BeanCopier {
          * @param getter getter
          * @param setter setter
          * @return the boolean
-         * @since 1.0.0
+
          */
         private static boolean compatible(@NotNull PropertyDescriptor getter, @NotNull PropertyDescriptor setter) {
             return setter.getPropertyType().isAssignableFrom(getter.getPropertyType());

@@ -30,7 +30,7 @@ public class DefaultEnvironment extends StandardEnvironment {
     /**
      * Default environment
      *
-     * @since 1.0.0
+
      */
     public DefaultEnvironment() {
         super();
@@ -40,7 +40,7 @@ public class DefaultEnvironment extends StandardEnvironment {
      * Default environment
      *
      * @param mapProperties map properties
-     * @since 1.0.0
+
      */
     public DefaultEnvironment(Map<String, Object> mapProperties) {
         this();
@@ -73,7 +73,7 @@ public class DefaultEnvironment extends StandardEnvironment {
      * Customize property sources *
      *
      * @param propertySources property sources
-     * @since 1.0.0
+
      */
     @Override
     protected void customizePropertySources(@NotNull MutablePropertySources propertySources) {

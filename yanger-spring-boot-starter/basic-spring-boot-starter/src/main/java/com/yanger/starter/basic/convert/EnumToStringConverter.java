@@ -37,7 +37,7 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
-     * @since 1.0.0
+
      */
     @Override
     public boolean matches(@NotNull TypeDescriptor sourceType, @NotNull TypeDescriptor targetType) {
@@ -48,7 +48,7 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * Gets convertible types *
      *
      * @return the convertible types
-     * @since 1.0.0
+
      */
     @Override
     public Set<ConvertiblePair> getConvertibleTypes() {
@@ -66,7 +66,7 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the object
-     * @since 1.0.0
+
      */
     @Override
     @SuppressWarnings("checkstyle:ReturnCount")
@@ -98,7 +98,7 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      *
      * @param clazz clazz
      * @return the annotation
-     * @since 1.0.0
+
      */
     @Nullable
     private static AccessibleObject getAnnotation(@NotNull Class<?> clazz) {
@@ -130,7 +130,7 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @return the object
      * @throws IllegalAccessException    illegal access exception
      * @throws InvocationTargetException invocation target exception
-     * @since 1.0.0
+
      */
     @Nullable
     private static Object invoke(Class<?> clazz, AccessibleObject accessibleObject, Object source, Class<?> targetClazz)

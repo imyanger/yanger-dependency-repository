@@ -32,7 +32,7 @@ public class YmlPropertiesPersister extends DefaultPropertiesPersister {
      *
      * @param props props
      * @param is    is
-     * @since 1.0.0
+
      */
     @Override
     public void load(@NotNull Properties props, @NotNull InputStream is) {

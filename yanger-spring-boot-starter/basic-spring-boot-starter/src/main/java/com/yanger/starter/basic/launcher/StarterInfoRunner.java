@@ -25,17 +25,19 @@ public class StarterInfoRunner implements ApplicationRunner {
      * Run *
      *
      * @param args args
-     * @since 1.0.0
+
      */
     @Override
     public void run(ApplicationArguments args) {
         // 打印配置信息
 
-        if (App.START_JUNIT.equals(ConfigKit.getProperty(App.START_TYPE))) {
+        if (App.START_JUNIT.equals(ConfigKit.getProperty(App.applicationStartType))) {
             return;
         }
 
         String str = MDC.get(App.LIBRARY_NAME);
         MDC.remove(App.LIBRARY_NAME);
+
+        log.info("{} -- {} 启动成功", App.applicationClassName, App.applicationName);
     }
 }

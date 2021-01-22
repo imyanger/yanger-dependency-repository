@@ -27,7 +27,7 @@ public class ClassScanner {
      *
      * @param pack pack
      * @return classes classes
-     * @since 1.0.0
+
      */
     public static @NotNull Set<Class<?>> getClasses(String pack) {
 
@@ -116,7 +116,7 @@ public class ClassScanner {
      * @param packageName package name
      * @param packagePath package path
      * @param classes     classes
-     * @since 1.0.0
+
      */
     private static void findAndAddClassesInPackageByFile(String packageName,
                                                          String packagePath,

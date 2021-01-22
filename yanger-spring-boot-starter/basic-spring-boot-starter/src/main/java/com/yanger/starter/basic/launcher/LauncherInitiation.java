@@ -29,7 +29,7 @@ public interface LauncherInitiation extends Ordered {
      * @param defaultProperties 默认配置
      * @param appName           服务名
      * @param isLocalLaunch     is local launch
-     * @since 1.0.0
+
      */
     default void launcherWrapper(Environment env, @NotNull Properties defaultProperties, String appName, boolean isLocalLaunch) {
         advance(appName);
@@ -46,7 +46,7 @@ public interface LauncherInitiation extends Ordered {
      * 在启动 Spring Boot 之前执行自定义逻辑
      *
      * @param appName app name
-     * @since 1.0.0
+
      */
     default void advance(String appName) { }
 
@@ -57,7 +57,7 @@ public interface LauncherInitiation extends Ordered {
      * @param appName       app name
      * @param isLocalLaunch is local launch
      * @return the chain map
-     * @since 1.0.0
+
      */
     Map<String, Object> launcher(Environment env, String appName, boolean isLocalLaunch);
 
@@ -65,7 +65,7 @@ public interface LauncherInitiation extends Ordered {
      * 获取排列顺序
      *
      * @return order order
-     * @since 1.0.0
+
      */
     @Override
     default int getOrder() {
@@ -76,7 +76,7 @@ public interface LauncherInitiation extends Ordered {
      * 获取组件名
      *
      * @return the name
-     * @since 1.0.0
+
      */
     String getName();
 

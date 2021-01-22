@@ -34,7 +34,7 @@ public class Unchecked {
      * @param <R>    the type parameter
      * @param mapper the mapper
      * @return the function
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
@@ -55,7 +55,7 @@ public class Unchecked {
      * @param <T>    the type parameter
      * @param mapper the mapper
      * @return the consumer
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
@@ -76,7 +76,7 @@ public class Unchecked {
      * @param <T>    the type parameter
      * @param mapper the mapper
      * @return the supplier
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
@@ -96,7 +96,7 @@ public class Unchecked {
      *
      * @param runnable the runnable
      * @return the runnable
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
@@ -117,7 +117,7 @@ public class Unchecked {
      * @param <T>      the type parameter
      * @param callable the callable
      * @return the callable
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
@@ -138,7 +138,7 @@ public class Unchecked {
      * @param <T>        the type parameter
      * @param comparator the comparator
      * @return the comparator
-     * @since 1.0.0
+
      */
     @NotNull
     @Contract(pure = true)
