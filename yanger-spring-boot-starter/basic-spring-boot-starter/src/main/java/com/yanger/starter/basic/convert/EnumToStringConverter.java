@@ -28,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class EnumToStringConverter implements ConditionalGenericConverter {
+
     /** 缓存 Enum 类信息,提供性能 */
     private static final ConcurrentMap<Class<?>, AccessibleObject> ENUM_CACHE_MAP = Maps.newConcurrentMap();
 
@@ -37,7 +38,6 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
-
      */
     @Override
     public boolean matches(@NotNull TypeDescriptor sourceType, @NotNull TypeDescriptor targetType) {
@@ -48,7 +48,6 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * Gets convertible types *
      *
      * @return the convertible types
-
      */
     @Override
     public Set<ConvertiblePair> getConvertibleTypes() {
@@ -66,7 +65,6 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the object
-
      */
     @Override
     @SuppressWarnings("checkstyle:ReturnCount")
@@ -98,7 +96,6 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      *
      * @param clazz clazz
      * @return the annotation
-
      */
     @Nullable
     private static AccessibleObject getAnnotation(@NotNull Class<?> clazz) {
@@ -130,7 +127,6 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
      * @return the object
      * @throws IllegalAccessException    illegal access exception
      * @throws InvocationTargetException invocation target exception
-
      */
     @Nullable
     private static Object invoke(Class<?> clazz, AccessibleObject accessibleObject, Object source, Class<?> targetClazz)
@@ -151,4 +147,5 @@ public class EnumToStringConverter implements ConditionalGenericConverter {
         }
         return ConvertUtils.convert(value, targetClazz);
     }
+
 }

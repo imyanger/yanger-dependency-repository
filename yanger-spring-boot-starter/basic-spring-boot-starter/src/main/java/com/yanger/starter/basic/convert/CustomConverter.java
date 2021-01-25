@@ -44,7 +44,6 @@ public class CustomConverter implements Converter {
      * @param target    目标对象属性类
      * @param fieldName 目标的field名,原为 set 方法名,MicaBeanCopier 里做了更改
      * @return {Object}
-
      */
     @Override
     @Nullable
@@ -78,7 +77,6 @@ public class CustomConverter implements Converter {
      * @param clazz     clazz
      * @param fieldName field name
      * @return the type descriptor
-
      */
     private static TypeDescriptor getTypeDescriptor(@NotNull Class<?> clazz, String fieldName) {
         String srcCacheKey = clazz.getName() + fieldName;

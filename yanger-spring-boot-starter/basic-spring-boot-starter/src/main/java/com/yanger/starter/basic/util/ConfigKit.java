@@ -1,8 +1,5 @@
 package com.yanger.starter.basic.util;
 
-import com.google.common.collect.Maps;
-
-import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.exception.PropertiesException;
 import com.yanger.starter.basic.yml.YmlPropertyLoaderFactory;
@@ -20,7 +17,6 @@ import org.springframework.core.io.support.PropertySourceFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 /**
  * @Description 全局配置工具类, 用于获取整个应用的配置
@@ -40,13 +36,8 @@ public class ConfigKit {
     /** 默认的配置文件解析器 */
     private static final PropertySourceFactory DEFAULT_PROPERTY_SOURCE_FACTORY = new DefaultPropertySourceFactory();
 
-    /** 自定义配置 */
-    private static final Map<String, Object> CONSUMER_MAP = Maps.newHashMapWithExpectedSize(16);
-
     /** yaml 类型的配置文件 */
     private static final String YAML_FILE_EXTENSION = "yml";
-
-
 
     /** properties 类型的配置文件 */
     public static final String PROPERTIES_FILE_EXTENSION = "properties";
@@ -62,7 +53,6 @@ public class ConfigKit {
      * 使用时, 优先从 map 缓存中取, 然后才是 environment {@link #getProperty(String)}
      *
      * @param env the environment
-
      */
     public static void init(@NotNull ConfigurableEnvironment env) {
         ConfigKit.environment = env;
@@ -73,7 +63,6 @@ public class ConfigKit {
      *
      * @param key the key
      * @return the property
-
      */
     public static String getProperty(String key) {
         return getProperty(environment, key);
@@ -85,7 +74,6 @@ public class ConfigKit {
      * @param environment environment
      * @param key         key
      * @return the property
-     * @since 1.5.0
      */
     public static String getProperty(ConfigurableEnvironment environment, String key) {
         String value;
@@ -104,44 +92,9 @@ public class ConfigKit {
      * Get app name string.
      *
      * @return the string
-
      */
     public static String getAppName() {
         return getProperty(ConfigKey.SpringConfigKey.APPLICATION_NAME);
-    }
-
-    /**
-     * 设置 JVM 环境变量
-     *
-     * @param key   key
-     * @param value value
-
-     */
-    public static void setSystemProperties(String key, String value) {
-        System.setProperty(key, value);
-    }
-
-    /**
-     * 获取启动模式
-     * 本地开发模式还是服务器部署模式
-     *
-     * @return the string
-
-     */
-    @NotNull
-    public static Boolean isLocalLaunch() {
-        return !notLocalLaunch();
-    }
-
-    /**
-     * 非本地开发环境 (只要 start.type = shell 都认为是非开发环境)
-     *
-     * @return the boolean
-
-     */
-    @NotNull
-    public static Boolean notLocalLaunch() {
-        return App.START_SHELL.equals(System.getProperty(App.applicationStartType));
     }
 
     /**
@@ -159,23 +112,15 @@ public class ConfigKit {
      * </code>
      *
      * @return the config path
-
      */
     public static @NotNull String getConfigPath() {
         String configPath;
-        String startType = System.getProperty(App.applicationStartType);
-        // 脚本启动
-        if (StringUtils.isNotBlank(startType) && App.START_SHELL.equals(startType)) {
-            // 获取 config 路径
-            configPath = System.getProperty(App.APP_CONFIG_PATH);
-            // 这种情况是本地开发时设置了 -Dstart.path 参数的情况
-            if (StringUtils.isBlank(configPath)) {
-                configPath = AppStartUtils.getClasspath();
-            }
-        } else {
-            // 本地运行
-            configPath = AppStartUtils.getClasspath();
+        // 如果设置了配置文件路径，则使用配置的
+        String appConfigPpath = System.getProperty(ConfigKey.APP_CONFIG_PATH);
+        if (StringUtils.isNotBlank(appConfigPpath)) {
+            return appConfigPpath;
         }
+        configPath = AppStartUtils.getClasspath();
         if (!configPath.endsWith(File.separator)) {
             configPath += File.separator;
         }
@@ -187,7 +132,6 @@ public class ConfigKit {
      *
      * @param configFileName config file name
      * @return the property source
-
      */
     @NotNull
     public static PropertySource<?> getPropertySource(@NotNull String configFileName) {
@@ -223,17 +167,6 @@ public class ConfigKit {
         } else {
             throw new BasicException("不支持的配置文件类型: [{}]", configFileName);
         }
-    }
-
-    /**
-     * 是否为 debug 模式
-     *
-     * @return the boolean
-
-     */
-    public static boolean isDebugModel() {
-        String debugModel = System.getProperty(App.DEBUG_MODEL);
-        return StringUtils.isNotBlank(debugModel) && (Boolean.parseBoolean(debugModel) || App.DEBUG_MODEL.equalsIgnoreCase(debugModel));
     }
 
 }

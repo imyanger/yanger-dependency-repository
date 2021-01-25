@@ -59,10 +59,11 @@ public class YmlUtils {
 
     /**
      * 获取yaml文件路径
+     *
+     * @throws
      * @Date 2021/1/22 17:55
      * @param: yamlName
      * @return: java.lang.String
-     * @throws
      */
     public static String getYamlPath(@NotNull String yamlName) {
         String configPath = ConfigKit.getConfigPath();
@@ -83,7 +84,7 @@ public class YmlUtils {
         return null;
     }
 
-    private static void getValue(Map<String, Object> propValue, String pre, Map<String, Object> map){
+    private static void getValue(Map<String, Object> propValue, String pre, Map<String, Object> map) {
         map.entrySet().forEach(s -> {
             if (s.getValue() instanceof Map) {
                 getValue(propValue, StringUtils.isNoneBlank(pre) ? pre + "." + s.getKey() : s.getKey(), (Map<String, Object>) s.getValue());

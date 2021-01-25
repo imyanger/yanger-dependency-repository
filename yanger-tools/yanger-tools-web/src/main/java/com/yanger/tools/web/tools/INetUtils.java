@@ -55,9 +55,6 @@ public abstract class INetUtils {
     /** ANYHOST_VALUE */
     public static final String ANYHOST_VALUE = "0.0.0.0";
 
-    /** DUBBO_IP_TO_BIND */
-    public static final String FKH_IP_TO_BIND = "FKH_IP_TO_BIND";
-
     /** LOCALHOST_KEY */
     public static final String LOCALHOST_KEY = "localhost";
 
@@ -260,20 +257,6 @@ public abstract class INetUtils {
     public static String getLocalHost() {
         InetAddress address = getLocalAddress();
         return address == null ? LOCALHOST_VALUE : address.getHostAddress();
-    }
-
-    /**
-     * Gets ip by config *
-     *
-     * @return the ip by config
-     */
-    public static String getIpByConfig() {
-        String configIp = System.getProperty(FKH_IP_TO_BIND);
-        if (configIp != null) {
-            return configIp;
-        }
-
-        return getIpByHost(getLocalAddress().getHostName());
     }
 
     /**

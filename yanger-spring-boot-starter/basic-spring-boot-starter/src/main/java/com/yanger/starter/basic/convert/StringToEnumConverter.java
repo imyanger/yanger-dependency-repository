@@ -39,7 +39,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
-
      */
     @Override
     public boolean matches(@NotNull TypeDescriptor sourceType, @NotNull TypeDescriptor targetType) {
@@ -50,7 +49,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      * Gets convertible types *
      *
      * @return the convertible types
-
      */
     @Override
     public Set<ConvertiblePair> getConvertibleTypes() {
@@ -64,7 +62,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the object
-
      */
     @Nullable
     @Override
@@ -96,7 +93,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      *
      * @param clazz clazz
      * @return the annotation
-
      */
     @org.jetbrains.annotations.Nullable
     @Nullable
@@ -126,7 +122,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      * @param clazz clazz
      * @param value value
      * @return the t
-
      */
     @NotNull
     @SuppressWarnings("unchecked")
@@ -144,7 +139,6 @@ public class StringToEnumConverter implements ConditionalGenericConverter {
      * @throws IllegalAccessException    illegal access exception
      * @throws InvocationTargetException invocation target exception
      * @throws InstantiationException    instantiation exception
-
      */
     @Contract("_, null, _ -> null")
     @Nullable

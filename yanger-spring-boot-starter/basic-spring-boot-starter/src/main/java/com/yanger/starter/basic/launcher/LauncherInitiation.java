@@ -1,6 +1,5 @@
 package com.yanger.starter.basic.launcher;
 
-import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.starter.basic.util.JsonUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -28,16 +27,14 @@ public interface LauncherInitiation extends Ordered {
      * @param env               系统变量 Environment
      * @param defaultProperties 默认配置
      * @param appName           服务名
-     * @param isLocalLaunch     is local launch
-
      */
-    default void launcherWrapper(Environment env, @NotNull Properties defaultProperties, String appName, boolean isLocalLaunch) {
-        advance(appName);
-        Map<String, Object> map = launcher(env, appName, isLocalLaunch);
+    default void launcherWrapper(Environment env, @NotNull Properties defaultProperties, String appName) {
 
-        if (ConfigKit.isDebugModel()) {
-            LOG.debug("{} 组件默认配置:\n{}", getName(), JsonUtils.toJson(map, true));
-        }
+        advance(appName);
+
+        Map<String, Object> map = launcher(env, appName);
+
+        LOG.info("{} 扩展组件默认配置:\n{}", getName(), JsonUtils.toJson(map, true));
 
         defaultProperties.putAll(map);
     }
@@ -46,26 +43,22 @@ public interface LauncherInitiation extends Ordered {
      * 在启动 Spring Boot 之前执行自定义逻辑
      *
      * @param appName app name
-
      */
-    default void advance(String appName) { }
+    default void advance(String appName) {}
 
     /**
      * Launcher wrapper *
      *
-     * @param env           env
-     * @param appName       app name
-     * @param isLocalLaunch is local launch
+     * @param env     env
+     * @param appName app name
      * @return the chain map
-
      */
-    Map<String, Object> launcher(Environment env, String appName, boolean isLocalLaunch);
+    Map<String, Object> launcher(Environment env, String appName);
 
     /**
      * 获取排列顺序
      *
      * @return order order
-
      */
     @Override
     default int getOrder() {
@@ -76,7 +69,6 @@ public interface LauncherInitiation extends Ordered {
      * 获取组件名
      *
      * @return the name
-
      */
     String getName();
 

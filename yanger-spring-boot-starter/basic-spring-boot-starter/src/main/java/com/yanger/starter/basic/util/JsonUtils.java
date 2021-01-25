@@ -56,8 +56,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class JsonUtils {
+
     /** PATTERN_DATETIME */
     public static final String PATTERN_DATETIME = System.getProperty(ConfigKey.JSON_DATE_FORMAT, ConfigDefaultValue.DEFAULT_DATE_FORMAT);
+
     /** Empty array */
     public static final byte[] EMPTY_ARRAY = new byte[0];
 

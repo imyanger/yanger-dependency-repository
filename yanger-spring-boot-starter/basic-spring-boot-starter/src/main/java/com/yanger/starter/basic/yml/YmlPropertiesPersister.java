@@ -2,6 +2,8 @@ package com.yanger.starter.basic.yml;
 
 import com.google.common.collect.Maps;
 
+import com.yanger.starter.basic.constant.ConfigKey;
+
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.env.YamlPropertySourceLoader;
 import org.springframework.core.env.MapPropertySource;
@@ -24,21 +26,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class YmlPropertiesPersister extends DefaultPropertiesPersister {
 
-    /** Config name */
-    static final String CONFIG_NAME = "yanger.config.file.name";
-
     /**
      * Load *
      *
      * @param props props
      * @param is    is
-
      */
     @Override
     public void load(@NotNull Properties props, @NotNull InputStream is) {
         List<PropertySource<?>> sources = null;
         try {
-            sources = new YamlPropertySourceLoader().load(props.getProperty(CONFIG_NAME), new InputStreamResource(is));
+            sources = new YamlPropertySourceLoader().load(props.getProperty(ConfigKey.CONFIG_NAME), new InputStreamResource(is));
         } catch (IOException e) {
             log.error("", e);
         }

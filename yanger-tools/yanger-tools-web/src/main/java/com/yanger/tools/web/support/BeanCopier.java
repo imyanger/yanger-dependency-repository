@@ -93,12 +93,6 @@ public abstract class BeanCopier {
 
     /**
      * The interface Bean copier key.
-     *
-     * @author dong4j
-     * @version 1.2.3
-     * @email "mailto:dongshijie@fkhwl.com"
-     * @date 2019.12.26 21:46
-
      */
     interface BeanCopierKey {
         /**
@@ -115,12 +109,6 @@ public abstract class BeanCopier {
 
     /**
      * The type Generator.
-     *
-     * @author dong4j
-     * @version 1.2.3
-     * @email "mailto:dongshijie@fkhwl.com"
-     * @date 2019.12.26 21:46
-
      */
     public static class Generator extends AbstractClassGenerator<Object> {
         /** SOURCE */

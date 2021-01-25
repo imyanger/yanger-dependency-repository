@@ -15,8 +15,6 @@ public final class CustomConversionService extends ApplicationConversionService 
 
     /**
      * Custom conversion service
-     *
-
      */
     private CustomConversionService() {
         this(null);
@@ -26,7 +24,6 @@ public final class CustomConversionService extends ApplicationConversionService 
      * Custom conversion service
      *
      * @param embeddedValueResolver the embedded value resolver
-
      */
     private CustomConversionService(@Nullable StringValueResolver embeddedValueResolver) {
         super(embeddedValueResolver);
@@ -38,7 +35,6 @@ public final class CustomConversionService extends ApplicationConversionService 
      * Gets instance.
      *
      * @return the instance
-
      */
     @Contract(pure = true)
     public static GenericConversionService getInstance() {

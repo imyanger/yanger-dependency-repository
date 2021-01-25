@@ -13,8 +13,4 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WebApplication extends BasicApplication {
 
-    // public static void main(String[] args) {
-    //     SpringApplication.run(WebApplication.class, args);
-    // }
-
 }

@@ -1,3 +1,6 @@
+server:
+  port: 8090
+
 dubbo:
   cloud:
     subscribed-services: fkh-earthwork-service

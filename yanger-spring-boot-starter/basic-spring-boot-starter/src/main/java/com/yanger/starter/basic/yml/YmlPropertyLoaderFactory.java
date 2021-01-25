@@ -1,5 +1,7 @@
 package com.yanger.starter.basic.yml;
 
+import com.yanger.starter.basic.constant.ConfigKey;
+
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -38,7 +40,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the property source
      * @throws Exception exception
-
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String fullPathFileName) throws Exception {
@@ -52,7 +53,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the property source
      * @throws Exception exception
-
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String name, String fullPathFileName) throws Exception {
@@ -67,7 +67,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param resource resource
      * @return the property source
      * @throws Exception exception
-
      */
     @NotNull
     public static PropertySource<?> createPropertySource(Resource resource) throws Exception {
@@ -79,7 +78,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      *
      * @param resource resource
      * @return the name for resource
-     * @since 1.5.0
      */
     private static String getNameForResource(@NotNull Resource resource) {
         String name = resource.getDescription();
@@ -96,7 +94,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param resource resource
      * @return the property source
      * @throws Exception exception
-
      */
     @NotNull
     public static PropertySource<?> createPropertySource(String name, Resource resource) throws Exception {
@@ -110,7 +107,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param fullPathFileName full path file name
      * @return the resource
      * @throws Exception exception
-
      */
     @NotNull
     public static Resource getResource(String fullPathFileName) throws Exception {
@@ -125,7 +121,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      * @param encodedResource encoded resource
      * @return the property source
      * @throws IOException io exception
-
      */
     @NotNull
     @Override
@@ -133,7 +128,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
         Resource resource = encodedResource.getResource();
         String fileName = resource.getFilename();
         Properties properties = new Properties();
-        properties.setProperty(YmlPropertiesPersister.CONFIG_NAME, name);
+        properties.setProperty(ConfigKey.CONFIG_NAME, name);
         this.propertiesPersister.load(properties, resource.getInputStream());
         return new OriginTrackedMapPropertySource(getSourceName(fileName, name), properties);
     }
@@ -143,7 +138,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      *
      * @param name name
      * @return the property source
-
      */
     @NotNull
     @Contract("_ -> new")
@@ -156,7 +150,6 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
      *
      * @param names names
      * @return the source name
-
      */
     @Contract("_ -> !null")
     private static String getSourceName(String... names) {

@@ -36,7 +36,6 @@ public class ConvertUtils {
      * @param targetType the target type
      * @return the converted value
      * @throws IllegalArgumentException if targetType is {@code null}, or sourceType is {@code null} but source is not {@code null}
-
      */
     @Contract("null, _ -> null")
     @Nullable
@@ -62,7 +61,6 @@ public class ConvertUtils {
      * @param targetType the target type
      * @return the converted value
      * @throws IllegalArgumentException if targetType is {@code null},  or sourceType is {@code null} but source is not {@code null}
-
      */
     @Contract("null, _, _ -> null")
     @Nullable
@@ -86,7 +84,6 @@ public class ConvertUtils {
      * @param targetType the target type
      * @return the converted value
      * @throws IllegalArgumentException if targetType is {@code null}, or sourceType is {@code null} but source is not {@code null}
-
      */
     @Contract("null, _ -> null")
     @Nullable
@@ -108,7 +105,6 @@ public class ConvertUtils {
      * @param source      源对象
      * @param targetClazz 转换成的类
      * @return T t
-
      */
     @Contract("null, _ -> null")
     @Nullable
@@ -130,7 +126,6 @@ public class ConvertUtils {
      * @param sourceClazz 源类
      * @param targetClazz 转换成的类
      * @return T t
-
      */
     @Contract("null, _, _ -> null")
     @Nullable
@@ -154,7 +149,6 @@ public class ConvertUtils {
      * @param sourceList  源对象列表
      * @param targetClazz 转换成的类
      * @return List list
-
      */
     @Contract("null, _ -> !null")
     public static <T> List<T> copyWithConvert(@Nullable Collection<?> sourceList, Class<T> targetClazz) {

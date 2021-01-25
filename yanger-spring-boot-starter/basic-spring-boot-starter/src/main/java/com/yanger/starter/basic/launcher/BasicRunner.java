@@ -3,6 +3,7 @@ package com.yanger.starter.basic.launcher;
 import com.google.common.collect.Maps;
 
 import com.yanger.starter.basic.constant.App;
+import com.yanger.starter.basic.constant.ConfigDefaultValue;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.enums.ApplicationType;
 import com.yanger.starter.basic.enums.SpringApplicationType;
@@ -56,9 +57,10 @@ public final class BasicRunner {
      * @param args            the args
      * @return the configurable application context
      * @throws Exception exception
-
      */
     public static ConfigurableApplicationContext start(Class<?> source, ApplicationType applicationType, String... args) throws Exception {
+        // 加载 args 参数
+        loadArgsProperties(args);
         // 获取应用名称
         loadApplicationName();
         // 加载yaml 文件
@@ -67,6 +69,25 @@ public final class BasicRunner {
         putProperties();
         // 没有设置 application name 时, 使用默认应用名
         return start(System.getProperty(ConfigKey.APPLICATION_NAME), source, applicationType, args);
+    }
+
+    /**
+     * @Description 设置参数中的参数
+     * @Author yanger
+     * @Date 2021/1/25 10:00
+     * @param: args
+     * @throws
+     */
+    private static void loadArgsProperties(String... args) {
+        for (String arg : args) {
+            if (arg.startsWith("--") && arg.contains("=")) {
+                String[] keyValue = arg.replace("--", "").split("=");
+                System.setProperty(keyValue[0].trim(), keyValue[1].trim());
+            } else if (arg.startsWith("-") && arg.contains("=")) {
+                String[] keyValue = arg.replace("-", "").split("=");
+                System.setProperty(keyValue[0].trim(), keyValue[1].trim());
+            }
+        }
     }
 
     /**
@@ -175,12 +196,13 @@ public final class BasicRunner {
      * @param args            the args
      * @return an application context created from the current state
      * @throws Exception exception
-
      */
     public static ConfigurableApplicationContext start(String appName, Class<?> source, ApplicationType applicationType, String... args) throws Exception {
         // 设置 BasicApplication 启动标识
-        APP_PROPERTIES.setProperty(App.YANGER_BASIC_APPLICATION_STARTER, App.YANGER_BASIC_APPLICATION_STARTER);
-        System.setProperty(App.YANGER_BASIC_APPLICATION_STARTER, App.YANGER_BASIC_APPLICATION_STARTER);
+        App.applicationStarterFlag = ConfigDefaultValue.APPLICATION_STARTER_FLAG;
+        APP_PROPERTIES.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
+        System.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
+
         SpringApplicationBuilder builder = createSpringApplicationBuilder(appName, source, applicationType, args);
         builder.registerShutdownHook(true);
         return builder.run(args);
@@ -195,7 +217,6 @@ public final class BasicRunner {
      * @param args            the args
      * @return the spring application builder
      * @throws Exception exception
-
      */
     @NotNull
     private static SpringApplicationBuilder createSpringApplicationBuilder(String appName, Class<?> source,
@@ -212,10 +233,9 @@ public final class BasicRunner {
 
         List<LauncherInitiation> list = IteratorUtils.toList(loader.iterator());
         list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
-            .forEach(launcherService -> launcherService.launcherWrapper(environment, APP_PROPERTIES, appName, ConfigKit.isLocalLaunch()));
+            .forEach(launcherService -> launcherService.launcherWrapper(environment, APP_PROPERTIES, appName));
 
-        log.debug("应用类型: ApplicationType = {}", applicationType.name());
-        ConfigKit.setSystemProperties(App.APPLICATION_TYPE, applicationType.name());
+        log.info("应用类型: ApplicationType = {}", applicationType.name());
 
         // 转换类型
         if (applicationType == ApplicationType.SERVICE) {
@@ -230,7 +250,9 @@ public final class BasicRunner {
 
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(APP_PROPERTIES)));
 
-        log.debug("全部的默认配置:\n{}", JsonUtils.toJson(APP_PROPERTIES, true));
+        ConfigKit.init(environment);
+
+        log.info("全部的默认配置:\n{}", JsonUtils.toJson(APP_PROPERTIES, true));
 
         return builder;
     }
@@ -240,7 +262,6 @@ public final class BasicRunner {
      *
      * @param properties properties
      * @return the map from properties
-
      */
     private static @NotNull Map<String, Object> getMapFromProperties(@NotNull Properties properties) {
         Map<String, Object> map = Maps.newHashMap();

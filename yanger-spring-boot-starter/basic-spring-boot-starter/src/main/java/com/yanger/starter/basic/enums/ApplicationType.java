@@ -11,6 +11,7 @@ public enum ApplicationType {
 
     /** 非 web 应用, 启动完成后将自动退出 */
     NONE,
+
     /**
      * 非 web 应用, 但是启动后不会退出, 比如 dubbo 服务提供者, 只提供 RPC 服务.
      * 这种类型有 2 中情况:
@@ -18,8 +19,10 @@ public enum ApplicationType {
      * 二是不存在 web 相关依赖, 作为一个普通应用启动, 但是不能退出.
      */
     SERVICE,
+
     /** web 应用 */
     SERVLET,
+
     /** webflux 应用 */
     REACTIVE;
 
@@ -31,21 +34,23 @@ public enum ApplicationType {
 
     /** WEBMVC_INDICATOR_CLASS */
     private static final String WEBMVC_INDICATOR_CLASS = "org.springframework.web.servlet.DispatcherServlet";
+
     /** WEBFLUX_INDICATOR_CLASS */
     private static final String WEBFLUX_INDICATOR_CLASS = "org.springframework.web.reactive.DispatcherHandler";
+
     /** JERSEY_INDICATOR_CLASS */
     private static final String JERSEY_INDICATOR_CLASS = "org.glassfish.jersey.servlet.ServletContainer";
+
     /** SERVLET_APPLICATION_CONTEXT_CLASS */
     private static final String SERVLET_APPLICATION_CONTEXT_CLASS = "org.springframework.web.context.WebApplicationContext";
+
     /** REACTIVE_APPLICATION_CONTEXT_CLASS */
-    private static final String REACTIVE_APPLICATION_CONTEXT_CLASS =
-        "org.springframework.boot.web.reactive.context.ReactiveWebApplicationContext";
+    private static final String REACTIVE_APPLICATION_CONTEXT_CLASS = "org.springframework.boot.web.reactive.context.ReactiveWebApplicationContext";
 
     /**
      * Deduce from classpath web application type
      *
      * @return the web application type
-
      */
     public static ApplicationType deduceFromClasspath() {
         if (ClassUtils.isPresent(WEBFLUX_INDICATOR_CLASS, null) && !ClassUtils.isPresent(WEBMVC_INDICATOR_CLASS, null)
@@ -65,7 +70,6 @@ public enum ApplicationType {
      *
      * @param applicationContextClass application context class
      * @return the web application type
-
      */
     public static ApplicationType deduceFromApplicationContext(Class<?> applicationContextClass) {
         if (isAssignable(SERVLET_APPLICATION_CONTEXT_CLASS, applicationContextClass)) {
@@ -83,7 +87,6 @@ public enum ApplicationType {
      * @param target target
      * @param type   type
      * @return the boolean
-
      */
     private static boolean isAssignable(String target, Class<?> type) {
         try {

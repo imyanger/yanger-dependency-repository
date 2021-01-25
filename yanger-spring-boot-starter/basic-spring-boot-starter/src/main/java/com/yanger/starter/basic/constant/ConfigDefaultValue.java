@@ -14,6 +14,9 @@ public class ConfigDefaultValue {
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     /** BASE_PACKAGES */
-    public static final String BASE_PACKAGES = System.getProperty("PARENT_PACKAGE_NAME", "com.yanger");
+    public static final String BASE_PACKAGES = "com.yanger";
+
+    /** 启动标识, 所有项目只能使用 BasicApplication 启动 */
+    public static final String APPLICATION_STARTER_FLAG = "yanger-spring-boot-starter";
 
 }

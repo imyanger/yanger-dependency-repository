@@ -19,18 +19,15 @@ public class DefaultEnvironment extends StandardEnvironment {
 
     /** DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME */
     public static final String DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME = "defaultProperties";
-    /** DEFAULT_EXTEND_PROPERTIES_PROPERTY_SOURCE_NAME */
-    public static final String DEFAULT_EXTEND_PROPERTIES_PROPERTY_SOURCE_NAME = "defaultExtendProperties";
 
     /** Property source */
     private Map<String, Object> mapProperties;
+
     /** Property source */
     private Collection<PropertySource<?>> propertySources;
 
     /**
      * Default environment
-     *
-
      */
     public DefaultEnvironment() {
         super();
@@ -40,7 +37,6 @@ public class DefaultEnvironment extends StandardEnvironment {
      * Default environment
      *
      * @param mapProperties map properties
-
      */
     public DefaultEnvironment(Map<String, Object> mapProperties) {
         this();
@@ -51,7 +47,6 @@ public class DefaultEnvironment extends StandardEnvironment {
      * Default environment
      *
      * @param propertySource property source
-     * @since 1.6.0
      */
     public DefaultEnvironment(PropertySource<?> propertySource) {
         this(new ArrayList<>(Collections.singleton(propertySource)));
@@ -61,30 +56,25 @@ public class DefaultEnvironment extends StandardEnvironment {
      * Default environment
      *
      * @param propertySources property sources
-     * @since 1.6.0
      */
     public DefaultEnvironment(Collection<PropertySource<?>> propertySources) {
         this();
         this.propertySources = propertySources;
     }
 
-
     /**
      * Customize property sources *
      *
      * @param propertySources property sources
-
      */
     @Override
     protected void customizePropertySources(@NotNull MutablePropertySources propertySources) {
         if (this.mapProperties != null) {
             propertySources.addLast(new DefaultEnvironmentPropertySource(DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, this.mapProperties));
         }
-
         if (this.propertySources != null && propertySources.size() > 0) {
             propertySources.forEach(propertySources::addFirst);
         }
-
         super.customizePropertySources(propertySources);
     }
 

@@ -23,7 +23,6 @@ public class AppStartUtils {
      * Gets classpath.
      *
      * @return the classpath
-
      */
     @NotNull
     public static String getClasspath() {

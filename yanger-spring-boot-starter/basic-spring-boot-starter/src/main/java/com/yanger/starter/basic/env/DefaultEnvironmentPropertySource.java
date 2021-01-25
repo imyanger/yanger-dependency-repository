@@ -23,12 +23,10 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name   name
      * @param source source
-
      */
     public DefaultEnvironmentPropertySource(String name, Map<String, Object> source) {
         super(name, source);
     }
-
 
     /**
      * Return {@code true} if a property with the given name or any underscore/uppercase variant
@@ -36,7 +34,6 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the boolean
-
      */
     @Override
     public boolean containsProperty(@NotNull String name) {
@@ -49,16 +46,12 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the property
-
      */
     @Override
     @Nullable
     public Object getProperty(@NotNull String name) {
         String actualName = this.resolvePropertyName(name);
-        log.debug("PropertySource [{}] does not contain property [{}], but found equivalent [{}]",
-                  this.getName(),
-                  name,
-                  actualName);
+        log.debug("PropertySource [{}] does not contain property [{}], but found equivalent [{}]", this.getName(), name, actualName);
         return super.getProperty(actualName);
     }
 
@@ -69,7 +62,6 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the string
-
      */
     protected final @NotNull String resolvePropertyName(String name) {
         Assert.notNull(name, "Property name must not be null");
@@ -92,7 +84,6 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the string
-
      */
     @Nullable
     private String checkPropertyName(String name) {
@@ -124,7 +115,6 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      *
      * @param name name
      * @return the boolean
-
      */
     private boolean containsKey(String name) {
         return (this.isSecurityManagerPresent() ? this.source.containsKey(name) : this.source.containsKey(name));
@@ -134,7 +124,6 @@ public class DefaultEnvironmentPropertySource extends MapPropertySource {
      * Is security manager present boolean
      *
      * @return the boolean
-
      */
     protected boolean isSecurityManagerPresent() {
         return (System.getSecurityManager() != null);

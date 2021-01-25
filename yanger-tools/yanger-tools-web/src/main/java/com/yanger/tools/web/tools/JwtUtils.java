@@ -4,6 +4,7 @@ import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.internal.com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,19 +87,20 @@ public class JwtUtils {
     }
 
     /**
-     * 获取token的超时时间
-     *
-     * @param jwt
-     * @return
-     * @author YangHao
-     * @date 2018年9月23日-下午4:28:57
+     * @Description 获取token的时间
+     * @Author yanger
+     * @Date 2020/12/10 18:27
+     * @param: jwt
+     * @return: java.util.Date
+     * @throws
      */
-    public static Long getExp(String jwt) {
+    public static Date getExpiration(String jwt) {
         final JWTVerifier verifier = new JWTVerifier(SECRET);
         try {
             final Map<String, Object> claims = verifier.verify(jwt);
             if (claims.containsKey(EXP) && claims.containsKey(HEADER)) {
-                return (Long) claims.get(EXP);
+                long exp = (Long) claims.get(EXP);
+                return new Date(exp);
             }
             return null;
         } catch (Exception e) {
@@ -114,7 +116,7 @@ public class JwtUtils {
      * @author YangHao
      * @date 2018年9月23日-下午4:28:57
      */
-    public static boolean isExp(String jwt) {
+    public static boolean isExpiration(String jwt) {
         final JWTVerifier verifier = new JWTVerifier(SECRET);
         try {
             final Map<String, Object> claims = verifier.verify(jwt);
