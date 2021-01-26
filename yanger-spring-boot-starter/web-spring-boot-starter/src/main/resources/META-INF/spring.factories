@@ -4,4 +4,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.yanger.starter.web.handler.GlobalExceptionHandler,\
   com.yanger.starter.web.handler.GlobalResponseHandler,\
   com.yanger.starter.web.handler.LoginInterceptor,\
-  com.yanger.starter.web.handler.LoginUserResolver
+  com.yanger.starter.web.handler.LoginUserResolver,\
+  com.yanger.starter.web.listen.SwaggerInfoRunner

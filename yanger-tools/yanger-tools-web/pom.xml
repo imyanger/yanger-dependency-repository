@@ -35,7 +35,7 @@
         <jwt.version>2.2.0</jwt.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <servlet-api.version>4.0.1</servlet-api.version>
-        <swagger2.version>2.7.0</swagger2.version>
+        <swagger.version>3.0.0</swagger.version>
     </properties>
 
     <dependencies>
@@ -79,16 +79,11 @@
             <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- swagger2API文档支持 -->
+        <!-- swaggerAPI文档支持 -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger2.version}</version>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
         <!-- swagger2API文档支持 -->
     </dependencies>

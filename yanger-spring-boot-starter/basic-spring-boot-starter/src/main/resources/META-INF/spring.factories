@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.basic.launcher.StarterInfoRunner
+  com.yanger.starter.basic.listen.StarterInfoRunner

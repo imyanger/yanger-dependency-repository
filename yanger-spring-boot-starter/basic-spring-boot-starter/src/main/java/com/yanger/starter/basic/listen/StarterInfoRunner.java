@@ -1,7 +1,8 @@
-package com.yanger.starter.basic.launcher;
+package com.yanger.starter.basic.listen;
 
 import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
+import com.yanger.starter.basic.constant.OrderConstant;
 
 import org.slf4j.MDC;
 import org.springframework.boot.ApplicationArguments;
@@ -21,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2020/12/29 20:07
  */
 @Slf4j
-@Order
+@Order(OrderConstant.ORDER_STARTER_INFO_RUNNER)
 @Component
 public class StarterInfoRunner implements ApplicationRunner, ApplicationListener<WebServerInitializedEvent> {
 
@@ -42,7 +43,7 @@ public class StarterInfoRunner implements ApplicationRunner, ApplicationListener
         App.serverUrl = serverUrl;
         System.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_SERVER_URL, serverUrl);
 
-        log.info("{} -- {} 启动成功，访问地址：{}", App.applicationClassName, App.applicationName, serverUrl);
+        log.info("{} -- {} 服务启动成功，访问地址：{}", App.applicationClassName, App.applicationName, serverUrl);
     }
 
     private String getServerUrl() {

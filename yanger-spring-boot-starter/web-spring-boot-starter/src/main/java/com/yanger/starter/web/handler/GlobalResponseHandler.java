@@ -38,7 +38,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         }
        if (methodParameter.getMethod().isAnnotationPresent(IgnoreReponseAdvice.class)) {
             return false;
-        }
+       }
+       // swagger请求不处理
+       if (methodParameter.getMethod().getReturnType().equals(org.springframework.http.ResponseEntity.class)) {
+           return false;
+       }
         return true;
     }
 
