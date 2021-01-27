@@ -11,8 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.type.CollectionLikeType;
 import com.fasterxml.jackson.databind.type.MapType;
+import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigDefaultValue;
 import com.yanger.starter.basic.constant.ConfigKey;
+import com.yanger.starter.basic.boost.ReflectionsX;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.tools.ConcurrentDateFormat;
 import com.yanger.tools.web.exception.Exceptions;
@@ -58,7 +60,7 @@ import lombok.extern.slf4j.Slf4j;
 public class JsonUtils {
 
     /** PATTERN_DATETIME */
-    public static final String PATTERN_DATETIME = System.getProperty(ConfigKey.JSON_DATE_FORMAT, ConfigDefaultValue.DEFAULT_DATE_FORMAT);
+    public static final String PATTERN_DATETIME = System.getProperty(ConfigKey.JsonConfigKey.JSON_DATE_FORMAT, ConfigDefaultValue.JsonConfigValue.JSON_DATE_FORMAT);
 
     /** Empty array */
     public static final byte[] EMPTY_ARRAY = new byte[0];
@@ -953,7 +955,7 @@ public class JsonUtils {
             // 去掉默认的时间戳格式
             objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
             // 设置为中国上海时区
-            String zone = System.getProperty(ConfigKey.JSON_TIME_ZONE, ConfigDefaultValue.DEFAULT_TIME_ZONE);
+            String zone = System.getProperty(ConfigKey.JsonConfigKey.JSON_TIME_ZONE, ConfigDefaultValue.JsonConfigValue.JSON_TIME_ZONE);
             objectMapper.setTimeZone(TimeZone.getTimeZone(zone));
             // 单引号
             objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
@@ -984,13 +986,15 @@ public class JsonUtils {
         private static void registerSubtypes(@NotNull ObjectMapper objectMapper) {
             StopWatch stopWatch = new StopWatch("Scan JsonTypeName Annotation");
             stopWatch.start();
-            Reflections reflections = new Reflections(ConfigDefaultValue.BASE_PACKAGES);
+            Reflections reflections = new ReflectionsX(App.Const.BASE_PACKAGES);
             // 扫描 JsonTypeName 注解, 注册所有子类
             Set<Class<?>> subTypes = reflections.getTypesAnnotatedWith(JsonTypeName.class);
             // 注册所有子类型
             objectMapper.registerSubtypes(subTypes.toArray(new Class[0]));
             stopWatch.stop();
-            log.info("{}", stopWatch.prettyPrint());
+            if (ConfigKit.isDebugModel()) {
+                log.info("{}", stopWatch.prettyPrint());
+            }
         }
     }
 

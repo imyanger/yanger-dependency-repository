@@ -22,7 +22,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 @EnableKnife4j
 @EnableOpenApi
-public class SwaggerConfig {
+public class SwaggerConfiguration {
 
     @Bean
     public Docket createRestApi() {

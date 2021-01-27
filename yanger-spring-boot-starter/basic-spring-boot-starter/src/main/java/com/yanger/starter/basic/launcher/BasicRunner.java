@@ -252,7 +252,10 @@ public final class BasicRunner {
 
         ConfigKit.init(environment);
 
-        log.info("全部的默认配置:\n{}", JsonUtils.toJson(APP_PROPERTIES, true));
+        if (APP_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {
+            log.info("当前 Spring 生效的环境变量：{}", APP_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
+        }
+        log.info("全部的默认配置：\n{}", JsonUtils.toJson(APP_PROPERTIES, true));
 
         return builder;
     }

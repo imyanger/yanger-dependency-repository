@@ -2,6 +2,7 @@ package com.yanger.starter.web.listen;
 
 import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.OrderConstant;
+import com.yanger.starter.basic.enums.LibraryEnum;
 import com.yanger.starter.basic.listen.StarterInfoRunner;
 
 import org.springframework.boot.ApplicationArguments;
@@ -31,8 +32,8 @@ public class SwaggerInfoRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         if (App.serverUrl != null) {
-            log.info("{} -- {} 服务已集成Swagger3： {}", App.applicationClassName, App.applicationName, App.serverUrl + "/swagger-ui/index.html");
-            log.info("{} -- {} 服务已集成Knife4j： {}", App.applicationClassName, App.applicationName, App.serverUrl + "/doc.html");
+            log.info("{} -- {} 服务已集成Swagger3： {}", App.applicationClassName, App.applicationName, App.serverUrl + LibraryEnum.SWAGGER3_REST_DEFAULT.getUri());
+            log.info("{} -- {} 服务已集成Knife4j： {}", App.applicationClassName, App.applicationName, App.serverUrl + LibraryEnum.SWAGGER_REST_BOOTSTRAP.getUri());
         }
     }
 

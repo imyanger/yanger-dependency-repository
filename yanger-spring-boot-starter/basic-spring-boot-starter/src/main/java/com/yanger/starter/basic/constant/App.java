@@ -35,6 +35,9 @@ public class App {
 
     public class Const {
 
+        /** BASE_PACKAGES */
+        public static final String BASE_PACKAGES = "com.yanger";
+
         /** file 启动 */
         public static final String START_FILE = "file";
 
@@ -52,6 +55,9 @@ public class App {
 
         /** spring boot 启动配置文件名 */
         public static final String BOOT_CONFIG_ACTIVE_FILE_NAME = "application-{}.yml";
+
+        /** 用于打印 bean 信息 */
+        public static final String DEBUG_MODEL = "debug";
 
     }
 

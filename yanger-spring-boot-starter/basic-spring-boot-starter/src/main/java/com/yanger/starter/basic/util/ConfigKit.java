@@ -1,5 +1,6 @@
 package com.yanger.starter.basic.util;
 
+import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.exception.PropertiesException;
 import com.yanger.starter.basic.yml.YmlPropertyLoaderFactory;
@@ -167,6 +168,16 @@ public class ConfigKit {
         } else {
             throw new BasicException("不支持的配置文件类型: [{}]", configFileName);
         }
+    }
+
+    /**
+     * 是否为 debug 模式
+     *
+     * @return the boolean
+     */
+    public static boolean isDebugModel() {
+        String debugModel = System.getProperty(App.Const.DEBUG_MODEL);
+        return StringUtils.isNotBlank(debugModel) && (Boolean.parseBoolean(debugModel) || App.Const.DEBUG_MODEL.equalsIgnoreCase(debugModel));
     }
 
 }

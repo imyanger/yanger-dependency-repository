@@ -2,6 +2,8 @@ package com.yanger.starter.web.controller;
 
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
 import com.yanger.starter.web.annotation.LoginAuth;
+import com.yanger.starter.web.entity.ReturnData;
+import com.yanger.starter.web.enums.FileType;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +32,8 @@ public class MoodController {
      */
     @GetMapping("")
     @ApiOperation(value="根据id查找Mood", tags={"MoodController接口"}, notes="根据id查找Mood")
-    public void findMoodData() {
+    public ReturnData findMoodData() {
+        return ReturnData.builder().fileType(FileType.FILE).build();
     }
 
     /**

@@ -26,14 +26,31 @@ public final class ConfigKey {
     public static final String CONFIG_NAME = "yanger.app.config-file-name";
 
 
-    /** JSON_DATE_FORMAT */
-    public static final String JSON_DATE_FORMAT = "yanger.json.date-formate";
+    /** xss 配置项 */
+    public static class XssConfigKey {
 
-    /** JSON_TIME_ZONE */
-    public static final String JSON_TIME_ZONE = "yanger.json.time-zone";
+        /** XSS_ENABLE_XSS_FILTER */
+        public static final String XSS_ENABLE_XSS_FILTER = "yanger.xss.enable-xss-filter";
+
+        /** XSS_ENABLE_XSS_FILTER */
+        public static final String XSS_EXCLUDE_PATTERNS = "yanger.xss.exclude-patterns";
+
+    }
 
 
-    /** spring 配置 */
+    /** json 配置项 */
+    public static class JsonConfigKey {
+
+        /** JSON_DATE_FORMAT */
+        public static final String JSON_DATE_FORMAT = "yanger.json.date-formate";
+
+        /** JSON_TIME_ZONE */
+        public static final String JSON_TIME_ZONE = "yanger.json.time-zone";
+
+    }
+
+
+    /** spring 配置项 */
     public static class SpringConfigKey {
 
         /** APPLICATION_NAME */
@@ -42,9 +59,30 @@ public final class ConfigKey {
         /** PROFILES_ACTIVE */
         public static final String PROFILES_ACTIVE = "spring.profiles.active";
 
+        /** SERVER_CONTEXT_PATH */
+        public static final String SERVER_CONTEXT_PATH = "server.servlet.context-path";
+
     }
 
-    /** 系统配置 */
+    /** token 配置项 */
+    public static class TokenConfigKey {
+
+        /** jwt token 有效时长（分钟） */
+        public static final String TOKEN_AVAILABLE_TIME_MINUTE = "yanger.token.available-time-minute";
+
+        /** jwt token 续期的剩余时长（分钟） */
+        public static final String TOKEN_RENEWAL_TIME_MINUTE = "yanger.token.renewal-time-minute";
+
+        /**  jwt header 中的标志 */
+        public static final String TOKEN_HEADER_KEY = "yanger.token.login-token";
+
+        /** request 中用户信息的属性 key */
+        public static final String TOKEN_USER_KEY = "yanger.token.login-user";
+
+    }
+
+
+    /** 系统配置项 */
     public static class SystemConfigKey {
 
         /** 依赖的 library */
@@ -52,7 +90,7 @@ public final class ConfigKey {
 
     }
 
-    /** 不可设置的配置 */
+    /** 不可设置的配置项 */
     public static class UnmodifyConfigKey {
 
         /** 启动标识, 所有项目只能使用 BasicApplication 启动 */

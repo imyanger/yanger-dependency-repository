@@ -7,16 +7,37 @@ package com.yanger.starter.basic.constant;
  */
 public class ConfigDefaultValue {
 
-    /** DEFAULT_TIME_ZONE */
-    public static final String DEFAULT_TIME_ZONE = "GMT+8";
-
-    /** DEFAULT_DATE_FORMAT */
-    public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
-    /** BASE_PACKAGES */
-    public static final String BASE_PACKAGES = "com.yanger";
-
     /** 启动标识, 所有项目只能使用 BasicApplication 启动 */
     public static final String APPLICATION_STARTER_FLAG = "yanger-spring-boot-starter";
+
+
+    /** json 配置默认值 */
+    public static class JsonConfigValue {
+
+        /** JSON_DATE_FORMAT */
+        public static final String JSON_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+        /** JSON_TIME_ZONE */
+        public static final String JSON_TIME_ZONE = "GMT+8";
+
+    }
+
+
+    /** token 配置默认值 */
+    public static class TokenConfigValue {
+
+        /** jwt token 有效时长（分钟） */
+        public static final Long TOKEN_AVAILABLE_TIME = 24 * 60L;
+
+        /** jwt token 续期的剩余时长（分钟） */
+        public static final Long TOKEN_RENEWAL_TIME_MINUTE = 60L;
+
+        /**  jwt header 中的标志 */
+        public static final String TOKEN_HEADER_KEY = "yanger-spring-boot-starter-login-token";
+
+        /** request 中用户信息的属性 key */
+        public static final String TOKEN_USER_KEY = "yanger-spring-boot-starter-login-user";
+
+    }
 
 }

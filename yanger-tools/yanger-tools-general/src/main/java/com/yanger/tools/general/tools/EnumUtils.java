@@ -8,11 +8,14 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @Description 枚举工具类
  * @Author yanger
  * @Date 2020/8/27 19:14
  */
+@Slf4j
 public class EnumUtils {
 
     private static Map<Class, Object> map = new ConcurrentHashMap<>();

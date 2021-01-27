@@ -3,8 +3,8 @@ package com.yanger.starter.web.handler;
 import com.alibaba.fastjson.JSON;
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
 import com.yanger.starter.web.annotation.LoginAuth;
+import com.yanger.starter.web.config.TokenConfig;
 import com.yanger.starter.web.entity.AuthUser;
-import com.yanger.starter.web.entity.JwtConst;
 import com.yanger.tools.web.entity.R;
 import com.yanger.tools.web.support.ResultCode;
 import com.yanger.tools.web.tools.JwtUtils;
@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,6 +32,9 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
 
+    @Resource
+    private TokenConfig tokenConfig;
+
     /**
      * Post handle
      *
@@ -38,20 +42,19 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @param response     response
      * @param handler      handler
      * @param modelAndView model and view
-     * @since 1.0.0
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) {
-        String token = request.getHeader(JwtConst.HEADER_TOKEN_KEY);
+        String token = request.getHeader(tokenConfig.getHeaderKey());
         if (StringUtils.isNotEmpty(token)) {
             Date expiration = JwtUtils.getExpiration(token);
-            LocalDateTime localDateTime = LocalDateTime.now().plusMinutes(JwtConst.TOKEN_RENEWAL_TIME_MINUTE);
+            LocalDateTime localDateTime = LocalDateTime.now().plusMinutes(tokenConfig.getRenewalTimeMinute());
             ZoneId zoneId = ZoneId.systemDefault();
             Date timeline = Date.from(localDateTime.atZone(zoneId).toInstant());
             if (timeline.after(expiration)) {
                 AuthUser authUser = JwtUtils.parse(AuthUser.class, token);
-                response.setHeader(JwtConst.HEADER_TOKEN_KEY, JwtUtils.sign(authUser, JwtConst.TOKEN_AVAILABLE_TIME));
+                response.setHeader(tokenConfig.getHeaderKey(), JwtUtils.sign(authUser, tokenConfig.getAvailableTimeMinute() * 1000 * 60));
             }
         }
     }
@@ -64,7 +67,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @param handler  handler
      * @return the boolean
      * @throws Exception exception
-     * @since 1.0.0
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -78,7 +80,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        String token = request.getHeader(JwtConst.HEADER_TOKEN_KEY);
+        String token = request.getHeader(tokenConfig.getHeaderKey());
         if (StringUtils.isEmpty(token)) {
             returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_MSG.getCode(), "未获取到用户信息，请重新登录"));
             return false;
@@ -89,7 +91,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     return false;
                 }
                 AuthUser authUser = JwtUtils.parse(AuthUser.class, token);
-                request.setAttribute(JwtConst.REQUEST_ATTR_KEY, authUser);
+                request.setAttribute(tokenConfig.getUserKey(), authUser);
             }
         }
         return true;
@@ -101,7 +103,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @param response response
      * @param msg      msg
      * @throws IOException io exception
-     * @since 1.0.0
      */
     private void returnJsonMsg(HttpServletResponse response, Object msg) throws IOException {
         response.setContentType("application/json; charset=utf-8");

@@ -3,7 +3,7 @@ server:
 
 dubbo:
   cloud:
-    subscribed-services: fkh-earthwork-service
+    subscribed-services: xx-service
   consumer:
     timeout: 30000
     validation: false
@@ -15,3 +15,8 @@ spring:
       max-request-size: 20MB
   profiles:
     active: dev
+
+yanger:
+  token:
+    available-time-minute: 60
+

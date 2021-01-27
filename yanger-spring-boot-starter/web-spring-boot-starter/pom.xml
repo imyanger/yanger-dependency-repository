@@ -42,6 +42,12 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>3.0.2</version>
         </dependency>
+        <!-- 微信小程序 -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
