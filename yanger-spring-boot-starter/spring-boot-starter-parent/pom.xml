@@ -7,6 +7,7 @@
         <groupId>com.yanger</groupId>
         <artifactId>yanger-dependencies</artifactId>
         <version>1.0.0.RELEASE</version>
+        <relativePath/>
     </parent>
 
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -32,6 +33,7 @@
     <modules>
         <module>../basic-spring-boot-starter</module>
         <module>../web-spring-boot-starter</module>
+        <module>../mybatis-spring-boot-starter</module>
     </modules>
 
     <dependencies>
@@ -42,16 +44,6 @@
         <dependency>
             <groupId>com.yanger</groupId>
             <artifactId>tools-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

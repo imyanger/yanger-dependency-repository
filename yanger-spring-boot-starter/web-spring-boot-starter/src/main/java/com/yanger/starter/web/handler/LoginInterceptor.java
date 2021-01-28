@@ -82,12 +82,12 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         String token = request.getHeader(tokenConfig.getHeaderKey());
         if (StringUtils.isEmpty(token)) {
-            returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_MSG.getCode(), "未获取到用户信息，请重新登录"));
+            returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_EMPTY.getCode(), "未获取到用户信息，请重新登录"));
             return false;
         } else {
             if (StringUtils.isNotEmpty(token)) {
                 if(new Date().after(JwtUtils.getExpiration(token))) {
-                    returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_MSG.getCode(), "用户信息已过期，请重新登录"));
+                    returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_EMPTY.getCode(), "用户信息已过期，请重新登录"));
                     return false;
                 }
                 AuthUser authUser = JwtUtils.parse(AuthUser.class, token);

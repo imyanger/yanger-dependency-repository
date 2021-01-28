@@ -50,5 +50,6 @@ public enum LibraryEnum {
 
     /** Uri */
     private final String uri;
+
 }
 

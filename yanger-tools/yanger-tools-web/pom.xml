@@ -29,15 +29,6 @@
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
 
-    <properties>
-        <!--依赖jar版本-->
-        <spring.version>5.2.7.RELEASE</spring.version>
-        <jwt.version>2.2.0</jwt.version>
-        <validation-api.version>1.1.0.Final</validation-api.version>
-        <servlet-api.version>4.0.1</servlet-api.version>
-        <swagger.version>3.0.0</swagger.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.yanger</groupId>
@@ -47,43 +38,37 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
             <optional>true</optional>
         </dependency>
         <!-- spring -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>${jwt.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>${validation-api.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- swaggerAPI文档支持 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
-            <version>${swagger.version}</version>
+            <optional>true</optional>
         </dependency>
         <!-- swagger2API文档支持 -->
     </dependencies>

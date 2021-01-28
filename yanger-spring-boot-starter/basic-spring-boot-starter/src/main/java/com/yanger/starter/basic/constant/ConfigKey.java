@@ -26,7 +26,7 @@ public final class ConfigKey {
     public static final String CONFIG_NAME = "yanger.app.config-file-name";
 
 
-    /** xss 配置项 */
+    /** xss 配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/config/XssProperties.java */
     public static class XssConfigKey {
 
         /** XSS_ENABLE_XSS_FILTER */
@@ -64,7 +64,7 @@ public final class ConfigKey {
 
     }
 
-    /** token 配置项 */
+    /** token 配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/config/TokenConfig.java */
     public static class TokenConfigKey {
 
         /** jwt token 有效时长（分钟） */
@@ -81,6 +81,31 @@ public final class ConfigKey {
 
     }
 
+    /** mybatis配置项 mybatis-spring-boot-starter/src/main/java/com/yanger/starter/mybatis/config/MybatisProperties.java */
+    public static class MybatisConfigKey {
+
+        /** sql 日志 */
+        public static final String ENABLE_LOG = "yanger.mybatis.enable.log";
+
+        /** 分页默认起始页 */
+        public static final String PAGE = "yanger.mybatis.page";
+
+        /** 分页默认大小 */
+        public static final String LIMIT = "yanger.mybatis.limit";
+
+        /** 单页限制 默认不限制 */
+        public static final String SINGLE_PAGE_LIMIT  = "yanger.mybatis.single.page.limit";
+
+        /** 敏感数据加密 AES_KEY */
+        public static final String SENSITIVE_KEY  = "yanger.mybatis.sensitive.key";
+
+        /** sql 检查插件 */
+        public static final String ENABLE_ILLEGAL_SQL_INTERCEPTOR = "yanger.mybatis.enable-illegal-sql-interceptor";
+
+        /** SQL执行分析插件, 拦截一些整表操作 */
+        public static final String ENABLE_SQL_EXPLAIN_INTERCEPTOR = "yanger.mybatis.enable-sql-explain-interceptor";
+
+    }
 
     /** 系统配置项 */
     public static class SystemConfigKey {
