@@ -1,9 +1,11 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.web.config.TokenConfig,\
+  com.yanger.starter.web.config.BaseBeanConfiguration,\
+  com.yanger.starter.web.config.JacksonConfiguration,\
   com.yanger.starter.web.config.SwaggerConfiguration,\
   com.yanger.starter.web.config.WebMvcConfiguration,\
   com.yanger.starter.web.handler.GlobalExceptionHandler,\
   com.yanger.starter.web.handler.GlobalResponseHandler,\
   com.yanger.starter.web.handler.LoginInterceptor,\
   com.yanger.starter.web.handler.LoginUserResolver,\
-  com.yanger.starter.web.listen.SwaggerInfoRunner
+  com.yanger.starter.web.listen.SwaggerInfoRunner,\
+  com.yanger.starter.web.wx.config.WxMaConfiguration

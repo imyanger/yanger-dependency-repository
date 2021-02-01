@@ -29,26 +29,37 @@
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
 
+    <properties>
+        <reflections.version>0.9.12</reflections.version>
+        <jackson.version>2.11.0</jackson.version>
+        <alibaba-thread-local.version>2.11.5</alibaba-thread-local.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
+            <version>${alibaba-thread-local.version}</version>
         </dependency>
     </dependencies>
 

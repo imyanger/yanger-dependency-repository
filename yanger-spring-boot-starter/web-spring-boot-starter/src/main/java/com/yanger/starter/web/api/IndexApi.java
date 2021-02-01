@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.error.WxErrorException;
 
 /**
@@ -27,7 +28,7 @@ import me.chanjar.weixin.common.error.WxErrorException;
  * @Author yanger
  * @Date 2020-12-04 23:07:44
  */
-@Api
+@Api(tags={"IndexApi接口"})
 @RestController
 public class IndexApi extends BaseApi {
 
@@ -44,6 +45,7 @@ public class IndexApi extends BaseApi {
     private TokenConfig tokenConfig;
 
     @PostMapping("login")
+    @ApiOperation(value="用户登录", tags={"IndexApi接口"}, notes="用户登录")
     public void login(@RequestBody LoginData loginData) {
         AuthUser authUser = loginService.login(loginData, request);
         setToken(authUser);
@@ -58,6 +60,7 @@ public class IndexApi extends BaseApi {
      * @return: com.yanger.notepad.po.NoteUser
      */
     @PostMapping("wxMiniLogin")
+    @ApiOperation(value="微信小程序授权登录", tags={"IndexApi接口"}, notes="微信小程序授权登录")
     public void wxLogin(@RequestBody WxLoginData wxLoginData) {
         try {
             WxMaProperties.Config config = wxMaProperties.getConfigs().stream().filter(s -> StringUtils.equals(s.getAppSign(),
@@ -76,13 +79,14 @@ public class IndexApi extends BaseApi {
 
     /**
      * @throws
-     * @Description 微信登录
+     * @Description 手机微信登录
      * @Author yanger
      * @Date 2021/1/14 17:22
      * @param: wxLoginData
      * @return: com.yanger.notepad.po.NoteUser
      */
     @PostMapping("wxAppLogin")
+    @ApiOperation(value="手机微信登录", tags={"IndexApi接口"}, notes="手机微信登录")
     public void wxAppLogin(@RequestBody WxLoginData wxLoginData) {
         AuthUser authUser = loginService.wxLogin(wxLoginData, request);
         setToken(authUser);

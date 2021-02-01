@@ -7,7 +7,6 @@
         <groupId>com.yanger</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath>../spring-boot-starter-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>base-spring-boot-starter</artifactId>
@@ -38,11 +37,11 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--    <groupId>io.swagger</groupId>-->
-        <!--    <artifactId>swagger-annotations</artifactId>-->
-        <!--    <optional>true</optional>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -44,7 +44,6 @@ public abstract class Result<T> implements Serializable {
     /** TRACE_ID */
     public static final String FIELD_TRACE_ID = "traceId";
 
-
     /** 请求响应成功标识 */
     @ApiModelProperty(value = "成功状态", required = true, example = "true")
     protected boolean success;
