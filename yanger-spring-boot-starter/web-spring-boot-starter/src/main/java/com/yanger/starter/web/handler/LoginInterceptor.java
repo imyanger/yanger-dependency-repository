@@ -71,8 +71,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // @IgnoreLoginAuth 跳过登录
-        if(handler instanceof HandlerMethod) {
-            HandlerMethod h = (HandlerMethod)handler;
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod h = (HandlerMethod) handler;
             IgnoreLoginAuth classIgnoreLoginAuth = h.getMethod().getDeclaringClass().getAnnotation(IgnoreLoginAuth.class);
             IgnoreLoginAuth methodIgnoreLoginAuth = h.getMethodAnnotation(IgnoreLoginAuth.class);
             LoginAuth methodLoginAuth = h.getMethodAnnotation(LoginAuth.class);
@@ -86,7 +86,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         } else {
             if (StringUtils.isNotEmpty(token)) {
-                if(new Date().after(JwtUtils.getExpiration(token))) {
+                if (new Date().after(JwtUtils.getExpiration(token))) {
                     returnJsonMsg(response, R.failed(ResultCode.TOKE_INVALID_EMPTY.getCode(), "用户信息已过期，请重新登录"));
                     return false;
                 }

@@ -31,7 +31,8 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
      * @param globalEnumConverterFactory global enum converter factory
      */
     @Contract(pure = true)
-    public RequestAbstractFormMethodArgumentResolver(ObjectMapper objectMapper, ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
+    public RequestAbstractFormMethodArgumentResolver(ObjectMapper objectMapper,
+                                                     ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
         super(objectMapper, globalEnumConverterFactory);
     }
 
@@ -65,7 +66,8 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
 
         if (!SerializeEnum.class.isAssignableFrom(subClass)) {
             throw new BasicException(
-                StringFormatter.format("参数转换失败, [{}] 需要实现 SerializeEnum 接口. RequestAbstractForm.value: [{}]", subClass.getSimpleName(), subClass));
+                StringFormatter.format("参数转换失败, [{}] 需要实现 SerializeEnum 接口. RequestAbstractForm.value: [{}]", subClass.getSimpleName(),
+                                       subClass));
         }
         Object[] parse = new Object[1];
         ReflectionUtils.doWithFields(parameter.getParameter().getType(), field -> {

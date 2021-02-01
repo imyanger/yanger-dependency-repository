@@ -12,7 +12,6 @@ import java.util.concurrent.locks.ReentrantLock;
 @SuppressWarnings("all")
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = -5167631809472116969L;
 
     /** DEFAULT_LOAD_FACTOR */

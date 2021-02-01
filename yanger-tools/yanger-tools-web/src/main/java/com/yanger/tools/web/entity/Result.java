@@ -27,7 +27,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public abstract class Result<T> implements Serializable {
 
-    /** serialVersionUID */
     public static final long serialVersionUID = 1L;
 
     /** SUCCESS */

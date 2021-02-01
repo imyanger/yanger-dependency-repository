@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class R<T> extends Result<T> {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = 3077918845714343375L;
 
     /**

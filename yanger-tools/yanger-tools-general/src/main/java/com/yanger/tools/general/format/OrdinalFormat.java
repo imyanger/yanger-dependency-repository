@@ -85,7 +85,7 @@ public class OrdinalFormat {
     }
 
     private static class EnglishOrdinalFormat extends NumberFormat {
-        /** serialVersionUID */
+
         private static final long serialVersionUID = 6915075795861536376L;
 
         /**

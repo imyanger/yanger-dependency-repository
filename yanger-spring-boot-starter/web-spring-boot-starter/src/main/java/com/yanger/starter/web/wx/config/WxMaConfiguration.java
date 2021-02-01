@@ -24,7 +24,6 @@ import cn.binarywang.wx.miniapp.message.WxMaMessageRouter;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
 import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
 
 /**
  * @Description 微信配置加载类
@@ -97,24 +96,24 @@ public class WxMaConfiguration {
 
     private final WxMaMessageHandler subscribeMsgHandler = (wxMessage, context, service, sessionManager) -> {
         service.getMsgService().sendSubscribeMsg(WxMaSubscribeMessage.builder()
-            .templateId("此处更换为自己的模板id")
-            .data(Lists.newArrayList(
-                new WxMaSubscribeMessage.Data("keyword1", "339208499")))
-            .toUser(wxMessage.getFromUser())
-            .build());
+                                                     .templateId("此处更换为自己的模板id")
+                                                     .data(Lists.newArrayList(
+                                                         new WxMaSubscribeMessage.Data("keyword1", "339208499")))
+                                                     .toUser(wxMessage.getFromUser())
+                                                     .build());
         return null;
     };
 
     private final WxMaMessageHandler logHandler = (wxMessage, context, service, sessionManager) -> {
         log.info("收到消息：" + wxMessage.toString());
         service.getMsgService().sendKefuMsg(WxMaKefuMessage.newTextBuilder().content("收到信息为：" + wxMessage.toJson())
-            .toUser(wxMessage.getFromUser()).build());
+                                                .toUser(wxMessage.getFromUser()).build());
         return null;
     };
 
     private final WxMaMessageHandler textHandler = (wxMessage, context, service, sessionManager) -> {
         service.getMsgService().sendKefuMsg(WxMaKefuMessage.newTextBuilder().content("回复文本消息")
-            .toUser(wxMessage.getFromUser()).build());
+                                                .toUser(wxMessage.getFromUser()).build());
         return null;
     };
 
@@ -122,7 +121,7 @@ public class WxMaConfiguration {
         try {
             WxMediaUploadResult uploadResult = service.getMediaService()
                 .uploadMedia("image", "png",
-                    ClassLoader.getSystemResourceAsStream("tmp.png"));
+                             ClassLoader.getSystemResourceAsStream("tmp.png"));
             service.getMsgService().sendKefuMsg(
                 WxMaKefuMessage
                     .newImageBuilder()

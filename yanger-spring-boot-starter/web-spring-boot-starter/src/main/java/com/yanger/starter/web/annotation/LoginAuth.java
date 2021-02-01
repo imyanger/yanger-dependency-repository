@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @Author yanger
  * @Date 2020/9/15 15:38
  */
-@Target({ElementType.METHOD})
+@Target( {ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LoginAuth {
 

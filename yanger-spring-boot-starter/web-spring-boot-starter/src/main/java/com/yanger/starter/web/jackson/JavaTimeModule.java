@@ -21,7 +21,6 @@ import java.time.LocalTime;
  */
 public class JavaTimeModule extends SimpleModule {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = -8312156928465504942L;
 
     /**

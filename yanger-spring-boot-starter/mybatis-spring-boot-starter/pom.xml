@@ -7,7 +7,7 @@
         <groupId>com.yanger</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath/>
+        <relativePath>../spring-boot-starter-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>mybatis-spring-boot-starter</artifactId>

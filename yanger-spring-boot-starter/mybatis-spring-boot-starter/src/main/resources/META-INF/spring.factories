@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.yanger.starter.mybatis.config.DruidAutoConfiguration,\
+  com.yanger.starter.mybatis.config.MybatisAutoConfiguration
+org.springframework.context.ApplicationListener=\
+  com.yanger.starter.mybatis.listener.DatasourceInitializeListener

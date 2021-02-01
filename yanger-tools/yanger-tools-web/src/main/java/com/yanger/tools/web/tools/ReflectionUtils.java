@@ -221,33 +221,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
     }
 
     /**
-     * 反射 method 方法名, 例如 getId
-     *
-     * @param field field
-     * @param str   属性字符串内容
-     * @return the method capitalize
-     * @deprecated 3.3.0 {@link #guessGetterName(Field, String)}
-     */
-    @Deprecated
-    public static String getMethodCapitalize(@NotNull Field field, String str) {
-        Class<?> fieldType = field.getType();
-        return guessGetterName(str, fieldType);
-    }
-
-    /**
-     * 反射 method 方法名, 例如 setVersion
-     *
-     * @param field Field
-     * @param str   String JavaBean类的version属性名
-     * @return version属性的setter方法名称 , e.g. setVersion
-     * @deprecated 3.0.8
-     */
-    @Deprecated
-    public static String setMethodCapitalize(Field field, String str) {
-        return concatCapitalize("set", str);
-    }
-
-    /**
      * 拼接字符串第二个字符串第一个字母大写
      *
      * @param concatStr concat str

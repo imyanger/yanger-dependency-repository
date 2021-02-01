@@ -20,7 +20,6 @@ import java.util.Date;
  */
 public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = 3992810369797036508L;
 
     /**

@@ -40,14 +40,7 @@ public class GlobalEnumConverterFactory implements ConverterFactory<String, Seri
     }
 
     /**
-     * <p>Company: 成都返空汇网络技术有限公司 </p>
-     * <p>Description: enum 的具体转换逻辑实现 </p>
-     *
-     * @param <T> parameter
-     * @author dong4j
-     * @version 1.2.3
-     * @email "mailto:dongshijie@fkhwl.com"
-     * @date 2020.01.03 13:01
+     * enum 的具体转换逻辑实现1
      */
     private static class GlobalEnumConverter<T extends SerializeEnum<?>> implements Converter<String, T> {
         /** 枚举的 {@link SerializeEnum#getValue()} 与 枚举的映射关系 */

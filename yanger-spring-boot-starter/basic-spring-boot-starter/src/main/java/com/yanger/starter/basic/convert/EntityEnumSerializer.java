@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.yanger.starter.basic.enums.SerializeEnum;
 
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.CollectionUtils;
 

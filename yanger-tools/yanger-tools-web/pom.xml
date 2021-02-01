@@ -64,13 +64,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!-- swaggerAPI文档支持 -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- swagger2API文档支持 -->
     </dependencies>
 
 </project>

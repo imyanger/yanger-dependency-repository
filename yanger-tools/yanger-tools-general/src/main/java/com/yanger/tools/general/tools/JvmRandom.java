@@ -14,7 +14,6 @@ import java.util.Random;
  */
 public final class JvmRandom extends Random {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = 1L;
 
     /** SHARED_RANDOM */

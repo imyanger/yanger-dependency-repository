@@ -3,6 +3,7 @@ package com.yanger.tools.general.tools;
 import com.yanger.tools.general.constant.CharPool;
 import com.yanger.tools.general.constant.StringPool;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -793,6 +794,33 @@ public class StringTools extends StringUtils {
      */
     public static String subAfter(CharSequence string, CharSequence separator) {
         return subAfter(string, separator, false);
+    }
+
+    /**
+     * 对象组中是否存在 Empty Object
+     *
+     * @param os 对象组
+     * @return boolean boolean
+     */
+    public static boolean hasEmpty(@NotNull Object... os) {
+        for (Object o : os) {
+            if (ObjectUtils.isEmpty(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 转换为String数组<br>
+     * @param str   被转换的值
+     * @return 结果 string [ ]
+     */
+    public static String[] toStrArray(String split, String str) {
+        if (StringUtils.isBlank(str)) {
+            return new String[0];
+        }
+        return str.split(",");
     }
 
 }

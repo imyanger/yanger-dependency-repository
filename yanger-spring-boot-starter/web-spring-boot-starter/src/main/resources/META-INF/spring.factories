@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.yanger.starter.web.config.TokenConfig,\
   com.yanger.starter.web.config.SwaggerConfiguration,\
   com.yanger.starter.web.config.WebMvcConfiguration,\
   com.yanger.starter.web.handler.GlobalExceptionHandler,\

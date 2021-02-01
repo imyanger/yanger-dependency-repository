@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
-import com.baomidou.mybatisplus.core.toolkit.sql.SqlUtils;
 import com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler;
 import com.baomidou.mybatisplus.extension.plugins.IllegalSQLInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
@@ -12,8 +11,14 @@ import com.baomidou.mybatisplus.extension.plugins.SqlExplainInterceptor;
 import com.yanger.starter.basic.boost.YangerAutoConfiguration;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.enums.LibraryEnum;
+import com.yanger.starter.mybatis.handler.GeneralEnumTypeHandler;
+import com.yanger.starter.mybatis.handler.SerializableIdTypeHandler;
+import com.yanger.starter.mybatis.handler.TimeMetaHandler;
 import com.yanger.starter.mybatis.injector.MybatisSqlInjector;
 import com.yanger.starter.mybatis.plugins.PerformanceInterceptor;
+import com.yanger.starter.mybatis.plugins.SensitiveFieldDecryptInterceptor;
+import com.yanger.starter.mybatis.plugins.SensitiveFieldEncryptInterceptor;
+import com.yanger.starter.mybatis.utils.SqlUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -110,32 +115,30 @@ public class MybatisAutoConfiguration implements YangerAutoConfiguration {
     }
 
     /**
-     * Sensitive field decrypt intercepter
+     * 敏感字符加密
      *
      * @param mybatisProperties mybatis properties
      * @return the sensitive field decrypt intercepter
-     * @since 1.5.0
      */
     @Bean
-    @ConditionalOnMissingBean(SensitiveFieldDecryptIntercepter.class)
-    @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.MYBATIS_ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
-    public SensitiveFieldDecryptIntercepter sensitiveFieldDecryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
-        return new SensitiveFieldDecryptIntercepter(mybatisProperties.getSensitiveKey());
+    @ConditionalOnMissingBean(SensitiveFieldDecryptInterceptor.class)
+    @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
+    public SensitiveFieldDecryptInterceptor sensitiveFieldDecryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
+        return new SensitiveFieldDecryptInterceptor(mybatisProperties.getSensitiveKey());
     }
 
     /**
-     * Sensitive field encrypt intercepter
+     * 敏感字符解密
      *
      * @param mybatisProperties mybatis properties
      * @return the sensitive field encrypt intercepter
-     * @since 1.5.0
      */
     @Bean
-    @ConditionalOnMissingBean(SensitiveFieldEncryptIntercepter.class)
-    @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.MYBATIS_ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
-    public SensitiveFieldEncryptIntercepter sensitiveFieldEncryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
+    @ConditionalOnMissingBean(SensitiveFieldEncryptInterceptor.class)
+    @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
+    public SensitiveFieldEncryptInterceptor sensitiveFieldEncryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
         SqlUtils.setSensitiveKey(mybatisProperties.getSensitiveKey());
-        return new SensitiveFieldEncryptIntercepter(mybatisProperties.getSensitiveKey());
+        return new SensitiveFieldEncryptInterceptor(mybatisProperties.getSensitiveKey());
     }
 
     /**

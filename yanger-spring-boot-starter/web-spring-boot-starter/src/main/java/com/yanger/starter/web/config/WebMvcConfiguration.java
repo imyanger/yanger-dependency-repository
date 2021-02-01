@@ -67,7 +67,7 @@ import lombok.extern.slf4j.Slf4j;
 @AutoConfigureAfter(JacksonConfiguration.class)
 @EnableConfigurationProperties(value = {ServerProperties.class, XssProperties.class})
 public class WebMvcConfiguration implements WebMvcConfigurer {
-    
+
     @Resource
     private Environment environment;
 
@@ -99,11 +99,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/");
+            .addResourceLocations("classpath:/static/");
         registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
+            .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+            .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     /**
@@ -169,7 +169,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      * 如果是 @RequestBody 中的字段, 将使用 {@link MappingApiJackson2HttpMessageConverter} 使用 jackson 进行转换
      *
      * @param registry the registry
-
      */
     @Override
     public void addFormatters(@NotNull FormatterRegistry registry) {
@@ -200,7 +199,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     /**
      * 自定义枚举序列化与反序列化方式
-     *
      */
     private void config() {
         log.debug("加载枚举自定义序列化/反序列化处理器: [{}] [{}]", EntityEnumSerializer.class, EntityEnumDeserializer.class);

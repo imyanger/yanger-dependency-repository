@@ -17,7 +17,7 @@ public class WxMaProperties {
 
     /**
      * 微信授权信息配置，集合形式
-     *
+     * <p>
      * appSign：应用标识（当前服务唯一）
      * appid：设置微信小程序的appid
      * secret：设置微信小程序的Secret

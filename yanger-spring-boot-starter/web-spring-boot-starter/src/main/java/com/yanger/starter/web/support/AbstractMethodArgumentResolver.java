@@ -54,7 +54,8 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
      * @param globalEnumConverterFactory global enum converter factory
      */
     @Contract(pure = true)
-    public AbstractMethodArgumentResolver(ObjectMapper objectMapper, ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
+    public AbstractMethodArgumentResolver(ObjectMapper objectMapper,
+                                          ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
         this.objectMapper = objectMapper;
         this.globalEnumConverterFactory = globalEnumConverterFactory;
     }

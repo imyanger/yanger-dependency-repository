@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BasicException extends RuntimeException {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = 3076052230646484392L;
 
     /** Code */

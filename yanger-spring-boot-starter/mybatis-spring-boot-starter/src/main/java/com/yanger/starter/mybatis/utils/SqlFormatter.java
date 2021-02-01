@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * @Author yanger
  * @Date 2021/1/28 18:42
  */
-@SuppressWarnings({"PMD.UndefineMagicConstantRule"})
+@SuppressWarnings( {"PMD.UndefineMagicConstantRule"})
 public class SqlFormatter {
 
     /** WHITESPACE */

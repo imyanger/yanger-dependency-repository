@@ -7,11 +7,11 @@
         <groupId>com.yanger</groupId>
         <artifactId>yanger-dependencies</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath/>
+        <relativePath>../../yanger-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>${yanger-spring-boot.version}</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <name>spring-boot-starter-parent</name>

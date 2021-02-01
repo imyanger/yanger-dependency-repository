@@ -3,9 +3,9 @@ package com.yanger.starter.web.support;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yanger.starter.basic.enums.SerializeEnum;
+import com.yanger.starter.basic.util.DataTypeUtils;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.RequestSingleParam;
-import com.yanger.starter.web.util.DataTypeUtils;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.ObjectUtils;
 
@@ -21,13 +21,13 @@ import lombok.SneakyThrows;
 
 /**
  * @Description 处理 @RequestSingleParam
- * 1. 只支持 POST/PUT json 格式的数据解析
- * 2. 可解析多个字段, 前提是 request 允许多次读取
+ *     1. 只支持 POST/PUT json 格式的数据解析
+ *     2. 可解析多个字段, 前提是 request 允许多次读取
  * @Author yanger
  * @Date 2021/1/27 18:03
  */
 public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMethodArgumentResolver<RequestSingleParam> {
-    
+
     /**
      * Request single param handler method argument resolver
      *
@@ -35,7 +35,8 @@ public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMet
      * @param globalEnumConverterFactory global enum converter factory
      */
     @Contract(pure = true)
-    public RequestSingleParamHandlerMethodArgumentResolver(ObjectMapper objectMapper, ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
+    public RequestSingleParamHandlerMethodArgumentResolver(ObjectMapper objectMapper,
+                                                           ConverterFactory<String, SerializeEnum<?>> globalEnumConverterFactory) {
         super(objectMapper, globalEnumConverterFactory);
     }
 

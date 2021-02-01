@@ -33,41 +33,6 @@ public class NetUtils extends INetUtils {
     public static final int MAX_PORT_NUMBER = INetUtils.MAX_PORT;
 
     /**
-     * Gets local ip addr.
-     *
-     * @return the local ip addr
-     * @deprecated use {@link NetUtils#getLocalHost()}
-     */
-    @Nullable
-    @Deprecated
-    public static String getLocalIpAddr() {
-        return getLocalHost();
-    }
-
-    /**
-     * 获取 服务器 hostname
-     *
-     * @return hostname host name
-     * @deprecated use {@link INetUtils#getLocalAddress()}
-     */
-    @Deprecated
-    public static String getHostName() {
-        return getLocalAddress().getHostName();
-    }
-
-    /**
-     * 尝试端口时候被占用
-     *
-     * @param port 端口号
-     * @return boolean 没有被占用: true, 被占用: false
-     * @deprecated use {@link NetUtils#available(int)}
-     */
-    @Deprecated
-    public static boolean tryPort(int port) {
-        return available(port);
-    }
-
-    /**
      * 检查本机 TCP/UDP 端口是否可用, 可用返回 true, 否则返回 false
      *
      * @param port port

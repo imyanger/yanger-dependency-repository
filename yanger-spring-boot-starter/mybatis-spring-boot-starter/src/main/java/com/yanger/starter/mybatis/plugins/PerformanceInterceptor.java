@@ -54,19 +54,19 @@ public class PerformanceInterceptor implements Interceptor {
 
     /** LOGGER */
     private static final Log LOGGER = LogFactory.getLog(PerformanceInterceptor.class);
-    
+
     /** DRUID_POOLED_PREPARED_STATEMENT */
     private static final String DRUID_POOLED_PREPARED_STATEMENT = "com.alibaba.druid.pool.DRUID_POOLED_PREPARED_STATEMENT";
-    
+
     /** T4C_PREPARED_STATEMENT */
     private static final String T4C_PREPARED_STATEMENT = "oracle.jdbc.driver.T4C_PREPARED_STATEMENT";
-    
+
     /** ORACLE_PREPARED_STATEMENT_WRAPPER */
     private static final String ORACLE_PREPARED_STATEMENT_WRAPPER = "oracle.jdbc.driver.ORACLE_PREPARED_STATEMENT_WRAPPER";
-    
+
     /** DELEGATE */
     private static final String DELEGATE = "delegate";
-    
+
     /**
      * SQL 执行最大时长,超过自动停止运行,有助于发现问题.
      */
@@ -74,7 +74,7 @@ public class PerformanceInterceptor implements Interceptor {
     @Getter
     @Accessors(chain = true)
     private long maxTime = 0;
-    
+
     /**
      * SQL 是否格式化
      */
@@ -82,7 +82,7 @@ public class PerformanceInterceptor implements Interceptor {
     @Getter
     @Accessors(chain = true)
     private boolean format = false;
-    
+
     /**
      * 是否写入日志文件
      * <p>true 写入日志文件,不阻断程序执行! </p>
@@ -92,10 +92,10 @@ public class PerformanceInterceptor implements Interceptor {
     @Getter
     @Accessors(chain = true)
     private boolean writeInLog = false;
-    
+
     /** Oracle get original sql method */
     private Method oracleGetOriginalSqlMethod;
-    
+
     /** Druid get sql method */
     private Method druidGetSqlMethod;
 

@@ -50,17 +50,18 @@ public class IndexApi extends BaseApi {
     }
 
     /**
+     * @throws
      * @Description 微信小程序授权登录
      * @Author yanger
      * @Date 2021/1/14 17:23
      * @param: wxLoginData
      * @return: com.yanger.notepad.po.NoteUser
-     * @throws
      */
     @PostMapping("wxMiniLogin")
     public void wxLogin(@RequestBody WxLoginData wxLoginData) {
         try {
-            WxMaProperties.Config config = wxMaProperties.getConfigs().stream().filter(s -> StringUtils.equals(s.getAppSign(), wxLoginData.getAppSign())).findAny().orElse(null);
+            WxMaProperties.Config config = wxMaProperties.getConfigs().stream().filter(s -> StringUtils.equals(s.getAppSign(),
+                                                                                                               wxLoginData.getAppSign())).findAny().orElse(null);
             if (config == null) {
                 throw new BasicException("无法获取 appSign【{}】 对应的授权配置信息", wxLoginData.getAppSign());
             }
@@ -74,12 +75,12 @@ public class IndexApi extends BaseApi {
     }
 
     /**
+     * @throws
      * @Description 微信登录
      * @Author yanger
      * @Date 2021/1/14 17:22
      * @param: wxLoginData
      * @return: com.yanger.notepad.po.NoteUser
-     * @throws
      */
     @PostMapping("wxAppLogin")
     public void wxAppLogin(@RequestBody WxLoginData wxLoginData) {
@@ -88,11 +89,11 @@ public class IndexApi extends BaseApi {
     }
 
     /**
+     * @throws
      * @Description 设置 Token
      * @Author yanger
      * @Date 2021/1/27 15:23
      * @param: authUser
-     * @throws
      */
     private void setToken(AuthUser authUser) {
         response.setHeader(tokenConfig.getHeaderKey(), JwtUtils.sign(authUser, tokenConfig.getAvailableTimeMinute()));

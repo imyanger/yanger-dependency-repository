@@ -8,11 +8,11 @@
         <groupId>com.yanger</groupId>
         <artifactId>yanger-dependencies</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath/>
+        <relativePath>../yanger-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>tools</artifactId>
-    <version>${yanger-tools.version}</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <name>yanger-tools</name>

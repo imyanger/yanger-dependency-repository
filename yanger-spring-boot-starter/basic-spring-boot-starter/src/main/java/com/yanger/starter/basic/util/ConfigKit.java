@@ -90,6 +90,33 @@ public class ConfigKit {
     }
 
     /**
+     * Gets int value.
+     *
+     * @param key          the key
+     * @param defaultValue the default value
+     * @return the int value
+     */
+    public static long getLongValue(String key, long defaultValue) {
+        long i = getLongValue(key);
+        return i == 0L ? defaultValue : i;
+    }
+
+    /**
+     * Gets int value.
+     *
+     * @param key the key
+     * @return the int value
+     */
+    public static long getLongValue(String key) {
+        Object value = getProperty(key);
+        if (value == null) {
+            return 0L;
+        } else {
+            return DataTypeUtils.convert(long.class, value);
+        }
+    }
+
+    /**
      * Get app name string.
      *
      * @return the string

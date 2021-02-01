@@ -17,24 +17,24 @@ import javax.servlet.http.HttpServletRequest;
 public interface LoginService {
 
     /**
+     * @throws
      * @Description 处理登录逻辑
      * @Author yanger
      * @Date 2021/1/27 15:50
      * @param: loginData
      * @param: request
      * @return: com.yanger.starter.web.entity.AuthUser
-     * @throws
      */
     AuthUser login(LoginData loginData, HttpServletRequest request);
 
     /**
+     * @throws
      * @Description 处理微信登录的逻辑
      * @Author yanger
      * @Date 2021/1/27 15:51
      * @param: wxLoginData
      * @param: request
      * @return: com.yanger.starter.web.entity.AuthUser
-     * @throws
      */
     AuthUser wxLogin(WxLoginData wxLoginData, HttpServletRequest request);
 

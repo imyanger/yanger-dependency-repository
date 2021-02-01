@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.ContextualDeserializer;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
-
 import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.tools.web.exception.BasicException;
 

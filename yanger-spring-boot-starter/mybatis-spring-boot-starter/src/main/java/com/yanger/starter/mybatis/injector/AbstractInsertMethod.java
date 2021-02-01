@@ -38,8 +38,10 @@ public class AbstractInsertMethod extends AbstractMethod {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, @NotNull TableInfo tableInfo) {
         KeyGenerator keyGenerator = new NoKeyGenerator();
-        String columnScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlColumnMaybeIf(), LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
-        String valuesScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlPropertyMaybeIf(null), LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
+        String columnScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlColumnMaybeIf(), LEFT_BRACKET, RIGHT_BRACKET, null,
+                                                         COMMA);
+        String valuesScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlPropertyMaybeIf(null), LEFT_BRACKET, RIGHT_BRACKET,
+                                                         null, COMMA);
         String keyProperty = null;
         String keyColumn = null;
         // 表包含主键处理逻辑,如果不包含主键当普通字段处理
@@ -59,7 +61,8 @@ public class AbstractInsertMethod extends AbstractMethod {
         }
         String sql = String.format(this.sqlMethod.getSql(), tableInfo.getTableName(), columnScript, valuesScript);
         SqlSource sqlSource = this.languageDriver.createSqlSource(this.configuration, sql, modelClass);
-        return this.addInsertMappedStatement(mapperClass, modelClass, this.sqlMethod.getMethod(), sqlSource, keyGenerator, keyProperty, keyColumn);
+        return this.addInsertMappedStatement(mapperClass, modelClass, this.sqlMethod.getMethod(), sqlSource, keyGenerator, keyProperty,
+                                             keyColumn);
     }
 
 }

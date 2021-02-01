@@ -22,13 +22,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
+     * @throws
      * @Description 判断支持的类型
      * @Author yanger
      * @Date 2021/1/25 18:31
      * @param: methodParameter
      * @param: aClass
      * @return: boolean
-     * @throws
      */
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
@@ -36,18 +36,20 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreReponseAdvice.class)) {
             return false;
         }
-       if (methodParameter.getMethod().isAnnotationPresent(IgnoreReponseAdvice.class)) {
+        if (methodParameter.getMethod().isAnnotationPresent(IgnoreReponseAdvice.class)) {
             return false;
-       }
-       // swagger请求不处理
-       if (methodParameter.getMethod().getReturnType().equals(org.springframework.http.ResponseEntity.class)) {
-           return false;
-       }
+        }
+        // swagger请求不处理
+        if (methodParameter.getMethod().getReturnType().equals(org.springframework.http.ResponseEntity.class)) {
+            return false;
+        }
         return true;
     }
 
     @Override
-    public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+    public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType,
+                                  Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest,
+                                  ServerHttpResponse serverHttpResponse) {
         // 判断为null构建ApiResponse对象进行返回
         if (o == null) {
             return R.succeed();

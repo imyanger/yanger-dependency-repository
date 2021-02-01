@@ -7,14 +7,14 @@
         <groupId>com.yanger</groupId>
         <artifactId>yanger-dependencies</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath/>
+        <relativePath>../yanger-dependencies/pom.xml</relativePath>
     </parent>
 
 	<artifactId>code-generator</artifactId>
 	<packaging>jar</packaging>
 
 	<name>yanger-code-generator</name>
-    <version>${code-generator.version}</version>
+    <version>1.0.0.RELEASE</version>
 	<description>yanger code generator project</description>
 
     <developers>
