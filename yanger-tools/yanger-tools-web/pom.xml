@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
 
     <name>yanger-tools-web</name>
-    <description>web tools project</description>
+    <description>yanger web tools project</description>
 
     <developers>
         <developer>
@@ -28,15 +28,6 @@
     <scm>
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
-
-    <properties>
-        <!--依赖jar版本-->
-        <spring.version>5.2.7.RELEASE</spring.version>
-        <jwt.version>2.2.0</jwt.version>
-        <validation-api.version>1.1.0.Final</validation-api.version>
-        <servlet-api.version>4.0.1</servlet-api.version>
-        <swagger.version>3.0.0</swagger.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -112,6 +103,12 @@
                     <groupId>com.fasterxml.jackson.core</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- 验证码 -->
+        <dependency>
+            <groupId>com.google.code.kaptcha</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>${kaptcha.version}</version>
         </dependency>
     </dependencies>
 

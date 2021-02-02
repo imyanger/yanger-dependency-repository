@@ -9,12 +9,16 @@ import com.yanger.starter.web.wx.agent.WxAgent;
 import com.yanger.starter.web.wx.config.WxMaProperties;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.JwtUtils;
+import com.yanger.tools.web.tools.KaptchaGenerator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
@@ -90,6 +94,46 @@ public class IndexApi extends BaseApi {
     public void wxAppLogin(@RequestBody WxLoginData wxLoginData) {
         AuthUser authUser = loginService.wxLogin(wxLoginData, request);
         setToken(authUser);
+    }
+
+    /**
+     * @Description 获取验证码
+     * @Author yanger
+     * @Date 2021/2/2 18:12
+     * @return: com.yanger.tools.web.entity.Result<java.lang.String>
+     * @throws
+     */
+    @GetMapping("randomCode")
+    @ApiOperation(value = "获取验证码", notes = "获取验证码")
+    public String randomCode() {
+        Optional<KaptchaGenerator.KaptchaData> optional = new KaptchaGenerator().create();
+        if (!optional.isPresent()) {
+            throw new BasicException("生成验证码异常");
+        }
+        KaptchaGenerator.KaptchaData kaptchaData = optional.get();
+        request.getSession().setAttribute(tokenConfig.getTokenRandomCode(), kaptchaData.getCapVal());
+        loginService.randomCodeAfter(kaptchaData);
+        return kaptchaData.getBase64Img();
+    }
+
+    /**
+     * @Description 获取计算型验证码
+     * @Author yanger
+     * @Date 2021/2/2 18:12
+     * @return: com.yanger.tools.web.entity.Result<java.lang.String>
+     * @throws
+     */
+    @GetMapping("randomCode/cal")
+    @ApiOperation(value = "获取计算型验证码", notes = "获取计算型验证码")
+    public String randomCodeCal() {
+        Optional<KaptchaGenerator.KaptchaData> optional = new KaptchaGenerator().createCal();
+        if (!optional.isPresent()) {
+            throw new BasicException("生成验证码异常");
+        }
+        KaptchaGenerator.KaptchaData kaptchaData = optional.get();
+        request.getSession().setAttribute(tokenConfig.getTokenRandomCode(), kaptchaData.getCapVal());
+        loginService.randomCodeAfter(kaptchaData);
+        return kaptchaData.getBase64Img();
     }
 
     /**

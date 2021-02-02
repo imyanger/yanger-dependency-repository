@@ -3,13 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yanger</groupId>
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>yanger-dependencies</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../yanger-dependencies/pom.xml</relativePath>
+    </parent>
+
     <artifactId>code-generator</artifactId>
     <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>yanger-code-generator</name>
-    <description>code generator project</description>
+    <description>yanger code generator project</description>
 
     <developers>
         <developer>
@@ -25,12 +31,6 @@
     </scm>
 
     <properties>
-        <!-- 指定编码 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- 指定jdk版本 -->
-        <java.version>1.8</java.version>
-        <!--依赖jar版本-->
         <commons-lang3.version>3.10</commons-lang3.version>
         <commons-io.version>2.6</commons-io.version>
         <lombok.version>1.18.12</lombok.version>
@@ -76,7 +76,6 @@
             <version>${spring-beans.version}</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <!--解决idea打包没有xml-->

@@ -1,16 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.yanger</groupId>
         <artifactId>yanger-dependencies</artifactId>
         <version>1.0.0.RELEASE</version>
+        <relativePath>../../yanger-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>${yanger-spring-boot.version}</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <name>spring-boot-starter-parent</name>
@@ -37,21 +39,16 @@
     <dependencies>
         <dependency>
             <groupId>com.yanger</groupId>
-            <artifactId>tools-general</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.yanger</groupId>
             <artifactId>tools-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

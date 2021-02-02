@@ -5,7 +5,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yanger</groupId>
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>yanger-dependencies</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../yanger-dependencies/pom.xml</relativePath>
+    </parent>
+
     <artifactId>tools</artifactId>
     <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
@@ -41,6 +47,15 @@
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <logback.version>1.2.3</logback.version>
         <lombok.version>1.18.16</lombok.version>
+        <reflections.version>0.9.12</reflections.version>
+        <jackson.version>2.11.0</jackson.version>
+        <alibaba-thread-local.version>2.11.5</alibaba-thread-local.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
+        <jwt.version>2.2.0</jwt.version>
+        <validation-api.version>1.1.0.Final</validation-api.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+        <swagger.version>3.0.0</swagger.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
     </properties>
 
     <dependencyManagement>

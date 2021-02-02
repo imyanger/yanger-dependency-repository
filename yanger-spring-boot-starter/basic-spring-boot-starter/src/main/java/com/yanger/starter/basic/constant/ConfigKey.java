@@ -84,6 +84,17 @@ public final class ConfigKey {
         /** request 中用户信息的属性 key */
         public static final String TOKEN_USER_KEY = "yanger.token.login-user";
 
+        /** session 中验证码的key值 */
+        public static final String TOKEN_RANDOM_CODE = "yanger.token.random.code";
+
+    }
+
+    /** 微信授权配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/wx/config/WxMaProperties.java */
+    public static class WeiXinConfigKey {
+
+        /** 微信授权信息配置，集合形式 */
+        public static final String WX_MINIAPP_CONFIGS = "yanger.wx.miniapp.configs";
+
     }
 
     /** mybatis配置项 mybatis-spring-boot-starter/src/main/java/com/yanger/starter/mybatis/config/MybatisProperties.java */

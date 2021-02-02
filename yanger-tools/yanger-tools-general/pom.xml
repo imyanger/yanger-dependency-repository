@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
 
     <name>yanger-tools-general</name>
-    <description>general tools project</description>
+    <description>yanger general tools project</description>
 
     <developers>
         <developer>
@@ -28,12 +28,6 @@
     <scm>
         <url>https://github.com/imyanger/yanger-dependency-repository</url>
     </scm>
-
-    <properties>
-        <reflections.version>0.9.12</reflections.version>
-        <jackson.version>2.11.0</jackson.version>
-        <alibaba-thread-local.version>2.11.5</alibaba-thread-local.version>
-    </properties>
 
     <dependencies>
         <dependency>

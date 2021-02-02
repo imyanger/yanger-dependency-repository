@@ -38,6 +38,9 @@ public class ConfigDefaultValue {
         /** request 中用户信息的属性 key */
         public static final String TOKEN_USER_KEY = "yanger-spring-boot-starter-login-user";
 
+        /** session 中验证码的key值 */
+        public static final String TOKEN_RANDOM_CODE = "yanger-spring-boot-token-random-code";
+
     }
 
 }

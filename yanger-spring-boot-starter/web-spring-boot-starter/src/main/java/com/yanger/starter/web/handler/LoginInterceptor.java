@@ -1,6 +1,7 @@
 package com.yanger.starter.web.handler;
 
 import com.alibaba.fastjson.JSON;
+import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
 import com.yanger.starter.web.annotation.LoginAuth;
 import com.yanger.starter.web.config.TokenConfig;
@@ -107,7 +108,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     private void returnJsonMsg(HttpServletResponse response, Object msg) throws IOException {
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = response.getWriter();
-        writer.println(JSON.toJSON(msg));
+        writer.println(JsonUtils.toJson(msg));
         writer.close();
         response.flushBuffer();
     }

@@ -32,4 +32,7 @@ public class TokenConfig {
     /** request 中用户信息的属性 key */
     private String userKey = ConfigDefaultValue.TokenConfigValue.TOKEN_USER_KEY;
 
+    /** request session 中验证码的key值 */
+    private String tokenRandomCode = ConfigDefaultValue.TokenConfigValue.TOKEN_RANDOM_CODE;
+
 }

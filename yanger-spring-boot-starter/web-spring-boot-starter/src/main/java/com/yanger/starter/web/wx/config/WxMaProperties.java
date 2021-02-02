@@ -12,7 +12,7 @@ import lombok.Data;
  * @Date 2021/1/11 17:58
  */
 @Data
-@ConfigurationProperties(prefix = "wx.miniapp")
+@ConfigurationProperties(prefix = "yanger.wx.miniapp")
 public class WxMaProperties {
 
     /**

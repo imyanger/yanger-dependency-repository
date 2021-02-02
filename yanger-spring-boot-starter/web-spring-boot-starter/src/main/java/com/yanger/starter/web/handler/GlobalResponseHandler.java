@@ -1,6 +1,7 @@
 package com.yanger.starter.web.handler;
 
 import com.alibaba.fastjson.JSON;
+import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.IgnoreReponseAdvice;
 import com.yanger.tools.web.entity.R;
 import com.yanger.tools.web.entity.Result;
@@ -60,7 +61,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         }
         // String特殊处理，否则会抛异常
         if (o instanceof String) {
-            return JSON.toJSON(R.succeed(o)).toString();
+            return JsonUtils.toJson(R.succeed(o)).toString();
         }
         return R.succeed(o);
     }
