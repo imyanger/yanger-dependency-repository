@@ -20,6 +20,9 @@ public class DefaultEnvironment extends StandardEnvironment {
     /** DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME */
     public static final String DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME = "defaultProperties";
 
+    /** CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME */
+    public static final String CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME = "customProperties";
+
     /** Property source */
     private Map<String, Object> mapProperties;
 

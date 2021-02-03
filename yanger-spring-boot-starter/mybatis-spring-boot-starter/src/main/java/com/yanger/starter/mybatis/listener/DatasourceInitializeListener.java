@@ -2,6 +2,7 @@ package com.yanger.starter.mybatis.listener;
 
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.constant.FullyQualifiedName;
+import com.yanger.starter.basic.listen.YangerApplicationListener;
 import com.yanger.tools.general.constant.StringPool;
 
 import org.apache.commons.lang3.StringUtils;

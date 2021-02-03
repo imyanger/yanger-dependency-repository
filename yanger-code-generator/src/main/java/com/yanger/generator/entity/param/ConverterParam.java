@@ -1,12 +1,13 @@
 package com.yanger.generator.entity.param;
 
 import com.yanger.generator.enums.ConverterType;
+
+import java.io.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 /**
  * @Description 转换信息

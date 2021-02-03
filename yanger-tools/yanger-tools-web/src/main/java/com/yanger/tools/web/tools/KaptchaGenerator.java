@@ -151,7 +151,6 @@ public class KaptchaGenerator {
     @ToString(callSuper = true)
     public static class KaptchaData implements Serializable {
 
-        /** serialVersionUID */
         private static final long serialVersionUID = 1L;
 
         /** 验证码字符 */

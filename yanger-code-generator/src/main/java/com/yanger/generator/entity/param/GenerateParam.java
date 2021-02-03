@@ -1,6 +1,7 @@
 package com.yanger.generator.entity.param;
 
 import com.yanger.generator.enums.PageType;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

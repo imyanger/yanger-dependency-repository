@@ -3,13 +3,14 @@ package com.yanger.generator.util;
 import com.yanger.generator.entity.config.DataSourceConfig;
 import com.yanger.generator.entity.sql.TableInfo;
 import com.yanger.generator.enums.CodeNameCase;
-import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Description 数据库解析工具

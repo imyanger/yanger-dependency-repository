@@ -4,7 +4,15 @@ import com.yanger.generator.entity.config.ApiConfig;
 import com.yanger.generator.entity.config.DaoConfig;
 import com.yanger.generator.entity.config.GeneratorConfig;
 import com.yanger.generator.entity.config.ServiceConfig;
-import com.yanger.generator.entity.param.*;
+import com.yanger.generator.entity.param.ApiConverterParam;
+import com.yanger.generator.entity.param.ApiParam;
+import com.yanger.generator.entity.param.ConverterParam;
+import com.yanger.generator.entity.param.DaoParam;
+import com.yanger.generator.entity.param.EntityParam;
+import com.yanger.generator.entity.param.GenerateParam;
+import com.yanger.generator.entity.param.ServiceConverterParam;
+import com.yanger.generator.entity.param.ServiceParam;
+import com.yanger.generator.entity.param.UtilsParam;
 import com.yanger.generator.entity.sql.ColumnInfo;
 import com.yanger.generator.entity.sql.TableInfo;
 import com.yanger.generator.enums.ConverterType;
@@ -12,7 +20,13 @@ import com.yanger.generator.enums.DaoUtilType;
 import com.yanger.generator.enums.ModelType;
 import com.yanger.generator.enums.PageType;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**

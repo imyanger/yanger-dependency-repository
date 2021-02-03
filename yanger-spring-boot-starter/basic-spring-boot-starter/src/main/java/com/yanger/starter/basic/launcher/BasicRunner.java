@@ -8,6 +8,7 @@ import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.enums.ApplicationType;
 import com.yanger.starter.basic.enums.SpringApplicationType;
 import com.yanger.starter.basic.env.DefaultEnvironment;
+import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.starter.basic.util.ConvertUtils;
 import com.yanger.starter.basic.util.JsonUtils;
@@ -47,7 +48,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public final class BasicRunner {
 
-    private static final Properties APP_PROPERTIES = new Properties();
+    private static final Properties DEFAULT_PROPERTIES = new Properties();
+
+    private static final Properties CUSTOM_PROPERTIES = new Properties();
 
     /**
      * 应用名处理, 如果未显式设置则使用启动目录名作为应用名
@@ -59,16 +62,17 @@ public final class BasicRunner {
      * @throws Exception exception
      */
     public static ConfigurableApplicationContext start(Class<?> source, ApplicationType applicationType, String... args) throws Exception {
-        // 加载 args 参数
-        loadArgsProperties(args);
         // 获取应用名称
         loadApplicationName();
-        // 加载yaml 文件
+        // 加载 args 参数
+        loadArgsProperties(args);
+        // 加载 yaml 文件配置
         loadYamlProperties();
-        // 添加到环境变量中
-        putProperties();
-        // 没有设置 application name 时, 使用默认应用名
-        return start(System.getProperty(ConfigKey.APPLICATION_NAME), source, applicationType, args);
+        // 设置 BasicApplication 启动标识
+        App.applicationStarterFlag = ConfigDefaultValue.APPLICATION_STARTER_FLAG;
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
+        // 启动应用
+        return start(App.applicationName, source, applicationType, args);
     }
 
     /**
@@ -82,10 +86,10 @@ public final class BasicRunner {
         for (String arg : args) {
             if (arg.startsWith("--") && arg.contains("=")) {
                 String[] keyValue = arg.replace("--", "").split("=");
-                System.setProperty(keyValue[0].trim(), keyValue[1].trim());
+                CUSTOM_PROPERTIES.setProperty(keyValue[0].trim(), keyValue[1].trim());
             } else if (arg.startsWith("-") && arg.contains("=")) {
                 String[] keyValue = arg.replace("-", "").split("=");
-                System.setProperty(keyValue[0].trim(), keyValue[1].trim());
+                CUSTOM_PROPERTIES.setProperty(keyValue[0].trim(), keyValue[1].trim());
             }
         }
     }
@@ -139,7 +143,7 @@ public final class BasicRunner {
                 File file = new File(configFilePath);
                 // 直接解析文件目录, 使用当前目录名作为应用名 (target 上一级目录)
                 applicationName = file.getParentFile().getParentFile().getName();
-                log.warn("未显式设置 application name, 读取当前模块名作为应用名: [{}]", applicationName);
+                log.warn("未显式设置服务名 spring.application.name, 读取当前模块名作为服务名： [{}]", applicationName);
             }
         }
         // 环境变量是最高级别
@@ -151,6 +155,12 @@ public final class BasicRunner {
         }
     }
 
+    /**
+     * @Description 加载 yaml 文件配置
+     * @Author yanger
+     * @Date 2021/2/3 15:47
+     * @throws
+     */
     private static void loadYamlProperties() {
         try {
             SpringApplicationType type = SpringApplicationType.deduceFromClasspath();
@@ -160,34 +170,34 @@ public final class BasicRunner {
             } else if (type == SpringApplicationType.CLOUD) {
                 bootProperties = YmlUtils.getYamlProperties(App.Const.BOOT_CONFIG_FILE_NAME);
                 Map<String, Object> cloudProperties = YmlUtils.getYamlProperties(App.Const.CLOUD_CONFIG_FILE_NAME);
-                loadMapProperties(cloudProperties);
+                loadMapCustomProperties(cloudProperties);
             }
-            loadMapProperties(bootProperties);
+            loadMapCustomProperties(bootProperties);
             if (bootProperties != null && bootProperties.get(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {
                 String activeName = StringFormatter.format(App.Const.BOOT_CONFIG_ACTIVE_FILE_NAME, bootProperties.get(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
                 Map<String, Object> activeProperties = YmlUtils.getYamlProperties(activeName);
-                loadMapProperties(activeProperties);
+                loadMapCustomProperties(activeProperties);
             }
         } catch (Exception ignore) {}
     }
 
-    private static void loadMapProperties(Map<String, Object> map) {
+    /**
+     * @Description 添加map属性到自定义配置
+     * @Author yanger
+     * @Date 2021/2/3 14:53
+     * @param: map
+     * @throws
+     */
+    private static void loadMapCustomProperties(Map<String, Object> map) {
         if (map != null && !map.isEmpty()) {
-            map.forEach((key, value) -> APP_PROPERTIES.put(key, value));
+            map.forEach((key, value) -> CUSTOM_PROPERTIES.put(key, value));
         }
     }
 
-    private static void putProperties() {
-        APP_PROPERTIES.setProperty(ConfigKey.APPLICATION_CLASS_NAME, App.applicationClassName);
-        APP_PROPERTIES.setProperty(ConfigKey.APPLICATION_NAME, App.applicationName);
-        APP_PROPERTIES.setProperty(ConfigKey.APPLICATION_TYPE, App.applicationType.toString());
-        APP_PROPERTIES.setProperty(ConfigKey.APPLICATION_START_TYPE, App.applicationStartType);
-        // 添加到环境变量中
-        APP_PROPERTIES.forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
-    }
+
 
     /**
-     * Create an application context
+     * 启动 Spring 应用程序
      * java -jar app.jar --spring.profiles.active=prod --server.port=2333
      *
      * @param appName         application name
@@ -198,11 +208,6 @@ public final class BasicRunner {
      * @throws Exception exception
      */
     public static ConfigurableApplicationContext start(String appName, Class<?> source, ApplicationType applicationType, String... args) throws Exception {
-        // 设置 BasicApplication 启动标识
-        App.applicationStarterFlag = ConfigDefaultValue.APPLICATION_STARTER_FLAG;
-        APP_PROPERTIES.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
-        System.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
-
         SpringApplicationBuilder builder = createSpringApplicationBuilder(appName, source, applicationType, args);
         builder.registerShutdownHook(true);
         return builder.run(args);
@@ -221,21 +226,9 @@ public final class BasicRunner {
     @NotNull
     private static SpringApplicationBuilder createSpringApplicationBuilder(String appName, Class<?> source,
                                                                            @NotNull ApplicationType applicationType, String... args) throws Exception {
-        Assert.hasText(appName, "[application.name] 服务名不能为空");
+        loadPropertySource(appName, args);
 
-        // 读取环境变量,使用 spring boot 的规则 (获取系统参数和 JVM 参数)
-        ConfigurableEnvironment environment = new DefaultEnvironment();
-        MutablePropertySources propertySources = environment.getPropertySources();
-        propertySources.addFirst(new SimpleCommandLinePropertySource(args));
-
-        // 加载自定义 SPI 组件
-        ServiceLoader<LauncherInitiation> loader = ServiceLoader.load(LauncherInitiation.class);
-
-        List<LauncherInitiation> list = IteratorUtils.toList(loader.iterator());
-        list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
-            .forEach(launcherService -> launcherService.launcherWrapper(environment, APP_PROPERTIES, appName));
-
-        log.info("应用类型: ApplicationType = {}", applicationType.name());
+        log.info("应用类型：ApplicationType = {}", applicationType.name());
 
         // 转换类型
         if (applicationType == ApplicationType.SERVICE) {
@@ -245,19 +238,35 @@ public final class BasicRunner {
         SpringApplicationBuilder builder = new SpringApplicationBuilder(source)
             .web(ConvertUtils.convert(applicationType.name(), org.springframework.boot.WebApplicationType.class))
             .main(source);
-
-        builder.properties(APP_PROPERTIES);
-
-        propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(APP_PROPERTIES)));
-
-        ConfigKit.init(environment);
-
-        if (APP_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {
-            log.info("当前 Spring 生效的环境变量：{}", APP_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
-        }
-        log.info("全部的默认配置：\n{}", JsonUtils.toJson(APP_PROPERTIES, true));
+        builder.properties(DEFAULT_PROPERTIES);
+        builder.properties(CUSTOM_PROPERTIES);
 
         return builder;
+    }
+
+    private static void loadPropertySource(String appName, String... args) {
+        Assert.hasText(appName, "[spring.application.name] 服务名不能为空");
+
+        // 读取环境变量,使用 spring boot 的规则 (获取系统参数和 JVM 参数)
+        ConfigurableEnvironment environment = new DefaultEnvironment();
+        MutablePropertySources propertySources = environment.getPropertySources();
+        propertySources.addFirst(new SimpleCommandLinePropertySource(args));
+
+        // 加载自定义 SPI 组件
+        ServiceLoader<LauncherInitiation> loader = ServiceLoader.load(LauncherInitiation.class);
+        List<LauncherInitiation> list = IteratorUtils.toList(loader.iterator());
+        list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
+            .forEach(launcherService -> launcherService.launcherWrapper(environment, DEFAULT_PROPERTIES, appName));
+
+        // 添加到环境变量中
+        putProperties();
+        // 打印输出配置
+        outProperties();
+
+        propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(DEFAULT_PROPERTIES)));
+        propertySources.addLast(new MapPropertySource(DefaultEnvironment.CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(CUSTOM_PROPERTIES)));
+
+        ConfigKit.init(environment);
     }
 
     /**
@@ -272,6 +281,31 @@ public final class BasicRunner {
             map.put((String) key, properties.get(key));
         }
         return map;
+    }
+
+
+    /**
+     * @Description 将配置属性添加到系统环境变量System中
+     * @Author yanger
+     * @Date 2021/2/3 14:57
+     * @throws
+     */
+    private static void putProperties() {
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_CLASS_NAME, App.applicationClassName);
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_NAME, App.applicationName);
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_TYPE, App.applicationType.toString());
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_START_TYPE, App.applicationStartType);
+        // 添加到环境变量中
+        DEFAULT_PROPERTIES.forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
+        CUSTOM_PROPERTIES.forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
+    }
+
+    private static void outProperties() {
+        log.info("全部的默认配置：\n{}", JsonUtils.toJson(DEFAULT_PROPERTIES, true));
+        if (CUSTOM_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {
+            log.info("当前 Spring 生效的环境变量：{}", CUSTOM_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
+        }
+        log.info("全部的自定义配置：\n{}", JsonUtils.toJson(CUSTOM_PROPERTIES, true));
     }
 
 }

@@ -2,11 +2,11 @@ package com.yanger.generator.entity.config;
 
 import com.yanger.generator.enums.TemplateType;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Data;
 
 /**
  * @Description 代码生成配置

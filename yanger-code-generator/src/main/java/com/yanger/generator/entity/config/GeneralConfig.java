@@ -1,8 +1,8 @@
 package com.yanger.generator.entity.config;
 
-import lombok.Data;
+import java.io.*;
 
-import java.io.Serializable;
+import lombok.Data;
 
 /**
  * @Description 代码生成通用配置

@@ -1,4 +1,4 @@
-package com.yanger.starter.mybatis.listener;
+package com.yanger.starter.basic.listen;
 
 import com.google.common.collect.Maps;
 

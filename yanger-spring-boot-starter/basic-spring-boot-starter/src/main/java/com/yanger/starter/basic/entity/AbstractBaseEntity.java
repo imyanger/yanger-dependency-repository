@@ -2,13 +2,14 @@ package com.yanger.starter.basic.entity;
 
 import java.io.*;
 
-// import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
+
+// import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @Description TODO

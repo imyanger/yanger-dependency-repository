@@ -851,7 +851,6 @@ public class DataTypeUtils {
      */
     static final class DataTypeException extends BasicException {
 
-        /** serialVersionUID */
         private static final long serialVersionUID = 4654330042965245163L;
 
         /**

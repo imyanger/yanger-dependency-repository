@@ -17,12 +17,13 @@ import java.util.Date;
  * @Date 2021/1/28 19:08
  */
 public abstract class BaseTimePO<T extends Serializable, M extends Model<M>> extends BasePO<T, M> implements AuditTime {
-    /** serialVersionUID */
+
     private static final long serialVersionUID = -8444534935163656524L;
 
     /** 创建时间 (公共字段) */
     @TableField(value = AuditTime.CREATE_TIME, fill = FieldFill.INSERT)
     private Date createTime;
+
     /** 最后更新时间 (公共字段) */
     @TableField(value = AuditTime.UPDATE_TIME, fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;

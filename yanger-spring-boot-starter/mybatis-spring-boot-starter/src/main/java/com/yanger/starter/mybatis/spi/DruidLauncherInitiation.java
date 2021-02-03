@@ -2,7 +2,7 @@ package com.yanger.starter.mybatis.spi;
 
 import com.yanger.starter.basic.annotation.AutoService;
 import com.yanger.starter.basic.constant.ConfigKey;
-import com.yanger.starter.basic.launcher.LauncherInitiation;
+import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
 import com.yanger.tools.web.tools.NetUtils;
 
@@ -73,7 +73,7 @@ public class DruidLauncherInitiation implements LauncherInitiation {
      */
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE + 200;
+        return Ordered.HIGHEST_PRECEDENCE + 100;
     }
 
     /**

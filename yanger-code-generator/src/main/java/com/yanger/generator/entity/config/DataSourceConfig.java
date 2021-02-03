@@ -1,11 +1,12 @@
 package com.yanger.generator.entity.config;
 
-import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Data;
 
 /**
  * @Description 数据源配置

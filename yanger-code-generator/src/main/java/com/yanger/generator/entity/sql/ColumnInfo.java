@@ -1,11 +1,11 @@
 package com.yanger.generator.entity.sql;
 
+import java.io.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 /**
  * field info

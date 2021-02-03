@@ -1,6 +1,5 @@
 package com.yanger.starter.web.handler;
 
-import com.alibaba.fastjson.JSON;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
 import com.yanger.starter.web.annotation.LoginAuth;

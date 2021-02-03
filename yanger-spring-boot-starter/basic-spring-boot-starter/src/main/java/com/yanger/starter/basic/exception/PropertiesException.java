@@ -9,7 +9,6 @@ import com.yanger.tools.web.exception.BasicException;
  */
 public class PropertiesException extends BasicException {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = -6498727260647427447L;
 
     /**

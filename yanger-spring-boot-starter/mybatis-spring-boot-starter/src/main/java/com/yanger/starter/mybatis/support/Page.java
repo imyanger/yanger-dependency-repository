@@ -26,7 +26,6 @@ import lombok.ToString;
 @JsonTypeName(value = "generalPage")
 public class Page<T> implements IPage<T> {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = -7759805099824817556L;
     /** 查询数据列表 */
     private List<T> records = Collections.emptyList();

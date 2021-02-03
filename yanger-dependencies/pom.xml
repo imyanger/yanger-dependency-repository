@@ -46,6 +46,9 @@
         <jackson.dataformat.version>2.11.2</jackson.dataformat.version>
         <knife4j.version>3.0.2</knife4j.version>
         <weixin-miniapp.version>4.0.0</weixin-miniapp.version>
+        <mysql-connector.version>8.0.22</mysql-connector.version>
+        <druid.version>1.2.1</druid.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <!-- yanger-spring-boot-starter -->
     </properties>
 
@@ -75,6 +78,11 @@
             <dependency>
                 <groupId>com.yanger</groupId>
                 <artifactId>web-spring-boot-starter</artifactId>
+                <version>${yanger-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yanger</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${yanger-spring-boot.version}</version>
             </dependency>
             <!-- yanger-dependencies -->
@@ -124,49 +132,23 @@
                 <artifactId>weixin-java-miniapp</artifactId>
                 <version>${weixin-miniapp.version}</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
             <!-- yanger-spring-boot-starter -->
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <skip>true</skip>
-                    <compilerId>javac</compilerId>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                    <compilerVersion>1.8</compilerVersion>
-                    <verbose>true</verbose>
-                    <optimize>true</optimize>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <includeEmptyDirs>true</includeEmptyDirs>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

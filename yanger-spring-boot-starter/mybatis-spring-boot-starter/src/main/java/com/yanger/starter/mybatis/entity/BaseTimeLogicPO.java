@@ -19,7 +19,6 @@ import java.util.Date;
  */
 public abstract class BaseTimeLogicPO<T extends Serializable, M extends Model<M>> extends BasePO<T, M> implements LogicDelete, AuditTime {
 
-    /** serialVersionUID */
     private static final long serialVersionUID = 7951121625400869460L;
 
     /** 逻辑删除标识: 逻辑已删除值(1); 逻辑未删除值(0) 默认为 0 */

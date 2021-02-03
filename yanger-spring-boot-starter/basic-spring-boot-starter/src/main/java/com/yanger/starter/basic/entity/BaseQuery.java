@@ -3,7 +3,6 @@ package com.yanger.starter.basic.entity;
 import java.io.*;
 import java.util.Date;
 
-// import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
+
+// import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @Description 分页查询参数

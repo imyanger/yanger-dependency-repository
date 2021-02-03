@@ -1,13 +1,13 @@
 package com.yanger.generator.entity.sql;
 
+import java.io.*;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * 解析的Table信息

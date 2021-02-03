@@ -5,15 +5,25 @@ import com.yanger.generator.entity.config.ApiConfig;
 import com.yanger.generator.entity.config.DaoConfig;
 import com.yanger.generator.entity.config.GeneratorConfig;
 import com.yanger.generator.entity.config.ServiceConfig;
-import com.yanger.generator.entity.param.*;
+import com.yanger.generator.entity.param.ApiParam;
+import com.yanger.generator.entity.param.ConverterParam;
+import com.yanger.generator.entity.param.DaoParam;
+import com.yanger.generator.entity.param.EntityParam;
+import com.yanger.generator.entity.param.ServiceParam;
+import com.yanger.generator.entity.param.UtilsParam;
 import com.yanger.generator.entity.sql.TableInfo;
 import com.yanger.generator.enums.ConverterWay;
 import com.yanger.generator.enums.DaoUtilType;
 import com.yanger.generator.enums.TemplateType;
 import com.yanger.generator.exception.ConfigValidateException;
+
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**

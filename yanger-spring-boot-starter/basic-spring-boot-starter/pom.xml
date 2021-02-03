@@ -41,17 +41,17 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>banner.txt</include>
-                    <include>META-INF/spring.factories</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
+    <!--<build>-->
+    <!--    <resources>-->
+    <!--        <resource>-->
+    <!--            <filtering>true</filtering>-->
+    <!--            <directory>src/main/resources</directory>-->
+    <!--            <includes>-->
+    <!--                <include>banner.txt</include>-->
+    <!--                <include>META-INF/spring.factories</include>-->
+    <!--            </includes>-->
+    <!--        </resource>-->
+    <!--    </resources>-->
+    <!--</build>-->
 
 </project>

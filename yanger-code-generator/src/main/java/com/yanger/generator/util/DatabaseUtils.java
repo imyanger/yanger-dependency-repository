@@ -3,11 +3,20 @@ package com.yanger.generator.util;
 import com.yanger.generator.entity.sql.ColumnInfo;
 import com.yanger.generator.entity.sql.TableInfo;
 import com.yanger.generator.enums.CodeNameCase;
-import lombok.extern.slf4j.Slf4j;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import java.util.stream.Collectors;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Description 数据库处理工具类

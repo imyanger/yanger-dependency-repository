@@ -23,7 +23,6 @@ import java.util.Map;
  */
 public class Condition {
 
-
     /**
      * 转化成mybatis plus中的Page
      *

@@ -1,12 +1,13 @@
 package com.yanger.generator.entity.param;
 
 import com.yanger.generator.entity.sql.ColumnInfo;
+
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 /**
  * @Description Dao代码生成的参数

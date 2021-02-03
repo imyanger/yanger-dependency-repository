@@ -22,7 +22,7 @@ import java.util.List;
  * @Author yanger
  * @Date 2021/1/28 19:08
  */
-public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> {
+public class BasicService<M extends BaseDao<T>, T> extends ServiceImpl<M, T> implements BaseService<T> {
 
     /**
      * Save ignore boolean
@@ -30,6 +30,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @param entity entity
      * @return the boolean
      */
+    @Override
     public boolean saveIgnore(T entity) {
         return SqlHelper.retBool(this.baseMapper.insertIgnore(entity));
     }
@@ -40,6 +41,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @param entity entity
      * @return the boolean
      */
+    @Override
     public boolean saveReplace(T entity) {
         return SqlHelper.retBool(this.baseMapper.replace(entity));
     }
@@ -52,6 +54,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the boolean
      */
     @Transactional(rollbackFor = Exception.class)
+    @Override
     public boolean saveIgnoreBatch(Collection<T> entityList, int batchSize) {
         return this.saveBatch(entityList, batchSize, MybatisSqlMethod.INSERT_IGNORE_ONE);
     }
@@ -64,6 +67,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the boolean
      */
     @Transactional(rollbackFor = Exception.class)
+    @Override
     public boolean saveReplaceBatch(Collection<T> entityList, int batchSize) {
         return this.saveBatch(entityList, batchSize, MybatisSqlMethod.REPLACE_ONE);
     }
@@ -111,6 +115,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
      */
+    @Override
     public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(IPage<D> page, Q query) {
         Condition.getPage(query);
         return this.baseMapper.page(page, query);
@@ -124,6 +129,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
      */
+    @Override
     public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(Q query) {
         return this.page(Condition.getPage(query), query);
     }
@@ -136,6 +142,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @param query 业务查询参数
      * @return the list
      */
+    @Override
     public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> List<D> list(@NotNull Q query) {
         query.setLimit(-1);
         IPage<D> page = Condition.getPage(query);

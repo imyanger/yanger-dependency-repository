@@ -1,12 +1,6 @@
 server:
   port: 8090
 
-dubbo:
-  cloud:
-    subscribed-services: xx-service
-  consumer:
-    timeout: 30000
-    validation: false
 spring:
   servlet:
     multipart:

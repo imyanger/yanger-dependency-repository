@@ -1,4 +1,4 @@
-package com.yanger.starter.basic.launcher;
+package com.yanger.starter.basic.spi;
 
 import com.yanger.starter.basic.util.JsonUtils;
 
@@ -34,7 +34,7 @@ public interface LauncherInitiation extends Ordered {
 
         Map<String, Object> map = launcher(env, appName);
 
-        LOG.info("{} 扩展组件默认配置:\n{}", getName(), JsonUtils.toJson(map, true));
+        LOG.info("SPI扩展组件[{}]默认配置：\n{}", getName(), JsonUtils.toJson(map, true));
 
         defaultProperties.putAll(map);
     }

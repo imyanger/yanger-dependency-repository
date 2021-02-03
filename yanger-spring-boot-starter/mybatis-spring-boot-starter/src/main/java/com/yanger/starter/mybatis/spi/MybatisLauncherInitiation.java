@@ -2,7 +2,7 @@ package com.yanger.starter.mybatis.spi;
 
 import com.yanger.starter.basic.annotation.AutoService;
 import com.yanger.starter.basic.constant.ConfigKey;
-import com.yanger.starter.basic.launcher.LauncherInitiation;
+import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
 
 import org.springframework.core.Ordered;
@@ -17,6 +17,7 @@ import java.util.Map;
  */
 @AutoService(LauncherInitiation.class)
 public class MybatisLauncherInitiation implements LauncherInitiation {
+
     /**
      * Launcher *
      *
@@ -28,7 +29,8 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
     public Map<String, Object> launcher(Environment env, String appName) {
         return ChainMap.build(8)
             // mybatis-plus
-            .put(ConfigKey.MybatisConfigKey.MAPPER_LOCATIONS, "classpath*:/mapper/*.xml")
+            .put(ConfigKey.MybatisConfigKey.MAPPER_LOCATIONS, "classpath*:/mapper/*.xml,classpath*:/dao/*.xml,classpath*:/mybatis/*.xml," +
+                                                              "classpath*:/**/*Dao.xml,classpath*:/**/*Mapper.xml")
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_CALL_SETTERS_ON_NULLS, Boolean.TRUE)
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_CACHE_ENABLED, Boolean.TRUE)
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_MAP_UNDERSCORE_TO_CAMEL_CASE, Boolean.TRUE)
