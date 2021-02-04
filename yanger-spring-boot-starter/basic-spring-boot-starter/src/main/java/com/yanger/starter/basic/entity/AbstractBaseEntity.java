@@ -2,14 +2,13 @@ package com.yanger.starter.basic.entity;
 
 import java.io.*;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
-
-// import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @Description TODO
@@ -27,7 +26,7 @@ public abstract class AbstractBaseEntity<T extends Serializable> implements IBas
     private static final long serialVersionUID = -3550589993340031894L;
 
     /** 实体 Id */
-    // @ApiModelProperty(value = "实体ID", notes = "新增时可不填,修改时必填")
+    @ApiModelProperty(value = "实体ID", notes = "新增时可不填,修改时必填")
     private T id;
 
     @Override

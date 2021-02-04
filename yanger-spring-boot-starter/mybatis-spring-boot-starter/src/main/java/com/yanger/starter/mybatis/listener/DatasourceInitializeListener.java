@@ -42,7 +42,7 @@ public class DatasourceInitializeListener implements YangerApplicationListener {
     @Override
     public void onApplicationContextInitializedEvent(@NotNull ApplicationContextInitializedEvent event) {
         if (!inited) {
-            YangerApplicationListener.Runner.executeAtLast(this.key(event, this.getClass()), () -> {
+            YangerApplicationListener.Runner.executeAtFirst(this.key(event, this.getClass()), () -> {
                 ConfigurableEnvironment environment = event.getApplicationContext().getEnvironment();
                 String datasourceUrl = environment.getProperty("spring.datasource.url");
                 if (StringUtils.isBlank(datasourceUrl)) {

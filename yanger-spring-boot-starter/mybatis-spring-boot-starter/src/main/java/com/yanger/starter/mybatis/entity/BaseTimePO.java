@@ -13,6 +13,7 @@ import java.util.Date;
  *     1. 新增记录时, 不需要以下公共字段, 将根据注解自动生成;
  *     2. 更新记录时, 也不需设置 updateTime, 会自动更新时间 {@link com.yanger.starter.mybatis.handler.TimeMetaHandler}
  *     注意: 子类不能使用 builder 模式! 子类不能使用 builder 模式! 子类不能使用 builder 模式!
+ *     eg: public class User extends BaseTimePO<Long, User> {}
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

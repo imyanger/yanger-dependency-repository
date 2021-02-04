@@ -63,7 +63,6 @@ public class DruidLauncherInitiation implements LauncherInitiation {
             .put(ConfigKey.DruidConfigKey.STAT_RESET, Boolean.FALSE)
             .put(ConfigKey.DruidConfigKey.STAT_USERNAME, "yanger")
             .put(ConfigKey.DruidConfigKey.STAT_PASSWORD, "yanger@druid");
-
     }
 
     /**

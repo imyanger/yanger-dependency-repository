@@ -29,8 +29,7 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
     public Map<String, Object> launcher(Environment env, String appName) {
         return ChainMap.build(8)
             // mybatis-plus
-            .put(ConfigKey.MybatisConfigKey.MAPPER_LOCATIONS, "classpath*:/mapper/*.xml,classpath*:/dao/*.xml,classpath*:/mybatis/*.xml," +
-                                                              "classpath*:/**/*Dao.xml,classpath*:/**/*Mapper.xml")
+            .put(ConfigKey.MybatisConfigKey.MAPPER_LOCATIONS, "classpath*:/mapper/**/*.xml,classpath*:/mybatis/**/*.xml,classpath*:/mybatis-plus/**/*.xml")
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_CALL_SETTERS_ON_NULLS, Boolean.TRUE)
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_CACHE_ENABLED, Boolean.TRUE)
             .put(ConfigKey.MybatisConfigKey.CONFIGURATION_MAP_UNDERSCORE_TO_CAMEL_CASE, Boolean.TRUE)
@@ -40,7 +39,6 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
             // 主键类型, 设置为自增, 要求 DDL 使用 auto_increment
             .put(ConfigKey.MybatisConfigKey.GLOBAL_ID_TYPE, "auto")
             .put(ConfigKey.MybatisConfigKey.GLOBAL_LOGIC_BANNER, "false");
-
     }
 
     /**

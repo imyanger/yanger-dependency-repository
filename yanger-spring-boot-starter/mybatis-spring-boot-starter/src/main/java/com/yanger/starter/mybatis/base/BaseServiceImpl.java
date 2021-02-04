@@ -112,8 +112,22 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the {@link IPage} 的子类 {@link Page}
      */
     public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(IPage<D> page, Q query) {
-        Condition.getPage(query);
         return this.baseMapper.page(page, query);
+    }
+
+    /**
+     * 分页查询接口
+     *
+     * @param <D>       {@link BaseDTO} 子类
+     * @param pageNo    当前页
+     * @param pageSize  页数大小
+     * @return the {@link IPage} 的子类 {@link Page}
+     */
+    public <D extends BaseDTO<? extends Serializable>> IPage<D> page(Integer pageNo, Integer pageSize) {
+        BaseQuery baseQuery = new BaseQuery();
+        baseQuery.setPageNo(pageNo);
+        baseQuery.setPageSize(pageSize);
+        return this.page(baseQuery);
     }
 
     /**
@@ -137,7 +151,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the list
      */
     public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> List<D> list(@NotNull Q query) {
-        query.setLimit(-1);
+        query.setPageSize(-1);
         IPage<D> page = Condition.getPage(query);
         return this.page(page, query).getRecords();
     }

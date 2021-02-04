@@ -12,16 +12,16 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum DeleteEnum implements SerializeEnum<Boolean> {
+public enum DeleteEnum implements SerializeEnum<Integer> {
 
     /** N delete enum */
-    N(false, "未删除"),
+    N(0, "未删除"),
 
     /** Y delete enum */
-    Y(true, "已删除");
+    Y(1, "已删除");
 
     /** 数据库存储的值 */
-    private final Boolean value;
+    private final Integer value;
 
     /** 枚举描述 */
     private final String desc;

@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiOperation;
  */
 @Api
 @RestController
-@RequestMapping("mood")
+@RequestMapping("MoodController接口")
 @IgnoreLoginAuth
 public class MoodController {
 

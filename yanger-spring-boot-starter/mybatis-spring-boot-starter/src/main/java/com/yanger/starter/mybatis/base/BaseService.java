@@ -88,6 +88,15 @@ public interface BaseService<T> extends IService<T> {
     /**
      * 分页查询接口
      *
+     * @param page  当前页
+     * @param limit 一页条数
+     * @return the {@link IPage} 的子类 {@link Page}
+     */
+    <D extends BaseDTO<? extends Serializable>> IPage<D> page(Integer page, Integer limit);
+
+    /**
+     * 分页查询接口
+     *
      * @param <D>   {@link BaseDTO} 子类
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数

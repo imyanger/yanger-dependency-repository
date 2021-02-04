@@ -33,8 +33,8 @@ public class Condition {
     @NotNull
     public static <T> IPage<T> getPage(@NotNull BaseQuery<?> query) {
         Page<T> page = new Page<T>(
-            NumberUtils.toLong(String.valueOf(query.getPage()), ConfigKit.getLongValue(ConfigKey.MybatisConfigKey.PAGE, 1L)),
-            NumberUtils.toLong(String.valueOf(query.getLimit()), ConfigKit.getLongValue(ConfigKey.MybatisConfigKey.LIMIT, 10L)),
+            NumberUtils.toLong(String.valueOf(query.getPageNo()), ConfigKit.getLongValue(ConfigKey.MybatisConfigKey.PAGE, 1L)),
+            NumberUtils.toLong(String.valueOf(query.getPageSize()), ConfigKit.getLongValue(ConfigKey.MybatisConfigKey.LIMIT, 10L)),
             query.getStartTime(),
             query.getEndTime());
 

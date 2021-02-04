@@ -339,7 +339,6 @@ public interface YangerApplicationListener extends GenericApplicationListener {
             if (index < 0 || index > EXECUTE_COUNT.get()) {
                 throw new BasicException("index error");
             }
-
             if (getExecuteCurrentCount(key) == index) {
                 execute(consumer);
             }
