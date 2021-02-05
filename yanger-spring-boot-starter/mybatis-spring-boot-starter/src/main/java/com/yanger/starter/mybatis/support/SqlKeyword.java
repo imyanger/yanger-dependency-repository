@@ -3,7 +3,6 @@ package com.yanger.starter.mybatis.support;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.tools.StringTools;
-import com.yanger.tools.web.tools.ObjectUtils;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -88,21 +87,6 @@ public class SqlKeyword {
                 qw.eq(getColumn(k, EQUAL), v);
             }
         });
-    }
-
-    /**
-     * 对象组中是否存在 Empty Object
-     *
-     * @param os 对象组
-     * @return boolean boolean
-     */
-    private static boolean hasEmpty(@NotNull Object... os) {
-        for (Object o : os) {
-            if (ObjectUtils.isEmpty((o))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**

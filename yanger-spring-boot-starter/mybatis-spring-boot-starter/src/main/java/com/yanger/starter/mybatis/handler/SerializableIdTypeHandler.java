@@ -19,6 +19,7 @@ import java.sql.SQLException;
  * @Date 2021/1/28 19:08
  */
 public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
+
     /** Type */
     private final Class<?> type;
 
@@ -32,7 +33,6 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
         if (type == null) {
             throw new IllegalArgumentException("Type argument cannot be null");
         }
-
         this.type = type;
     }
 
@@ -46,10 +46,7 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
      * @throws SQLException sql exception
      */
     @Override
-    public void setNonNullParameter(PreparedStatement ps,
-                                    int i,
-                                    Serializable parameter,
-                                    JdbcType jdbcType) throws SQLException {
+    public void setNonNullParameter(PreparedStatement ps, int i, Serializable parameter, JdbcType jdbcType) throws SQLException {
         if (jdbcType == null) {
             ps.setObject(i, this.getValue(parameter));
         } else {

@@ -15,7 +15,7 @@ import java.util.List;
 public class MybatisSqlInjector extends DefaultSqlInjector {
 
     /**
-     * Gets method list *
+     * 获取 mapper sql 集合
      *
      * @param mapperClass mapper class
      * @return the method list
@@ -25,6 +25,7 @@ public class MybatisSqlInjector extends DefaultSqlInjector {
         List<AbstractMethod> methodList = new ArrayList<>();
         methodList.add(new InsertIgnore());
         methodList.add(new InsertReplace());
+        methodList.add(new InsertUseId());
         methodList.addAll(super.getMethodList(mapperClass));
         return Collections.unmodifiableList(methodList);
     }

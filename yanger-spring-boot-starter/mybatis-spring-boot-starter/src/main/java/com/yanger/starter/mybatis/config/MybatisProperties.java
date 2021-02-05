@@ -29,7 +29,7 @@ public class MybatisProperties {
     private Long singlePageLimit = -1L;
 
     /** 敏感数据加密 AES_KEY */
-    private String sensitiveKey = "rFsHHirtsGuST7HtBzebLge1uVYCg2ZS";
+    private String sensitiveKey = "dKE78Ndp*)^*)(3Hm30)2^(@:34h3M2K";
 
     /** sql 检查插件 */
     private boolean enableIllegalSqlInterceptor = Boolean.FALSE;

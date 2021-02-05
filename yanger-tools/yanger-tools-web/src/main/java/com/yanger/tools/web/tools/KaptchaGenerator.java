@@ -21,14 +21,9 @@ import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: 验证码生成器  </p>
- *
- * @author yanghao
- * @version 1.0.0
- * @email "mailto:yanghao@fkhwl.com"
- * @date 2020.12.24 16:31
- * @since 1.0.0
+ * @author 验证码生成器
+ * @Description jwt工具类
+ * @date 2018年9月23日-下午4:28:57
  */
 @Slf4j
 public class KaptchaGenerator {
@@ -52,7 +47,6 @@ public class KaptchaGenerator {
      * 获取验证码信息
      *
      * @return the optional
-     * @since 1.0.0
      */
     public Optional<KaptchaData> create() {
         // create the text for the image
@@ -76,7 +70,6 @@ public class KaptchaGenerator {
      * 获取计算型验证码信息
      *
      * @return the optional
-     * @since 1.0.0
      */
     public Optional<KaptchaData> createCal() {
 
@@ -126,7 +119,6 @@ public class KaptchaGenerator {
      * Gets producer *
      *
      * @return Producer producer
-     * @since 1.0.0
      */
     private Producer getProducer() {
         props.put("kaptcha.image.width", "100");

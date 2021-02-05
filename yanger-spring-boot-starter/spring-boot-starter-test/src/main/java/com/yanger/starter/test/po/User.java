@@ -1,9 +1,7 @@
 package com.yanger.starter.test.po;
 
-import com.yanger.starter.mybatis.entity.BaseLogicPO;
-import com.yanger.starter.mybatis.entity.BasePO;
+import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.starter.mybatis.entity.BaseTimeLogicPO;
-import com.yanger.starter.mybatis.entity.BaseTimePO;
 import com.yanger.starter.test.enums.FileType;
 
 import lombok.Data;
@@ -21,5 +19,8 @@ public class User extends BaseTimeLogicPO<Long, User> {
     private Integer age;
 
     private FileType fileType;
+
+    @SensitiveField
+    private String mobile;
 
 }

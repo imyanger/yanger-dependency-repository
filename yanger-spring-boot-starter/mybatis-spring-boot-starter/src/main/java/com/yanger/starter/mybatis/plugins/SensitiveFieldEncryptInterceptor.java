@@ -124,8 +124,7 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
     private void encryptField(Field @NotNull [] declaredFields, Object parameter, SqlCommandType sqlCommandType) throws IllegalAccessException {
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(SensitiveField.class)) {
-                // 如果使用了指定注解
-                // 对内容加密再存储
+                // 如果使用了加密注解，对内容加密再存储
                 Object fieldValue = ReflectionUtils.getFieldValue(parameter, field.getName());
                 if (!StringUtils.isEmpty(fieldValue)) {
                     byte[] encrypt = AesUtils.encrypt(String.valueOf(fieldValue), this.sensitiveKey);

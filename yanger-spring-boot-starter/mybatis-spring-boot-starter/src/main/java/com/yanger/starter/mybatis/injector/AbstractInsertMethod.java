@@ -1,13 +1,10 @@
 package com.yanger.starter.mybatis.injector;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
-import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
 
-import org.apache.ibatis.executor.keygen.Jdbc3KeyGenerator;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -38,31 +35,39 @@ public class AbstractInsertMethod extends AbstractMethod {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, @NotNull TableInfo tableInfo) {
         KeyGenerator keyGenerator = new NoKeyGenerator();
-        String columnScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlColumnMaybeIf(), LEFT_BRACKET, RIGHT_BRACKET, null,
-                                                         COMMA);
-        String valuesScript = SqlScriptUtils.convertTrim(tableInfo.getAllInsertSqlPropertyMaybeIf(null), LEFT_BRACKET, RIGHT_BRACKET,
-                                                         null, COMMA);
+
+        // 主键处理
+        String idPropertyStr = "";
+        String idColumnStr = "";
+        if (StringUtils.isNotBlank(tableInfo.getKeyProperty())) {
+            idPropertyStr = "<if test=\"" + tableInfo.getKeyProperty() + " != null\">" + tableInfo.getKeyColumn() + ",</if>\n";
+            idColumnStr = "<if test=\"" + tableInfo.getKeyProperty() + " != null\">#{" + tableInfo.getKeyProperty() + "},</if>\n";
+        }
+
+        String columnScript = SqlScriptUtils.convertTrim(idPropertyStr + tableInfo.getAllInsertSqlColumnMaybeIf(),
+                                                         LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
+        String valuesScript = SqlScriptUtils.convertTrim(idColumnStr + tableInfo.getAllInsertSqlPropertyMaybeIf(null),
+                                                         LEFT_BRACKET, RIGHT_BRACKET, null, COMMA);
         String keyProperty = null;
         String keyColumn = null;
         // 表包含主键处理逻辑,如果不包含主键当普通字段处理
-        if (StringUtils.isNotBlank(tableInfo.getKeyProperty())) {
-            if (tableInfo.getIdType() == IdType.AUTO) {
-                // 自增主键
-                keyGenerator = new Jdbc3KeyGenerator();
-                keyProperty = tableInfo.getKeyProperty();
-                keyColumn = tableInfo.getKeyColumn();
-            } else {
-                if (null != tableInfo.getKeySequence()) {
-                    keyGenerator = TableInfoHelper.genKeyGenerator(this.sqlMethod.getMethod(), tableInfo, this.builderAssistant);
-                    keyProperty = tableInfo.getKeyProperty();
-                    keyColumn = tableInfo.getKeyColumn();
-                }
-            }
-        }
+        // if (StringUtils.isNotBlank(tableInfo.getKeyProperty())) {
+        //     if (tableInfo.getIdType() == IdType.AUTO) {
+        //         // 自增主键
+        //         keyGenerator = new Jdbc3KeyGenerator();
+        //         keyProperty = tableInfo.getKeyProperty();
+        //         keyColumn = tableInfo.getKeyColumn();
+        //     } else {
+        //         if (null != tableInfo.getKeySequence()) {
+        //             keyGenerator = TableInfoHelper.genKeyGenerator(this.sqlMethod.getMethod(), tableInfo, this.builderAssistant);
+        //             keyProperty = tableInfo.getKeyProperty();
+        //             keyColumn = tableInfo.getKeyColumn();
+        //         }
+        //     }
+        // }
         String sql = String.format(this.sqlMethod.getSql(), tableInfo.getTableName(), columnScript, valuesScript);
         SqlSource sqlSource = this.languageDriver.createSqlSource(this.configuration, sql, modelClass);
-        return this.addInsertMappedStatement(mapperClass, modelClass, this.sqlMethod.getMethod(), sqlSource, keyGenerator, keyProperty,
-                                             keyColumn);
+        return this.addInsertMappedStatement(mapperClass, modelClass, this.sqlMethod.getMethod(), sqlSource, keyGenerator, keyProperty, keyColumn);
     }
 
 }

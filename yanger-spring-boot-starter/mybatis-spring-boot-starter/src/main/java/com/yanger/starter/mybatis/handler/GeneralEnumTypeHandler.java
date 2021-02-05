@@ -69,8 +69,8 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
         // 不是 SerializeEnum 枚举时
         if (!SerializeEnum.class.isAssignableFrom(type)) {
             name = findEnumValueFieldName(this.type)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Could not find @SerializeValue in Class: %s.",
-                                                                              this.type.getName())));
+                .orElseThrow(() -> new IllegalArgumentException(
+                    String.format("Could not find @SerializeValue in Class: %s.", this.type.getName())));
         }
         // SerializeEnum 子类
         this.invoker = metaClass.getGetInvoker(name);

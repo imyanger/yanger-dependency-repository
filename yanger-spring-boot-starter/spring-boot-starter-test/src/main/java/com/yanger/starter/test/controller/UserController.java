@@ -1,9 +1,7 @@
 package com.yanger.starter.test.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yanger.starter.basic.entity.BaseDTO;
 import com.yanger.starter.basic.entity.LQuery;
-import com.yanger.starter.mybatis.support.Page;
 import com.yanger.starter.test.dao.UserDao;
 import com.yanger.starter.test.dto.UserDTO;
 import com.yanger.starter.test.po.User;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.*;
 
 import javax.annotation.Resource;
 
@@ -69,9 +65,11 @@ public class UserController {
     @GetMapping("page")
     @ApiOperation(value="分页", tags={"UserController接口"}, notes="分页")
     public IPage<UserDTO> page(User user, LQuery query) {
-        IPage<UserDTO> page = userService.page(query);
-        IPage<UserDTO> page2 = userService.page(1, 10);
-        return page;
+        IPage<User> page = userService.page(query);
+        IPage<UserDTO> page2 = userService.page(query, UserDTO.class);
+        IPage<User> page3 = userService.page(1, 10);
+        IPage<UserDTO> page4 = userService.page(1, 10, UserDTO.class);
+        return page4;
     }
 
     /**
@@ -82,8 +80,46 @@ public class UserController {
      */
     @PostMapping
     @ApiOperation(value="保存user", tags={"UserController接口"}, notes="保存user")
-    public void save(@RequestBody User user) {
-        userService.save(user);
+    public User save(@RequestBody User user) {
+        // userService.save(user);
+        userDao.insert(user);
+        return user;
+    }
+
+    /**
+     * @Description 替换保存user
+     * @Author yanger
+     * @date 2021-01-08 18:02:38
+     * @return void
+     */
+    @PostMapping("replace")
+    @ApiOperation(value="替换保存user", tags={"UserController接口"}, notes="替换保存user")
+    public void saveReplace(@RequestBody User user) {
+        userService.saveReplace(user);
+    }
+
+    /**
+     * @Description 重复保存user
+     * @Author yanger
+     * @date 2021-01-08 18:02:38
+     * @return void
+     */
+    @PostMapping("ignore")
+    @ApiOperation(value="重复保存user", tags={"UserController接口"}, notes="重复保存user")
+    public void saveIgnore(@RequestBody User user) {
+        userService.saveIgnore(user);
+    }
+
+    /**
+     * @Description 强制使用id保存user
+     * @Author yanger
+     * @date 2021-01-08 18:02:38
+     * @return void
+     */
+    @PostMapping("id")
+    @ApiOperation(value="强制使用id保存user", tags={"UserController接口"}, notes="强制使用id保存user")
+    public void insertUseId(@RequestBody User user) {
+        userService.insertUseId(user);
     }
 
     /**

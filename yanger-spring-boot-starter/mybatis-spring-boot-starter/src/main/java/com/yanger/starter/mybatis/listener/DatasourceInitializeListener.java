@@ -46,7 +46,7 @@ public class DatasourceInitializeListener implements YangerApplicationListener {
                 ConfigurableEnvironment environment = event.getApplicationContext().getEnvironment();
                 String datasourceUrl = environment.getProperty("spring.datasource.url");
                 if (StringUtils.isBlank(datasourceUrl)) {
-                    log.error("未检测到 JDBC 配置, 但是引入了 JDBC 相关依赖包, 将会禁用自动配置. 请根据业务处理此错误!");
+                    log.error("未检测到 JDBC 配置，但是引入了 JDBC 相关依赖包，将会禁用 datasource 相关自动装配，如有 dao 层将注入失败，请根据业务处理此错误");
                     String property = System.getProperty(ConfigKey.SpringConfigKey.AUTOCONFIGURE_EXCLUDE);
                     String value;
                     if (StringUtils.isBlank(property)) {

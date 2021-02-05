@@ -4,7 +4,6 @@ import com.google.common.collect.Maps;
 
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.function.CheckedRunnable;
-import com.yanger.tools.web.exception.BasicException;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +25,6 @@ import org.springframework.context.event.GenericApplicationListener;
 import org.springframework.core.ResolvableType;
 
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
@@ -253,10 +251,9 @@ public interface YangerApplicationListener extends GenericApplicationListener {
      */
     @Slf4j
     class Runner {
+
         /** 执行次数统计 */
-        private static final Map<String, Integer> EXECTIE_COUNT_MAP = Maps.newConcurrentMap();
-        /** listener 执行次数 */
-        private static final AtomicInteger EXECUTE_COUNT = new AtomicInteger(0);
+        private static final Map<String, Integer> EXECUTE_COUNT_MAP = Maps.newConcurrentMap();
 
         /**
          * 执行后增加次数
@@ -264,7 +261,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          * @param key key
          */
         public static void execution(String key) {
-            EXECTIE_COUNT_MAP.merge(key, 1, Integer::sum);
+            EXECUTE_COUNT_MAP.merge(key, 1, Integer::sum);
         }
 
         /**
@@ -275,23 +272,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          */
         @Contract(pure = true)
         public static boolean executed(String key) {
-            return EXECTIE_COUNT_MAP.get(key) != null;
-        }
-
-        /**
-         * 统计执行次数 (使用有个优先级最高的 listener 统计执行次数)
-         */
-        public static void executeCount() {
-            EXECUTE_COUNT.getAndIncrement();
-        }
-
-        /**
-         * Get execute count
-         *
-         * @return the int
-         */
-        public static int getExecuteTotalCount() {
-            return EXECUTE_COUNT.get();
+            return EXECUTE_COUNT_MAP.get(key) != null;
         }
 
         /**
@@ -302,29 +283,31 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          */
         @Contract(pure = true)
         public static int getExecuteCurrentCount(String key) {
-            return EXECTIE_COUNT_MAP.get(key) == null ? 0 : EXECTIE_COUNT_MAP.get(key);
+            return executed(key) ? EXECUTE_COUNT_MAP.get(key) : 0;
         }
 
         /**
          * 第一次执行, 需要注意的是如果是 spring cloud 项目, 第一次执行只能读取到 bootstrap.yml 配置, application.yml 配置只能在第二次才能读取到.
+         * 直接从环境变量 Environment 或者 System 中获取
          *
          * @param key      key
          * @param consumer consumer
          */
         @Contract(pure = true)
         public static void executeAtFirst(String key, CheckedRunnable consumer) {
-            executeAt(key, 1, consumer);
+            executeAt(key, 0, consumer);
         }
 
         /**
-         * 在最后一次执行, 需要注意的是, 如果是 spring cloud 项目, 最后一次执行只能读取到 application[-{env}].yml 配置, 不会再读取 bootstrap.yml.
+         * 在下一次执行, 需要注意的是, 如果是 spring cloud 项目, 最后一次执行只能读取到 application[-{env}].yml 配置, 不会再读取 bootstrap.yml.
+         * 直接从环境变量 Environment 或者 System 中获取
          *
          * @param key      key
          * @param consumer consumer
          */
         @Contract(pure = true)
-        public static void executeAtLast(String key, CheckedRunnable consumer) {
-            executeAt(key, EXECUTE_COUNT.get(), consumer);
+        public static void executeAtNext(String key, CheckedRunnable consumer) {
+            executeAt(key, 1, consumer);
         }
 
         /**
@@ -335,13 +318,11 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          * @param consumer consumer
          */
         public static void executeAt(String key, int index, CheckedRunnable consumer) {
-            execution(key);
-            if (index < 0 || index > EXECUTE_COUNT.get()) {
-                throw new BasicException("index error");
-            }
             if (getExecuteCurrentCount(key) == index) {
                 execute(consumer);
             }
+            // 执行后次数加 1
+            execution(key);
         }
 
         /**
@@ -353,7 +334,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
             try {
                 consumer.run();
             } catch (Throwable throwable) {
-                log.error("", throwable);
+                log.error("lister {} 执行失败，请检查", consumer.getClass().getName(), throwable);
             }
         }
     }

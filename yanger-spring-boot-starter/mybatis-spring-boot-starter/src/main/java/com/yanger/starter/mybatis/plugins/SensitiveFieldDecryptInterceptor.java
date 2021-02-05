@@ -133,8 +133,7 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
         throws IllegalAccessException {
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(SensitiveField.class)) {
-                // 如果使用了指定注解
-                // 对内容加密再存储
+                // 如果使用了加密注解，对加密内容进行解密
                 Object fieldValue = ReflectionUtils.getFieldValue(parameter, field.getName());
                 String decrypt = AesUtils.decryptToStr(Base64Utils.decodeFromString(String.valueOf(fieldValue)),
                                                        this.sensitiveKey);
