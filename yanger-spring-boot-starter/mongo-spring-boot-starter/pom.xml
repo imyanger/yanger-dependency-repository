@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../spring-boot-starter-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>mongo-spring-boot-starter</artifactId>
+    <packaging>jar</packaging>
+
+    <name>mongo-spring-boot-starter</name>
+    <description>mongo spring boot starter</description>
+
+    <developers>
+        <developer>
+            <name>yanger</name>
+            <email>imyanger@qq.com</email>
+            <organization>yanger</organization>
+            <organizationUrl>https://github.com/imyanger</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/imyanger/yanger-dependency-repository</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>tools-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>base-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <version>2.2.0.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>javassist</artifactId>
+                    <groupId>org.javassist</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -253,6 +253,53 @@ public final class ConfigKey {
         public static final String STAT_PASSWORD = "spring.datasource.druid.stat-view-servlet.login-password";
     }
 
+    /** nacos 配置项 */
+    public static class NacosConfigKey {
+
+        /** 是否加载配置中心配置 */
+        public static final String CONFIG_OVERRIDE_NONE = "spring.cloud.config.override-none";
+
+        /** nacos config 的配置 key */
+        public static final String CONFIG_SERVER_ADDRESS = "spring.cloud.nacos.config.server-addr";
+
+        /** CONFIG_FILE_EXTENSION */
+        public static final String CONFIG_FILE_EXTENSION = "spring.cloud.nacos.config.file-extension";
+
+        /** CONFIG_ENCODE */
+        public static final String CONFIG_ENCODE = "spring.cloud.nacos.config.encode";
+
+        /** CONFIG_NAMESPACE */
+        public static final String CONFIG_NAMESPACE = "spring.cloud.nacos.config.namespace";
+
+        /** CONFIG_GROUP */
+        public static final String CONFIG_GROUP = "spring.cloud.nacos.config.group";
+
+        /** EXT_CONFIG_1_DATA_ID */
+        public static final String EXT_CONFIG_1_DATA_ID = "spring.cloud.nacos.config.ext-config.data-id";
+
+        /** EXT_CONFIG_1_GROUP */
+        public static final String EXT_CONFIG_1_GROUP = "spring.cloud.nacos.config.ext-config.group";
+
+        /** EXT_CONFIG_1_NAMESPACE */
+        public static final String EXT_CONFIG_1_NAMESPACE = "spring.cloud.nacos.config.ext-config.namespace";
+
+        /** EXT_CONFIG_1_REFRESH */
+        public static final String EXT_CONFIG_1_REFRESH = "spring.cloud.nacos.config.ext-config.refresh";
+
+        /** DISCOVERY_NAMESPACE */
+        public static final String DISCOVERY_NAMESPACE = "spring.cloud.nacos.discovery.namespace";
+
+        /** DISCOVERY_SERVER_ADDRESS */
+        public static final String DISCOVERY_SERVER_ADDRESS = "spring.cloud.nacos.discovery.server-addr";
+
+        /** DISCOVERY_GROUP */
+        public static final String DISCOVERY_GROUP = "spring.cloud.nacos.discovery.group";
+
+        /** DISCOVERY_IP */
+        public static final String DISCOVERY_IP = "spring.cloud.nacos.discovery.ip";
+
+    }
+
     /** dubbo 配置项 */
     public static class DubboConfigKey {
 

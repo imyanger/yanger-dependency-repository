@@ -1,11 +1,9 @@
 package com.fkhwl.starter.dubbo.listener;
 
-import com.fkhwl.starter.dubbo.constant.DubboConstant;
 import com.fkhwl.starter.dubbo.check.RpcCheck;
-import com.yanger.starter.basic.constant.App;
+import com.fkhwl.starter.dubbo.constant.DubboConstant;
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.basic.listen.YangerApplicationListener;
-import com.yanger.starter.basic.util.ConfigKit;
 
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ServiceConfig;

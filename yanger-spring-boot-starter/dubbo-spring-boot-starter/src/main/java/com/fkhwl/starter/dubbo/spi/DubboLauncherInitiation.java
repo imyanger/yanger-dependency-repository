@@ -1,15 +1,11 @@
 package com.fkhwl.starter.dubbo.spi;
 
 import com.yanger.starter.basic.annotation.AutoService;
-import com.yanger.starter.basic.constant.App;
-import com.yanger.starter.basic.constant.ConfigDefaultValue;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
-import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.tools.web.support.ChainMap;
 import com.yanger.tools.web.tools.NetUtils;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.metadata.integration.MetadataReportService;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
@@ -64,11 +60,12 @@ public class DubboLauncherInitiation implements LauncherInitiation {
 
         // 将 dubbo 的 metadata 数据写入到对应的 namespace, 而不是全部写入到 public 中
         // [应用启动一次就会将全部的元数据写入 his_config_info, 会造成 The table 'his_config_info' is full]
-        if (!isLocalLaunch) {
+        // if (!isLocalLaunch) {
             chainMap.put("dubbo.metadata-report.group", "DUBBO_METADATA");
-            chainMap.put(ConfigKey.DubboConfigKey.METADATA_REPORT_ADDRESS,
-                         "nacos://" + ConfigDefaultValue.NACOS_SERVER + "?namespace=" + App.FKH_NAME_SPACE);
-        }
+            // TODO nacos地址和命名空间
+            // chainMap.put(ConfigKey.DubboConfigKey.METADATA_REPORT_ADDRESS, "nacos://" + ConfigDefaultValue.NACOS_SERVER + "?namespace=" + App.FKH_NAME_SPACE);
+            chainMap.put(ConfigKey.DubboConfigKey.METADATA_REPORT_ADDRESS, "");
+        // }
 
         chainMap.put(ConfigKey.DubboConfigKey.DUBBO_CONSUMER_FILTER,
                      "crossJvmParameterPassingFilter");
@@ -76,9 +73,10 @@ public class DubboLauncherInitiation implements LauncherInitiation {
                      "-exception,dubboExceptionFilter,crossJvmParameterPassingFilter");
         // 如果存在 START_FKH_APPLICATION 环境变量, 则表示使用了 fkh-launcher 依赖
         Object port = 20880;
-        if (StringUtils.isNotBlank(System.getProperty(App.START_FKH_APPLICATION)) && !ConfigKit.isStartedByJunit()) {
-            port = "${range.random.int(28000, 28200)}";
-        }
+        // TODO 端口问题
+        // if (StringUtils.isNotBlank(System.getProperty(App.START_FKH_APPLICATION)) && !ConfigKit.isStartedByJunit()) {
+        //     port = "${range.random.int(28000, 28200)}";
+        // }
         chainMap.put(ConfigKey.DubboConfigKey.PROTOCOL_PORT, port);
         // 设置随机端口
         return chainMap;

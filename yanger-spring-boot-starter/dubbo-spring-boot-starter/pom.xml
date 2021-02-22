@@ -14,7 +14,7 @@
     <artifactId>dubbo-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
 
-    <name>web-spring-boot-starter</name>
+    <name>dubbo-spring-boot-starter</name>
     <description>dubbo spring boot starter</description>
 
     <developers>

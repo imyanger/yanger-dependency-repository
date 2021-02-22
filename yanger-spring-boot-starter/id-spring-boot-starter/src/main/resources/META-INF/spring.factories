@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.fkhwl.starter.id.autoconfigure.IdAutoConfiguration

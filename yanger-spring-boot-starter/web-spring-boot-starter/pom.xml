@@ -33,20 +33,6 @@
     <dependencies>
         <dependency>
             <groupId>com.yanger</groupId>
-            <artifactId>tools-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.swagger</groupId>
-                    <artifactId>swagger-models</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.yanger</groupId>
             <artifactId>base-spring-boot-starter</artifactId>
         </dependency>
         <dependency>

@@ -35,6 +35,10 @@
         <module>../basic-spring-boot-starter</module>
         <module>../web-spring-boot-starter</module>
         <module>../mybatis-spring-boot-starter</module>
+        <module>../id-spring-boot-starter</module>
+        <module>../cache-spring-boot-starter</module>
+        <module>../mongo-spring-boot-starter</module>
+        <module>../nacos-spring-boot-starter</module>
         <module>../dubbo-spring-boot-starter</module>
     </modules>
 
@@ -42,6 +46,16 @@
         <dependency>
             <groupId>com.yanger</groupId>
             <artifactId>tools-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

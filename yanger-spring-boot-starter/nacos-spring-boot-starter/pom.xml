@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../spring-boot-starter-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>nacos-spring-boot-starter</artifactId>
+    <packaging>jar</packaging>
+
+    <name>nacos-spring-boot-starter</name>
+    <description>nacos spring boot starter</description>
+
+    <developers>
+        <developer>
+            <name>yanger</name>
+            <email>imyanger@qq.com</email>
+            <organization>yanger</organization>
+            <organizationUrl>https://github.com/imyanger</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/imyanger/yanger-dependency-repository</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>tools-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>base-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+            <version>2.2.0.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jsr305</artifactId>
+                    <groupId>com.google.code.findbugs</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>HdrHistogram</artifactId>
+                    <groupId>org.hdrhistogram</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>bcpkix-jdk15on</artifactId>
+                    <groupId>org.bouncycastle</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

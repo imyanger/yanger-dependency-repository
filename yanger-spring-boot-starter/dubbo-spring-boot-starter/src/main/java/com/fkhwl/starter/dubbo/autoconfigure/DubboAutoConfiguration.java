@@ -7,6 +7,7 @@ import com.fkhwl.starter.dubbo.check.RpcCheckImpl;
 import com.fkhwl.starter.dubbo.listener.DubboRegistryInvokerRebuildListener;
 import com.fkhwl.starter.dubbo.spi.DubboLauncherInitiation;
 import com.fkhwl.starter.dubbo.support.CustomInfo;
+import com.fkhwl.starter.dubbo.support.DubboStartInfo;
 import com.yanger.starter.basic.boost.YangerAutoConfiguration;
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.basic.enums.LibraryEnum;
@@ -58,14 +59,14 @@ public class DubboAutoConfiguration implements YangerAutoConfiguration {
                 ip = NetUtils.getLocalHost();
             }
             String finalIp = ip;
-            dubboInfos.add(() -> StartUtils.padding(LibraryEnum.DUBBO.getName()).toString()
+            dubboInfos.add(() -> DubboStartInfo.padding(LibraryEnum.DUBBO.getName()).toString()
                                  + "http://"
                                  + finalIp
                                  + StringPool.COLON
                                  + v.getPort());
         });
 
-        StartUtils.addCustomInfo(dubboInfos);
+        DubboStartInfo.addCustomInfo(dubboInfos);
     }
 
     /**

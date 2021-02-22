@@ -1,0 +1,43 @@
+{
+  "groups": [
+    {
+      "name": "jetcache",
+      "type": "com.fkhwl.starter.cache.autoconfigure.CacheProperties",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jetcache.area-in-cache-name",
+      "type": "java.lang.Boolean",
+      "description": "jetcache-anno 把 cacheName 作为远程缓存 key 前缀",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "jetcache.hide-packages",
+      "type": "java.lang.String",
+      "description": "Hide packages  @Cached 和 @CreateCache 自动生成 name 的时候,为了不让 name 太长,hiddenPackages 指定的包名前缀被截掉",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties"
+    },
+    {
+      "name": "jetcache.local",
+      "type": "java.util.Map<java.lang.String,com.fkhwl.starter.cache.autoconfigure.CacheProperties$Area>",
+      "description": "Local",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties"
+    },
+    {
+      "name": "jetcache.remote",
+      "type": "java.util.Map<java.lang.String,com.fkhwl.starter.cache.autoconfigure.CacheProperties$Area>",
+      "description": "Remote",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties"
+    },
+    {
+      "name": "jetcache.stat-interval-minutes",
+      "type": "java.lang.Integer",
+      "description": "统计间隔,0 表示不统计",
+      "sourceType": "com.fkhwl.starter.cache.autoconfigure.CacheProperties"
+    }
+  ],
+  "hints": []
+}

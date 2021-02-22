@@ -18,5 +18,5 @@ import lombok.Data;
 @ConfigurationProperties(prefix = DubboProperties.PREFIX)
 public class DubboProperties {
     /** PREFIX */
-    public static final String PREFIX = "fkh.dubbo";
+    public static final String PREFIX = "yanger.dubbo";
 }
