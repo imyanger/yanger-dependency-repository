@@ -823,4 +823,58 @@ public class StringTools extends StringUtils {
         return str.split(",");
     }
 
+    /**
+     * 补充字符串以满足最小长度
+     * <pre>
+     * StrUtil.padAfter(null, *, *);//null
+     * StrUtil.padAfter("1", 3, "ABC");//"1AB"
+     * StrUtil.padAfter("123", 2, "ABC");//"23"
+     * </pre>
+     *
+     * @param str       字符串,如果为<code>null</code>,按照空串处理
+     * @param minLength 最小长度
+     * @param padStr    补充的字符
+     * @return 补充后的字符串 string
+     */
+    @Contract("null, _, _ -> null")
+    public static String padAfter(CharSequence str, int minLength, CharSequence padStr) {
+        if (null == str) {
+            return null;
+        }
+        int strLen = str.length();
+        if (strLen == minLength) {
+            return str.toString();
+        } else if (strLen > minLength) {
+            return subSufByLength(str, minLength);
+        }
+        return str.toString().concat(repeatByLength(padStr, minLength - strLen));
+    }
+
+    /**
+     * 切割指定长度的后部分的字符串
+     * <pre>
+     * StrUtil.subSufByLength("abcde", 3)      =    "cde"
+     * StrUtil.subSufByLength("abcde", 0)      =    ""
+     * StrUtil.subSufByLength("abcde", -5)     =    ""
+     * StrUtil.subSufByLength("abcde", -1)     =    ""
+     * StrUtil.subSufByLength("abcde", 5)       =    "abcde"
+     * StrUtil.subSufByLength("abcde", 10)     =    "abcde"
+     * StrUtil.subSufByLength(null, 3)               =    null
+     * </pre>
+     *
+     * @param string 字符串
+     * @param length 切割长度
+     * @return 切割后后剩余的后半部分字符串 string
+     */
+    @Nullable
+    private static String subSufByLength(CharSequence string, int length) {
+        if (StringUtils.isEmpty(string)) {
+            return null;
+        }
+        if (length <= 0) {
+            return StringPool.EMPTY;
+        }
+        return sub(string, -length, string.length());
+    }
+
 }
