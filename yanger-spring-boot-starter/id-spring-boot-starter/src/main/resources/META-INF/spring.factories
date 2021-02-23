@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.fkhwl.starter.id.autoconfigure.IdAutoConfiguration
+  com.yanger.starter.id.config.IdAutoConfiguration

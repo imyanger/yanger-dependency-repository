@@ -338,4 +338,41 @@ public final class ConfigKey {
 
     }
 
+    /** id生成 配置项 id-spring-boot-starter/src/main/java/com/yanger/starter/id/config/IdProperties.java */
+    public static class IdConfigKey {
+
+        /** Type */
+        public static final String PROVIDER_TYPE = "yanger.id.provider-type";
+
+        /** Id type */
+        public static final String ID_TYPE = "yanger.id.id-type";
+
+        /** Deploy type */
+        public static final String DEPLOY_TYPE = "yanger.id.deploy-type";
+
+        /** type = PROPERTY 需要的参数 Machine id */
+        public static final String MACHINE_ID = "yanger.id.machine-id";
+
+        /** Version */
+        public static final String VERSION = "yanger.id.version";
+
+        /** type = IP_CONFIGURABLE 需要的参数 ips */
+        public static final String IPS = "yanger.id.ips";
+
+        /** type = DB 需要的参数 数据库连接 */
+        public static final String DB_URL = "yanger.id.db.url";
+
+        /** type = DB 需要的参数 Db name */
+        public static final String DB_NAME = "yanger.id.db.name";
+
+        /** type = DB 需要的参数 Db user */
+        public static final String DB_USER = "yanger.id.db.user";
+
+        /** type = DB 需要的参数 Db password */
+        public static final String DB_PASSWORD = "yanger.id.db.password";
+
+
+
+    }
+
 }
