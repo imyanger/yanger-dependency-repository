@@ -1,5 +1,5 @@
-org.springframework.context.ApplicationListener=\
-  com.fkhwl.starter.dubbo.listener.DubboRegistryCheckListener
-
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+  com.fkhwl.starter.cloud.autoconfigure.nacos.config.YangerNacosBootstrapConfiguration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.fkhwl.starter.dubbo.autoconfigure.DubboAutoConfiguration
+  com.fkhwl.starter.cloud.autoconfigure.nacos.config.NacosProperties,\
+  com.fkhwl.starter.cloud.autoconfigure.nacos.config.NacosAutoConfiguration

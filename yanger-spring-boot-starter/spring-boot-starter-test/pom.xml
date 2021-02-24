@@ -45,6 +45,11 @@
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>nacos-spring-boot-starter</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -47,6 +47,9 @@ public class App {
         /** JUNIT_FLAG */
         public static final String JUNIT_FLAG = "test-classes";
 
+        /** yaml 类型的配置文件 */
+        public static final String YAML_FILE_EXTENSION = "yml";
+
         /** spring cloud 启动配置文件名 */
         public static final String CLOUD_CONFIG_FILE_NAME = "bootstrap.yml";
 

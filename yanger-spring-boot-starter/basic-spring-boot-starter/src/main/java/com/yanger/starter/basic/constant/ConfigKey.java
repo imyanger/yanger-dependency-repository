@@ -256,6 +256,21 @@ public final class ConfigKey {
     /** nacos 配置项 */
     public static class NacosConfigKey {
 
+        /** nacos的分组 */
+        public static final String GROUP = "yanger.nacos.group";
+
+        /** nacos的命名空间 */
+        public static final String NAMESPACE = "yanger.nacos.namespace";
+
+        /** nacos 的地址 */
+        public static final String ADDRESS = "yanger.nacos.address";
+
+        /** 是否自动创建配置 */
+        public static final String ENABLE_AUTO_CREATE_CONFIG = "yanger.nacos.enable-auto-create-config";
+
+        /** 是否使用 Nacos 配置 */
+        public static final String ENABLE_NACOS_CONFIG = "yanger.nacos.enable-nacos-config";
+
         /** 是否加载配置中心配置 */
         public static final String CONFIG_OVERRIDE_NONE = "spring.cloud.config.override-none";
 

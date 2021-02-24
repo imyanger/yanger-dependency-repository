@@ -1,4 +1,4 @@
-package com.fkhwl.starter.cloud.nacos.handler;
+package com.yanger.starter.nacos.handler;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.nacos.api.NacosFactory;
@@ -6,7 +6,6 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingMaintainFactory;
 import com.alibaba.nacos.api.naming.NamingMaintainService;
 import com.alibaba.nacos.api.naming.NamingService;
-import com.alibaba.nacos.api.naming.pojo.ServiceInfo;
 import com.yanger.starter.basic.event.BaseEventHandler;
 import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.tools.web.tools.TimeoutUtil;
@@ -22,22 +21,19 @@ import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司 </p>
- * <p>Description: </p>
- *
- * @author dong4j
- * @version 1.0.0
- * @email "mailto:dong4j@fkhwl.com"
- * @date 2020.07.23 14:44
- * @since 1.5.0
+ * @Description
+ * @Author yanger
+ * @Date 2021/1/28 19:08
  */
 @Slf4j
 public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent> {
 
     /** Discovery client */
     private final DiscoveryClient discoveryClient;
+
     /** Nacos discovery properties */
     private final NacosDiscoveryProperties nacosDiscoveryProperties;
+
     /** Naming service */
     private final NamingService namingService;
 
@@ -46,10 +42,8 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
      *
      * @param discoveryClient          discovery client
      * @param nacosDiscoveryProperties nacos discovery properties
-     * @since 1.6.0
      */
-    public EmptyServiceCleanerHandler(DiscoveryClient discoveryClient,
-                                      NacosDiscoveryProperties nacosDiscoveryProperties) {
+    public EmptyServiceCleanerHandler(DiscoveryClient discoveryClient, NacosDiscoveryProperties nacosDiscoveryProperties) {
         this.discoveryClient = discoveryClient;
         this.nacosDiscoveryProperties = nacosDiscoveryProperties;
         this.namingService = this.namingService();
@@ -59,16 +53,12 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
      * Handler.
      *
      * @param event the event
-     * @since 1.0.0
      */
     @Override
     @EventListener(HeartbeatEvent.class)
     public void handler(@NotNull HeartbeatEvent event) {
         if (this.namingService != null) {
             try {
-                List<ServiceInfo> subscribeServices = this.namingService.getSubscribeServices();
-
-
                 List<String> services = this.discoveryClient.getServices();
                 log.debug("{}", services);
                 for (String service : services) {
@@ -98,7 +88,6 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
      * Naming maintain service instance
      *
      * @return the naming maintain service
-     * @since 1.5.0
      */
     public NamingMaintainService namingMaintainServiceInstance() {
         NamingMaintainService namingMaintainService = null;
@@ -107,7 +96,6 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
         } catch (Exception var2) {
             log.error("create naming service error!properties={},e=,", this, var2);
         }
-
         return namingMaintainService;
     }
 
@@ -115,7 +103,6 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
      * Naming service
      *
      * @return the naming service
-     * @since 1.6.0
      */
     public NamingService namingService() {
         NamingService namingService = null;
@@ -132,7 +119,6 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
      * Gets nacos properties *
      *
      * @return the nacos properties
-     * @since 1.5.0
      */
     private @NotNull Properties getNacosProperties() {
         Properties properties = new Properties();
@@ -143,6 +129,7 @@ public class EmptyServiceCleanerHandler extends BaseEventHandler<HeartbeatEvent>
         log.debug("{}", properties);
         return properties;
     }
+
 }
 
 

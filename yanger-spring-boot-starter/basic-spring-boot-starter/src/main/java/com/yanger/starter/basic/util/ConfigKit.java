@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.DefaultPropertySourceFactory;
 import org.springframework.core.io.support.EncodedResource;
@@ -205,6 +206,26 @@ public class ConfigKit {
     public static boolean isDebugModel() {
         String debugModel = System.getProperty(App.Const.DEBUG_MODEL);
         return StringUtils.isNotBlank(debugModel) && (Boolean.parseBoolean(debugModel) || App.Const.DEBUG_MODEL.equalsIgnoreCase(debugModel));
+    }
+
+    /**
+     * 通过文件全路径名获取资源文件
+     *
+     * @param configFileName config file name
+     * @return the resource
+     */
+    public static Resource getResource(String configFileName) {
+        String configPath = ConfigKit.getConfigPath();
+        String fullPathFileName = configPath + configFileName;
+        Resource resource;
+        InputStream inputStream;
+        try {
+            inputStream = new FileInputStream(new File(fullPathFileName));
+            resource = new InputStreamResource(inputStream);
+        } catch (IOException ex) {
+            throw new PropertiesException("未找到文件: [{}]", fullPathFileName);
+        }
+        return resource;
     }
 
 }
