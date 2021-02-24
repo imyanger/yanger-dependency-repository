@@ -10,8 +10,8 @@ import com.yanger.starter.id.provider.PropertyMachineIdProvider;
 import com.yanger.starter.id.service.IdService;
 import com.yanger.starter.id.service.IdServiceImpl;
 import com.yanger.starter.id.service.SnowflakeIdServiceImpl;
-import com.yanger.tools.general.format.StringFormatter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -82,19 +82,18 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
     @Bean
     @Conditional(value = DbCondition.class)
     public @NotNull IdService dbIdService(@NotNull IdProperties idProperties) {
-        log.info("Construct Db IdService dbUrl {} dbName {} dbUser {} dbPassword {}",
+        log.info("Construct Db IdService driverClassName {} dbUrl {} dbUsername {} dbPassword {}",
+                 idProperties.getDbDriverClassName(),
                  idProperties.getDbUrl(),
-                 idProperties.getDbName(),
-                 idProperties.getDbUser(),
+                 idProperties.getDbUsername(),
                  idProperties.getDbPassword());
 
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 
-        String jdbcDriver = "com.mysql.jdbc.Driver";
         try {
-            comboPooledDataSource.setDriverClass(jdbcDriver);
+            comboPooledDataSource.setDriverClass(StringUtils.isNotBlank(idProperties.getDbDriverClassName()) ?
+                                                 idProperties.getDbDriverClassName() : "com.mysql.cj.jdbc.Driver");
         } catch (PropertyVetoException e) {
-            log.error("Wrong JDBC driver {}", jdbcDriver);
             log.error("Wrong JDBC driver error: ", e);
             throw new IllegalStateException("Wrong JDBC driver ", e);
         }
@@ -108,12 +107,8 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
         comboPooledDataSource.setAcquireRetryAttempts(50);
         comboPooledDataSource.setAcquireRetryDelay(1000);
 
-        String url = StringFormatter.format("jdbc:mysql://{}/{}?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true",
-                                            idProperties.getDbUrl(),
-                                            idProperties.getDbName());
-
-        comboPooledDataSource.setJdbcUrl(url);
-        comboPooledDataSource.setUser(idProperties.getDbUser());
+        comboPooledDataSource.setJdbcUrl(idProperties.getDbUrl());
+        comboPooledDataSource.setUser(idProperties.getDbUsername());
         comboPooledDataSource.setPassword(idProperties.getDbPassword());
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate();

@@ -1,12 +1,13 @@
 package com.yanger.starter.id.service;
 
+import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.enums.IdType;
+import com.yanger.starter.id.enums.SyncType;
 import com.yanger.starter.id.populater.AtomicIdPopulator;
 import com.yanger.starter.id.populater.IdPopulator;
 import com.yanger.starter.id.populater.LockIdPopulator;
 import com.yanger.starter.id.populater.SyncIdPopulator;
-import com.yanger.starter.id.util.CommonUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,12 +18,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class IdServiceImpl extends AbstractIdServiceImpl {
-
-    /** SYNC_LOCK_IMPL_KEY */
-    private static final String SYNC_LOCK_IMPL_KEY = "id.sync.lock.impl.key";
-
-    /** ATOMIC_IMPL_KEY */
-    private static final String ATOMIC_IMPL_KEY = "id.atomic.impl.key";
 
     /** Id populator */
     protected IdPopulator idPopulator;
@@ -56,20 +51,21 @@ public class IdServiceImpl extends AbstractIdServiceImpl {
     }
 
     /**
-     * 通过 JVM 参数选择生成时间和序列号的算法
+     * 通过 参数选择生成时间和序列号的算法 的同步类型
      */
     public void initPopulator() {
-        if (this.idPopulator != null) {
-            log.info("The " + this.idPopulator.getClass().getCanonicalName() + " is used.");
-        } else if (CommonUtils.isPropKeyOn(SYNC_LOCK_IMPL_KEY)) {
-            log.info("The SyncIdPopulator is used.");
-            this.idPopulator = new SyncIdPopulator();
-        } else if (CommonUtils.isPropKeyOn(ATOMIC_IMPL_KEY)) {
-            log.info("The AtomicIdPopulator is used.");
-            this.idPopulator = new AtomicIdPopulator();
-        } else {
-            log.info("The default LockIdPopulator is used.");
-            this.idPopulator = new LockIdPopulator();
+        String syncType = System.getProperty(ConfigKey.IdConfigKey.SYNC_TYPE);
+        if (this.idPopulator == null) {
+            if (SyncType.SYNCHRONIZED.name().equalsIgnoreCase(syncType)) {
+                log.info("The SyncIdPopulator is used.");
+                this.idPopulator = new SyncIdPopulator();
+            } else if (SyncType.CAS.name().equalsIgnoreCase(syncType)) {
+                log.info("The AtomicIdPopulator is used.");
+                this.idPopulator = new AtomicIdPopulator();
+            } else {
+                log.info("The default LockIdPopulator is used.");
+                this.idPopulator = new LockIdPopulator();
+            }
         }
     }
 

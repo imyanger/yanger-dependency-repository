@@ -3,9 +3,9 @@ package com.yanger.starter.id.config;
 import com.yanger.starter.id.enums.DeployType;
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.enums.ProviderType;
+import com.yanger.starter.id.enums.SyncType;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,7 +17,6 @@ import lombok.Data;
  * @Date 2021/1/28 19:08
  */
 @Data
-@Validated
 @ConfigurationProperties(prefix = IdProperties.PREFIX)
 public class IdProperties {
 
@@ -42,16 +41,19 @@ public class IdProperties {
     /** type = IP_CONFIGURABLE 需要的参数 ips */
     public String ips;
 
+    /** type = DB 设置 driverClassName */
+    public String dbDriverClassName;
+
     /** type = DB 需要的参数 Machine id */
     public String dbUrl;
 
-    /** Db name */
-    public String dbName;
-
-    /** Db user */
-    public String dbUser;
+    /** Db username */
+    public String dbUsername;
 
     /** Db password */
     public String dbPassword;
+
+    /** sync type */
+    public SyncType syncType;
 
 }

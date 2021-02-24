@@ -359,17 +359,20 @@ public final class ConfigKey {
         /** type = IP_CONFIGURABLE 需要的参数 ips */
         public static final String IPS = "yanger.id.ips";
 
-        /** type = DB 需要的参数 数据库连接 */
-        public static final String DB_URL = "yanger.id.db.url";
+        /** type = DB 需要的参数 Db driver calss name */
+        public static final String DB_DRIVER_CLASS_NAME = "yanger.id.db-driver-class-name";
 
-        /** type = DB 需要的参数 Db name */
-        public static final String DB_NAME = "yanger.id.db.name";
+        /** type = DB 需要的参数 数据库连接 */
+        public static final String DB_URL = "yanger.id.db-url";
 
         /** type = DB 需要的参数 Db user */
-        public static final String DB_USER = "yanger.id.db.user";
+        public static final String DB_USERNAME = "yanger.id.db-username";
 
         /** type = DB 需要的参数 Db password */
-        public static final String DB_PASSWORD = "yanger.id.db.password";
+        public static final String DB_PASSWORD = "yanger.id.db-password";
+
+        /** 生成时间和序列号的算法的同步类型：synchronized、cas、lock */
+        public static final String SYNC_TYPE = "yanger.id.sync-type";
 
 
 

@@ -45,10 +45,6 @@
             <artifactId>c3p0</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

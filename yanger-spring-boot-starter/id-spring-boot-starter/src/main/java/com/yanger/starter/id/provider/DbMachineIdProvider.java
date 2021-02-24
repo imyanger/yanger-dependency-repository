@@ -24,10 +24,11 @@ public class DbMachineIdProvider implements MachineIdProvider {
     private JdbcTemplate jdbcTemplate;
 
     /** SELECT_SQL */
-    private static final String SELECT_SQL = "select id from db_machine_id_provider where ip = ?";
+    private static final String SELECT_SQL = "SELECT id FROM `db_machine_id_provider` WHERE ip = ?";
 
-    /** UPDATE_SQL */
-    private static final String UPDATE_SQL = "update db_machine_id_provider set ip = ? where ip is null limit 1";
+    /** INSERT_SQL */
+    private static final String INSERT_SQL = "INSERT INTO `db_machine_id_provider`(`ip`, `id`) " +
+                                             "SELECT ?, IF(MAX(id) >= 0, MAX(id) + 1, 0) FROM `db_machine_id_provider`";
 
     public DbMachineIdProvider() {
         log.debug("IpConfigurableMachineIdProvider constructed.");
@@ -39,7 +40,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
     public void init() {
         String ip = NetUtils.getLocalHost();
 
-        if (StringUtils.hasText(ip)) {
+        if (!StringUtils.hasText(ip)) {
             String msg = "Fail to get host IP address. Stop to initialize the DbMachineIdProvider provider.";
 
             log.error(msg);
@@ -48,10 +49,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
 
         Long id = null;
         try {
-            id = this.jdbcTemplate.queryForObject(
-                SELECT_SQL,
-                new Object[] {ip}, Long.class);
-
+            id = this.jdbcTemplate.queryForObject(SELECT_SQL, new Object[] {ip}, Long.class);
         } catch (EmptyResultDataAccessException e) {
             // Ignore the exception
             log.error("No allocation before for ip {}.", ip);
@@ -64,15 +62,11 @@ public class DbMachineIdProvider implements MachineIdProvider {
 
         log.info("Fail to get ID from DB for host IP address {}. Next step try to allocate one.", ip);
 
-        int count = this.jdbcTemplate.update(UPDATE_SQL, ip);
+        // 没有数据则初始化数据
+        int count = this.jdbcTemplate.update(INSERT_SQL, ip);
 
         if (count != 1) {
-            String msg = StrFormatter.format("Fail to allocte ID for host IP address {}. "
-                                             + "The {} records are updated. "
-                                             + "Stop to initialize the DbMachineIdProvider provider.",
-                                             ip,
-                                             count);
-
+            String msg = StrFormatter.format("can not insert init data for ip {}", ip);
             log.error(msg);
             throw new IllegalStateException(msg);
         }
@@ -90,7 +84,6 @@ public class DbMachineIdProvider implements MachineIdProvider {
         if (id == null) {
             String msg = StrFormatter.format("Fail to get ID from DB for host IP address {} after allocation. "
                                              + "Stop to initialize the DbMachineIdProvider provider.", ip);
-
             log.error(msg);
             throw new IllegalStateException(msg);
         }

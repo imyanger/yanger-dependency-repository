@@ -17,10 +17,14 @@ yanger:
   mybatis:
     enable:
       log: true
-
+    page: 30
 
   id:
-    provider-type: property
+    provider-type: db
+    sync-type: cas
+    db-url: jdbc:mysql://localhost:3306/gen?useUnicode=true&characterEncoding=utf8&useSSL=false
+    db-username: root
+    db-password: 1234
 
 #mybatis-plus:
 #  configuration:

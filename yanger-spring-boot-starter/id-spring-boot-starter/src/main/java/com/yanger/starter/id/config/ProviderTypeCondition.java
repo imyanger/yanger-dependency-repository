@@ -1,5 +1,6 @@
 package com.yanger.starter.id.config;
 
+import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.id.enums.ProviderType;
 
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +44,7 @@ public abstract class ProviderTypeCondition extends SpringBootCondition {
 
         ProviderType checkProviderType;
         try {
-            checkProviderType = binder.bind("yanger.id.provider-type", Bindable.of(ProviderType.class)).get();
+            checkProviderType = binder.bind(ConfigKey.IdConfigKey.PROVIDER_TYPE, Bindable.of(ProviderType.class)).get();
         } catch (NoSuchElementException e) {
             checkProviderType = ProviderType.SNOW_FLAKE;
         }

@@ -2,8 +2,8 @@ package com.yanger.starter.id.converter;
 
 import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
-import com.yanger.starter.id.factory.IdMetaFactory;
 import com.yanger.starter.id.enums.IdType;
+import com.yanger.starter.id.factory.IdMetaFactory;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
