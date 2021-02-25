@@ -84,16 +84,16 @@ public class YangerNacosBootstrapConfiguration {
      * @return the nacos property source locator
      * @since 1.4.0
      */
-    @Bean
-    @Primary
-    @SneakyThrows
-    public NacosPropertySourceLocator nacosPropertySourceLocator(@NotNull NacosConfigProperties nacosConfigProperties) {
-        // log.info("Nacos DNS Cache: {} -> {}: {}",
-        //          nacosConfigProperties.getServerAddr(),
-        //          InetAddress.getByName(ConfigDefaultValue.NACOS_HOST).getHostAddress(),
-        //          DnsCacheManipulator.getDnsCache(ConfigDefaultValue.NACOS_HOST));
-        return new FkhNacosPropertySourceLocator(new NacosConfigManager(nacosConfigProperties));
-    }
+    // @Bean
+    // @Primary
+    // @SneakyThrows
+    // public NacosPropertySourceLocator nacosPropertySourceLocator(@NotNull NacosConfigProperties nacosConfigProperties) {
+    //     // log.info("Nacos DNS Cache: {} -> {}: {}",
+    //     //          nacosConfigProperties.getServerAddr(),
+    //     //          InetAddress.getByName(ConfigDefaultValue.NACOS_HOST).getHostAddress(),
+    //     //          DnsCacheManipulator.getDnsCache(ConfigDefaultValue.NACOS_HOST));
+    //     return new FkhNacosPropertySourceLocator(new NacosConfigManager(nacosConfigProperties));
+    // }
 
     /**
      * <p>Company: 成都返空汇网络技术有限公司 </p>
@@ -106,7 +106,7 @@ public class YangerNacosBootstrapConfiguration {
      * @since 1.4.0
      */
     @Order(-1)
-    static class FkhNacosPropertySourceLocator extends NacosPropertySourceLocator {
+    public class FkhNacosPropertySourceLocator extends NacosPropertySourceLocator {
         /** Nacos config properties */
         private final NacosConfigProperties nacosConfigProperties;
         /** Config service */
@@ -117,13 +117,6 @@ public class YangerNacosBootstrapConfiguration {
                                                       + "  cloud:\n"
                                                       + "    config:\n"
                                                       + "      override-none: true\n\n";
-
-        /** DEFAULT_LOGGING */
-        private static final String DEFAULT_LOGGING = "# 自动生成的日志配置, 请根据业务修改或删除 \n"
-                                                      + "fkh:\n"
-                                                      + "  logging:\n"
-                                                      + "    level: \n"
-                                                      + "      root: info\n\n";
 
         /** formatter:on 本地配置的默认名 */
         private static final String LOCAL_CONFIG_NAME = "application";
@@ -266,7 +259,7 @@ public class YangerNacosBootstrapConfiguration {
                 long timeout = this.nacosConfigProperties.getTimeout();
                 String data = this.configService.getConfig(dataId, nacosGroup, timeout);
                 if (StringUtils.isEmpty(data)) {
-                    String finalContent;
+                    String finalContent = null;
 
                     Resource resource = ConfigKit.getResource(localConfigName);
                     String originalConfig = IoUtils.copyToString(resource.getInputStream(), Charsets.UTF_8);
@@ -281,8 +274,6 @@ public class YangerNacosBootstrapConfiguration {
                         } else {
                             finalContent = originalConfig;
                         }
-                    } else {
-                        finalContent = StringUtils.isEmpty(originalConfig) ? DEFAULT_LOGGING : originalConfig;
                     }
 
                     this.configService.publishConfig(dataId, nacosGroup, finalContent);

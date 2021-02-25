@@ -43,7 +43,7 @@ public class StarterInfoRunner implements ApplicationRunner, ApplicationListener
         App.serverUrl = serverUrl;
         System.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_SERVER_URL, serverUrl);
 
-        log.info("{} -- {} 服务启动成功，访问地址：{}", App.applicationClassName, App.applicationName, serverUrl);
+        log.info("{} 服务启动成功，访问地址：{}", App.applicationName, serverUrl);
     }
 
     private String getServerUrl() {

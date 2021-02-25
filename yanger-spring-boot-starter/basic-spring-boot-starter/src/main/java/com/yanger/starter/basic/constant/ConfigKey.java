@@ -168,6 +168,14 @@ public final class ConfigKey {
 
     }
 
+    /** Jvm 配置项 */
+    public static class JvmConfigKey {
+
+        /** TMP_DIR */
+        public static final String TMP_DIR = "java.io.tmpdir";
+
+    }
+
     /** Druid数据源的配置项 */
     public static class DruidConfigKey {
 
@@ -389,7 +397,16 @@ public final class ConfigKey {
         /** 生成时间和序列号的算法的同步类型：synchronized、cas、lock */
         public static final String SYNC_TYPE = "yanger.id.sync-type";
 
+    }
 
+    /** log日志 配置项 */
+    public static class LogConfigKey {
+        /** 日志应用名 */
+        public static final String APP_NAME = "yanger.logger.app-name";
+        /** 日志位置 */
+        public static final String LOG_HOME = "yanger.logger.log-home";
+        /** 日志等级 */
+        public static final String LEVEL = "yanger.logger.level";
 
     }
 

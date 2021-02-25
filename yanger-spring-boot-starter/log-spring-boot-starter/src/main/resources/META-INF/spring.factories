@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.fkhwl.starter.logsystem.runner.LogStarterRunner
-org.springframework.context.ApplicationListener=\
-  com.fkhwl.starter.logsystem.listener.FkhLoggingListener

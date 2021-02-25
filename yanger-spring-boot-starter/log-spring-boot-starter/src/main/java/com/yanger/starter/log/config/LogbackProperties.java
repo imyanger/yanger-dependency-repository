@@ -1,0 +1,29 @@
+package com.yanger.starter.log.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.logging.LogLevel;
+
+import lombok.Data;
+
+/**
+ * @Description logback
+ * @Author yanger
+ * @Date 2021/2/25 17:56
+ */
+@Data
+@ConfigurationProperties(prefix = LogbackProperties.PREFIX)
+public class LogbackProperties {
+
+    /** PREFIX */
+    public static final String PREFIX = "yanger.logger";
+
+    /** 日志级别 */
+    private LogLevel level;
+
+    /** 项目名称 */
+    private String appName;
+
+    /** 日志目录 */
+    private String logHome;
+
+}

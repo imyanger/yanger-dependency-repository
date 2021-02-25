@@ -8,3 +8,9 @@ spring:
 mybatis-plus:
   global-config:
     banner: true
+
+yanger:
+  logger:
+    app-name: woai
+    level: info
+    log-home: F:\data\woai

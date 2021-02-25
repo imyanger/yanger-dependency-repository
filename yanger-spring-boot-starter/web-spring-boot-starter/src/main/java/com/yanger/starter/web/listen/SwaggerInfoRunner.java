@@ -32,10 +32,8 @@ public class SwaggerInfoRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         if (App.serverUrl != null) {
-            log.info("{} -- {} 服务已集成Swagger3： {}", App.applicationClassName, App.applicationName,
-                     App.serverUrl + LibraryEnum.SWAGGER3_REST_DEFAULT.getUri());
-            log.info("{} -- {} 服务已集成Knife4j： {}", App.applicationClassName, App.applicationName,
-                     App.serverUrl + LibraryEnum.SWAGGER_REST_BOOTSTRAP.getUri());
+            log.info("{} 服务已集成Swagger3： {}", App.applicationName, App.serverUrl + LibraryEnum.SWAGGER3_REST_DEFAULT.getUri());
+            log.info("{} 服务已集成Knife4j： {}", App.applicationName, App.serverUrl + LibraryEnum.SWAGGER_REST_BOOTSTRAP.getUri());
         }
     }
 

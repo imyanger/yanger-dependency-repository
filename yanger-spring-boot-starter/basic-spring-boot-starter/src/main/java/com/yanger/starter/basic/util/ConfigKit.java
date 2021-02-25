@@ -228,4 +228,22 @@ public class ConfigKit {
         return resource;
     }
 
+    /**
+     * 是否是jar启动
+     * @Date 2021/2/25 9:53
+     * @return: boolean
+     */
+    public static boolean isJarStart() {
+        return App.Const.START_JAR.equals(App.applicationStartType);
+    }
+
+    /**
+     * 是否本地启动
+     * @Date 2021/2/25 9:53
+     * @return: boolean
+     */
+    public static boolean isLocalLaunch() {
+        return !isJarStart();
+    }
+
 }

@@ -106,7 +106,7 @@ public final class BasicRunner {
         String configFilePath = ConfigKit.getConfigPath();
         String applicationName;
         // shell 脚本启动, 优先从 jar 的 MANIFEST.MF 读取
-        if (App.Const.START_JAR.equals(App.applicationStartType)) {
+        if (ConfigKit.isJarStart()) {
             try {
                 // 优先解析 jar 文件中的 MANIFEST.MF 文件, jar.file 环境变量通过 server.sh 启动脚本设置
                 JarFile jarFile = new JarFile(System.getProperty("jar.file"));
@@ -252,19 +252,20 @@ public final class BasicRunner {
         MutablePropertySources propertySources = environment.getPropertySources();
         propertySources.addFirst(new SimpleCommandLinePropertySource(args));
 
+        // 添加到环境变量中
+        putProperties();
+
         // 加载自定义 SPI 组件
         ServiceLoader<LauncherInitiation> loader = ServiceLoader.load(LauncherInitiation.class);
         List<LauncherInitiation> list = IteratorUtils.toList(loader.iterator());
         list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
             .forEach(launcherService -> launcherService.launcherWrapper(environment, DEFAULT_PROPERTIES, appName));
 
-        // 添加到环境变量中
-        putProperties();
-        // 打印输出配置
-        outProperties();
-
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(DEFAULT_PROPERTIES)));
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(CUSTOM_PROPERTIES)));
+
+        // 打印输出配置
+        outProperties();
 
         ConfigKit.init(environment);
     }
