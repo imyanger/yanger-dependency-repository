@@ -24,11 +24,11 @@ import java.util.NoSuchElementException;
 public class LogLauncherInitiation implements LauncherInitiation {
 
     /**
-     * Launcher *
+     * 加载默认配置
      *
-     * @param env     env
-     * @param appName app name
-     * @return the map
+     * @param env               系统变量 Environment
+     * @param appName           服务名
+     * @return the chain map
      */
     @Override
     public Map<String, Object> launcher(Environment env, String appName) {

@@ -48,8 +48,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public final class BasicRunner {
 
+    /** 默认配置 */
     private static final Properties DEFAULT_PROPERTIES = new Properties();
 
+    /** 自定义配置 */
     private static final Properties CUSTOM_PROPERTIES = new Properties();
 
     /**
@@ -62,6 +64,8 @@ public final class BasicRunner {
      * @throws Exception exception
      */
     public static ConfigurableApplicationContext start(Class<?> source, ApplicationType applicationType, String... args) throws Exception {
+        // 获取配置文件路径
+        loadConfigPath(args);
         // 获取应用名称
         loadApplicationName();
         // 加载 args 参数
@@ -70,9 +74,26 @@ public final class BasicRunner {
         loadYamlProperties();
         // 设置 BasicApplication 启动标识
         App.applicationStarterFlag = ConfigDefaultValue.APPLICATION_STARTER_FLAG;
-        DEFAULT_PROPERTIES.setProperty(ConfigKey.UnmodifyConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
         // 启动应用
         return start(App.applicationName, source, applicationType, args);
+    }
+
+    /**
+     * @Description 获取参数中配置文件路径 ： eg：--yanger.app.config-path=D:\yangr\
+     * @Author yanger
+     * @Date 2021/1/25 10:00
+     * @param: args
+     * @throws
+     */
+    private static void loadConfigPath(String @NotNull [] args) {
+        for (String arg : args) {
+            if (arg.startsWith("--yanger.app.config-path=")) {
+                App.configPath = arg.substring("--yanger.app.config-path=".length());
+                DEFAULT_PROPERTIES.setProperty(ConfigKey.APP_CONFIG_PATH, App.configPath);
+                break;
+            }
+        }
     }
 
     /**
@@ -98,12 +119,11 @@ public final class BasicRunner {
      * 获取应用名
      * 1. 默认通过 jar 启动应用, 从 MANIFEST.MF 中获取 Project-Name 的值
      * 2. File 启动，spring.application.name ->文件名
+     * 获取不到则使用模块名
      *
      * @return the properties
      */
     private static void loadApplicationName() {
-        // 获取配置文件路径, 有多种情况 (本地运行, jar 运行)
-        String configFilePath = ConfigKit.getConfigPath();
         String applicationName;
         // shell 脚本启动, 优先从 jar 的 MANIFEST.MF 读取
         if (ConfigKit.isJarStart()) {
@@ -140,7 +160,7 @@ public final class BasicRunner {
             if (name != null) {
                 applicationName = name.toString();
             } else {
-                File file = new File(configFilePath);
+                File file = new File(ConfigKit.getClasspath());
                 // 直接解析文件目录, 使用当前目录名作为应用名 (target 上一级目录)
                 applicationName = file.getParentFile().getParentFile().getName();
                 log.warn("未显式设置服务名 spring.application.name, 读取当前模块名作为服务名： [{}]", applicationName);
@@ -159,7 +179,6 @@ public final class BasicRunner {
      * @Description 加载 yaml 文件配置
      * @Author yanger
      * @Date 2021/2/3 15:47
-     * @throws
      */
     private static void loadYamlProperties() {
         try {
@@ -186,15 +205,12 @@ public final class BasicRunner {
      * @Author yanger
      * @Date 2021/2/3 14:53
      * @param: map
-     * @throws
      */
     private static void loadMapCustomProperties(Map<String, Object> map) {
         if (map != null && !map.isEmpty()) {
             map.forEach((key, value) -> CUSTOM_PROPERTIES.put(key, value));
         }
     }
-
-
 
     /**
      * 启动 Spring 应用程序
@@ -214,7 +230,7 @@ public final class BasicRunner {
     }
 
     /**
-     * 设置 默认配置和 profiles, 用过 SPI 加载其他包的组件
+     * 设置 默认配置和 profiles, 用 SPI 加载其他包的组件
      *
      * @param appName         the app name
      * @param source          the source
@@ -252,8 +268,8 @@ public final class BasicRunner {
         MutablePropertySources propertySources = environment.getPropertySources();
         propertySources.addFirst(new SimpleCommandLinePropertySource(args));
 
-        // 添加到环境变量中
-        putProperties();
+        // 自定义配置系统变量 Environment
+        propertySources.addLast(new MapPropertySource(DefaultEnvironment.CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(CUSTOM_PROPERTIES)));
 
         // 加载自定义 SPI 组件
         ServiceLoader<LauncherInitiation> loader = ServiceLoader.load(LauncherInitiation.class);
@@ -262,8 +278,9 @@ public final class BasicRunner {
             .forEach(launcherService -> launcherService.launcherWrapper(environment, DEFAULT_PROPERTIES, appName));
 
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(DEFAULT_PROPERTIES)));
-        propertySources.addLast(new MapPropertySource(DefaultEnvironment.CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(CUSTOM_PROPERTIES)));
 
+        // 添加到环境变量中，便于System获取
+        putProperties();
         // 打印输出配置
         outProperties();
 
@@ -284,23 +301,27 @@ public final class BasicRunner {
         return map;
     }
 
-
     /**
      * @Description 将配置属性添加到系统环境变量System中
      * @Author yanger
      * @Date 2021/2/3 14:57
-     * @throws
      */
     private static void putProperties() {
+
         DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_CLASS_NAME, App.applicationClassName);
         DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_NAME, App.applicationName);
         DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_TYPE, App.applicationType.toString());
         DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_START_TYPE, App.applicationStartType);
-        // 添加到环境变量中
+        // 添加到环境变量中（自定义覆盖默认）
         DEFAULT_PROPERTIES.forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
         CUSTOM_PROPERTIES.forEach((key, value) -> System.setProperty(key.toString(), value.toString()));
     }
 
+    /**
+     * @Description 控制台输出默认配置和自定义配置
+     * @Author yanger
+     * @Date 2021/2/3 14:57
+     */
     private static void outProperties() {
         log.info("全部的默认配置：\n{}", JsonUtils.toJson(DEFAULT_PROPERTIES, true));
         if (CUSTOM_PROPERTIES.getProperty(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {

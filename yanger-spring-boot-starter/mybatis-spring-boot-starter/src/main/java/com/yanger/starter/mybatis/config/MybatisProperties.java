@@ -28,6 +28,9 @@ public class MybatisProperties {
     /** 单页限制 默认不限制 */
     private Long singlePageLimit = -1L;
 
+    /** 是否开启敏感数据加密 */
+    private boolean enableSensitive;
+
     /** 敏感数据加密 AES_KEY */
     private String sensitiveKey = "dKE78Ndp*)^*)(3Hm30)2^(@:34h3M2K";
 

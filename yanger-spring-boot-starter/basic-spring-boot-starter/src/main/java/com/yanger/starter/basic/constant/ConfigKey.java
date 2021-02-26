@@ -16,14 +16,17 @@ public final class ConfigKey {
     /** applicationType */
     public static final String APPLICATION_TYPE = "yanger.app.type";
 
-    /** 启动方式, 用于区分是否通过 server.sh 脚本启动 */
+    /** 启动方式, 用于区分是否通过 jar 或者 .sh 脚本启动 */
     public static final String APPLICATION_START_TYPE = "yanger.app.start-type";
 
-    /** server.sh 中的启动参数, 用于获取配置文件路径 */
-    public static final String APP_CONFIG_PATH = "yanger.app.config-path";
+    /** 启动标识, 所有项目只能使用 BasicApplication 启动 */
+    public static final String APPLICATION_STARTER_FLAG = "yanger.app.starter-flag";
 
-    /** Config name */
-    public static final String CONFIG_NAME = "yanger.app.config-file-name";
+    /** 项目地址 */
+    public static final String APPLICATION_SERVER_URL = "yanger.app.server-url";
+
+    /** 启动参数, 用于获取配置文件路径，便于jar 启动时更改配置文件需要重新打包，eg：--yanger.app.config-path=D:\yangr\ */
+    public static final String APP_CONFIG_PATH = "yanger.app.config-path";
 
 
     /** xss 配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/config/XssProperties.java */
@@ -37,16 +40,18 @@ public final class ConfigKey {
 
     }
 
-    /** json 配置项 */
+
+    /** json 配置项 basic-spring-boot-starter/src/main/java/com/yanger/starter/basic/config/JsonProperties.java */
     public static class JsonConfigKey {
 
         /** JSON_DATE_FORMAT */
-        public static final String JSON_DATE_FORMAT = "yanger.json.date-formate";
+        public static final String JSON_DATE_FORMAT = "yanger.json.date-format";
 
         /** JSON_TIME_ZONE */
         public static final String JSON_TIME_ZONE = "yanger.json.time-zone";
 
     }
+
 
     /** spring 配置项 */
     public static class SpringConfigKey {
@@ -64,6 +69,7 @@ public final class ConfigKey {
         public static final String AUTOCONFIGURE_EXCLUDE = "spring.autoconfigure.exclude";
 
     }
+
 
     /** token 配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/config/TokenConfig.java */
     public static class TokenConfigKey {
@@ -85,6 +91,7 @@ public final class ConfigKey {
 
     }
 
+
     /** 微信授权配置项 web-spring-boot-starter/src/main/java/com/yanger/starter/web/wx/config/WxMaProperties.java */
     public static class WeiXinConfigKey {
 
@@ -92,6 +99,7 @@ public final class ConfigKey {
         public static final String WX_MINIAPP_CONFIGS = "yanger.wx.miniapp.configs";
 
     }
+
 
     /** mybatis配置项 mybatis-spring-boot-starter/src/main/java/com/yanger/starter/mybatis/config/MybatisProperties.java */
     public static class MybatisConfigKey {
@@ -149,6 +157,7 @@ public final class ConfigKey {
 
     }
 
+
     /** 系统配置项 */
     public static class SystemConfigKey {
 
@@ -157,16 +166,6 @@ public final class ConfigKey {
 
     }
 
-    /** 不可设置的配置项 */
-    public static class UnmodifyConfigKey {
-
-        /** 启动标识, 所有项目只能使用 BasicApplication 启动 */
-        public static final String APPLICATION_STARTER_FLAG = "yanger.app.starter-flag";
-
-        /** 项目地址 */
-        public static final String APPLICATION_SERVER_URL = "yanger.app.server-url";
-
-    }
 
     /** Jvm 配置项 */
     public static class JvmConfigKey {
@@ -175,6 +174,7 @@ public final class ConfigKey {
         public static final String TMP_DIR = "java.io.tmpdir";
 
     }
+
 
     /** Druid数据源的配置项 */
     public static class DruidConfigKey {
@@ -185,50 +185,50 @@ public final class ConfigKey {
         /** DRIVER_CLASS */
         public static final String DRIVER_CLASS = "spring.datasource.driver-class-name";
 
-        /** INITIALSIZE */
-        public static final String INITIALSIZE = "spring.datasource.druid.initialSize";
+        /** INITIAL_SIZE */
+        public static final String INITIAL_SIZE = "spring.datasource.druid.initialSize";
 
-        /** MINIDLE */
-        public static final String MINIDLE = "spring.datasource.druid.minIdle";
+        /** MIN_IDLE */
+        public static final String MIN_IDLE = "spring.datasource.druid.minIdle";
 
-        /** MAXACTIVE */
-        public static final String MAXACTIVE = "spring.datasource.druid.maxActive";
+        /** MAX_ACTIVE */
+        public static final String MAX_ACTIVE = "spring.datasource.druid.maxActive";
 
-        /** MAXWAIT */
-        public static final String MAXWAIT = "spring.datasource.druid.maxWait";
+        /** MAX_WAIT */
+        public static final String MAX_WAIT = "spring.datasource.druid.maxWait";
 
-        /** TIMEBETWEENEVICTIONRUNSMILLIS */
-        public static final String TIMEBETWEENEVICTIONRUNSMILLIS = "spring.datasource.druid.timeBetweenEvictionRunsMillis";
+        /** TIME_BETWEEN_EVICTION_RUNS_MILLIS */
+        public static final String TIME_BETWEEN_EVICTION_RUNS_MILLIS = "spring.datasource.druid.timeBetweenEvictionRunsMillis";
 
-        /** MINEVICTABLEIDLETIMEMILLIS */
-        public static final String MINEVICTABLEIDLETIMEMILLIS = "spring.datasource.druid.minEvictableIdleTimeMillis";
+        /** MIN_EVICTABLE_IDLE_TIME_MILLIS */
+        public static final String MIN_EVICTABLE_IDLE_TIME_MILLIS = "spring.datasource.druid.minEvictableIdleTimeMillis";
 
-        /** VALIDATIONQUERY */
-        public static final String VALIDATIONQUERY = "spring.datasource.druid.validationQuery";
+        /** VALIDATION_QUERY */
+        public static final String VALIDATION_QUERY = "spring.datasource.druid.validationQuery";
 
-        /** TESTWHILEIDLE */
-        public static final String TESTWHILEIDLE = "spring.datasource.druid.testWhileIdle";
+        /** TEST_WHILE_IDLE */
+        public static final String TEST_WHILE_IDLE = "spring.datasource.druid.testWhileIdle";
 
-        /** TESTONBORROW */
-        public static final String TESTONBORROW = "spring.datasource.druid.testOnBorrow";
+        /** TEST_ON_BORROW */
+        public static final String TEST_ON_BORROW = "spring.datasource.druid.testOnBorrow";
 
-        /** TESTONRETURN */
-        public static final String TESTONRETURN = "spring.datasource.druid.testOnReturn";
+        /** TEST_ON_RETURN */
+        public static final String TEST_ON_RETURN = "spring.datasource.druid.testOnReturn";
 
-        /** POOLPREPAREDSTATEMENTS */
-        public static final String POOLPREPAREDSTATEMENTS = "spring.datasource.druid.poolPreparedStatements";
+        /** POOL_PREPARED_STATEMENTS */
+        public static final String POOL_PREPARED_STATEMENTS = "spring.datasource.druid.poolPreparedStatements";
 
-        /** MAXPOOLPREPAREDSTATEMENTPERCONNECTIONSIZE */
-        public static final String MAXPOOLPREPAREDSTATEMENTPERCONNECTIONSIZE = "spring.datasource.druid.maxPoolPreparedStatementPerConnectionSize";
+        /** MAX_POOL_PREPARED_STATEMENT_PER_CONNECTION_SIZE */
+        public static final String MAX_POOL_PREPARED_STATEMENT_PER_CONNECTION_SIZE = "spring.datasource.druid.maxPoolPreparedStatementPerConnectionSize";
 
         /** FILTERS */
         public static final String FILTERS = "spring.datasource.druid.filters";
 
-        /** CONNECTIONPROPERTIES */
-        public static final String CONNECTIONPROPERTIES = "spring.datasource.druid.connectionProperties";
+        /** CONNECTION_PROPERTIES */
+        public static final String CONNECTION_PROPERTIES = "spring.datasource.druid.connectionProperties";
 
-        /** USUEGLOBALDATASOURCESTAT */
-        public static final String USUEGLOBALDATASOURCESTAT = "spring.datasource.druid.useGlobalDataSourceStat";
+        /** USE_GLOBAL_DATA_SOURCE_STAT */
+        public static final String USE_GLOBAL_DATA_SOURCE_STAT = "spring.datasource.druid.useGlobalDataSourceStat";
 
         /** WEB_FILTER */
         public static final String WEB_FILTER = "spring.datasource.druid.web-stat-filter.enabled";
@@ -260,6 +260,70 @@ public final class ConfigKey {
         /** STAT_PASSWORD */
         public static final String STAT_PASSWORD = "spring.datasource.druid.stat-view-servlet.login-password";
     }
+
+
+    /** id生成 配置项 id-spring-boot-starter/src/main/java/com/yanger/starter/id/config/IdProperties.java */
+    public static class IdConfigKey {
+
+        /** Type */
+        public static final String PROVIDER_TYPE = "yanger.id.provider-type";
+
+        /** Id type */
+        public static final String ID_TYPE = "yanger.id.id-type";
+
+        /** Deploy type */
+        public static final String DEPLOY_TYPE = "yanger.id.deploy-type";
+
+        /** type = PROPERTY 需要的参数 Machine id */
+        public static final String MACHINE_ID = "yanger.id.machine-id";
+
+        /** Version */
+        public static final String VERSION = "yanger.id.version";
+
+        /** type = IP_CONFIGURABLE 需要的参数 ips */
+        public static final String IPS = "yanger.id.ips";
+
+        /** type = DB 需要的参数 Db driver calss name */
+        public static final String DB_DRIVER_CLASS_NAME = "yanger.id.db-driver-class-name";
+
+        /** type = DB 需要的参数 数据库连接 */
+        public static final String DB_URL = "yanger.id.db-url";
+
+        /** type = DB 需要的参数 Db user */
+        public static final String DB_USERNAME = "yanger.id.db-username";
+
+        /** type = DB 需要的参数 Db password */
+        public static final String DB_PASSWORD = "yanger.id.db-password";
+
+        /** 生成时间和序列号的算法的同步类型：synchronized、cas、lock */
+        public static final String SYNC_TYPE = "yanger.id.sync-type";
+
+    }
+
+
+    /** log日志 配置项 log-spring-boot-starter/src/main/java/com/yanger/starter/log/config/LogbackProperties.java */
+    public static class LogConfigKey {
+
+        /** 日志应用名 */
+        public static final String APP_NAME = "yanger.logger.app-name";
+
+        /** 日志位置 */
+        public static final String LOG_HOME = "yanger.logger.log-home";
+
+        /** 日志等级 */
+        public static final String LEVEL = "yanger.logger.level";
+
+        /** 动态日志等级接口可修改的包 */
+        public static final String DYNAMIC_LOG_PACKAGE = "yanger.logger.dynamic-log-package";
+
+        /** 是否允许动态修改日志 */
+        public static final String DYNAMIC_LOG_ENABLED = "yanger.logger.dynamic-log-enabled";
+
+    }
+
+
+
+
 
     /** nacos 配置项 */
     public static class NacosConfigKey {
@@ -361,53 +425,5 @@ public final class ConfigKey {
 
     }
 
-    /** id生成 配置项 id-spring-boot-starter/src/main/java/com/yanger/starter/id/config/IdProperties.java */
-    public static class IdConfigKey {
-
-        /** Type */
-        public static final String PROVIDER_TYPE = "yanger.id.provider-type";
-
-        /** Id type */
-        public static final String ID_TYPE = "yanger.id.id-type";
-
-        /** Deploy type */
-        public static final String DEPLOY_TYPE = "yanger.id.deploy-type";
-
-        /** type = PROPERTY 需要的参数 Machine id */
-        public static final String MACHINE_ID = "yanger.id.machine-id";
-
-        /** Version */
-        public static final String VERSION = "yanger.id.version";
-
-        /** type = IP_CONFIGURABLE 需要的参数 ips */
-        public static final String IPS = "yanger.id.ips";
-
-        /** type = DB 需要的参数 Db driver calss name */
-        public static final String DB_DRIVER_CLASS_NAME = "yanger.id.db-driver-class-name";
-
-        /** type = DB 需要的参数 数据库连接 */
-        public static final String DB_URL = "yanger.id.db-url";
-
-        /** type = DB 需要的参数 Db user */
-        public static final String DB_USERNAME = "yanger.id.db-username";
-
-        /** type = DB 需要的参数 Db password */
-        public static final String DB_PASSWORD = "yanger.id.db-password";
-
-        /** 生成时间和序列号的算法的同步类型：synchronized、cas、lock */
-        public static final String SYNC_TYPE = "yanger.id.sync-type";
-
-    }
-
-    /** log日志 配置项 */
-    public static class LogConfigKey {
-        /** 日志应用名 */
-        public static final String APP_NAME = "yanger.logger.app-name";
-        /** 日志位置 */
-        public static final String LOG_HOME = "yanger.logger.log-home";
-        /** 日志等级 */
-        public static final String LEVEL = "yanger.logger.level";
-
-    }
 
 }

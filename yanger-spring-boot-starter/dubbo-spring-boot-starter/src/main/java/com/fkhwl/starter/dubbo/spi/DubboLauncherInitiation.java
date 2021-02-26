@@ -11,6 +11,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 
 import java.util.Map;
+import java.util.Properties;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,12 +30,11 @@ import lombok.extern.slf4j.Slf4j;
 public class DubboLauncherInitiation implements LauncherInitiation {
 
     /**
-     * Launcher *
+     * 加载默认配置
      *
-     * @param env           env
-     * @param appName       app name
-     * @return the map
-     * @see MetadataReportService
+     * @param env               系统变量 Environment
+     * @param appName           服务名
+     * @return the chain map
      */
     @Override
     @SuppressWarnings("PMD.RemoveCommentedCodeRule")

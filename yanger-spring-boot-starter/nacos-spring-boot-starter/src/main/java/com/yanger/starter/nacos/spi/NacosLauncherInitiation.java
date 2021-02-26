@@ -17,6 +17,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
 
 import java.util.Map;
+import java.util.Properties;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,11 +33,11 @@ public class NacosLauncherInitiation implements LauncherInitiation {
     private static final String DEFAULT_GROUP = "YANGER_DEFAULT_GROUP";
 
     /**
-     * Launcher *
+     * 加载默认配置
      *
-     * @param env           env
-     * @param appName       app name
-     * @return the map
+     * @param env               系统变量 Environment
+     * @param appName           服务名
+     * @return the chain map
      */
     @Override
     public Map<String, Object> launcher(@NotNull Environment env, String appName) {

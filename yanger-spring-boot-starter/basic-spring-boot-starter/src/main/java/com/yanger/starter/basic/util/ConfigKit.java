@@ -127,29 +127,29 @@ public class ConfigKit {
     }
 
     /**
-     * 获取配置文件路径, 兼容本地开发和 jar 运行
-     * -D 参数使用 Systerm.getProperty 获取
-     * <code>
-     * nohup ${JAVA_HOME}/bin/java -jar \
-     * ${JVM_OPTS} \
-     * -Ddeploy.path=${DEPLOY_DIR} \
-     * -Dstart.type=shell \
-     * ${DEBUG_OPTS} \
-     * ${JAR_FILE} \
-     * --spring.profiles.active=${ENV} \
-     * --spring.config.location=${DEPLOY_DIR}/config/ &
-     * </code>
+     * 获取配置文件路径
      *
      * @return the config path
      */
     public static @NotNull String getConfigPath() {
-        String configPath;
         // 如果设置了配置文件路径，则使用配置的
-        String appConfigPpath = System.getProperty(ConfigKey.APP_CONFIG_PATH);
-        if (StringUtils.isNotBlank(appConfigPpath)) {
-            return appConfigPpath;
+        String appConfigPath = App.configPath;
+        if (StringUtils.isNotBlank(appConfigPath)) {
+            if (!appConfigPath.endsWith(File.separator)) {
+                appConfigPath += File.separator;
+            }
+            return appConfigPath;
         }
-        configPath = AppStartUtils.getClasspath();
+        return getClasspath();
+    }
+
+    /**
+     * 获取 classpath 路径
+     *
+     * @return the config path
+     */
+    public static @NotNull String getClasspath() {
+        String configPath = AppStartUtils.getClasspath();
         if (!configPath.endsWith(File.separator)) {
             configPath += File.separator;
         }

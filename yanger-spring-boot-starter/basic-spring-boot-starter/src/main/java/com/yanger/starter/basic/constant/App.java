@@ -33,6 +33,9 @@ public class App {
     /** 项目地址 */
     public static String serverUrl;
 
+    /** 项目配置文件地址 */
+    public static String configPath;
+
     public class Const {
 
         /** BASE_PACKAGES */

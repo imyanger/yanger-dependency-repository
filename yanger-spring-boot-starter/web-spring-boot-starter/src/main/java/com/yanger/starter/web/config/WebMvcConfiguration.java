@@ -119,7 +119,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
             .excludePathPatterns("/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/**/*.gif", "/**/fonts/*", "/**/*.svg")
             .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/api-docs", "/v3/api-docs", "/favicon.ico")
             .excludePathPatterns("/swagger-ui/index.html", "/doc.html")
-            .excludePathPatterns("/login", "/wxMiniLogin", "/wxAppLogin", "/randomCode", "/randomCode/cal", "/register");
+            .excludePathPatterns("/login", "/wxMiniLogin", "/wxAppLogin", "/randomCode", "/randomCode/cal", "/register", "/logLevel/*");
     }
 
     /**

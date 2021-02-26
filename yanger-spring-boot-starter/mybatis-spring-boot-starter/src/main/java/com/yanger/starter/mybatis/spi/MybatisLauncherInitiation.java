@@ -9,6 +9,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @Description 通过 SPI 加载 mybatis 默认配置
@@ -19,11 +20,11 @@ import java.util.Map;
 public class MybatisLauncherInitiation implements LauncherInitiation {
 
     /**
-     * Launcher *
+     * 加载默认配置
      *
-     * @param env     env
-     * @param appName app name
-     * @return the map
+     * @param env               系统变量 Environment
+     * @param appName           服务名
+     * @return the chain map
      */
     @Override
     public Map<String, Object> launcher(Environment env, String appName) {

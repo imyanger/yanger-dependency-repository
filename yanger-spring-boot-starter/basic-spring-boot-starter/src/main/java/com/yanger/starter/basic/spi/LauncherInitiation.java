@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @Description launcher 扩展 用于一些组件发现
+ * @Description launcher 扩展，用于一些组件发现
  * @Author yanger
  * @Date 2020/12/29 18:57
  */
@@ -47,10 +47,10 @@ public interface LauncherInitiation extends Ordered {
     default void advance(String appName) {}
 
     /**
-     * Launcher wrapper *
+     * 加载默认配置
      *
-     * @param env     env
-     * @param appName app name
+     * @param env               系统变量 Environment
+     * @param appName           服务名
      * @return the chain map
      */
     Map<String, Object> launcher(Environment env, String appName);

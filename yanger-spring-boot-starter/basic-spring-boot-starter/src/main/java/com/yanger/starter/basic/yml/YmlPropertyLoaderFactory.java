@@ -1,7 +1,5 @@
 package com.yanger.starter.basic.yml;
 
-import com.yanger.starter.basic.constant.ConfigKey;
-
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +11,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.DefaultPropertySourceFactory;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.lang.Nullable;
-import org.springframework.util.PropertiesPersister;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -30,9 +27,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
-
-    /** Properties persister */
-    private final PropertiesPersister propertiesPersister = new YmlPropertiesPersister();
 
     /**
      * Create property source property source
@@ -128,8 +122,7 @@ public class YmlPropertyLoaderFactory extends DefaultPropertySourceFactory {
         Resource resource = encodedResource.getResource();
         String fileName = resource.getFilename();
         Properties properties = new Properties();
-        properties.setProperty(ConfigKey.CONFIG_NAME, name);
-        this.propertiesPersister.load(properties, resource.getInputStream());
+        new YmlPropertiesPersister(name).load(properties, resource.getInputStream());
         return new OriginTrackedMapPropertySource(getSourceName(fileName, name), properties);
     }
 
