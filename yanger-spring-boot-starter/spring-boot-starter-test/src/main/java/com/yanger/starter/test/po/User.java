@@ -4,6 +4,8 @@ import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.starter.mybatis.entity.BaseTimeLogicPO;
 import com.yanger.starter.test.enums.FileType;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 
 /**
@@ -14,6 +16,7 @@ import lombok.Data;
 @Data
 public class User extends BaseTimeLogicPO<Long, User> {
 
+    @NotEmpty(message = "用户名不能为空")
     private String userName;
 
     private Integer age;

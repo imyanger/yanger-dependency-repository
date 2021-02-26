@@ -51,7 +51,7 @@
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <spring-jdbc.version>5.2.12.RELEASE</spring-jdbc.version>
         <c3p0.version>0.9.5.4</c3p0.version>
-        <hibernate-validator.version>5.4.3.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
         <!-- yanger-spring-boot-starter -->
     </properties>
 
@@ -91,6 +91,11 @@
             <dependency>
                 <groupId>com.yanger</groupId>
                 <artifactId>id-spring-boot-starter</artifactId>
+                <version>${yanger-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yanger</groupId>
+                <artifactId>log-spring-boot-starter</artifactId>
                 <version>${yanger-spring-boot.version}</version>
             </dependency>
             <!-- yanger-dependencies -->

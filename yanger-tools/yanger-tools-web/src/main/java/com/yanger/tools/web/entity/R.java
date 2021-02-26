@@ -49,58 +49,85 @@ public final class R<T> extends Result<T> {
      * Succeed result
      *
      * @param <T>  parameter
+     * @param data data
      * @param code code
      * @param msg  msg
-     * @param data data
      * @return the result
      */
     @Contract(value = "_, _, _ -> new", pure = true)
     @NotNull
-    public static <T> Result<T> succeed(Integer code, String msg, T data) {
+    public static <T> Result<T> succeed(T data, Integer code, String msg) {
         return build(code, msg, data, true);
     }
 
     /**
      * Succeed result
      *
-     * @param <T>  parameter
-     * @param msg  msg
-     * @param data data
-     * @return the result
-     */
-    @Contract(value = "_, _ -> new", pure = true)
-    @NotNull
-    public static <T> Result<T> succeed(String msg, T data) {
-        return succeed(ResultCode.OK.getCode(), msg, data);
-    }
-
-    /**
-     * Succeed result
-     *
      * @param <T>        parameter
-     * @param resultCode result code
      * @param data       data
-     * @return the result
-     */
-    @Contract(value = "_, _ -> new", pure = true)
-    @NotNull
-    public static <T> Result<T> succeed(IResultCode resultCode, T data) {
-        return succeed(resultCode.getCode(), resultCode.getMessage(), data);
-    }
-
-    /**
-     * Succeed result
-     *
-     * @param <T>        parameter
      * @param resultCode result code
-     * @param data       data
      * @param msg        msg
      * @return the result
      */
     @Contract(value = "_, _, _ -> new", pure = true)
     @NotNull
-    public static <T> Result<T> succeed(IResultCode resultCode, T data, Object... msg) {
-        return succeed(resultCode.getCode(), resultCode.generateMessage(msg), data);
+    public static <T> Result<T> succeed(T data, IResultCode resultCode, Object... msg) {
+        return succeed(data, resultCode.getCode(), resultCode.generateMessage(msg));
+    }
+
+    /**
+     * Succeed result
+     *
+     * @param <T>        parameter
+     * @param data       data
+     * @param resultCode result code
+     * @return the result
+     */
+    @Contract(value = "_, _ -> new", pure = true)
+    @NotNull
+    public static <T> Result<T> succeed(T data, IResultCode resultCode) {
+        return succeed(data, resultCode.getCode(), resultCode.getMessage());
+    }
+
+    /**
+     * Succeed result
+     *
+     * @param <T>        parameter
+     * @param resultCode result code
+     * @param msg        msg
+     * @return the result
+     */
+    @Contract(value = "_, _, _ -> new", pure = true)
+    @NotNull
+    public static <T> Result<T> succeed(IResultCode resultCode, Object... msg) {
+        return succeed(null, resultCode.getCode(), resultCode.generateMessage(msg));
+    }
+
+    /**
+     * Succeed result
+     *
+     * @param <T>        parameter
+     * @param resultCode result code
+     * @return the result
+     */
+    @Contract(value = "_, _ -> new", pure = true)
+    @NotNull
+    public static <T> Result<T> succeed(IResultCode resultCode) {
+        return succeed(null, resultCode.getCode(), resultCode.getMessage());
+    }
+
+    /**
+     * Succeed result
+     *
+     * @param <T>  parameter
+     * @param code code
+     * @param msg  msg
+     * @return the result
+     */
+    @Contract(value = "_, _, _ -> new", pure = true)
+    @NotNull
+    public static <T> Result<T> succeed(Integer code, String msg) {
+        return succeed(null, code, msg);
     }
 
     /**
@@ -113,20 +140,7 @@ public final class R<T> extends Result<T> {
     @Contract(value = "_ -> new", pure = true)
     @NotNull
     public static <T> Result<T> succeed(T data) {
-        return succeed(ResultCode.OK.getCode(), ResultCode.OK.getMessage(), data);
-    }
-
-    /**
-     * Succeed result
-     *
-     * @param <T> parameter
-     * @param msg msg
-     * @return the result
-     */
-    @Contract(value = "_ -> new", pure = true)
-    @NotNull
-    public static <T> Result<T> succeed(String msg) {
-        return succeed(ResultCode.OK.getCode(), msg, null);
+        return succeed(data, ResultCode.OK.getCode(), ResultCode.OK.getMessage());
     }
 
     /**
@@ -138,21 +152,21 @@ public final class R<T> extends Result<T> {
     @Contract(pure = true)
     @NotNull
     public static <T> Result<T> succeed() {
-        return succeed(null);
+        return succeed(ResultCode.OK);
     }
 
     /**
      * Failed result
      *
      * @param <T>  parameter
+     * @param data data
      * @param code code
      * @param msg  msg
-     * @param data data
      * @return the result
      */
     @NotNull
     @Contract(value = "_, _, _ -> new", pure = true)
-    public static <T> Result<T> failed(Integer code, String msg, T data) {
+    public static <T> Result<T> failed(T data, Integer code, String msg) {
         return build(code, msg, data, false);
     }
 
@@ -160,56 +174,29 @@ public final class R<T> extends Result<T> {
      * Failed result
      *
      * @param <T>        parameter
-     * @param resultCode result code
      * @param data       data
-     * @return the result
-     */
-    @NotNull
-    @Contract(value = "_, _ -> new", pure = true)
-    public static <T> Result<T> failed(IResultCode resultCode, T data) {
-        return build(resultCode.getCode(), resultCode.getMessage(), data, false);
-    }
-
-    /**
-     * Failed result
-     *
-     * @param <T>        parameter
      * @param resultCode result code
-     * @param data       data
      * @param msg        msg
      * @return the result
      */
     @NotNull
     @Contract(value = "_, _, _ -> new", pure = true)
-    public static <T> Result<T> failed(IResultCode resultCode, T data, Object... msg) {
-        return build(resultCode.getCode(), resultCode.generateMessage(msg), data, false);
-    }
-
-    /**
-     * Failed result
-     *
-     * @param <T>  parameter
-     * @param code code
-     * @param msg  msg
-     * @return the result
-     */
-    @NotNull
-    @Contract(value = "_, _ -> new", pure = true)
-    public static <T> Result<T> failed(Integer code, String msg) {
-        return failed(code, msg, null);
+    public static <T> Result<T> failed(T data, IResultCode resultCode, Object... msg) {
+        return failed(data, resultCode.getCode(), resultCode.generateMessage(msg));
     }
 
     /**
      * Failed result
      *
      * @param <T>        parameter
+     * @param data       data
      * @param resultCode result code
      * @return the result
      */
     @NotNull
-    @Contract(value = "_ -> new", pure = true)
-    public static <T> Result<T> failed(@NotNull IResultCode resultCode) {
-        return failed(resultCode.getCode(), resultCode.getMessage());
+    @Contract(value = "_, _ -> new", pure = true)
+    public static <T> Result<T> failed(T data, IResultCode resultCode) {
+        return failed(data, resultCode.getCode(), resultCode.getMessage());
     }
 
     /**
@@ -223,7 +210,34 @@ public final class R<T> extends Result<T> {
     @NotNull
     @Contract(value = "_, _ -> new", pure = true)
     public static <T> Result<T> failed(@NotNull IResultCode resultCode, Object... msg) {
-        return failed(resultCode.getCode(), resultCode.generateMessage(msg));
+        return failed(null, resultCode.getCode(), resultCode.generateMessage(msg));
+    }
+
+    /**
+     * Failed result
+     *
+     * @param <T>        parameter
+     * @param resultCode result code
+     * @return the result
+     */
+    @NotNull
+    @Contract(value = "_ -> new", pure = true)
+    public static <T> Result<T> failed(@NotNull IResultCode resultCode) {
+        return failed(null, resultCode.getCode(), resultCode.getMessage());
+    }
+
+    /**
+     * Failed result
+     *
+     * @param <T>  parameter
+     * @param code code
+     * @param msg  msg
+     * @return the result
+     */
+    @NotNull
+    @Contract(value = "_, _ -> new", pure = true)
+    public static <T> Result<T> failed(Integer code, String msg) {
+        return failed(null, code, msg);
     }
 
     /**
@@ -250,7 +264,6 @@ public final class R<T> extends Result<T> {
     public static <T> Result<T> failed() {
         return failed(ResultCode.ERROR);
     }
-
 
     /**
      * Status result

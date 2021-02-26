@@ -8,6 +8,7 @@ import com.yanger.starter.test.po.User;
 import com.yanger.starter.test.service.UserService;
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -78,9 +80,10 @@ public class UserController {
      * @date 2021-01-08 18:02:38
      * @return void
      */
+    @IgnoreLoginAuth
     @PostMapping
     @ApiOperation(value="保存user", tags={"UserController接口"}, notes="保存user")
-    public User save(@RequestBody User user) {
+    public User save(@RequestBody @Validated User user) {
         // userService.save(user);
         userDao.insert(user);
         return user;

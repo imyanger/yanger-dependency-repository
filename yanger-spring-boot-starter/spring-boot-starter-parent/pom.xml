@@ -36,11 +36,11 @@
         <module>../web-spring-boot-starter</module>
         <module>../mybatis-spring-boot-starter</module>
         <module>../id-spring-boot-starter</module>
+        <module>../log-spring-boot-starter</module>
         <module>../cache-spring-boot-starter</module>
         <module>../mongo-spring-boot-starter</module>
         <module>../nacos-spring-boot-starter</module>
         <module>../dubbo-spring-boot-starter</module>
-        <module>../log-spring-boot-starter</module>
     </modules>
 
     <dependencies>
