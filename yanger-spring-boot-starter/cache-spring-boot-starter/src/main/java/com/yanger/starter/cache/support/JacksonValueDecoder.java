@@ -16,16 +16,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司 </p>
- * <p>Description: </p>
- *
- * @author dong4j
- * @version 1.2.4
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.02.11 18:55
- * @since 1.0.0
- */
-/**
  * @Description
  * @Author yanger
  * @Date 2021/3/1 18:47
@@ -33,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @AutoService(ValueDecoderRegister.class)
 public class JacksonValueDecoder extends CacheAbstractValueDecoder implements ValueDecoderRegister {
+
     /** INSTANCE */
     public static final JacksonValueDecoder INSTANCE = new JacksonValueDecoder();
 
@@ -41,8 +32,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
 
     /**
      * Jackson value decoder
-     *
-     * @since 1.0.0
      */
     public JacksonValueDecoder() {
         this(Boolean.parseBoolean(System.getProperty("jetcache.useIdentityNumber", "true")));
@@ -52,7 +41,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
      * Jackson value decoder
      *
      * @param useIdentityNumber use identity number
-     * @since 1.0.0
      */
     private JacksonValueDecoder(boolean useIdentityNumber) {
         super(useIdentityNumber);
@@ -63,7 +51,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
      *
      * @param buffer buffer
      * @return the object
-     * @since 1.0.0
      */
     @Override
     public Object doApply(@Nullable byte[] buffer) {
@@ -93,7 +80,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
      * @param <T>    parameter
      * @param source can be {@literal null}.
      * @return {@literal null} for empty source.
-     * @since 1.0.0
      */
     @Contract("null, _ -> null")
     @SneakyThrows
@@ -127,7 +113,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
      * Identity number int
      *
      * @return the int
-     * @since 1.0.0
      */
     @Override
     public int identityNumber() {
@@ -138,10 +123,10 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
      * Gets decoder *
      *
      * @return the decoder
-     * @since 1.0.0
      */
     @Override
     public AbstractValueDecoder getDecoder() {
         return INSTANCE;
     }
+
 }

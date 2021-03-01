@@ -13,7 +13,6 @@ public class CaffeineCacheServiceImpl extends AbstractCacheService {
      * Abstract cache service
      *
      * @param cache cache
-     * @since 1.6.0
      */
     public CaffeineCacheServiceImpl(Cache<String, Object> cache) {
         super(cache);

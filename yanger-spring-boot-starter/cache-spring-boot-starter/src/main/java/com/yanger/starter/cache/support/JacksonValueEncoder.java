@@ -20,35 +20,24 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司 </p>
- * <p>Description: json 系列化器
+ * @Description json 系列化器
  * useIdentityNumber 属性用于修改 serialPolicy 以后的值兼容（比如 serialPolicy 改成新的了,redis 里面还是旧的）
- * todo-dong4j : (2020年02月12日 14:11) [兼容处理 v4 双引号问题]
- * </p>
- *
- * @author dong4j
- * @version 1.2.4
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.02.11 18:55
- * @since 1.0.0
- */
-/**
- * @Description
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
 public class JacksonValueEncoder extends AbstractValueEncoder {
+
     /** INSTANCE */
     public static final JacksonValueEncoder INSTANCE = new JacksonValueEncoder();
+
     /** header 填充 */
     static final int IDENTITY_NUMBER = 0x4A953A83;
+
     /** Mapper */
     static ObjectMapper mapper;
 
     /**
      * Jackson value encoder
-     *
-     * @since 1.0.0
      */
     public JacksonValueEncoder() {
         this(Boolean.parseBoolean(System.getProperty("jetcache.useIdentityNumber", "true")));
@@ -56,9 +45,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
 
     /**
      * Jackson value encoder
-     *
-     * @param useIdentityNumber use identity number
-     * @since 1.0.0
      */
     private JacksonValueEncoder(boolean useIdentityNumber) {
         super(useIdentityNumber);
@@ -69,7 +55,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
      * 使用给定名称配置默认类型的 ObjectMapper, 对于空字符串, 将使用默认的 JsonTypeInfo.Id.CLASS
      *
      * @param classPropertyTypeName class property type name
-     * @since 1.0.0
      */
     @SuppressWarnings("deprecation")
     private void init(@Nullable String classPropertyTypeName) {
@@ -89,7 +74,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
      *
      * @param value value
      * @return the byte [ ]
-     * @since 1.0.0
      */
     @Override
     public byte[] apply(Object value) {
@@ -131,17 +115,12 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
 
     /**
      * {@link StdSerializer} 添加默认类型所需的类信息. 这允许对 {@link NullValue}. 进行反序列化
-     *
-     * @author dong4j
-     * @version 1.2.4
-     * @email "mailto:dongshijie@fkhwl.com"
-     * @date 2020.02.11 19:25
-     * @since 1.0.0
      */
     private static class NullValueSerializer extends StdSerializer<NullValue> {
 
         /** serialVersionUID */
         private static final long serialVersionUID = 1999052150548658808L;
+
         /** Class identifier */
         private final String classIdentifier;
 
@@ -149,7 +128,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
          * Null value serializer
          *
          * @param classIdentifier can be {@literal null} and will be defaulted to {@code @class}.
-         * @since 1.0.0
          */
         NullValueSerializer(@Nullable String classIdentifier) {
 
@@ -164,7 +142,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
          * @param jgen     jgen
          * @param provider provider
          * @throws IOException io exception
-         * @since 1.0.0
          */
         @Override
         public void serialize(NullValue value, @NotNull JsonGenerator jgen, SerializerProvider provider)

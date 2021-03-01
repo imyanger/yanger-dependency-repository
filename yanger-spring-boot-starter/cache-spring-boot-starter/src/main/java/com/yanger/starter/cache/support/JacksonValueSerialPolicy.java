@@ -9,34 +9,23 @@ import org.springframework.data.redis.serializer.SerializationException;
 import java.util.function.Function;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author dong4j
- * @version 1.2.4
- * @email "mailto:dong4j@gmail.com"
- * @date 2020.02.11 21:37
- * @since 1.0.0
- */
-/**
  * @Description
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
 public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<Object> {
+
     /** JACKSON */
     public static final String JACKSON = "JACKSON";
+
     /** Jackson value decoder */
     private final JacksonValueDecoder jacksonValueDecoder;
+
     /** Jackson value encoder */
     private final JacksonValueEncoder jacksonValueEncoder;
 
     /**
      * Jackson value serial policy
-     *
-     * @param jacksonValueDecoder jackson value decoder
-     * @param jacksonValueEncoder jackson value encoder
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public JacksonValueSerialPolicy(JacksonValueDecoder jacksonValueDecoder,
@@ -50,7 +39,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
      * Encoder function
      *
      * @return the function
-     * @since 1.0.0
      */
     @Override
     public Function<Object, byte[]> encoder() {
@@ -61,7 +49,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
      * Decoder function
      *
      * @return the function
-     * @since 1.0.0
      */
     @Override
     public Function<byte[], Object> decoder() {
@@ -74,7 +61,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
      * @param o o
      * @return the byte [ ]
      * @throws SerializationException serialization exception
-     * @since 1.0.0
      */
     @Override
     public byte[] serialize(Object o) throws SerializationException {
@@ -87,10 +73,10 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
      * @param bytes bytes
      * @return the object
      * @throws SerializationException serialization exception
-     * @since 1.0.0
      */
     @Override
     public Object deserialize(byte[] bytes) throws SerializationException {
         return this.jacksonValueDecoder.doApply(bytes);
     }
+
 }

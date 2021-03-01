@@ -1,7 +1,7 @@
 package com.yanger.starter.cache.util;
 
-import com.yanger.starter.cache.exception.CacheLockException;
 import com.yanger.starter.basic.context.EarlySpringContext;
+import com.yanger.starter.cache.exception.CacheLockException;
 import com.yanger.tools.general.format.StringFormatter;
 
 import org.jetbrains.annotations.NotNull;
@@ -12,23 +12,15 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author liujintao
- * @version 1.6.0
- * @email "mailto:liujintao@fkhwl.com"
- * @date 2020.09.09 16:01
- * @since 1.6.0
- */
-/**
- * @Description
+ * @Description redis lock 工具
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
 public class CacheLockUtils {
+
     /** Redis lock registry */
     private static RedisLockRegistry redisLockRegistry;
+
     /** Redis template */
     private static RedisTemplate<String, Object> redisTemplate;
 
@@ -41,7 +33,6 @@ public class CacheLockUtils {
      * @param unit    unit 重试时间单位
      * @return the lock   释放锁：lock.unlock();
      * @throws InterruptedException interrupted exception
-     * @since 1.6.0
      */
     public static @NotNull Lock lock(String key, int retries, int expire, TimeUnit unit) throws InterruptedException {
         if (CacheLockUtils.redisLockRegistry == null) {
@@ -58,9 +49,7 @@ public class CacheLockUtils {
             }
         }
         throw new CacheLockException(StringFormatter.format("尝试 {} 次获取分布式锁失败, 耗时: [{} {}]  ",
-                                                            retries,
-                                                        retries * expire,
-                                                            unit.name()));
+                                                            retries, retries * expire, unit.name()));
     }
 
     /**
@@ -71,7 +60,6 @@ public class CacheLockUtils {
      * @param seconds seconds 重试时间，单位秒
      * @return the boolean
      * @throws InterruptedException interrupted exception
-     * @since 1.6.0
      */
     public static @NotNull Boolean lockByExpire(String key, int retries, int seconds) throws InterruptedException {
         return lockByExpire(key, retries, seconds * 1000, 30, TimeUnit.SECONDS);
@@ -86,7 +74,6 @@ public class CacheLockUtils {
      * @param exSeconds exSeconds 过期时间，打委秒
      * @return the boolean
      * @throws InterruptedException interrupted exception
-     * @since 1.6.0
      */
     public static @NotNull Boolean lockByExpire(String key, int retries, int seconds, int exSeconds) throws InterruptedException {
         return lockByExpire(key, retries, seconds * 1000, exSeconds, TimeUnit.SECONDS);
@@ -99,7 +86,6 @@ public class CacheLockUtils {
      * @param seconds seconds 重试时间，单位秒
      * @return the boolean
      * @throws InterruptedException interrupted exception
-     * @since 1.6.0
      */
     public static @NotNull Boolean lockByExpire(String key, int seconds) throws InterruptedException {
         return lockByExpire(key, 3, seconds * 1000, 30, TimeUnit.SECONDS);
@@ -115,13 +101,9 @@ public class CacheLockUtils {
      * @param unit         unit 过期时间单位
      * @return the boolean
      * @throws InterruptedException interrupted exception
-     * @since 1.6.0
      */
     @SuppressWarnings("unchecked")
-    public static @NotNull Boolean lockByExpire(String key,
-                                                int retries,
-                                                int milliseconds,
-                                                int ex,
+    public static @NotNull Boolean lockByExpire(String key, int retries, int milliseconds, int ex,
                                                 TimeUnit unit) throws InterruptedException {
         if (redisTemplate == null) {
             redisTemplate = EarlySpringContext.getInstance(RedisTemplate.class);
@@ -144,15 +126,13 @@ public class CacheLockUtils {
             }
         }
         throw new CacheLockException(StringFormatter.format("尝试 {} 次获取分布式锁失败, 耗时: [{} 秒]  ",
-                                                        retries,
-                                                        retries * milliseconds / 1000));
+                                                        retries, retries * milliseconds / 1000));
     }
 
     /**
      * Unlock by expire
      *
      * @param key key
-     * @since 1.6.0
      */
     public static void unlockByExpire(String key) {
         redisTemplate.delete(key);
