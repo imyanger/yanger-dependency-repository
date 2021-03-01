@@ -43,6 +43,9 @@ public enum ResultCode implements IResultCode {
     /** 服务器异常 */
     ERROR_PERCH(502, "服务器异常，{}"),
 
+    /** redis 处理异常 */
+    REDIS_ERROR_PERCH(505, "redis 处理异常，{}"),
+
     /** 参数错误 */
     PARAMETER_ERROR(600, "参数错误"),
 

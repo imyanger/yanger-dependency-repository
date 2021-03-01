@@ -95,7 +95,7 @@ public abstract class Asserts {
      */
     @Contract("_, _ -> fail")
     public static void fail(String code, String message) {
-        throw new BasicException(code, message);
+        throw BasicException.of(code, message);
     }
 
     /**

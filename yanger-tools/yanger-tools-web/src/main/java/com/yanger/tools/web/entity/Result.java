@@ -49,7 +49,7 @@ public abstract class Result<T> implements Serializable {
     protected boolean success;
 
     /** 请求响应状态码 */
-    @ApiModelProperty(value = "状态码", required = true, example = "2000")
+    @ApiModelProperty(value = "状态码", required = true, example = "200")
     protected Integer code;
 
     /** 请求响应的消息 */

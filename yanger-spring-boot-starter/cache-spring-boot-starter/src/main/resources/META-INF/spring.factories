@@ -1,5 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.fkhwl.starter.cache.autoconfigure.RedisJeyExpirationAutoConfiguration,\
-  com.fkhwl.starter.cache.autoconfigure.CacheLockAutoConfiguration,\
-  com.fkhwl.starter.cache.autoconfigure.CacheAutoConfiguration,\
-  com.fkhwl.starter.cache.autoconfigure.LettuceConnectionConfiguration
+  com.yanger.starter.cache.autoconfigure.RedisKeyExpirationAutoConfiguration,\
+  com.yanger.starter.cache.autoconfigure.CacheLockAutoConfiguration,\
+  com.yanger.starter.cache.autoconfigure.CacheAutoConfiguration,\
+  com.yanger.starter.cache.autoconfigure.LettuceConnectionConfiguration

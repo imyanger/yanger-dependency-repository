@@ -45,7 +45,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BasicException.class)
     public Result businessExceptionHandler(BasicException e) {
-        return R.failed(e.getMessage());
+        return R.failed(e.getResultCode(), e.getMessage());
     }
 
     /**

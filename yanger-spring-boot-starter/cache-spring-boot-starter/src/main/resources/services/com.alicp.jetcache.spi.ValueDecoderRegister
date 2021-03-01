@@ -1,2 +1,2 @@
-com.fkhwl.starter.cache.support.JacksonValueDecoder
-com.fkhwl.starter.cache.support.ProtobufValueDecoder
+com.yanger.starter.cache.support.JacksonValueDecoder
+com.yanger.starter.cache.support.ProtobufValueDecoder

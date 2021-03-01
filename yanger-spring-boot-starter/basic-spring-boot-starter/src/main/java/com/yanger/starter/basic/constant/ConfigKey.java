@@ -68,6 +68,9 @@ public final class ConfigKey {
         /** 排除的自动装配类 */
         public static final String AUTOCONFIGURE_EXCLUDE = "spring.autoconfigure.exclude";
 
+        /** 存在相同的 bean name 时, 后一个覆盖前一个 */
+        public static final String MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING = "spring.main.allow-bean-definition-overriding";
+
     }
 
 

@@ -75,6 +75,8 @@ public final class BasicRunner {
         // 设置 BasicApplication 启动标识
         App.applicationStarterFlag = ConfigDefaultValue.APPLICATION_STARTER_FLAG;
         DEFAULT_PROPERTIES.setProperty(ConfigKey.APPLICATION_STARTER_FLAG, ConfigDefaultValue.APPLICATION_STARTER_FLAG);
+        // Spring Boot 2.1 需要设定, 存在相同的 bean name 时, 后一个覆盖前一个, 主要用于覆写默认 bean
+        DEFAULT_PROPERTIES.setProperty(ConfigKey.SpringConfigKey.MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING, "true");
         // 启动应用
         return start(App.applicationName, source, applicationType, args);
     }

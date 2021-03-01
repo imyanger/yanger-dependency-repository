@@ -109,7 +109,7 @@ public class E {
              */
             public void exception() {
                 if (condition) {
-                    throw new BasicException(code, message);
+                    throw BasicException.of(code, message);
                 }
             }
 
