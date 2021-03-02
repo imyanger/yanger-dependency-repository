@@ -3,9 +3,6 @@ package com.fkhwl.starter.mongo.conditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import com.fkhwl.starter.core.exception.BaseException;
-import com.fkhwl.starter.core.util.CollectionUtils;
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.core.IMongoQuery;
 import com.fkhwl.starter.mongo.core.IMongoUpdate;
 import com.fkhwl.starter.mongo.core.Update;
@@ -22,7 +19,10 @@ import com.fkhwl.starter.mongo.util.Wrappers;
 import com.mongodb.WriteConcern;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import com.yanger.tools.web.exception.BasicException;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Sort;
@@ -46,17 +46,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @param <M>        parameter
- * @param <R>        parameter
- * @param <Children> parameter
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.03.17 17:45
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @SuppressWarnings(value = {"serial", "unchecked", "checkstyle:MethodLimit"})
 public abstract class AbstractWrapper<M extends Model<M>, R, Children extends AbstractWrapper<M, R, Children>> extends Wrapper<M> {
@@ -87,8 +79,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * 子类返回一个自己的新对象  @return the children  @return the children  @return the children
-     *
-     * @since 1.0.0
      */
     protected abstract Children instance();
 
@@ -96,7 +86,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * Gets entity *
      *
      * @return the entity
-     * @since 1.0.0
      */
     @Override
     public M getEntity() {
@@ -108,7 +97,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param entity entity
      * @return the entity
-     * @since 1.0.0
      */
     public Children setEntity(M entity) {
         this.entity = entity;
@@ -119,7 +107,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * Gets entity class *
      *
      * @return the entity class
-     * @since 1.0.0
      */
     protected Class<M> getEntityClass() {
         if (this.entityClass == null && this.entity != null) {
@@ -133,7 +120,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param entityClass entity class
      * @return the entity class
-     * @since 1.0.0
      */
     public Children setEntityClass(Class<M> entityClass) {
         if (entityClass != null) {
@@ -147,7 +133,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param fields the fields
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children fields(String... fields) {
         Arrays.stream(fields).forEach(f -> {
@@ -163,7 +148,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param property the property
      * @param values   the values
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children where(String property, @NotNull Serializable... values) {
         property = FieldConvertUtils.convert(property);
@@ -183,7 +167,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param limit the limit
      * @param page  the page
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children limit(long limit, long page) {
         this.limit(limit, page, 0);
@@ -197,7 +180,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param page  the page
      * @param skip  the skip
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children limit(long limit, long page, long skip) {
         if (page < 1) {
@@ -214,7 +196,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children nor(String key, Object... value) {
         this.push(OP.NOR, Wrappers.genOrCriteria(key, value));
@@ -226,7 +207,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param op           op
      * @param criteriaList criteria list
-     * @since 1.0.0
      */
     private void push(OP op, List<Criteria> criteriaList) {
         List<Criteria> criterias = this.map.computeIfAbsent(op, k -> new ArrayList<>());
@@ -240,7 +220,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children nor(String[] key, Object... value) {
         this.push(OP.NOR, Wrappers.genOrCriteria(key, value));
@@ -255,7 +234,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param value     the value
      * @param operators the operators
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children nor(String[] key, Object[] value, Operator[] operators) {
         this.push(OP.NOR, Wrappers.genOrCriteria(key, value, operators));
@@ -268,7 +246,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children and(String[] key, Object... value) {
         this.push(OP.AND, Wrappers.genOrCriteria(key, value));
@@ -282,7 +259,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param value     the value
      * @param operators the operators
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children and(String[] key, Object[] value, Operator[] operators) {
         this.push(OP.AND, Wrappers.genOrCriteria(key, value, operators));
@@ -295,7 +271,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children gte(String key, Object value) {
         this.and(key).gte(value);
@@ -308,7 +283,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children gt(String key, Object value) {
         this.and(key).gt(value);
@@ -321,7 +295,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children lt(String key, Object value) {
         this.and(key).lt(value);
@@ -334,7 +307,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children lte(String key, Object value) {
         this.and(key).lte(value);
@@ -347,7 +319,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children gteOrNull(String key, Object value) {
         return this.orNull(Criteria.where(key).gte(value), key);
@@ -359,7 +330,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children gtOrNull(String key, Object value) {
         return this.orNull(Criteria.where(key).gt(value), key);
@@ -371,7 +341,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children lteOrNull(String key, Object value) {
         return this.orNull(Criteria.where(key).lte(value), key);
@@ -383,7 +352,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children ltOrNull(String key, Object value) {
         return this.orNull(Criteria.where(key).lt(value), key);
@@ -395,7 +363,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param criteria criteria
      * @param key      key
      * @return the wrapper
-     * @since 1.0.0
      */
     @Contract("_, _ -> this")
     private Children orNull(Criteria criteria, String key) {
@@ -414,7 +381,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children in(String key, Object... value) {
         this.and(key).in(value);
@@ -427,7 +393,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children nin(String key, Object... value) {
         this.and(key).nin(value);
@@ -440,7 +405,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key  the key
      * @param size the size
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children size(String key, int size) {
         this.and(key).size(size);
@@ -453,7 +417,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key  the key
      * @param flag the flag
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children exists(String key, boolean flag) {
         this.and(key).exists(flag);
@@ -466,7 +429,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children or(String[] key, Object... value) {
         this.push(OP.OR, Wrappers.genOrCriteria(key, value));
@@ -480,7 +442,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param value     the value
      * @param operators the operators
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children or(String[] key, Object[] value, Operator[] operators) {
         this.push(OP.OR, Wrappers.genOrCriteria(key, value, operators));
@@ -492,7 +453,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param myself the myself
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children mySelf(@NotNull IMongoQuery myself) {
         myself.query(this.criteria);
@@ -505,7 +465,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children fuzzy(String key, Object value) {
         String re = String.valueOf(value);
@@ -520,7 +479,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children and(String key, Object... value) {
         this.push(OP.AND, Wrappers.genOrCriteria(key, value));
@@ -533,7 +491,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children ne(String key, Object value) {
         this.and(key).ne(value);
@@ -546,7 +503,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children or(String key, Object... value) {
         this.push(OP.OR, Wrappers.genOrCriteria(key, value));
@@ -559,11 +515,10 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param limit the limit
      * @param skip  the skip
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children skip(int limit, int skip) {
         if (skip < 0) {
-            throw new BaseException("skip is invalid ...");
+            throw new BasicException("skip is invalid ...");
         }
         this.query.limit(limit);
         this.query.skip(skip);
@@ -575,7 +530,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param properties the properties
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children desc(String... properties) {
         properties = FieldConvertUtils.convert(properties);
@@ -588,7 +542,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param properties the properties
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children asc(String... properties) {
         properties = FieldConvertUtils.convert(properties);
@@ -602,7 +555,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key  the key
      * @param type the type
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children type(String key, int type) {
         this.and(key).type(type);
@@ -617,7 +569,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param end     the end
      * @param between the between
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children between(String key, Object begin, Object end, @NotNull Between between) {
         between.between(this.and(key), begin, end);
@@ -635,7 +586,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * WriteConcern.REPLICAS_SAFE:抛出网络错误异常、服务器错误异常; 等待至少2台服务器完成写操作.
      *
      * @return the mongo
-     * @since 1.0.0
      */
     public Children safe() {
         this.mongoTemplate.setWriteConcern(WriteConcern.ACKNOWLEDGED);
@@ -647,7 +597,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param prefix the prefix
      * @return the mongo
-     * @since 1.0.0
      */
     public Children prefix(String prefix) {
         this.prefix = prefix;
@@ -659,7 +608,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param suffix the suffix
      * @return the mongo
-     * @since 1.0.0
      */
     public Children suffix(String suffix) {
         this.suffix = suffix;
@@ -671,7 +619,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param criteria the criteria
      * @return the mongo
-     * @since 1.0.0
      */
     public Children buildCriteria(Criteria criteria) {
         this.criteria = criteria;
@@ -685,7 +632,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param lng the lng
      * @param cls the cls
      * @return the list
-     * @since 1.0.0
      */
     public List<M> geoFind(Double lat, Double lng, Class<M> cls) {
         NearQuery nearQuery = NearQuery.near(lng, lat, Metrics.KILOMETERS);
@@ -708,7 +654,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz           实体类
      * @return the mongo template       mongo 操作模板类
-     * @since 1.0.0
      */
     private MongoTemplate getMongoTemplate(Class<M> clazz) {
         if (this.mongoTemplate != null) {
@@ -729,7 +674,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param id    the id
      * @param clazz the clazz
      * @return the t
-     * @since 1.0.0
      */
     public M load(String id, Class<M> clazz) {
         this.eq(ID, id);
@@ -743,7 +687,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param key   the key
      * @param value the value
      * @return the wrapper
-     * @since 1.0.0
      */
     public Children eq(String key, Object value) {
         this.and(key).is(value);
@@ -752,8 +695,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Init.
-     *
-     * @since 1.0.0
      */
     private void init() {
         Set<OP> ops = this.map.keySet();
@@ -770,7 +711,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz
      * @return the t
-     * @since 1.0.0
      */
     public M one(Class<M> clazz) {
         this.init();
@@ -781,7 +721,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * One t
      *
      * @return the t
-     * @since 1.0.0
      */
     public M one() {
         return this.getMongoTemplate(this.getEntityClass()).findOne(this.query,
@@ -793,7 +732,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * Save.
      *
      * @param obj the obj
-     * @since 1.0.0
      */
     public void save(M obj) {
         this.insert(obj);
@@ -803,7 +741,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * Insert.
      *
      * @param obj the obj
-     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     private void insert(@NotNull M obj) {
@@ -815,7 +752,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param obj obj
      * @return the string
-     * @since 1.0.0
      */
     @NotNull
     private String collectionName(@NotNull M obj) {
@@ -831,7 +767,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz
      * @return the string
-     * @since 1.0.0
      */
     @NotNull
     public String collectionName(Class<?> clazz) {
@@ -857,7 +792,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param update the update
      * @param obj    the obj
      * @return the mongo type
-     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public MongoType insert(IMongoUpdate update, @NotNull M obj) {
@@ -877,7 +811,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz
      * @return the long
-     * @since 1.0.0
      */
     public long count(Class<M> clazz) {
         this.init();
@@ -890,7 +823,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
-     * @since 1.0.0
      */
     public UpdateResult updateFirst(IMongoUpdate update, Class<M> clazz) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);
@@ -902,7 +834,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param update update
      * @return the update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update getUpdate(@NotNull IMongoUpdate update) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate =
@@ -917,7 +848,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param cls the cls
      * @return the write result
-     * @since 1.0.0
      */
     public DeleteResult remove(Class<M> cls) {
         this.init();
@@ -929,7 +859,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz
      * @return the list
-     * @since 1.0.0
      */
     public List<M> list(Class<M> clazz) {
         this.init();
@@ -941,7 +870,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param objs  the objs
      * @param clazz the clazz
-     * @since 1.0.0
      */
     public void insertBatch(List<M> objs, Class<M> clazz) {
         this.getMongoTemplate(clazz).insert(objs, this.collectionName(clazz));
@@ -952,7 +880,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param clazz the clazz
      * @return the list
-     * @since 1.0.0
      */
     public List<M> all(Class<M> clazz) {
         return this.getMongoTemplate(clazz).findAll(clazz, this.collectionName(clazz));
@@ -964,7 +891,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
-     * @since 1.0.0
      */
     public UpdateResult upsert(IMongoUpdate update, Class<M> clazz) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);
@@ -977,7 +903,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
-     * @since 1.0.0
      */
     public UpdateResult updateMulti(IMongoUpdate update, Class<M> clazz) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);
@@ -989,7 +914,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      *
      * @param update the update
      * @param clazz  the clazz
-     * @since 1.0.0
      */
     public void findAndModify(IMongoUpdate update, Class<M> clazz) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);
@@ -1002,7 +926,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param clazz  the clazz
      * @param update the update
      * @return the t
-     * @since 1.0.0
      */
     public M findAndUpdate(Class<M> clazz, IMongoUpdate update) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);
@@ -1017,7 +940,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * @param upsert    the upsert
      * @param returnNew the return new
      * @return the t
-     * @since 1.0.0
      */
     public M findAndUpdate(Class<M> clazz, IMongoUpdate update, boolean upsert, boolean returnNew) {
         org.springframework.data.mongodb.core.query.Update mongoUpdate = this.getUpdate(update);

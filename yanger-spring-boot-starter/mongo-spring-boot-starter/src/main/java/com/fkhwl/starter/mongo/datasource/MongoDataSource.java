@@ -18,13 +18,18 @@ import org.springframework.transaction.support.TransactionTemplate;
  * @date 2019.12.03 11:49
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public class MongoDataSource {
 
     /**
      * 获取默认数据源
      *
      * @return the mongo template
-     * @since 1.0.0
      */
     public static MongoTemplate getDataSource() {
         return getDataSource(MongoConstant.DEFAULT_DATASOURCE);
@@ -35,7 +40,6 @@ public class MongoDataSource {
      *
      * @param datasource the datasource
      * @return the mongo template
-     * @since 1.0.0
      */
     public static MongoTemplate getDataSource(String datasource) {
         return MongoProviderFactory.getConfigureWithMongoTemplate(datasource);
@@ -46,7 +50,6 @@ public class MongoDataSource {
      *
      * @param claz the claz
      * @return the mongo template
-     * @since 1.0.0
      */
     public static MongoTemplate getDataSource(@NotNull Class<?> claz) {
         MongoBean mongoBean = MongoProviderFactory.getAnnotation2BeanMap(claz.getName());
@@ -61,7 +64,6 @@ public class MongoDataSource {
      *
      * @param mongoTemplate mongo template
      * @return the mongo transaction manager
-     * @since 1.0.0
      */
     public static TransactionTemplate getMongoTransactionTemplate(MongoTemplate mongoTemplate) {
         return MongoProviderFactory.getMongoTransactionTemplate(mongoTemplate);

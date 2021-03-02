@@ -32,6 +32,12 @@ import lombok.experimental.SuperBuilder;
  * @date 2019.12.03 11:41
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @SuperBuilder
 @NoArgsConstructor
 @SuppressWarnings("unchecked")
@@ -46,7 +52,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param claz claz
      * @return the mongo template
-     * @since 1.0.0
      */
     private static MongoTemplate template(Class<?> claz) {
         return MongoDataSource.getDataSource(claz);
@@ -57,7 +62,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param claz claz
      * @return the string
-     * @since 1.0.0
      */
     public static String collection(Class<?> claz) {
         return MongoProviderFactory.collectionName(claz);
@@ -67,7 +71,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * Init model.
      *
      * @return the model
-     * @since 1.0.0
      */
     protected abstract Model<M> init();
 
@@ -75,7 +78,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 主键值
      *
      * @return the serializable
-     * @since 1.0.0
      */
     public abstract Serializable getId();
 
@@ -83,7 +85,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 插入（字段选择插入）
      *
      * @return the boolean
-     * @since 1.0.0
      */
     public M insert() {
         return this.insert(MongoProviderFactory.collectionName(this.getClass()));
@@ -94,7 +95,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param collectionName collection name
      * @return the m
-     * @since 1.0.0
      */
     public M insert(String collectionName) {
         template(this.getClass()).insert(this, collectionName);
@@ -107,7 +107,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * @param wrapper wrapper
      * @param updarte updarte
      * @return the boolean
-     * @since 1.0.0
      */
     public M insertOrUpdate(@NotNull Wrapper<M> wrapper, Update updarte) {
         AbstractWrapper abstractWrapper = (AbstractWrapper) wrapper;
@@ -125,7 +124,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 更新（字段选择更新）
      *
      * @return the boolean
-     * @since 1.0.0
      */
     public M updateById() {
         template(this.getClass()).update(this.getClass());
@@ -137,7 +135,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper wrapper
      * @return the boolean
-     * @since 1.0.0
      */
     public M update(Wrapper<M> wrapper) {
         return (M) this;
@@ -147,7 +144,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * Delete boolean. 最终还是解析实体, 获取 _id 来删除数据
      *
      * @return the long
-     * @since 1.0.0
      */
     public Long delete() {
         DeleteResult result = template(this.getClass()).remove(this, MongoProviderFactory.collectionName(this.getClass()));
@@ -159,7 +155,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper wrapper
      * @return the long 被删除的数量
-     * @since 1.0.0
      */
     public Long delete(@NotNull Wrapper<M> wrapper) {
         DeleteResult result = template(this.getClass()).remove(wrapper.getQuery(),
@@ -172,7 +167,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 根据主键删除
      *
      * @return the boolean
-     * @since 1.0.0
      */
     public Long deleteById() {
         return this.deleteById(this.getId());
@@ -183,7 +177,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param id 主键ID
      * @return the boolean
-     * @since 1.0.0
      */
     public Long deleteById(Serializable id) {
         checkId(id);
@@ -197,7 +190,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 查询所有
      *
      * @return the list
-     * @since 1.0.0
      */
     public List<M> selectAll() {
         return (List<M>) template(this.getClass()).findAll(this.getClass(), MongoProviderFactory.collectionName(this.getClass()));
@@ -207,7 +199,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * 根据主键查询
      *
      * @return the t
-     * @since 1.0.0
      */
     public M selectById() {
         return this.selectById(this.getId());
@@ -218,7 +209,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param id 主键ID
      * @return the t
-     * @since 1.0.0
      */
     public M selectById(Serializable id) {
         checkId(id);
@@ -232,7 +222,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * Select list list
      *
      * @return the list
-     * @since 1.0.0
      */
     public List<M> selectList() {
         QueryWrapper wrapper = Wrappers.query();
@@ -244,7 +233,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper wrapper
      * @return the list
-     * @since 1.0.0
      */
     public List<M> selectList(@NotNull Wrapper<M> wrapper) {
         return (List<M>) template(this.getClass()).find(wrapper.getQuery(),
@@ -256,7 +244,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * Select one m
      *
      * @return the m
-     * @since 1.0.0
      */
     public M selectOne() {
         Wrapper<M> wrapper = Wrappers.query();
@@ -268,7 +255,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper wrapper
      * @return the t
-     * @since 1.0.0
      */
     public M selectOne(@NotNull Wrapper<M> wrapper) {
         return (M) template(this.getClass()).findOne(wrapper.getQuery(),
@@ -283,7 +269,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * @param page    翻页条件
      * @param wrapper wrapper   不含 limit 查询条件
      * @return the e
-     * @since 1.0.0
      */
     public <E extends IPage<M>> E selectPage(@NotNull E page, QueryWrapper<M> wrapper) {
         // 查询总数
@@ -300,7 +285,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      * Select count long
      *
      * @return the long
-     * @since 1.0.0
      */
     public Long selectCount() {
         QueryWrapper wrapper = Wrappers.query();
@@ -312,7 +296,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper wrapper
      * @return the integer
-     * @since 1.0.0
      */
     public Long selectCount(@NotNull Wrapper<M> wrapper) {
         return template(this.getClass()).count(wrapper.getQuery(),
@@ -325,7 +308,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param id id
      * @return the boolean
-     * @since 1.0.0
      */
     @Contract("null -> fail")
     private static void checkId(Serializable id) {
@@ -339,7 +321,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
      *
      * @param wrapper the wrapper
      * @return the boolean
-     * @since 1.0.0
      */
     public boolean exists(@NotNull Wrapper<M> wrapper) {
         return template(this.getClass()).exists(wrapper.getQuery(),

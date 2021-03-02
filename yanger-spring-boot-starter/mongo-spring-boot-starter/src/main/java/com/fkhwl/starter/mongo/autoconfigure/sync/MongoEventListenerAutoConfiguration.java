@@ -1,15 +1,14 @@
 package com.fkhwl.starter.mongo.autoconfigure.sync;
 
-import com.fkhwl.starter.basic.constant.ConfigKey;
-import com.fkhwl.starter.common.start.FkhAutoConfiguration;
-import com.fkhwl.starter.core.metadata.MetaObjectHandler;
 import com.fkhwl.starter.mongo.handler.DefaultTimeMetaHandler;
+import com.fkhwl.starter.mongo.handler.MetaObjectHandler;
 import com.fkhwl.starter.mongo.listener.AutoCreateIndexEventListener;
 import com.fkhwl.starter.mongo.listener.AutoCreateKeyEventListener;
 import com.fkhwl.starter.mongo.listener.AutoCreateTimeEventListener;
 import com.fkhwl.starter.mongo.listener.AutoIncrementKeyEventListener;
 import com.fkhwl.starter.mongo.spi.MongoLauncherInitiation;
-import com.mongodb.MongoClient;
+import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.constant.ConfigKey;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.ObjectProvider;
@@ -26,22 +25,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.04.11 22:20
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Slf4j
 @Configuration
 @EnableTransactionManagement
 @EnableConfigurationProperties(MongoProperties.class)
-@ConditionalOnClass(value = {MongoClient.class, MongoLauncherInitiation.class})
+@ConditionalOnClass(value = {MongoLauncherInitiation.class})
 @Import(value = {MongoAutoConfiguration.class})
-public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration {
+public class MongoEventListenerAutoConfiguration implements YangerAutoConfiguration {
 
     /** Meta object handler */
     private MetaObjectHandler metaObjectHandler;
@@ -50,7 +44,6 @@ public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration
      * Mongo event l istener auto configuration
      *
      * @param metaObjectHandlerObjectProvider meta object handler object provider
-     * @since 1.0.0
      */
     public MongoEventListenerAutoConfiguration(@NotNull ObjectProvider<MetaObjectHandler> metaObjectHandlerObjectProvider) {
         this.metaObjectHandler = metaObjectHandlerObjectProvider.getIfAvailable();
@@ -64,7 +57,6 @@ public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration
      *
      * @param mongoTemplate mongo template
      * @return the abstract mongo event listener
-     * @since 1.0.0
      */
     @Bean
     @ConditionalOnProperty(name = ConfigKey.MongoConfigKey.ENABLE_AUTO_INCREMENT_KEY, havingValue = "true")
@@ -77,7 +69,6 @@ public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration
      *
      * @param properties properties
      * @return the abstract mongo event listener
-     * @since 1.0.0
      */
     @Bean
     @ConditionalOnProperty(name = ConfigKey.MongoConfigKey.ENABLE_AUTO_CREATE_KEY, havingValue = "true", matchIfMissing = true)
@@ -89,7 +80,6 @@ public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration
      * 自动填充 create time 和 update time
      *
      * @return the abstract mongo event listener
-     * @since 1.0.0
      */
     @Bean
     @ConditionalOnProperty(name = ConfigKey.MongoConfigKey.ENABLE_AUTO_CREATE_TIME, havingValue = "true")
@@ -101,7 +91,6 @@ public class MongoEventListenerAutoConfiguration implements FkhAutoConfiguration
      * 分表时自动创建索引
      *
      * @return the abstract mongo event listener
-     * @since 1.0.0
      */
     @Bean
     @ConditionalOnProperty(name = ConfigKey.MongoConfigKey.ENABLE_AUTO_CREATE_INDEX, havingValue = "true")

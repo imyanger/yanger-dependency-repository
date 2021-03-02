@@ -14,20 +14,15 @@ import java.util.Map;
 import lombok.Data;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: mongo 配置类 </p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2019.12.03 12:07
- * @since 1.0.0
+ * @Description mongo 配置类
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Data
 @ConfigurationProperties(prefix = MongoProperties.PREFIX)
 public class MongoProperties {
     /** PREFIX */
-    public static final String PREFIX = "fkh.mongo";
+    public static final String PREFIX = "yanger.mongo";
     /** DEFAULT_DATASOURCE */
     public static final String DEFAULT_DATASOURCE = MongoConstant.DEFAULT_DATASOURCE;
 
@@ -61,7 +56,6 @@ public class MongoProperties {
      * @version 1.3.0
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2020.03.16 18:29
-     * @since 1.0.0
      * @deprecated 使用 {@link ConnectionString} 代替
      */
     @Data

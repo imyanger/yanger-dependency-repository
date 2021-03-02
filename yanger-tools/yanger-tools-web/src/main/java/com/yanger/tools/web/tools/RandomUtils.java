@@ -3,6 +3,7 @@ package com.yanger.tools.web.tools;
 import com.yanger.tools.general.tools.JvmRandom;
 import com.yanger.tools.web.exception.AssertUtils;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -733,4 +734,44 @@ public class RandomUtils {
         }
         return res;
     }
+
+    /**
+     * @Description 获取 uid
+     * @Author yanger
+     * @Date 2021/3/2 14:29
+     * @return: java.lang.String
+     */
+    @NotNull
+    @Contract(" -> new")
+    public static String getUid() {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        long lsb = random.nextLong();
+        long msb = random.nextLong();
+        char[] buf = new char[32];
+        formatUnsignedLong(lsb, buf, 20, 12);
+        formatUnsignedLong(lsb >>> 48, buf, 16, 4);
+        formatUnsignedLong(msb, buf, 12, 4);
+        formatUnsignedLong(msb >>> 16, buf, 8, 4);
+        formatUnsignedLong(msb >>> 32, buf, 0, 8);
+        return new String(buf);
+    }
+
+    /**
+     * Format unsigned long
+     *
+     * @param val    val
+     * @param buf    buf
+     * @param offset offset
+     * @param len    len
+     */
+    private static void formatUnsignedLong(long val, @NotNull char[] buf, int offset, int len) {
+        int charPos = offset + len;
+        int radix = 1 << 4;
+        int mask = radix - 1;
+        do {
+            buf[--charPos] = NumberUtils.DIGITS[((int) val) & mask];
+            val >>>= 4;
+        } while (charPos > offset);
+    }
+
 }

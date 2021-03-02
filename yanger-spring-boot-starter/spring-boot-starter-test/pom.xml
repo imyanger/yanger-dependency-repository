@@ -57,7 +57,11 @@
         <dependency>
             <groupId>com.yanger</groupId>
             <artifactId>cache-spring-boot-starter</artifactId>
-            <version>1.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>mongo-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
         </dependency>
     </dependencies>
 

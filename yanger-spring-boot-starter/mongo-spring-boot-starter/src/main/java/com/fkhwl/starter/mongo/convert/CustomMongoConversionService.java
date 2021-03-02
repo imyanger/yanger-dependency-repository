@@ -5,21 +5,14 @@ import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.convert.support.GenericConversionService;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: 类型 转换 服务,添加了 IEnum 转换 </p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.01.27 18:06
- * @since 1.0.0
+ * @Description 类型 转换 服务,添加了 IEnum 转换
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public final class CustomMongoConversionService extends DefaultConversionService {
 
     /**
      * Custom conversion service
-     *
-     * @since 1.0.0
      */
     private CustomMongoConversionService() {
         super.addConverter(new EnumToDbConverter());
@@ -30,7 +23,6 @@ public final class CustomMongoConversionService extends DefaultConversionService
      * Gets instance.
      *
      * @return the instance
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static GenericConversionService getInstance() {
@@ -45,7 +37,6 @@ public final class CustomMongoConversionService extends DefaultConversionService
      * @version 1.2.3
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2020.01.27 18:06
-     * @since 1.0.0
      */
     private static final class SingletonHolder {
         /** INSTANCE */
@@ -53,8 +44,6 @@ public final class CustomMongoConversionService extends DefaultConversionService
 
         /**
          * Singleton holder
-         *
-         * @since 1.0.0
          */
         @Contract(pure = true)
         private SingletonHolder() {

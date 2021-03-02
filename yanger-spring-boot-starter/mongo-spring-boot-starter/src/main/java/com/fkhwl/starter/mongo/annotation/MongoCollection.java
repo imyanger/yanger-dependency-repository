@@ -14,14 +14,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: ${description}</p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.01.27 18:16
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -35,7 +30,6 @@ public @interface MongoCollection {
      * Value string.
      *
      * @return the string
-     * @since 1.0.0
      */
     @AliasFor(value = "collection", annotation = Document.class)
     String value() default "";
@@ -44,7 +38,6 @@ public @interface MongoCollection {
      * Desc string.
      *
      * @return the string
-     * @since 1.0.0
      */
     String desc() default "";
 
@@ -52,7 +45,6 @@ public @interface MongoCollection {
      * Datasource string.
      *
      * @return the string
-     * @since 1.0.0
      */
     String datasource() default "";
 
@@ -60,7 +52,6 @@ public @interface MongoCollection {
      * 集合类型, 默认为普通类型, 默认会创建索引, SHARDING 类型不会自动创建索引
      *
      * @return the collcetion type
-     * @since 1.0.0
      */
     CollcetionType type() default CollcetionType.ORDINARY;
 
@@ -70,7 +61,6 @@ public @interface MongoCollection {
      * 如果在嵌套文档上保留为空, 则将对整个文档编制索引
      *
      * @return string 复合索引
-     * @since 1.0.0
      */
     @AliasFor(value = "def", annotation = CompoundIndex.class)
     String def() default "";
@@ -80,7 +70,6 @@ public @interface MongoCollection {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-unique/"></a>
-     * @since 1.0.0
      */
     @AliasFor(value = "unique", annotation = CompoundIndex.class)
     boolean unique() default false;
@@ -90,7 +79,6 @@ public @interface MongoCollection {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-sparse/"></a>
-     * @since 1.0.0
      */
     @AliasFor(value = "sparse", annotation = CompoundIndex.class)
     boolean sparse() default false;
@@ -99,7 +87,6 @@ public @interface MongoCollection {
      * 索引名
      *
      * @return string string
-     * @since 1.0.0
      */
     @AliasFor(value = "name", annotation = CompoundIndex.class)
     String name() default "";
@@ -108,7 +95,6 @@ public @interface MongoCollection {
      * 如果设置为true, 那么MongoDB将忽略给定的索引名, 而是生成一个新名称。
      *
      * @return boolean boolean
-     * @since 1.0.0
      */
     @AliasFor(value = "useGeneratedName", annotation = CompoundIndex.class)
     boolean useGeneratedName() default false;
@@ -118,7 +104,6 @@ public @interface MongoCollection {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/indexes/#background-construction"></a>
-     * @since 1.0.0
      */
     @AliasFor(value = "background", annotation = CompoundIndex.class)
     boolean background() default false;

@@ -17,6 +17,11 @@ yanger:
     dynamic-log-package: com.yanger.starter.test,com.yanger.starter.test2
     dynamic-log-enabled: true
 
+  mongo:
+    datasource:
+      default: mongodb://social:fkh%40zol4@192.168.2.23:12131,192.168.2.23:12132,192.168.2.23:12133/fkh_test
+    enable-auto-create-time: true
+
   app:
     config-path: D:\yang
 

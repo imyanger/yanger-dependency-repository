@@ -1,6 +1,6 @@
 package com.fkhwl.starter.mongo.exception;
 
-import com.fkhwl.starter.core.exception.BaseException;
+import com.yanger.tools.web.exception.BasicException;
 
 /**
  * <p>Company: 成都返空汇网络技术有限公司</p>
@@ -12,14 +12,18 @@ import com.fkhwl.starter.core.exception.BaseException;
  * @date 2019.12.04 10:09
  * @since 1.0.0
  */
-public class MongoException extends BaseException {
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
+public class MongoException extends BasicException {
     /** serialVersionUID */
     private static final long serialVersionUID = 4842002397836842293L;
 
     /**
      * Mongo exception
-     *
-     * @since 1.0.0
      */
     public MongoException() {
         super();
@@ -29,7 +33,6 @@ public class MongoException extends BaseException {
      * Mongo exception
      *
      * @param message the message
-     * @since 1.0.0
      */
     public MongoException(String message) {
         super(message);
@@ -40,7 +43,6 @@ public class MongoException extends BaseException {
      *
      * @param message the message
      * @param cause   the cause
-     * @since 1.0.0
      */
     public MongoException(String message, Throwable cause) {
         super(message, cause);
@@ -51,7 +53,6 @@ public class MongoException extends BaseException {
      *
      * @param msg  msg
      * @param args args
-     * @since 1.0.0
      */
     public MongoException(String msg, Object... args) {
         super(msg, args);
@@ -61,9 +62,9 @@ public class MongoException extends BaseException {
      * Mongo exception
      *
      * @param cause the cause
-     * @since 1.0.0
      */
     public MongoException(Throwable cause) {
         super(cause);
     }
+
 }

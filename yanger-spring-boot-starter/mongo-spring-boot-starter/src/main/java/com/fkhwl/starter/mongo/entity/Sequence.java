@@ -17,6 +17,12 @@ import lombok.Data;
  * @date 2020.03.17 14:24
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Data
 @MongoCollection(value = "sequence")
 public class Sequence {

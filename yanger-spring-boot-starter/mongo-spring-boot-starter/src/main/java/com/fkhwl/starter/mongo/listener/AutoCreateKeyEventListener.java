@@ -1,10 +1,9 @@
 package com.fkhwl.starter.mongo.listener;
 
-import com.fkhwl.starter.core.util.ClassUtils;
-import com.fkhwl.starter.core.util.RandomUtils;
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.exception.MongoException;
 import com.fkhwl.starter.mongo.mapper.MongoPO;
+import com.yanger.tools.web.tools.ClassUtils;
+import com.yanger.tools.web.tools.RandomUtils;
 
 import org.bson.types.ObjectId;
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +25,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.03.17 14:27
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class AutoCreateKeyEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
     /** Is enable auto increment key */
@@ -37,7 +42,6 @@ public class AutoCreateKeyEventListener extends AbstractMongoEventListener<Mongo
      * Auto create key event listener
      *
      * @param isEnableAutoIncrementKey is enable auto increment key
-     * @since 1.0.0
      */
     public AutoCreateKeyEventListener(boolean isEnableAutoIncrementKey) {
         this.isEnableAutoIncrementKey = isEnableAutoIncrementKey;
@@ -48,7 +52,6 @@ public class AutoCreateKeyEventListener extends AbstractMongoEventListener<Mongo
      *
      * @param event event
      * @see MongoPO
-     * @since 1.0.0
      */
     @Override
     @SuppressWarnings("checkstyle:EmptyBlock")
@@ -68,7 +71,7 @@ public class AutoCreateKeyEventListener extends AbstractMongoEventListener<Mongo
                 } else if (ObjectId.class.isAssignableFrom(idClass)) {
                     log.trace("ObjectId 类型由 mongo 自动生成");
                 } else if (String.class.isAssignableFrom(idClass)) {
-                    field.set(source, StringUtils.getUid());
+                    field.set(source, RandomUtils.getUid());
                 } else {
                     throw new MongoException("不支持的 id 类型: {}", idClass);
                 }

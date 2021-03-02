@@ -14,6 +14,12 @@ import org.springframework.data.mongodb.core.query.Criteria;
  * @date 2019.12.03 11:43
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public enum Between {
     /** Eq between */
     EQ,
@@ -30,7 +36,6 @@ public enum Between {
      * @param criteria criteria
      * @param begin    begin
      * @param end      end
-     * @since 1.0.0
      */
     public void between(Criteria criteria, Object begin, Object end) {
         switch (this) {

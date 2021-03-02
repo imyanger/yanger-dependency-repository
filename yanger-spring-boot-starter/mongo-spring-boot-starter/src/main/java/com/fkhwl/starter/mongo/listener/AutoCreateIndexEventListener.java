@@ -2,11 +2,12 @@ package com.fkhwl.starter.mongo.listener;
 
 import com.google.common.collect.Sets;
 
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.datasource.MongoDataSource;
 import com.fkhwl.starter.mongo.mapper.MongoPO;
 import com.fkhwl.starter.mongo.util.IndexUtils;
+import com.yanger.tools.general.tools.StringTools;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
@@ -26,6 +27,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.03.17 14:27
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class AutoCreateIndexEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
     /** 缓存已处理过的 collection */
@@ -36,7 +43,6 @@ public class AutoCreateIndexEventListener extends AbstractMongoEventListener<Mon
      *
      * @param event event
      * @see MongoPO
-     * @since 1.0.0
      */
     @Override
     public void onBeforeSave(@NotNull BeforeSaveEvent<MongoPO<?, ?>> event) {
@@ -48,7 +54,7 @@ public class AutoCreateIndexEventListener extends AbstractMongoEventListener<Mon
             // 获取原始的 collection name
             collectionName = MongoPO.collection(source.getClass());
             if (StringUtils.isBlank(collectionName)) {
-                collectionName = StringUtils.humpToUnderline(source.getClass().getSimpleName());
+                collectionName = StringTools.camelCaseToUnderline(source.getClass().getSimpleName());
             }
         }
 

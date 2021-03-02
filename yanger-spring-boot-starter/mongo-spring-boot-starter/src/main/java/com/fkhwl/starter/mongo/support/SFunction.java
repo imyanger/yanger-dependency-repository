@@ -30,6 +30,12 @@ import java.util.function.Function;
  * @date 2020.03.17 18:03
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @SuppressWarnings("all")
 @FunctionalInterface
 public interface SFunction<T, R> extends Function<T, R>, Serializable {

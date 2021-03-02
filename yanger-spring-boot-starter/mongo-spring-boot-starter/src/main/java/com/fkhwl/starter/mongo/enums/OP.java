@@ -1,6 +1,7 @@
 package com.fkhwl.starter.mongo.enums;
 
-import com.fkhwl.starter.core.exception.BaseException;
+
+import com.yanger.tools.web.exception.BasicException;
 
 import org.springframework.data.mongodb.core.query.Criteria;
 
@@ -13,6 +14,12 @@ import org.springframework.data.mongodb.core.query.Criteria;
  * @email "mailto:dongshijie@fkhwl.com"
  * @date 2019.12.03 11:43
  * @since 1.0.0
+ */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public enum OP {
     /** Or op */
@@ -27,7 +34,6 @@ public enum OP {
      *
      * @param criteria  criteria
      * @param criterias criterias
-     * @since 1.0.0
      */
     @SuppressWarnings("checkstyle:ReturnCount")
     public void op(Criteria criteria, Criteria[] criterias) {
@@ -42,7 +48,7 @@ public enum OP {
                 criteria.norOperator(criterias);
                 return;
             default:
-                throw new BaseException("not support");
+                throw new BasicException("not support");
         }
     }
 }

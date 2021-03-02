@@ -2,12 +2,6 @@ package com.fkhwl.starter.mongo.autoconfigure.sync;
 
 import com.google.common.collect.Lists;
 
-import com.fkhwl.starter.basic.util.StringPool;
-import com.fkhwl.starter.common.context.EarlySpringContext;
-import com.fkhwl.starter.common.exception.PropertiesException;
-import com.fkhwl.starter.common.start.FkhAutoConfiguration;
-import com.fkhwl.starter.core.util.CollectionUtils;
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.annotation.MongoCollection;
 import com.fkhwl.starter.mongo.core.MongoBean;
 import com.fkhwl.starter.mongo.exception.MongoException;
@@ -16,10 +10,13 @@ import com.fkhwl.starter.mongo.index.CustomMongoPersistentEntityIndexCreator;
 import com.fkhwl.starter.mongo.scanner.EntityScanner;
 import com.fkhwl.starter.mongo.spi.MongoLauncherInitiation;
 import com.mongodb.ConnectionString;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientOptions;
-import com.mongodb.MongoClientURI;
+import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.context.EarlySpringContext;
+import com.yanger.starter.basic.exception.PropertiesException;
+import com.yanger.tools.general.constant.StringPool;
+import com.yanger.tools.general.tools.StringTools;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -32,11 +29,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoClientDbFactory;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
+import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.data.mongodb.core.convert.DbRefResolver;
 import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
 import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
@@ -48,16 +43,14 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.lang.Nullable;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-
-import static com.mongodb.MongoClientOptions.builder;
 
 /**
  * <p>Company: 成都返空汇网络技术有限公司</p>
@@ -70,13 +63,19 @@ import static com.mongodb.MongoClientOptions.builder;
  * @date 2019.12.03 12:07
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 @Configuration
 @EnableTransactionManagement
 @EnableConfigurationProperties(MongoProperties.class)
-@ConditionalOnClass(value = {MongoClient.class, MongoLauncherInitiation.class})
+@ConditionalOnClass(value = {MongoLauncherInitiation.class})
 @Import(value = {MongoDataAutoConfiguration.class})
-public class MongoAutoConfiguration implements FkhAutoConfiguration {
+public class MongoAutoConfiguration implements YangerAutoConfiguration {
     /** MONGODB_PROTOCOL */
     private static final String MONGODB_PROTOCOL = "mongodb";
 
@@ -85,52 +84,50 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      *
      * @param mongoProperties the mongo properties
      * @return the mongo client options
-     * @since 1.0.0
+
      * @deprecated 使用 {@link ConnectionString} 代替
      */
-    @Bean
-    @Deprecated
-    public MongoClientOptions mongoClientOptions(MongoProperties mongoProperties) {
-        if (mongoProperties == null) {
-            return new MongoClientOptions.Builder().build();
-        }
-
-        log.info("init mongoClientOptions...");
-        return new MongoClientOptions.Builder()
-            .minConnectionsPerHost(mongoProperties.getPool().getMinConnectionPerHost())
-            .connectionsPerHost(mongoProperties.getPool().getMaxConnectionPerHost())
-            .threadsAllowedToBlockForConnectionMultiplier(mongoProperties.getPool().getThreadsAllowedToBlockForConnectionMultiplier())
-            .serverSelectionTimeout(mongoProperties.getPool().getServerSelectionTimeout())
-            .maxWaitTime(mongoProperties.getPool().getMaxWaitTime())
-            .maxConnectionIdleTime(mongoProperties.getPool().getMaxConnectionIdleTime())
-            .maxConnectionLifeTime(mongoProperties.getPool().getMaxConnectionLifeTime())
-            .connectTimeout(mongoProperties.getPool().getConnectTimeout())
-            .socketTimeout(mongoProperties.getPool().getSocketTimeout())
-            .sslEnabled(mongoProperties.getPool().getSslEnabled())
-            .sslInvalidHostNameAllowed(mongoProperties.getPool().getSslInvalidHostNameAllowed())
-            .heartbeatFrequency(mongoProperties.getPool().getHeartbeatFrequency())
-            .minConnectionsPerHost(mongoProperties.getPool().getMinConnectionPerHost())
-            .heartbeatConnectTimeout(mongoProperties.getPool().getHeartbeatConnectTimeout())
-            .heartbeatSocketTimeout(mongoProperties.getPool().getSocketTimeout())
-            .localThreshold(mongoProperties.getPool().getLocalThreshold())
-            .build();
-    }
+    // @Bean
+    // @Deprecated
+    // public MongoClientOptions mongoClientOptions(MongoProperties mongoProperties) {
+    //     if (mongoProperties == null) {
+    //         return new MongoClientOptions.Builder().build();
+    //     }
+    //
+    //     log.info("init mongoClientOptions...");
+    //     return new MongoClientOptions.Builder()
+    //         .minConnectionsPerHost(mongoProperties.getPool().getMinConnectionPerHost())
+    //         .connectionsPerHost(mongoProperties.getPool().getMaxConnectionPerHost())
+    //         .threadsAllowedToBlockForConnectionMultiplier(mongoProperties.getPool().getThreadsAllowedToBlockForConnectionMultiplier())
+    //         .serverSelectionTimeout(mongoProperties.getPool().getServerSelectionTimeout())
+    //         .maxWaitTime(mongoProperties.getPool().getMaxWaitTime())
+    //         .maxConnectionIdleTime(mongoProperties.getPool().getMaxConnectionIdleTime())
+    //         .maxConnectionLifeTime(mongoProperties.getPool().getMaxConnectionLifeTime())
+    //         .connectTimeout(mongoProperties.getPool().getConnectTimeout())
+    //         .socketTimeout(mongoProperties.getPool().getSocketTimeout())
+    //         .sslEnabled(mongoProperties.getPool().getSslEnabled())
+    //         .sslInvalidHostNameAllowed(mongoProperties.getPool().getSslInvalidHostNameAllowed())
+    //         .heartbeatFrequency(mongoProperties.getPool().getHeartbeatFrequency())
+    //         .minConnectionsPerHost(mongoProperties.getPool().getMinConnectionPerHost())
+    //         .heartbeatConnectTimeout(mongoProperties.getPool().getHeartbeatConnectTimeout())
+    //         .heartbeatSocketTimeout(mongoProperties.getPool().getSocketTimeout())
+    //         .localThreshold(mongoProperties.getPool().getLocalThreshold())
+    //         .build();
+    // }
 
     /**
      * Mongo provider factory (返回默认的数据源对应的 MongoTemplate).
      *
      * @param mongoProperties    the mongo properties
-     * @param mongoClientOptions the mongo client options
      * @param applicationContext application context
      * @param context            context
      * @param conversions        conversions
      * @return the mongo provider factory
-     * @since 1.0.0
      */
     @Bean
     @Primary
     public MongoTemplate mongoTemplate(@NotNull MongoProperties mongoProperties,
-                                       MongoClientOptions mongoClientOptions,
+                                       // MongoClientOptions mongoClientOptions,
                                        ConfigurableApplicationContext applicationContext,
                                        MongoMappingContext context,
                                        MongoCustomConversions conversions) {
@@ -144,7 +141,7 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
 
         // 配置了一个数据源, 当名称不是 default
         if (datasource.size() == 1 && datasource.get(MongoProperties.DEFAULT_DATASOURCE) == null) {
-            throw new PropertiesException("请使用 default 作为数据源名称");
+            throw new MongoException("请使用 default 作为数据源名称");
         } else if (datasource.size() == 1 && datasource.get(MongoProperties.DEFAULT_DATASOURCE).equals(StringPool.EMPTY)) {
             // 配置了一个数据源, 但是 value 没有配置
             this.addDefaultDatasource(datasource);
@@ -161,7 +158,7 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
                 // 处理非默认数据源
                 this.initDatasource(k, v,
                                     mongoProperties,
-                                    mongoClientOptions,
+                                    // mongoClientOptions,
                                     applicationContext,
                                     context,
                                     conversions);
@@ -181,7 +178,7 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
             this.initDatasource(MongoProperties.DEFAULT_DATASOURCE,
                                 defaultUri,
                                 mongoProperties,
-                                mongoClientOptions,
+                                // mongoClientOptions,
                                 applicationContext,
                                 context,
                                 conversions);
@@ -203,7 +200,6 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * 添加默认数据源
      *
      * @param datasource datasource
-     * @since 1.0.0
      */
     private void addDefaultDatasource(@NotNull Map<String, String> datasource) {
         datasource.put(MongoProperties.DEFAULT_DATASOURCE, "mongodb://127.0.0.1:27017/dev");
@@ -217,24 +213,22 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param datasourceName     datasource name
      * @param datasourceUri      datasource uri
      * @param mongoProperties    mongo properties
-     * @param mongoClientOptions mongo client options
      * @param applicationContext application context
      * @param context            context
      * @param conversions        conversions
-     * @since 1.0.0
      */
     @SuppressWarnings("checkstyle:ParameterNumber")
     private void initDatasource(String datasourceName,
                                 String datasourceUri,
                                 @NotNull MongoProperties mongoProperties,
-                                MongoClientOptions mongoClientOptions,
+                                // MongoClientOptions mongoClientOptions,
                                 ConfigurableApplicationContext applicationContext,
                                 MongoMappingContext context,
                                 MongoCustomConversions conversions) {
         // 1. 通过 dataSourceUri 创建 MongoClient dong4j : (2020年04月04日 23:40) [不再使用 mongoClient]
-        MongoClient mongoClient = this.createMongoClient(mongoClientOptions, datasourceUri);
+        // MongoClient mongoClient = this.createMongoClient(mongoClientOptions, datasourceUri);
         // 2. 通过 MongoClient 创建 MongoDbFactory
-        MongoDbFactory mongoDbFactory = createMongoDbFactory(datasourceUri);
+        SimpleMongoClientDatabaseFactory mongoDbFactory = createMongoDbFactory(datasourceUri);
         // 3. 配置字段转换器
         MappingMongoConverter mappingMongoConverter = this.buildMappingMongoConverter(mongoDbFactory,
                                                                                       context,
@@ -259,7 +253,6 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param datasourceName     datasource name
      * @param applicationContext application context
      * @param mongoTemplate      mongo template
-     * @since 1.0.0
      */
     private void registerMongoTemplate(String datasourceName,
                                        ConfigurableApplicationContext applicationContext,
@@ -277,7 +270,6 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param context            context
      * @param datasourceName     datasource name
      * @param mongoTemplate      mongo template
-     * @since 1.0.0
      */
     private void processorIndexes(@NotNull MongoProperties mongoProperties,
                                   ConfigurableApplicationContext applicationContext,
@@ -306,7 +298,6 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      *
      * @param mongoTemplate mongo template
      * @return the mongo transaction manager
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_ -> new")
@@ -320,42 +311,27 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param options the options
      * @param uri     uri
      * @return the mongo client
-     * @since 1.0.0
-     */
-    @NotNull
-    private MongoClient createMongoClient(MongoClientOptions options, String uri) {
-        try {
-            return createNetworkMongoClient(options, uri);
-        } finally {
-            this.clearPassword();
-        }
-    }
 
-    /**
-     * Create mongo db factory simple mongo db factory
-     *
-     * @param mongo         mongo
-     * @param dataSourceUri data source uri
-     * @return the simple mongo db factory
-     * @since 1.0.0
      */
-    @NotNull
-    private static SimpleMongoDbFactory createMongoDbFactory(MongoClient mongo, String dataSourceUri) {
-        String database = new MongoClientURI(dataSourceUri).getDatabase();
-        return new SimpleMongoDbFactory(mongo, Objects.requireNonNull(database));
-    }
+    // @NotNull
+    // private MongoClient createMongoClient(MongoClientOptions options, String uri) {
+    //     try {
+    //         return createNetworkMongoClient(options, uri);
+    //     } finally {
+    //         this.clearPassword();
+    //     }
+    // }
 
     /**
      * Create mongo db factory simple mongo db factory
      *
      * @param dataSourceUri data source uri
      * @return the simple mongo db factory
-     * @since 1.0.0
      */
     @Contract("_ -> new")
     @NotNull
-    private static SimpleMongoClientDbFactory createMongoDbFactory(String dataSourceUri) {
-        return new SimpleMongoClientDbFactory(dataSourceUri);
+    private static SimpleMongoClientDatabaseFactory createMongoDbFactory(String dataSourceUri) {
+        return new SimpleMongoClientDatabaseFactory(dataSourceUri);
     }
 
     /**
@@ -363,13 +339,13 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      *
      * @param mongoDbFactory mongo db factory
      * @return the mongo template
-     * @since 1.0.0
+
      */
-    @NotNull
-    @Contract("_ -> new")
-    private static MongoTemplate createMongoTemplate(MongoDbFactory mongoDbFactory) {
-        return new MongoTemplate(mongoDbFactory);
-    }
+    // @NotNull
+    // @Contract("_ -> new")
+    // private static MongoTemplate createMongoTemplate(MongoDbFactory mongoDbFactory) {
+    //     return new MongoTemplate(mongoDbFactory);
+    // }
 
     /**
      * 配置转换器
@@ -379,9 +355,8 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param conversions     conversions
      * @param mongoProperties mongo properties
      * @return the mapping mongo converter
-     * @since 1.0.0
      */
-    private @NotNull MappingMongoConverter buildMappingMongoConverter(MongoDbFactory factory,
+    private @NotNull MappingMongoConverter buildMappingMongoConverter(SimpleMongoClientDatabaseFactory factory,
                                                                       MongoMappingContext context,
                                                                       MongoCustomConversions conversions,
                                                                       @NotNull MongoProperties mongoProperties) {
@@ -405,11 +380,11 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param mongoDbFactory mongo db factory
      * @param mongoConverter mongo converter
      * @return the mongo template
-     * @since 1.0.0
      */
     @Contract("_, _ -> new")
     @NotNull
-    private static MongoTemplate createMongoTemplate(MongoDbFactory mongoDbFactory, @Nullable MongoConverter mongoConverter) {
+    private static MongoTemplate createMongoTemplate(SimpleMongoClientDatabaseFactory mongoDbFactory,
+                                                     @Nullable MongoConverter mongoConverter) {
         return new MongoTemplate(mongoDbFactory, mongoConverter);
     }
 
@@ -420,7 +395,6 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      *
      * @param scanPath           scan path
      * @param applicationContext application context
-     * @since 1.0.0
      */
     @SneakyThrows
     private void scanEntity(List<String> scanPath, ApplicationContext applicationContext) {
@@ -465,18 +439,16 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param options options
      * @param uri     uri
      * @return the mongo client
-     * @since 1.0.0
+
      */
-    @NotNull
-    @Contract("_, _ -> new")
-    private static MongoClient createNetworkMongoClient(MongoClientOptions options, String uri) {
-        return new MongoClient(new MongoClientURI(uri, builder(options)));
-    }
+    // @NotNull
+    // @Contract("_, _ -> new")
+    // private static MongoClient createNetworkMongoClient(MongoClientOptions options, String uri) {
+    //     return new MongoClient(new MongoClientURI(uri, builder(options)));
+    // }
 
     /**
      * Clear password
-     *
-     * @since 1.0.0
      */
     private void clearPassword() {
 
@@ -489,13 +461,12 @@ public class MongoAutoConfiguration implements FkhAutoConfiguration {
      * @param clazz           clazz
      * @param mongoCollection the mongo collection
      * @return the mongo bean
-     * @since 1.0.0
      */
     private static @NotNull MongoBean build(Class<?> clazz, @NotNull MongoCollection mongoCollection) {
 
         String collectionName = mongoCollection.value();
         if (StringUtils.isBlank(collectionName)) {
-            collectionName = StringUtils.humpToUnderline(clazz.getSimpleName());
+            collectionName = StringTools.camelCaseToUnderline(clazz.getSimpleName());
         }
         // 处理数据源
         String datasource = mongoCollection.datasource();

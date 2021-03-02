@@ -2,12 +2,12 @@ package com.fkhwl.starter.mongo.util;
 
 import com.google.common.collect.Lists;
 
-import com.fkhwl.starter.common.context.SpringContext;
-import com.fkhwl.starter.core.util.ObjectUtils;
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.factory.MongoProviderFactory;
 import com.fkhwl.starter.mongo.index.CustomMongoPersistentEntityIndexResolver;
+import com.yanger.starter.basic.context.EarlySpringContext;
+import com.yanger.tools.web.tools.ObjectUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.index.IndexOperations;
@@ -30,6 +30,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.04.05 21:11
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 @UtilityClass
 public class IndexUtils {
@@ -43,7 +49,6 @@ public class IndexUtils {
      * @param mongoTemplate  mongo template
      * @param clazz          clazz
      * @param collectionName collection name
-     * @since 1.0.0
      */
     public static void createIndexes(@NotNull MongoTemplate mongoTemplate, Class<?> clazz, String... collectionName) {
 
@@ -55,7 +60,7 @@ public class IndexUtils {
         }
 
         if (mongoMappingContext == null) {
-            mongoMappingContext = SpringContext.getInstance(MongoMappingContext.class);
+            mongoMappingContext = EarlySpringContext.getInstance(MongoMappingContext.class);
         }
 
         IndexResolver resolver = new CustomMongoPersistentEntityIndexResolver(mongoMappingContext);

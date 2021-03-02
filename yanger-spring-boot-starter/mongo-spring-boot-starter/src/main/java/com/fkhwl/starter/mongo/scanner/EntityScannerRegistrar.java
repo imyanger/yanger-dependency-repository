@@ -27,6 +27,12 @@ import java.util.Set;
  * @date 2020.03.17 12:38
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public class EntityScannerRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
@@ -34,7 +40,6 @@ public class EntityScannerRegistrar implements ImportBeanDefinitionRegistrar {
      *
      * @param metadata metadata
      * @param registry registry
-     * @since 1.0.0
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
@@ -46,7 +51,6 @@ public class EntityScannerRegistrar implements ImportBeanDefinitionRegistrar {
      *
      * @param metadata metadata
      * @return the packages to scan
-     * @since 1.0.0
      */
     private @NotNull Set<String> getPackagesToScan(@NotNull AnnotationMetadata metadata) {
         AnnotationAttributes attributes = AnnotationAttributes

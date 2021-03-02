@@ -10,12 +10,17 @@ package com.fkhwl.starter.mongo.core;
  * @date 2019.12.03 11:49
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public interface IMongoUpdate {
     /**
      * Update.
      *
      * @param update the update
-     * @since 1.0.0
      */
     void update(Update update);
 }

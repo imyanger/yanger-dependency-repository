@@ -40,6 +40,7 @@ public class CacheProperties {
         /** 缓存类型：
          * tair、redis（配置：redis.lettuce） 为当前支持的远程缓存;
          * linkedhashmap、caffeine 为当前支持的本地缓存类型
+         * 本地使用：jetcache.local.default.type  远程使用：jetcache.remote.default.type
          */
         private String type;
 

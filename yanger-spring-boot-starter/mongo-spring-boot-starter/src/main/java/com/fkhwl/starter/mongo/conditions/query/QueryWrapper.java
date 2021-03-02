@@ -4,15 +4,9 @@ import com.fkhwl.starter.mongo.conditions.AbstractWrapper;
 import com.fkhwl.starter.mongo.mapper.Model;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @param <M> parameter
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.03.17 17:50
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @SuppressWarnings("serial")
 public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object, QueryWrapper<M>>
@@ -20,8 +14,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
 
     /**
      * Query wrapper
-     *
-     * @since 1.0.0
      */
     public QueryWrapper() {
         this(null);
@@ -31,7 +23,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
      * Query wrapper
      *
      * @param entity entity
-     * @since 1.0.0
      */
     public QueryWrapper(M entity) {
         super.setEntity(entity);
@@ -42,7 +33,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
      *
      * @param entity      entity
      * @param entityClass entity class
-     * @since 1.0.0
      */
     private QueryWrapper(M entity, Class<M> entityClass) {
         super.setEntity(entity);
@@ -53,7 +43,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
      * 返回一个支持 lambda 函数写法的 wrapper
      *
      * @return the lambda query wrapper
-     * @since 1.0.0
      */
     public LambdaQueryWrapper<M> lambda() {
         return new LambdaQueryWrapper<>(this.getEntity(), this.getEntityClass());
@@ -63,7 +52,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
      * Instance query wrapper
      *
      * @return the query wrapper
-     * @since 1.0.0
      */
     @Override
     protected QueryWrapper<M> instance() {

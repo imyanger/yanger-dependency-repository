@@ -26,6 +26,12 @@ import java.util.List;
  * @date 2020.03.17 06:36
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public final class Wrappers {
 
     /** 空的 EmptyWrapper */
@@ -33,8 +39,6 @@ public final class Wrappers {
 
     /**
      * Wrappers
-     *
-     * @since 1.0.0
      */
     @Contract(pure = true)
     private Wrappers() {
@@ -45,7 +49,6 @@ public final class Wrappers {
      *
      * @param <M> 实体类泛型
      * @return QueryWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract(" -> new")
@@ -59,7 +62,6 @@ public final class Wrappers {
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return QueryWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_ -> new")
@@ -72,7 +74,6 @@ public final class Wrappers {
      *
      * @param <M> 实体类泛型
      * @return LambdaQueryWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract(" -> new")
@@ -86,7 +87,6 @@ public final class Wrappers {
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return LambdaQueryWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_ -> new")
@@ -100,7 +100,6 @@ public final class Wrappers {
      * @param <M>         实体类泛型
      * @param entityClass 实体类class
      * @return LambdaQueryWrapper &lt;T&gt;
-     * @since 3.3.1
      */
     @NotNull
     @Contract("_ -> new")
@@ -113,7 +112,6 @@ public final class Wrappers {
      *
      * @param <M> 实体类泛型
      * @return UpdateWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract(" -> new")
@@ -127,7 +125,6 @@ public final class Wrappers {
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return UpdateWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_ -> new")
@@ -140,7 +137,6 @@ public final class Wrappers {
      *
      * @param <M> 实体类泛型
      * @return LambdaUpdateWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract(" -> new")
@@ -154,7 +150,6 @@ public final class Wrappers {
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return LambdaUpdateWrapper &lt;T&gt;
-     * @since 1.0.0
      */
     @NotNull
     @Contract("_ -> new")
@@ -168,7 +163,6 @@ public final class Wrappers {
      * @param <M>         实体类泛型
      * @param entityClass 实体类class
      * @return LambdaUpdateWrapper &lt;T&gt;
-     * @since 3.3.1
      */
     @NotNull
     @Contract("_ -> new")
@@ -182,7 +176,6 @@ public final class Wrappers {
      * @param <M> 任意泛型
      * @return EmptyWrapper &lt;T&gt;
      * @see EmptyWrapper
-     * @since 1.0.0
      */
     @Contract(pure = true)
     @SuppressWarnings("unchecked")
@@ -198,7 +191,6 @@ public final class Wrappers {
      * @version 1.3.0
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2020.03.17 18:30
-     * @since 1.0.0
      */
     private static class EmptyWrapper<M extends Model<M>> extends QueryWrapper<M> {
 
@@ -209,7 +201,6 @@ public final class Wrappers {
          * Gets entity *
          *
          * @return the entity
-         * @since 1.0.0
          */
         @Override
         public M getEntity() {
@@ -221,7 +212,6 @@ public final class Wrappers {
          *
          * @param entity entity
          * @return the entity
-         * @since 1.0.0
          */
         @Override
         public EmptyWrapper<M> setEntity(M entity) {
@@ -233,7 +223,6 @@ public final class Wrappers {
          *
          * @param entityClass entity class
          * @return the entity class
-         * @since 1.0.0
          */
         @Override
         public QueryWrapper<M> setEntityClass(Class<M> entityClass) {
@@ -244,7 +233,6 @@ public final class Wrappers {
          * Gets entity class *
          *
          * @return the entity class
-         * @since 1.0.0
          */
         @Override
         protected Class<M> getEntityClass() {
@@ -255,7 +243,6 @@ public final class Wrappers {
          * Instance empty wrapper
          *
          * @return the empty wrapper
-         * @since 1.0.0
          */
         @Override
         protected EmptyWrapper<M> instance() {
@@ -270,7 +257,6 @@ public final class Wrappers {
      * @param key   key
      * @param value value
      * @return the list
-     * @since 1.0.0
      */
     public static List<Criteria> genOrCriteria(String[] key, @NotNull Object[] value) {
         key = FieldConvertUtils.convert(key);
@@ -287,7 +273,6 @@ public final class Wrappers {
      * @param key   key
      * @param value value
      * @return the list
-     * @since 1.0.0
      */
     public static List<Criteria> genOrCriteria(String key, @NotNull Object[] value) {
         List<Criteria> criterias = Lists.newArrayListWithExpectedSize(value.length);
@@ -302,7 +287,6 @@ public final class Wrappers {
      * @param value     value
      * @param operators operators
      * @return the list
-     * @since 1.0.0
      */
     public static List<Criteria> genOrCriteria(String[] key, @NotNull Object[] value, Operator[] operators) {
         key = FieldConvertUtils.convert(key);

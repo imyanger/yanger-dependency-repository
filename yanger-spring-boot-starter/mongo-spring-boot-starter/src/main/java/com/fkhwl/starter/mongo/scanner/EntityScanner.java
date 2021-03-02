@@ -39,7 +39,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * An entity scanner that searches the classpath from an {@link EntityScan @EntityScan}
+ * An entity scanner that searches the classpath from an {@link  @EntityScan}
  * specified packages.
  *
  * @author Phillip Webb
@@ -47,6 +47,12 @@ import lombok.extern.slf4j.Slf4j;
  * @email "mailto:dongshijie@fkhwl.com"
  * @date 2020.03.17 12:49
  * @since 1.4.0
+ */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Slf4j
 public class EntityScanner {
@@ -62,7 +68,6 @@ public class EntityScanner {
      * Create a new {@link EntityScanner} instance.
      *
      * @param context the source application context
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public EntityScanner(ApplicationContext context) {
@@ -77,7 +82,6 @@ public class EntityScanner {
      * @param annotationTypes the annotation types used on the entities
      * @return a set of entity classes
      * @throws ClassNotFoundException if an entity class cannot be loaded
-     * @since 1.0.0
      */
     @SafeVarargs
     public final @NotNull Set<Class<?>> scan(Class<? extends Annotation>... annotationTypes) throws ClassNotFoundException {
@@ -106,7 +110,6 @@ public class EntityScanner {
      * 如果不存在 EntityScanPackages bean, 则使用启动类所在的包和子包
      *
      * @return the packages
-     * @since 1.0.0
      */
     private List<String> initPackages() {
         List<String> packages = EntityScanPackages.get(this.context).getPackageNames();

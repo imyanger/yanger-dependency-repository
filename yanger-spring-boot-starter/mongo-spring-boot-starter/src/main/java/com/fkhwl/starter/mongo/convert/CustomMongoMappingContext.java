@@ -23,14 +23,9 @@ import org.springframework.data.util.TypeInformation;
 import java.util.Optional;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: 字段名转换配置项类</p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2019.12.03 11:50
- * @since 1.0.0
+ * @Description 字段名转换配置项类
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public class CustomMongoMappingContext extends MongoMappingContext {
 
@@ -45,7 +40,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * Gets field convert.
      *
      * @return the field convert
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static FieldConvert getFieldConvert() {
@@ -56,7 +50,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * Sets field convert.
      *
      * @param fieldConvert the field convert
-     * @since 1.0.0
      */
     public static void setFieldConvert(FieldConvert fieldConvert) {
         CustomMongoMappingContext.fieldConvert = fieldConvert;
@@ -71,7 +64,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * @return the optional
      * @see CustomMongoPersistentEntityIndexCreator#CustomMongoPersistentEntityIndexCreator CustomMongoPersistentEntityIndexCreator
      *     #CustomMongoPersistentEntityIndexCreator
-     * @since 1.0.0
      */
     @NotNull
     @Override
@@ -90,7 +82,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * @param <T>             parameter
      * @param typeInformation type information
      * @return the basic mongo persistent entity
-     * @since 1.0.0
      */
     @NotNull
     @Override
@@ -102,7 +93,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * 设置字段转换处理器 (大小写, 驼峰, 下划线等)
      *
      * @param fieldNamingStrategy field naming strategy
-     * @since 1.0.0
      */
     @Override
     public void setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) {
@@ -119,7 +109,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * @param owner            the owner
      * @param simpleTypeHolder the simple type holder
      * @return the mongo persistent property
-     * @since 1.0.0
      */
     @NotNull
     @Override

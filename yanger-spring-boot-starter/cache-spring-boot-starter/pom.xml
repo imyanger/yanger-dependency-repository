@@ -38,12 +38,10 @@
         <dependency>
             <groupId>com.alicp.jetcache</groupId>
             <artifactId>jetcache-autoconfigure</artifactId>
-            <version>2.5.16.F.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.alicp.jetcache</groupId>
             <artifactId>jetcache-anno</artifactId>
-            <version>2.5.16.F.RELEASE</version>
             <exclusions>
                 <exclusion>
                     <artifactId>error_prone_annotations</artifactId>
@@ -53,12 +51,19 @@
                     <artifactId>checker-qual</artifactId>
                     <groupId>org.checkerframework</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>kryo</artifactId>
+                    <groupId>com.esotericsoftware</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alicp.jetcache</groupId>
             <artifactId>jetcache-redis-lettuce</artifactId>
-            <version>2.5.16.F.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -75,12 +80,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>2.11.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-            <version>2.7.0</version>
         </dependency>
     </dependencies>
 

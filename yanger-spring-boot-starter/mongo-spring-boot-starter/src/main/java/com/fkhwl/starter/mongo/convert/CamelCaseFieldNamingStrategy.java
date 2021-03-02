@@ -12,19 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司 </p>
- * <p>Description:
+ * @Description
  * 自定义策略, 目的: myName -> MY_NAME, 其他自带的策略:
  * {@link CamelCaseAbbreviatingFieldNamingStrategy}: 首字母大写
  * {@link CamelCaseSplittingFieldNamingStrategy}: 分隔驼峰命名, 传入自定义分隔符
  * {@link SnakeCaseFieldNamingStrategy}: 下划线风格
- * </p>
- *
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.03.17 11:17
- * @since 1.0.0
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public class CamelCaseFieldNamingStrategy implements FieldNamingStrategy {
     /**
@@ -32,7 +26,6 @@ public class CamelCaseFieldNamingStrategy implements FieldNamingStrategy {
      *
      * @param property property
      * @return the field name
-     * @since 1.0.0
      */
     @NotNull
     @Override

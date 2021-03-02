@@ -1,11 +1,11 @@
 package com.fkhwl.starter.mongo.mapper;
 
-import com.fkhwl.starter.common.base.IBaseEntity;
-import com.fkhwl.starter.core.enums.FieldFill;
-import com.fkhwl.starter.core.util.RandomUtils;
 import com.fkhwl.starter.mongo.annotation.AutoIncKey;
 import com.fkhwl.starter.mongo.annotation.MongoColumn;
+import com.fkhwl.starter.mongo.enums.FieldFill;
 import com.fkhwl.starter.mongo.listener.AutoIncrementKeyEventListener;
+import com.yanger.starter.basic.entity.IBaseEntity;
+import com.yanger.tools.web.tools.RandomUtils;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -31,6 +31,12 @@ import lombok.experimental.SuperBuilder;
  * @email "mailto:dongshijie@fkhwl.com"
  * @date 2019.12.03 11:42
  * @since 1.0.0
+ */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @SuperBuilder
 @NoArgsConstructor
@@ -76,7 +82,6 @@ public abstract class MongoPO<T extends Serializable, M extends Model<M>> extend
      * To string string
      *
      * @return the string
-     * @since 1.0.0
      */
     @Override
     public String toString() {
@@ -94,7 +99,6 @@ public abstract class MongoPO<T extends Serializable, M extends Model<M>> extend
      * todo-dong4j : (2020年03月16日 16:24) [id 性能和分布式问题]
      *
      * @return the model
-     * @since 1.0.0
      */
     @Override
     protected Model<M> init() {
@@ -105,7 +109,6 @@ public abstract class MongoPO<T extends Serializable, M extends Model<M>> extend
      * Pk val serializable
      *
      * @return the serializable
-     * @since 1.0.0
      */
     @Override
     public T getId() {
@@ -117,11 +120,11 @@ public abstract class MongoPO<T extends Serializable, M extends Model<M>> extend
      *
      * @param id id
      * @return the id
-     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     public M setId(T id) {
         this.id = id;
         return (M) this;
     }
+
 }

@@ -9,14 +9,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dong4j@gmail.com"
- * @date 2020.04.04 19:53
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public class FkhMongoCustomConversions extends MongoCustomConversions {
 
@@ -25,7 +20,6 @@ public class FkhMongoCustomConversions extends MongoCustomConversions {
      *
      * @param customerConverters customer converters
      * @return the list
-     * @since 1.0.0
      */
     private static @NotNull List<Object> init(List<Converter<?, ?>> customerConverters) {
         List<Object> converters = new ArrayList<>();
@@ -42,7 +36,6 @@ public class FkhMongoCustomConversions extends MongoCustomConversions {
      * Fkh mongo custom conversions
      *
      * @param converters converters
-     * @since 1.0.0
      */
     public FkhMongoCustomConversions(List<Converter<?, ?>> converters) {
         super(init(converters));

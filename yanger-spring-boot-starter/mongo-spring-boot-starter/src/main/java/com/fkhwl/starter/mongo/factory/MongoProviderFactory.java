@@ -1,9 +1,9 @@
 package com.fkhwl.starter.mongo.factory;
 
-import com.fkhwl.starter.core.util.ObjectUtils;
-import com.fkhwl.starter.core.util.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.fkhwl.starter.mongo.core.MongoBean;
 import com.fkhwl.starter.mongo.exception.MongoException;
+import com.yanger.tools.web.tools.ObjectUtils;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +26,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2019.12.03 11:42
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class MongoProviderFactory {
     /** datasourceName <--> MongoTemplate */
@@ -39,7 +45,6 @@ public class MongoProviderFactory {
      * Gets configure with mongo templates.
      *
      * @return the configure with mongo templates
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static Map<String, MongoTemplate> getConfigureWithMongoTemplates() {
@@ -50,7 +55,6 @@ public class MongoProviderFactory {
      * Gets mongo transaction manager *
      *
      * @return the mongo transaction manager
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static Map<MongoTemplate, TransactionTemplate> getMongoTransactionTemplate() {
@@ -61,7 +65,6 @@ public class MongoProviderFactory {
      * Gets entity withmongo templates.
      *
      * @return the entity withmongo templates
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public static Map<String, MongoBean> getAnnotationToBeanMap() {
@@ -73,7 +76,6 @@ public class MongoProviderFactory {
      *
      * @param datasourceName the datasource name
      * @param mongoTemplate  the mongo template
-     * @since 1.0.0
      */
     public static synchronized void addConfigureWithMongoTemplate(String datasourceName, MongoTemplate mongoTemplate) {
         Assert.isTrue(!CONFIGURE_WITH_MONGO_TEMPLATES.containsKey(datasourceName),
@@ -87,7 +89,6 @@ public class MongoProviderFactory {
      *
      * @param datasourceName the datasource name
      * @return the mongo template
-     * @since 1.0.0
      */
     public static MongoTemplate getConfigureWithMongoTemplate(String datasourceName) {
         if (StringUtils.isNotBlank(datasourceName)) {
@@ -102,7 +103,6 @@ public class MongoProviderFactory {
      *
      * @param mongoTemplate           mongo template
      * @param mongoTransactionManager mongo transaction manager
-     * @since 1.0.0
      */
     public static synchronized void addMongoTransactionTemplate(MongoTemplate mongoTemplate, TransactionTemplate mongoTransactionManager) {
         Assert.isTrue(!MONGO_TRANSACTION_TEMPLATE.containsKey(mongoTemplate),
@@ -116,7 +116,6 @@ public class MongoProviderFactory {
      *
      * @param mongoTemplate mongo template
      * @return the mongo template
-     * @since 1.0.0
      */
     public static TransactionTemplate getMongoTransactionTemplate(MongoTemplate mongoTemplate) {
         if (ObjectUtils.isNotNull(mongoTemplate)) {
@@ -131,7 +130,6 @@ public class MongoProviderFactory {
      *
      * @param className the class name
      * @param mongoBean the mongo bean
-     * @since 1.0.0
      */
     public static synchronized void addAnnotation2BeanMap(String className, MongoBean mongoBean) {
         Assert.isTrue(!ANNOTATION_TO_BEAN_MAP.containsKey(className), StringUtils.format("className = [{}] 已存在", className));
@@ -144,7 +142,6 @@ public class MongoProviderFactory {
      *
      * @param className the class name
      * @return the string
-     * @since 1.0.0
      */
     public static String collectionName(String className) {
         return getAnnotation2BeanMap(className).getCollectionName();
@@ -155,7 +152,6 @@ public class MongoProviderFactory {
      *
      * @param className the class name
      * @return the mongo template
-     * @since 1.0.0
      */
     public static MongoBean getAnnotation2BeanMap(String className) {
         if (StringUtils.isNotBlank(className)) {
@@ -170,7 +166,6 @@ public class MongoProviderFactory {
      *
      * @param claz the claz
      * @return the string
-     * @since 1.0.0
      */
     public static String collectionName(@NotNull Class<?> claz) {
         return collectionName(claz.getName());

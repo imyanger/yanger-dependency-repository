@@ -1,8 +1,8 @@
 package com.fkhwl.starter.mongo.util;
 
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.convert.CustomMongoMappingContext;
 import com.fkhwl.starter.mongo.enums.FieldConvert;
+import com.yanger.tools.general.tools.StringTools;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -21,6 +21,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2019.12.03 11:50
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 @UtilityClass
 public class FieldConvertUtils {
@@ -30,7 +36,6 @@ public class FieldConvertUtils {
      *
      * @param fields the fields
      * @return the string [ ]
-     * @since 1.0.0
      */
     @NotNull
     public static String[] convert(@NotNull String[] fields) {
@@ -42,11 +47,10 @@ public class FieldConvertUtils {
      *
      * @param field the field
      * @return the string
-     * @since 1.0.0
      */
     public static String convert(String field) {
         return CustomMongoMappingContext.getFieldConvert() == FieldConvert.UNDERSCORE
-               ? StringUtils.humpToUnderline(field)
+               ? StringTools.camelCaseToUnderline(field)
                : field;
     }
 

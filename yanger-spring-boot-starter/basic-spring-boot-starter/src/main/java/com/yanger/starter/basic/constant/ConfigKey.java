@@ -325,6 +325,70 @@ public final class ConfigKey {
     }
 
 
+    /** jetcache 配置项 cache-spring-boot-starter/src/main/java/com/yanger/starter/cache/autoconfigure/CacheProperties.java */
+    public static class JetcacheConfigKey {
+
+        /** 统计间隔, 0 表示不统计 */
+        public static final String STAT_INTERVAL_MINUTES = "jetcache.statIntervalMinutes";
+
+        /** jetcache-anno 把 cacheName 作为远程缓存 key 前缀 */
+        public static final String AREA_IN_CACHE_NAME = "jetcache.areaInCacheName";
+
+        /** Hide packages  @Cached 和 @CreateCache 自动生成 name 的时候,为了不让 name 太长,hiddenPackages 指定的包名前缀被截掉 */
+        public static final String HIDE_PACKAGES = "jetcache.hidePackages";
+
+        /** 缓存类型：
+         * tair、redis（配置：redis.lettuce） 为当前支持的远程缓存;
+         * linkedhashmap、caffeine 为当前支持的本地缓存类型
+         * 本地使用：jetcache.local.default.type  远程使用：jetcache.remote.default.type
+         */
+        public static final String LOCAL_DEFAULT_TYPE = "jetcache.local.default.type";
+
+        /**
+         * 每个缓存实例的最大元素的全局配置, 仅 local 类型的缓存需要指定. 注意是每个缓存实例的限制, 而不是全部,
+         * 比如这里指定 1000, 然后用 @CreateCache 创建了两个缓存实例（并且注解上没有设置 localLimit 属性）, 那么每个缓存实例的限制都是 100
+         */
+        public static final String LOCAL_DEFAULT_LIMIT = "jetcache.local.default.limit";
+
+        /**
+         * key 转换器的全局配置, 当前只有一个已经实现的 keyConvertor: fastjson.
+         * 仅当使用 @CreateCache 且缓存类型为 LOCAL 时可以指定为 none, 此时通过 equals 方法来识别 key. 方法缓存必须指定 keyConvertor
+         */
+        public static final String LOCAL_DEFAULT_KEY_CONVERTOR = "jetcache.local.default.keyConvertor";
+
+        /** remote.default key 转换方式 */
+        public static final String REMOTE_DEFAULT_KEY_CONVERTOR = "jetcache.remote.default.keyConvertor";
+
+        /** remote.default value 反序列化器 */
+        public static final String REMOTE_DEFAULT_VALUE_DECODER = "jetcache.remote.default.valueDecoder";
+
+        /** remote.default value 序列化器 */
+        public static final String REMOTE_DEFAULT_VALUE_ENCODER = "jetcache.remote.default.valueEncoder";
+
+        /** 连接池中的最小空闲连接 默认 0 */
+        public static final String POOL_CONFIG_MIN_IDLE = "jetcache.remote.default.poolConfig.minIdle";
+
+        /** 连接池中的最大空闲连接 默认 8 */
+        public static final String POOL_CONFIG_MAX_IDLE = "jetcache.remote.default.poolConfig.maxIdle";
+
+        /** 连接池最大连接数 */
+        public static final String POOL_CONFIG_MAX_TOTAL = "jetcache.remote.default.poolConfig.maxTotal";
+
+    }
+
+    /** mongo 配置 */
+    public static class MongoConfigKey {
+        /** ENABLE_AUTO_INCREMENT_KEY */
+        public static final String ENABLE_AUTO_INCREMENT_KEY = "yanger.mongo.enable-auto-increment-key";
+        /** ENABLE_AUTO_CREATE_INDEX */
+        public static final String ENABLE_AUTO_CREATE_INDEX = "yanger.mongo.enable-auto-create-index";
+        /** ENABLE_AUTO_CREATE_KEY */
+        public static final String ENABLE_AUTO_CREATE_KEY = "yanger.mongo.enable-auto-create-key";
+        /** ENABLE_AUTO_CREATE_TIME */
+        public static final String ENABLE_AUTO_CREATE_TIME = "yanger.mongo.enable-auto-create-time";
+    }
+
+
 
 
 
@@ -427,6 +491,5 @@ public final class ConfigKey {
         public static final String DUBBO_PROVIDER_FILTER = "dubbo.provider.filter";
 
     }
-
 
 }

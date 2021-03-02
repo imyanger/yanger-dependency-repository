@@ -12,6 +12,12 @@ import org.jetbrains.annotations.Contract;
  * @date 2019.12.03 11:44
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public enum Order {
     /** Desc order */
     desc(-1),
@@ -25,7 +31,6 @@ public enum Order {
      * Order
      *
      * @param orderValue order value
-     * @since 1.0.0
      */
     @Contract(pure = true)
     Order(int orderValue) {
@@ -36,7 +41,6 @@ public enum Order {
      * Gets order value *
      *
      * @return the order value
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public int getOrderValue() {

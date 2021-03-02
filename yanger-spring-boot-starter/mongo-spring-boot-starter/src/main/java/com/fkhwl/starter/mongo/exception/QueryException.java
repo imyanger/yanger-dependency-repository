@@ -1,6 +1,6 @@
 package com.fkhwl.starter.mongo.exception;
 
-import com.fkhwl.starter.core.exception.BaseException;
+import com.yanger.tools.web.exception.BasicException;
 
 /**
  * <p>Company: 成都返空汇网络技术有限公司</p>
@@ -12,14 +12,18 @@ import com.fkhwl.starter.core.exception.BaseException;
  * @date 2019.12.03 11:43
  * @since 1.0.0
  */
-public class QueryException extends BaseException {
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
+public class QueryException extends BasicException {
     /** serialVersionUID */
     private static final long serialVersionUID = 4842002397836842293L;
 
     /**
      * Instantiates a new Query exception.
-     *
-     * @since 1.0.0
      */
     public QueryException() {
         super();
@@ -29,7 +33,6 @@ public class QueryException extends BaseException {
      * Instantiates a new Query exception.
      *
      * @param message the message
-     * @since 1.0.0
      */
     public QueryException(String message) {
         super(message);
@@ -40,7 +43,6 @@ public class QueryException extends BaseException {
      *
      * @param message the message
      * @param cause   the cause
-     * @since 1.0.0
      */
     public QueryException(String message, Throwable cause) {
         super(message, cause);
@@ -50,9 +52,9 @@ public class QueryException extends BaseException {
      * Instantiates a new Query exception.
      *
      * @param cause the cause
-     * @since 1.0.0
      */
     public QueryException(Throwable cause) {
         super(cause);
     }
+
 }

@@ -1,10 +1,10 @@
 package com.fkhwl.starter.mongo.listener;
 
-import com.fkhwl.starter.core.util.ClassUtils;
 import com.fkhwl.starter.mongo.annotation.AutoIncKey;
 import com.fkhwl.starter.mongo.entity.Sequence;
 import com.fkhwl.starter.mongo.exception.MongoException;
 import com.fkhwl.starter.mongo.mapper.MongoPO;
+import com.yanger.tools.web.tools.ClassUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
@@ -31,6 +31,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.03.17 14:27
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
     /** Mongo */
@@ -40,7 +46,6 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
      * Auto increment key event listener
      *
      * @param mongoTemplate mongo template
-     * @since 1.0.0
      */
     public AutoIncrementKeyEventListener(MongoTemplate mongoTemplate) {
         this.mongo = mongoTemplate;
@@ -50,7 +55,6 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
      * 对象转换成数据库对象的时候操作 id 字段实现 id 自增
      *
      * @param event event
-     * @since 1.0.0
      */
     @Override
     public void onBeforeConvert(@NotNull BeforeConvertEvent<MongoPO<?, ?>> event) {
@@ -76,7 +80,6 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
      *
      * @param collectionName collection name
      * @return the next id
-     * @since 1.0.0
      */
     private Long getNextId(String collectionName) {
         Query query = new Query(Criteria.where(Sequence.COLLECTION_NAME).is(collectionName));

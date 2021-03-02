@@ -1,8 +1,7 @@
 package com.fkhwl.starter.mongo.handler;
 
-import com.fkhwl.starter.core.metadata.MetaObjectHandler;
-import com.fkhwl.starter.core.reflection.MetaObject;
 import com.fkhwl.starter.mongo.mapper.MongoPO;
+import com.fkhwl.starter.mongo.reflection.MetaObject;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +17,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.01.26 20:16
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class DefaultTimeMetaHandler implements MetaObjectHandler {
 
@@ -25,7 +30,6 @@ public class DefaultTimeMetaHandler implements MetaObjectHandler {
      * 新增数据执行
      *
      * @param metaObject meta object
-     * @since 1.0.0
      */
     @Override
     public void insertFill(MetaObject metaObject) {
@@ -37,7 +41,6 @@ public class DefaultTimeMetaHandler implements MetaObjectHandler {
      * 更新数据执行
      *
      * @param metaObject meta object
-     * @since 1.0.0
      */
     @Override
     public void updateFill(MetaObject metaObject) {

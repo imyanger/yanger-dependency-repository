@@ -19,6 +19,12 @@ import lombok.Getter;
  * @date 2019.12.03 11:50
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public abstract class MongoQuery {
     /** Query */
     @Getter
@@ -35,8 +41,6 @@ public abstract class MongoQuery {
 
     /**
      * Mongo query
-     *
-     * @since 1.0.0
      */
     public MongoQuery() {
         this.criteria = new Criteria();
@@ -48,7 +52,6 @@ public abstract class MongoQuery {
      * Field.
      *
      * @param key the key
-     * @since 1.0.0
      */
     protected void field(String key) {
         this.field.include(key);
@@ -59,7 +62,6 @@ public abstract class MongoQuery {
      *
      * @param key the key
      * @return the criteria
-     * @since 1.0.0
      */
     protected Criteria and(String key) {
         key = FieldConvertUtils.convert(key);

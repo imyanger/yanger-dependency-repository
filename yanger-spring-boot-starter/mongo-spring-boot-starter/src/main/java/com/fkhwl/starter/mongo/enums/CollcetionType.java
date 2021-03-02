@@ -10,6 +10,12 @@ package com.fkhwl.starter.mongo.enums;
  * @date 2020.04.07 20:04
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public enum CollcetionType {
     /** 普通类型 */
     ORDINARY,

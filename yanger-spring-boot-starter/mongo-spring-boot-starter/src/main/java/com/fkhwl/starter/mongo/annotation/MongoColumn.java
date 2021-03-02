@@ -1,6 +1,6 @@
 package com.fkhwl.starter.mongo.annotation;
 
-import com.fkhwl.starter.core.enums.FieldFill;
+import com.fkhwl.starter.mongo.enums.FieldFill;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.data.mongodb.core.index.IndexDirection;
@@ -15,14 +15,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: ${description}</p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.01.27 18:15
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
@@ -35,7 +30,6 @@ public @interface MongoColumn {
      * Name string
      *
      * @return the string
-     * @since 1.0.0
      */
     @AliasFor(value = "value", annotation = Field.class)
     String name() default "";
@@ -44,7 +38,6 @@ public @interface MongoColumn {
      * Desc string.
      *
      * @return the string
-     * @since 1.0.0
      */
     String desc() default "";
 
@@ -53,7 +46,6 @@ public @interface MongoColumn {
      * todo-dong4j : (2020年04月08日 13:40) [暂未处理]
      *
      * @return the field fill
-     * @since 1.0.0
      */
     FieldFill fill() default FieldFill.DEFAULT;
 
@@ -61,7 +53,6 @@ public @interface MongoColumn {
      * Target type field type
      *
      * @return the field type
-     * @since 1.0.0
      */
     @AliasFor(value = "targetType", annotation = Field.class)
     FieldType targetType() default FieldType.IMPLICIT;
@@ -70,7 +61,6 @@ public @interface MongoColumn {
      * Required boolean.
      *
      * @return the boolean
-     * @since 1.0.0
      */
     boolean required() default true;
 
@@ -78,7 +68,6 @@ public @interface MongoColumn {
      * Default value string.
      *
      * @return the string
-     * @since 1.0.0
      */
     String defaultValue() default "";
 
@@ -87,7 +76,6 @@ public @interface MongoColumn {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-unique/"></a>
-     * @since 1.0.0
      */
     boolean unique() default false;
 
@@ -95,7 +83,6 @@ public @interface MongoColumn {
      * Direction index direction
      *
      * @return the index direction
-     * @since 1.0.0
      */
     IndexDirection direction() default IndexDirection.ASCENDING;
 
@@ -104,7 +91,6 @@ public @interface MongoColumn {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-sparse/"></a>
-     * @since 1.0.0
      */
     boolean sparse() default false;
 
@@ -148,7 +134,6 @@ public @interface MongoColumn {
      * </pre>
      *
      * @return string string
-     * @since 1.0.0
      */
     @AliasFor(value = "name", annotation = Indexed.class)
     String index() default "";
@@ -158,7 +143,6 @@ public @interface MongoColumn {
      * to {@literal false}.
      *
      * @return boolean boolean
-     * @since 1.5
      */
     boolean useGeneratedName() default false;
 
@@ -167,7 +151,6 @@ public @interface MongoColumn {
      *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/indexes/#background-construction"></a>
-     * @since 1.0.0
      */
     boolean background() default false;
 
@@ -176,7 +159,6 @@ public @interface MongoColumn {
      *
      * @return int int
      * @see <a href="https://docs.mongodb.org/manual/tutorial/expire-data/"></a>
-     * @since 1.0.0
      */
     int expireAfterSeconds() default -1;
 
@@ -206,7 +188,6 @@ public @interface MongoColumn {
      * </pre>
      *
      * @return empty by default.
-     * @since 2.2
      */
     String expireAfter() default "";
 }

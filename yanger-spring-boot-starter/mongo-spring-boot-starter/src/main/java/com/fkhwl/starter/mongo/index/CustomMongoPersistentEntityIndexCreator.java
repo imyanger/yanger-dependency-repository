@@ -23,6 +23,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020.04.06 12:37
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @Slf4j
 public class CustomMongoPersistentEntityIndexCreator extends MongoPersistentEntityIndexCreator {
 
@@ -33,7 +39,6 @@ public class CustomMongoPersistentEntityIndexCreator extends MongoPersistentEnti
      * @param mappingContext          mapping context
      * @param indexOperationsProvider index operations provider
      * @throws DataIntegrityViolationException 当重复创建索引时抛出
-     * @since 1.0.0
      */
     public CustomMongoPersistentEntityIndexCreator(MongoMappingContext mappingContext,
                                                    IndexOperationsProvider indexOperationsProvider)
@@ -46,7 +51,6 @@ public class CustomMongoPersistentEntityIndexCreator extends MongoPersistentEnti
      * 重写 MappingContextEvent 事件处理器, 此方法只有在开启自动创建索引时才会被调用
      *
      * @param event event
-     * @since 1.0.0
      */
     @Override
     public void onApplicationEvent(@NotNull MappingContextEvent<?, ?> event) {

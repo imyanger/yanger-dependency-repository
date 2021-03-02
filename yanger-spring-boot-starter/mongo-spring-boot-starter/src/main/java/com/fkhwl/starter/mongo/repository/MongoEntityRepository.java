@@ -18,6 +18,12 @@ import java.io.*;
  * @date 2020.03.17 13:49
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public interface MongoEntityRepository<T extends Serializable, M extends Model<M>> extends MongoRepository<M, T> {
 
 }

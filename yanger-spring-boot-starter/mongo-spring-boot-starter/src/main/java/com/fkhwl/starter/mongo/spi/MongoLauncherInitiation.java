@@ -1,13 +1,12 @@
 package com.fkhwl.starter.mongo.spi;
 
-import com.fkhwl.starter.basic.constant.ConfigKey;
-import com.fkhwl.starter.basic.util.StringPool;
-import com.fkhwl.starter.common.start.LauncherInitiation;
-import com.fkhwl.starter.core.support.ChainMap;
-import com.fkhwl.starter.core.util.StringUtils;
-import com.fkhwl.starter.mongo.constant.MongoConstant;
-import com.fkhwl.starter.processor.annotation.AutoService;
+import com.yanger.starter.basic.annotation.AutoService;
+import com.yanger.starter.basic.constant.ConfigKey;
+import com.yanger.starter.basic.spi.LauncherInitiation;
+import com.yanger.tools.general.constant.StringPool;
+import com.yanger.tools.web.support.ChainMap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 
@@ -23,6 +22,12 @@ import java.util.Map;
  * @date 2019.12.03 11:41
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 @AutoService(LauncherInitiation.class)
 public class MongoLauncherInitiation implements LauncherInitiation {
     /** MONGOAUTOCONFIGURATION */
@@ -34,7 +39,6 @@ public class MongoLauncherInitiation implements LauncherInitiation {
      * 启动之前关闭默认的 RedisAutoConfiguration 自动装配
      *
      * @param appName app name
-     * @since 1.0.0
      */
     @Override
     public void advance(String appName) {
@@ -55,16 +59,12 @@ public class MongoLauncherInitiation implements LauncherInitiation {
     /**
      * Launcher *
      *
-     * @param env           env
-     * @param appName       app name
-     * @param isLocalLaunch is local launch
+     * @param env     env
+     * @param appName app name
      * @return the map
-     * @since 1.0.0
      */
     @Override
-    public Map<String, Object> launcher(Environment env,
-                                        String appName,
-                                        boolean isLocalLaunch) {
+    public Map<String, Object> launcher(Environment env, String appName) {
 
         return ChainMap.build(2)
             .put("mongo", "test");
@@ -75,7 +75,6 @@ public class MongoLauncherInitiation implements LauncherInitiation {
      * Gets order *
      *
      * @return the order
-     * @since 1.0.0
      */
     @Override
     public int getOrder() {
@@ -86,10 +85,9 @@ public class MongoLauncherInitiation implements LauncherInitiation {
      * Gets name *
      *
      * @return the name
-     * @since 1.0.0
      */
     @Override
     public String getName() {
-        return MongoConstant.MODULE_NAME;
+        return "mongo-spring-boot-starter:MongoLauncherInitiation";
     }
 }

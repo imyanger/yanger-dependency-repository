@@ -20,16 +20,21 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Class for storing {@link EntityScan @EntityScan} specified packages for reference later
+ * Class for storing {@link  @EntityScan} specified packages for reference later
  * (e.g. by JPA auto-configuration).
  *
  * @author Phillip Webb
  * @version 1.3.0
  * @email "mailto:dongshijie@fkhwl.com"
  * @date 2020.03.17 12:49
- * @see EntityScan
  * @see EntityScanner
  * @since 1.4.0
+ */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 public class EntityScanPackages {
 
@@ -44,7 +49,6 @@ public class EntityScanPackages {
      * Entity scan packages
      *
      * @param packageNames package names
-     * @since 1.0.0
      */
     public EntityScanPackages(@NotNull String... packageNames) {
         List<String> packages = new ArrayList<>();
@@ -57,11 +61,10 @@ public class EntityScanPackages {
     }
 
     /**
-     * Return the package names specified from all {@link EntityScan @EntityScan}
+     * Return the package names specified from all {@link  @EntityScan}
      * annotations.
      *
      * @return the entity scan package names
-     * @since 1.0.0
      */
     List<String> getPackageNames() {
         return this.packageNames;
@@ -72,7 +75,6 @@ public class EntityScanPackages {
      *
      * @param beanFactory the source bean factory
      * @return the {@link EntityScanPackages} for the bean factory (never {@code null})
-     * @since 1.0.0
      */
     static EntityScanPackages get(@NotNull BeanFactory beanFactory) {
         // Currently we only store a single base package, but we return a list to
@@ -89,7 +91,6 @@ public class EntityScanPackages {
      *
      * @param registry     the source registry
      * @param packageNames the package names to register
-     * @since 1.0.0
      */
     public static void register(BeanDefinitionRegistry registry, String... packageNames) {
         Assert.notNull(registry, "Registry must not be null");
@@ -102,7 +103,6 @@ public class EntityScanPackages {
      *
      * @param registry     the source registry
      * @param packageNames the package names to register
-     * @since 1.0.0
      */
     static void register(BeanDefinitionRegistry registry, Collection<String> packageNames) {
         Assert.notNull(registry, "Registry must not be null");
@@ -127,7 +127,6 @@ public class EntityScanPackages {
      * @param constructorArguments constructor arguments
      * @param packageNames         package names
      * @return the string [ ]
-     * @since 1.0.0
      */
     @NotNull
     private static String[] addPackageNames(@NotNull ConstructorArgumentValues constructorArguments,

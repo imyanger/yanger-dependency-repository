@@ -14,6 +14,12 @@ import org.jetbrains.annotations.Contract;
  * @date 2019.12.03 11:50
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public class Update {
 
     /**
@@ -25,7 +31,6 @@ public class Update {
      * Instantiates a new Update.
      *
      * @param update the update
-     * @since 1.0.0
      */
     @Contract(pure = true)
     public Update(org.springframework.data.mongodb.core.query.Update update) {
@@ -38,7 +43,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update set(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -51,7 +55,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the on insert
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update setOnInsert(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -63,7 +66,6 @@ public class Update {
      *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update unset(String key) {
         key = FieldConvertUtils.convert(key);
@@ -76,7 +78,6 @@ public class Update {
      * @param key the key
      * @param inc the inc
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update inc(String key, Number inc) {
         key = FieldConvertUtils.convert(key);
@@ -89,7 +90,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update push(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -102,7 +102,6 @@ public class Update {
      * @param key    the key
      * @param values the values
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update pushAll(String key, Object[] values) {
         key = FieldConvertUtils.convert(key);
@@ -116,7 +115,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update addToSet(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -129,7 +127,6 @@ public class Update {
      * @param key the key
      * @param pos the pos
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update pop(String key,
                                                                   org.springframework.data.mongodb.core.query.Update.Position pos) {
@@ -143,7 +140,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update pull(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -156,7 +152,6 @@ public class Update {
      * @param key    the key
      * @param values the values
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update pullAll(String key, Object[] values) {
         key = FieldConvertUtils.convert(key);
@@ -169,7 +164,6 @@ public class Update {
      * @param oldName the old name
      * @param newName the new name
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update rename(String oldName, String newName) {
         oldName = FieldConvertUtils.convert(oldName);
@@ -182,7 +176,6 @@ public class Update {
      *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update currentDate(String key) {
         key = FieldConvertUtils.convert(key);
@@ -194,7 +187,6 @@ public class Update {
      *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update currentTimestamp(String key) {
         key = FieldConvertUtils.convert(key);
@@ -207,7 +199,6 @@ public class Update {
      * @param key        the key
      * @param multiplier the multiplier
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update multiply(String key, Number multiplier) {
         key = FieldConvertUtils.convert(key);
@@ -220,7 +211,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update max(String key, Object value) {
         key = FieldConvertUtils.convert(key);
@@ -233,7 +223,6 @@ public class Update {
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
-     * @since 1.0.0
      */
     public org.springframework.data.mongodb.core.query.Update min(String key, Object value) {
         key = FieldConvertUtils.convert(key);

@@ -1,9 +1,9 @@
 package com.fkhwl.starter.mongo.convert;
 
-import com.fkhwl.starter.common.enums.SerializeEnum;
-import com.fkhwl.starter.core.util.EnumUtils;
-import com.fkhwl.starter.core.util.StringUtils;
+import com.yanger.starter.basic.enums.SerializeEnum;
+import com.yanger.tools.general.tools.EnumUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -28,14 +28,9 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: 从 db 中读取枚举 </p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.01.27 18:06
- * @since 1.0.0
+ * @Description 从 db 中读取枚举
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Slf4j
 @ReadingConverter
@@ -49,7 +44,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
-     * @since 1.0.0
      */
     @Override
     public boolean matches(@NotNull TypeDescriptor sourceType, @NotNull TypeDescriptor targetType) {
@@ -60,7 +54,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * Gets convertible types *
      *
      * @return the convertible types
-     * @since 1.0.0
      */
     @Override
     public Set<ConvertiblePair> getConvertibleTypes() {
@@ -78,7 +71,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param sourceType 待读取的数据类型
      * @param targetType 需要被转换的类型
      * @return the object
-     * @since 1.0.0
      */
     @Nullable
     @Override
@@ -117,11 +109,10 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param clazz  clazz
      * @param source source
      * @return the t
-     * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
     private static <T extends SerializeEnum<?>> T valueOf(Class<? extends SerializeEnum<?>> clazz, Object source) {
-        T result = (T) EnumUtils.of(clazz, v -> v.getValue().equals(source)).orElse(null);
+        T result = (T) EnumUtils.getEnumObject(clazz, v -> v.getValue().equals(source)).orElse(null);
         if (result != null) {
             return result;
         }
@@ -135,7 +126,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param clazz clazz
      * @param value value
      * @return the t
-     * @since 1.0.0
      */
     @NotNull
     @SuppressWarnings("unchecked")
@@ -153,7 +143,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @throws IllegalAccessException    illegal access exception
      * @throws InvocationTargetException invocation target exception
      * @throws InstantiationException    instantiation exception
-     * @since 1.0.0
      */
     @Contract("_, null, _ -> null")
     @Nullable
@@ -174,7 +163,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param field     field
      * @param value     value
      * @return the enum
-     * @since 1.0.0
      */
     private static <T extends Enum<?>> Enum<?> valueOf(@NotNull Class<? extends Enum<?>> enumClass, Field field, Object value) {
         Enum<?>[] es = enumClass.getEnumConstants();
@@ -189,7 +177,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @param sourceValue 数据库字段值
      * @param targetValue 当前枚举属性值
      * @return 是否匹配 boolean
-     * @since 3.3.0
      */
     private static boolean equalsValue(Object sourceValue, Object targetValue) {
         if (sourceValue instanceof Number
@@ -208,7 +195,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      * @version 1.3.0
      * @email "mailto:dongshijie@fkhwl.com"
      * @date 2020.04.09 06:10
-     * @since 1.0.0
      */
     public static class GetFieldInvoker {
         /** Field */
@@ -218,7 +204,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
          * Get field invoker
          *
          * @param field field
-         * @since 1.0.0
          */
         public GetFieldInvoker(Field field) {
             this.field = field;
@@ -229,7 +214,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
          *
          * @param target target
          * @return the object
-         * @since 1.0.0
          */
         @SneakyThrows
         public Object invoke(Object target) {
@@ -240,7 +224,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
          * Gets type *
          *
          * @return the type
-         * @since 1.0.0
          */
         public Class<?> getType() {
             return this.field.getType();

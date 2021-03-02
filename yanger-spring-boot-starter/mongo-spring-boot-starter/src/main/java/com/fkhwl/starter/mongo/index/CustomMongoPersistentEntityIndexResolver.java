@@ -1,9 +1,9 @@
 package com.fkhwl.starter.mongo.index;
 
-import com.fkhwl.starter.core.util.StringUtils;
 import com.fkhwl.starter.mongo.annotation.MongoCollection;
 import com.fkhwl.starter.mongo.annotation.MongoColumn;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mapping.context.MappingContext;
@@ -33,6 +33,12 @@ import java.util.stream.Collectors;
  * @date 2020.04.06 12:38
  * @since 1.0.0
  */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
+ */
 public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEntityIndexResolver {
     /** Mapping context */
     private final MappingContext<? extends MongoPersistentEntity<?>, MongoPersistentProperty> mappingContext;
@@ -41,7 +47,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      * Create new {@link MongoPersistentEntityIndexResolver}.
      *
      * @param mappingContext must not be {@literal null}.
-     * @since 1.0.0
      */
     @Contract("null -> fail")
     public CustomMongoPersistentEntityIndexResolver(MappingContext<? extends MongoPersistentEntity<?>,
@@ -56,7 +61,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      *
      * @param typeInformation type information
      * @return the iterable
-     * @since 1.0.0
      */
     @NotNull
     @Override
@@ -70,7 +74,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      *
      * @param root root
      * @return the list
-     * @since 1.0.0
      */
     @Override
     @NotNull
@@ -87,7 +90,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      * @param fallbackCollection fallback collection
      * @param entity             entity
      * @return the list
-     * @since 1.0.0
      */
     @NotNull
     @Override
@@ -121,7 +123,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      * @param collection         collection
      * @param persistentProperty persistent property
      * @return the index definition holder
-     * @since 1.0.0
      */
     @Override
     @Nullable
@@ -147,7 +148,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      * @param collection         collection
      * @param persistentProperty persistent property
      * @return the index definition holder
-     * @since 1.0.0
      */
     @Override
     @Nullable
@@ -166,7 +166,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
      * @param collection         collection
      * @param persistentProperty persistent property
      * @return the index definition holder
-     * @since 1.0.0
      */
     @Override
     @Nullable

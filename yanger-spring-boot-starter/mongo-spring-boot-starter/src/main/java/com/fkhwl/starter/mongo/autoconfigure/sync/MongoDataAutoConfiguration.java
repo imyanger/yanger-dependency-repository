@@ -1,11 +1,11 @@
 package com.fkhwl.starter.mongo.autoconfigure.sync;
 
-import com.fkhwl.starter.common.start.FkhAutoConfiguration;
-import com.fkhwl.starter.core.util.CollectionUtils;
 import com.fkhwl.starter.mongo.annotation.MongoCollection;
 import com.fkhwl.starter.mongo.convert.CustomMongoMappingContext;
 import com.fkhwl.starter.mongo.convert.FkhMongoCustomConversions;
+import com.yanger.starter.basic.boost.YangerAutoConfiguration;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.ObjectProvider;
@@ -26,18 +26,13 @@ import java.util.List;
 import lombok.SneakyThrows;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dong4j@gmail.com"
- * @date 2020.04.04 22:09
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Configuration
 @EnableConfigurationProperties(MongoProperties.class)
-public class MongoDataAutoConfiguration implements FkhAutoConfiguration {
+public class MongoDataAutoConfiguration implements YangerAutoConfiguration {
     /** Converter customizers */
     private final List<ConverterCustomizer> converterCustomizers;
 
@@ -45,7 +40,6 @@ public class MongoDataAutoConfiguration implements FkhAutoConfiguration {
      * Mongo data configuration
      *
      * @param converterCustomizersProvider converter customizers provider
-     * @since 1.0.0
      */
     MongoDataAutoConfiguration(@NotNull ObjectProvider<List<ConverterCustomizer>> converterCustomizersProvider) {
         this.converterCustomizers = converterCustomizersProvider.getIfAvailable();
@@ -54,9 +48,7 @@ public class MongoDataAutoConfiguration implements FkhAutoConfiguration {
     /**
      * 自定义 mongodb 字段类型转换
      *
-     * @param converterCustomizers converter customizers
      * @return the mongo custom conversions
-     * @since 1.0.0
      */
     @Bean
     MongoCustomConversions mongoCustomConversions() {
@@ -77,7 +69,6 @@ public class MongoDataAutoConfiguration implements FkhAutoConfiguration {
      * @param applicationContext application context
      * @return the mongo mapping context
      * @throws ClassNotFoundException class not found exception
-     * @since 1.0.0
      */
     @Bean
     @SneakyThrows

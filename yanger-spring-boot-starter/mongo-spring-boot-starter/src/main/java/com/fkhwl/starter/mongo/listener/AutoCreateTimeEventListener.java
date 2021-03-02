@@ -1,8 +1,8 @@
 package com.fkhwl.starter.mongo.listener;
 
-import com.fkhwl.starter.core.metadata.MetaObjectHandler;
-import com.fkhwl.starter.core.reflection.DefaultMetaObject;
+import com.fkhwl.starter.mongo.handler.MetaObjectHandler;
 import com.fkhwl.starter.mongo.mapper.MongoPO;
+import com.fkhwl.starter.mongo.reflection.DefaultMetaObject;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
@@ -19,9 +19,13 @@ import lombok.extern.slf4j.Slf4j;
  * @version 1.3.0
  * @email "mailto:dongshijie@fkhwl.com"
  * @date 2020.03.17 14:27
- * @see com.fkhwl.starter.mongo.autoconfigure.sync.MongoEventLIstenerAutoConfiguration#autoCreateTimeEventListener() com.fkhwl.starter
- *     .mongo.autoconfigure.sync.MongoEventLIstenerAutoConfiguration#autoCreateTimeEventListener()
  * @since 1.0.0
+ */
+
+/**
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Slf4j
 public class AutoCreateTimeEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
@@ -32,7 +36,6 @@ public class AutoCreateTimeEventListener extends AbstractMongoEventListener<Mong
      * Auto create time event listener
      *
      * @param metaObjectHandler meta object handler
-     * @since 1.0.0
      */
     public AutoCreateTimeEventListener(MetaObjectHandler metaObjectHandler) {
         this.metaObjectHandler = metaObjectHandler;
@@ -45,7 +48,6 @@ public class AutoCreateTimeEventListener extends AbstractMongoEventListener<Mong
      *
      * @param event event
      * @see MongoPO
-     * @since 1.0.0
      */
     @Override
     public void onBeforeConvert(@NotNull BeforeConvertEvent<MongoPO<?, ?>> event) {

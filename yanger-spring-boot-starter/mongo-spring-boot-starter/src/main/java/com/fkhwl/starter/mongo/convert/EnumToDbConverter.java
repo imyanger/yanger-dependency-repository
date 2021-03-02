@@ -2,8 +2,8 @@ package com.fkhwl.starter.mongo.convert;
 
 import com.google.common.collect.Maps;
 
-import com.fkhwl.starter.common.enums.SerializeEnum;
-import com.fkhwl.starter.core.util.ConvertUtils;
+import com.yanger.starter.basic.enums.SerializeEnum;
+import com.yanger.starter.basic.util.ConvertUtils;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -21,14 +21,9 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description: 枚举写入到 db </p>
- *
- * @author dong4j
- * @version 1.2.3
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.01.27 18:05
- * @since 1.0.0
+ * @Description 枚举写入到 db
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Slf4j
 @WritingConverter
@@ -42,7 +37,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
-     * @since 1.0.0
      */
     @Override
     public boolean matches(@NotNull TypeDescriptor sourceType, @NotNull TypeDescriptor targetType) {
@@ -53,7 +47,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
      * Gets convertible types *
      *
      * @return the convertible types
-     * @since 1.0.0
      */
     @Override
     public Set<ConvertiblePair> getConvertibleTypes() {
@@ -73,7 +66,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
      * @param sourceType 待写入的数据类型
      * @param targetType 需要被转换的类型
      * @return the object
-     * @since 1.0.0
      */
     @Override
     @SuppressWarnings("checkstyle:ReturnCount")
@@ -107,7 +99,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
      * @param source           source
      * @return the object
      * @throws IllegalAccessException illegal access exception
-     * @since 1.0.0
      */
     @Nullable
     private static Object invoke(AccessibleObject accessibleObject, Object source)

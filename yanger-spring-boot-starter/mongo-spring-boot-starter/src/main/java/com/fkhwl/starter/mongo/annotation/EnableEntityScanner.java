@@ -12,14 +12,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <p>Company: 成都返空汇网络技术有限公司</p>
- * <p>Description:  </p>
- *
- * @author dong4j
- * @version 1.3.0
- * @email "mailto:dongshijie@fkhwl.com"
- * @date 2020.03.17 12:46
- * @since 1.0.0
+ * @Description
+ * @Author yanger
+ * @Date 2020/12/29 17:32
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -33,7 +28,6 @@ public @interface EnableEntityScanner {
      * {@code @EntityScan(basePackages="org.my.pkg")}.
      *
      * @return the base packages to scan
-     * @since 1.0.0
      */
     @AliasFor("basePackages")
     String[] value() default {};
@@ -46,7 +40,6 @@ public @interface EnableEntityScanner {
      * package names.
      *
      * @return the base packages to scan
-     * @since 1.0.0
      */
     @AliasFor("value")
     String[] basePackages() default {};
@@ -59,7 +52,6 @@ public @interface EnableEntityScanner {
      * serves no purpose other than being referenced by this attribute.
      *
      * @return classes from the base packages to scan
-     * @since 1.0.0
      */
     Class<?>[] basePackageClasses() default {};
 }
