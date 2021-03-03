@@ -1,13 +1,9 @@
 package com.yanger.starter.test.mongo;
 
-import com.fkhwl.starter.mongo.annotation.MongoCollection;
-import com.fkhwl.starter.mongo.mapper.MongoPO;
+import com.yanger.starter.mongo.annotation.MongoCollection;
+import com.yanger.starter.mongo.mapper.MongoPO;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

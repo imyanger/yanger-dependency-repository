@@ -55,6 +55,7 @@
         <jetcache.version>2.5.16.F.RELEASE</jetcache.version>
         <jackson-datatype-jsr310.version>2.11.3</jackson-datatype-jsr310.version>
         <commons-pool2.version>2.7.0</commons-pool2.version>
+        <mybatis-plus-core.version>3.3.2</mybatis-plus-core.version>
         <!-- yanger-spring-boot-starter -->
     </properties>
 
@@ -104,6 +105,11 @@
             <dependency>
                 <groupId>com.yanger</groupId>
                 <artifactId>cache-spring-boot-starter</artifactId>
+                <version>${yanger-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yanger</groupId>
+                <artifactId>mongo-spring-boot-starter</artifactId>
                 <version>${yanger-spring-boot.version}</version>
             </dependency>
             <!-- yanger-dependencies -->
@@ -207,6 +213,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${commons-pool2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis-plus-core.version}</version>
             </dependency>
             <!-- yanger-spring-boot-starter -->
         </dependencies>

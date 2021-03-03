@@ -37,10 +37,10 @@ import lombok.extern.slf4j.Slf4j;
 @IgnoreLoginAuth
 public class UserController {
 
-    @Resource
+    // @Resource
     private UserService userService;
 
-    @Resource
+    // @Resource
     private UserDao userDao;
 
     /**

@@ -75,7 +75,7 @@ public class GlobalExceptionHandler {
      *
      * @param e e
      * @return the result
-     * @since 1.0.0
+
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public Result<Void> handleValidException(@NotNull ConstraintViolationException e) {

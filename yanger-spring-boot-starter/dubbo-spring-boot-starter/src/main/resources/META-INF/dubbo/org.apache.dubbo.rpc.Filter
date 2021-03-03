@@ -1,0 +1,2 @@
+crossJvmParameterPassingFilter=com.yanger.starter.dubbo.filter.CrossJvmParameterPassingFilter
+dubboExceptionFilter=com.yanger.starter.dubbo.filter.ConsumerExceptionFilter

@@ -5,7 +5,7 @@ import com.yanger.starter.test.po.User;
 
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+// @Mapper
 public interface UserDao extends BaseDao<User> {
 
     User getDelete();

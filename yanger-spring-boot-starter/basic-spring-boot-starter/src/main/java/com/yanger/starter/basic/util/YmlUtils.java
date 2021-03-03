@@ -53,7 +53,9 @@ public class YmlUtils {
             return null;
         }
         Map<String, Object> map = getYaml(yamlPath);
-        getValue(propValue, "", map);
+        if(map != null) {
+            getValue(propValue, "", map);
+        }
         return propValue;
     }
 

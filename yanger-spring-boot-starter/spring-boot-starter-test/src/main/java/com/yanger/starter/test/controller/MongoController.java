@@ -1,6 +1,6 @@
 package com.yanger.starter.test.controller;
 
-import com.fkhwl.starter.mongo.conditions.query.LambdaQueryWrapper;
+import com.yanger.starter.mongo.conditions.query.LambdaQueryWrapper;
 import com.yanger.starter.test.mongo.MongoTestLog;
 import com.yanger.starter.test.mongo.MongoTestService;
 import com.yanger.starter.web.annotation.IgnoreLoginAuth;
@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MongoController {
 
     @Autowired
-    private MongoTestService mongoService;
+    private MongoTestService mongoTestService;
 
     /**
      * @Description 获取id
@@ -37,8 +37,8 @@ public class MongoController {
     @ApiOperation(value="打印日志", tags={"mongo接口"}, notes="打印日志")
     @GetMapping("set")
     public Object set(String name, Integer age) {
-        mongoService.insert(name, age);
-        return mongoService.get(name);
+        mongoTestService.insert(name, age);
+        return mongoTestService.get(name);
     }
 
     /**
@@ -54,6 +54,8 @@ public class MongoController {
         mongoTestLog.setName("xxx");
         MongoTestLog mongoTestLog2 = mongoTestLog.selectOne();
         MongoTestLog mongoTestLog1 = mongoTestLog.selectOne(new LambdaQueryWrapper<MongoTestLog>().eq("name", name));
+        mongoTestLog.setName("mongo" + name);
+        mongoTestLog.setId(null);
         return mongoTestLog1;
     }
 

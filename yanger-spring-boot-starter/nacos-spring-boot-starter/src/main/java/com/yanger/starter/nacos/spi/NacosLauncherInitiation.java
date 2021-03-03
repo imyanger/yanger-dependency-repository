@@ -17,7 +17,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
 
 import java.util.Map;
-import java.util.Properties;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,8 +34,8 @@ public class NacosLauncherInitiation implements LauncherInitiation {
     /**
      * 加载默认配置
      *
-     * @param env               系统变量 Environment
-     * @param appName           服务名
+     * @param env     系统变量 Environment
+     * @param appName 服务名
      * @return the chain map
      */
     @Override
@@ -73,7 +72,6 @@ public class NacosLauncherInitiation implements LauncherInitiation {
      *
      * @param propertySource property source
      * @param chainMap       chain map
-     * @since 1.0.0
      */
     public void processGroup(@NotNull PropertySource<?> propertySource, ChainMap chainMap) {
 
@@ -103,7 +101,6 @@ public class NacosLauncherInitiation implements LauncherInitiation {
      *
      * @param object object
      * @return the boolean
-     * @since 1.0.0
      */
     private boolean notBlank(Object object) {
         return ObjectUtils.isNotNull(object)
@@ -114,7 +111,6 @@ public class NacosLauncherInitiation implements LauncherInitiation {
      * Gets order *
      *
      * @return the order
-     * @since 1.0.0
      */
     @Override
     public int getOrder() {
@@ -125,7 +121,6 @@ public class NacosLauncherInitiation implements LauncherInitiation {
      * Gets name *
      *
      * @return the name
-     * @since 1.0.0
      */
     @Override
     public String getName() {

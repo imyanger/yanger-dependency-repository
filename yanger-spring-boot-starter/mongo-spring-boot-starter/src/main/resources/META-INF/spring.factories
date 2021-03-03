@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.fkhwl.starter.mongo.autoconfigure.sync.MongoEventListenerAutoConfiguration,\
-  com.fkhwl.starter.mongo.autoconfigure.sync.MongoAutoConfiguration,\
-  com.fkhwl.starter.mongo.autoconfigure.sync.MongoDataAutoConfiguration
+  com.yanger.starter.mongo.autoconfigure.sync.MongoEventListenerAutoConfiguration,\
+  com.yanger.starter.mongo.autoconfigure.sync.MongoAutoConfiguration,\
+  com.yanger.starter.mongo.autoconfigure.sync.MongoDataAutoConfiguration

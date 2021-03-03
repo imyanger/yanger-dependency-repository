@@ -22,6 +22,12 @@ yanger:
       default: mongodb://social:fkh%40zol4@192.168.2.23:12131,192.168.2.23:12132,192.168.2.23:12133/fkh_test
     enable-auto-create-time: true
 
+  nacos:
+    address: http://192.168.8.118:8848
+    data-id: test
+    namespace: yanger
+    enable-nacos-config: false
+
   app:
     config-path: D:\yang
 
