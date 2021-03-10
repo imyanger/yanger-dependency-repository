@@ -270,7 +270,7 @@ public final class BasicRunner {
         MutablePropertySources propertySources = environment.getPropertySources();
         propertySources.addFirst(new SimpleCommandLinePropertySource(args));
 
-        // 自定义配置系统变量 Environment
+        // 将自定义配置添加到系统变量 Environment，便于 SPI 根据一些自定义变量初始化默认配置
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.CUSTOM_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(CUSTOM_PROPERTIES)));
 
         // 加载自定义 SPI 组件
@@ -279,6 +279,7 @@ public final class BasicRunner {
         list.stream().sorted(Comparator.comparingInt(LauncherInitiation::getOrder))
             .forEach(launcherService -> launcherService.launcherWrapper(environment, DEFAULT_PROPERTIES, appName));
 
+        // 将默认配置添加到系统变量 Environment
         propertySources.addLast(new MapPropertySource(DefaultEnvironment.DEFAULT_PROPERTIES_PROPERTY_SOURCE_NAME, getMapFromProperties(DEFAULT_PROPERTIES)));
 
         // 添加到环境变量中，便于System获取

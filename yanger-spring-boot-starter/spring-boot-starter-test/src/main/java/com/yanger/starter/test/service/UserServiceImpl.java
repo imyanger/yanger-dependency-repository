@@ -6,7 +6,7 @@ import com.yanger.starter.test.po.User;
 
 import org.springframework.stereotype.Service;
 
-// @Service
+@Service
 public class UserServiceImpl extends BaseServiceImpl<UserDao, User> implements UserService {
 
 }

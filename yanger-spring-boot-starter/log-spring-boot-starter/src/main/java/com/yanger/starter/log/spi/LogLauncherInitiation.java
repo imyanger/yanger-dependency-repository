@@ -1,6 +1,7 @@
 package com.yanger.starter.log.spi;
 
 import com.yanger.starter.basic.annotation.AutoService;
+import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
@@ -32,26 +33,9 @@ public class LogLauncherInitiation implements LauncherInitiation {
      */
     @Override
     public Map<String, Object> launcher(Environment env, String appName) {
-
-        // 使用 binder 来解析配置
-        Binder binder = Binder.get(env);
-
-        LogLevel level = LogLevel.INFO;
-        try {
-            level = binder.bind(ConfigKey.LogConfigKey.LEVEL, Bindable.of(LogLevel.class)).get();
-        } catch (NoSuchElementException e) {
-            // ignore
-        }
-
-        String logAppName = env.getProperty(ConfigKey.LogConfigKey.APP_NAME);
-
-        if (StringUtils.isBlank(logAppName)) {
-            logAppName = appName;
-        }
-
         return ChainMap.build(8)
-            .put(ConfigKey.LogConfigKey.APP_NAME, logAppName)
-            .put(ConfigKey.LogConfigKey.LEVEL, level.name());
+            .put(ConfigKey.LogConfigKey.APP_NAME, App.applicationName)
+            .put(ConfigKey.LogConfigKey.LEVEL, LogLevel.INFO.name());
     }
 
     /**

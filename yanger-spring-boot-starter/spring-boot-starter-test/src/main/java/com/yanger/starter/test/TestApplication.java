@@ -3,7 +3,7 @@ package com.yanger.starter.test;
 import com.yanger.starter.basic.launcher.BasicApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+// import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @Description TODO

@@ -19,10 +19,12 @@ import java.util.Map;
  */
 @AutoService(LauncherInitiation.class)
 public class MongoLauncherInitiation implements LauncherInitiation {
-    /** MONGOAUTOCONFIGURATION */
-    public static final String MONGOAUTOCONFIGURATION = "org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration";
-    /** MONGODATAAUTOCONFIGURATION */
-    public static final String MONGODATAAUTOCONFIGURATION = "org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration";
+
+    /** MONGO_AUTO_CONFIGURATION */
+    public static final String MONGO_AUTO_CONFIGURATION = "org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration";
+
+    /** MONGO_DATA_AUTO_CONFIGURATION */
+    public static final String MONGO_DATA_AUTO_CONFIGURATION = "org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration";
 
     /**
      * 启动之前关闭默认的 RedisAutoConfiguration 自动装配
@@ -31,16 +33,16 @@ public class MongoLauncherInitiation implements LauncherInitiation {
      */
     @Override
     public void advance(String appName) {
-        LOG.warn("禁用 {} 和 {}", MONGOAUTOCONFIGURATION, MONGODATAAUTOCONFIGURATION);
+        LOG.warn("禁用 {} 和 {}", MONGO_AUTO_CONFIGURATION, MONGO_DATA_AUTO_CONFIGURATION);
 
         String property = System.getProperty(ConfigKey.SpringConfigKey.AUTOCONFIGURE_EXCLUDE);
 
         String value;
         if (StringUtils.isBlank(property)) {
-            value = String.join(StringPool.COMMA, MONGOAUTOCONFIGURATION, MONGODATAAUTOCONFIGURATION);
+            value = String.join(StringPool.COMMA, MONGO_AUTO_CONFIGURATION, MONGO_DATA_AUTO_CONFIGURATION);
 
         } else {
-            value = String.join(StringPool.COMMA, property, MONGOAUTOCONFIGURATION, MONGODATAAUTOCONFIGURATION);
+            value = String.join(StringPool.COMMA, property, MONGO_AUTO_CONFIGURATION, MONGO_DATA_AUTO_CONFIGURATION);
         }
         System.setProperty(ConfigKey.SpringConfigKey.AUTOCONFIGURE_EXCLUDE, value);
     }
@@ -54,7 +56,6 @@ public class MongoLauncherInitiation implements LauncherInitiation {
      */
     @Override
     public Map<String, Object> launcher(Environment env, String appName) {
-
         return ChainMap.build(2)
             .put("mongo", "test");
 

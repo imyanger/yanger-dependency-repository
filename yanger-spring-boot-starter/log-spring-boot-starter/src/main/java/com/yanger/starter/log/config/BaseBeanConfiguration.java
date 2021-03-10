@@ -1,5 +1,6 @@
 package com.yanger.starter.log.config;
 
+import com.yanger.starter.log.aspect.BusinessLogAspect;
 import com.yanger.starter.log.dynamic.LevelApi;
 
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,11 @@ public class BaseBeanConfiguration {
     @Bean
     public LevelApi levelApi(){
         return new LevelApi();
+    }
+
+    @Bean
+    public BusinessLogAspect businessLogAspect(){
+        return new BusinessLogAspect();
     }
 
 }

@@ -26,7 +26,7 @@ public class LogbackProperties {
     private String appName;
 
     /** 日志目录 */
-    private String logHome;
+    private String logHome = "/yanger/log";
 
     /** 是否允许动态修改日志 */
     private boolean dynamicLogEnabled = false;

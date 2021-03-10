@@ -11,7 +11,7 @@ mybatis-plus:
 
 yanger:
   logger:
-    app-name: woai
+    app-name: woaini
     level: info
     log-home: F:\data\woai
     dynamic-log-package: com.yanger.starter.test,com.yanger.starter.test2

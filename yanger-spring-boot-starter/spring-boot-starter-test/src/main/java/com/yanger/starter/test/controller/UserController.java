@@ -2,6 +2,7 @@ package com.yanger.starter.test.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yanger.starter.basic.entity.LQuery;
+import com.yanger.starter.log.annotation.BusinessLog;
 import com.yanger.starter.test.dao.UserDao;
 import com.yanger.starter.test.dto.UserDTO;
 import com.yanger.starter.test.po.User;
@@ -37,10 +38,10 @@ import lombok.extern.slf4j.Slf4j;
 @IgnoreLoginAuth
 public class UserController {
 
-    // @Resource
+    @Resource
     private UserService userService;
 
-    // @Resource
+    @Resource
     private UserDao userDao;
 
     /**
@@ -50,12 +51,17 @@ public class UserController {
      * @return 心情数据
      */
     @GetMapping("{id}")
+    @BusinessLog(description = "根据id查找user")
     @ApiOperation(value="根据id查找user", tags={"UserController接口"}, notes="根据id查找user")
     public User find(@PathVariable Long id) {
+        long startTime = System.currentTimeMillis();
         User user = userDao.selectById(id);
         User del = userDao.getDelete();
         log.info("del user {}", del);
-        return userService.getById(id);
+        long exeTimes = System.currentTimeMillis() - startTime;
+        User byId = userService.getById(id);
+        log.info("find耗时{}", exeTimes);
+        return byId;
     }
 
     /**
