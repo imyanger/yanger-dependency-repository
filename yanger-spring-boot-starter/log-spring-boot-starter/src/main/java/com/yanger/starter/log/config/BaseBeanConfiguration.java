@@ -1,8 +1,10 @@
 package com.yanger.starter.log.config;
 
-import com.yanger.starter.log.aspect.BusinessLogAspect;
+import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.log.dynamic.LevelApi;
+import com.yanger.starter.log.interceptor.LogInterceptor;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,8 +27,9 @@ public class BaseBeanConfiguration {
     }
 
     @Bean
-    public BusinessLogAspect businessLogAspect(){
-        return new BusinessLogAspect();
+    @ConditionalOnProperty(value = ConfigKey.LogConfigKey.API_LOG_ENABLED, havingValue = "true", matchIfMissing = false)
+    public LogInterceptor logInterceptor() {
+        return new LogInterceptor();
     }
 
 }

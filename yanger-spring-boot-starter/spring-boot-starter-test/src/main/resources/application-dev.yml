@@ -16,6 +16,7 @@ yanger:
     log-home: F:\data\woai
     dynamic-log-package: com.yanger.starter.test,com.yanger.starter.test2
     dynamic-log-enabled: true
+    api-log-enabled: true
 
   mongo:
     datasource:

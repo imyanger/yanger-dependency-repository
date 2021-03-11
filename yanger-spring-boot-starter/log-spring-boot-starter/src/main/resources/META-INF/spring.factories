@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.log.config.BaseBeanConfiguration
+  com.yanger.starter.log.config.BaseBeanConfiguration,\
+  com.yanger.starter.log.config.LogWebMvcConfiguration

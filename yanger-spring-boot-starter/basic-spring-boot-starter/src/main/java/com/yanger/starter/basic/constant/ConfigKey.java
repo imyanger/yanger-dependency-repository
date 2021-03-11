@@ -322,6 +322,9 @@ public final class ConfigKey {
         /** 是否允许动态修改日志 */
         public static final String DYNAMIC_LOG_ENABLED = "yanger.logger.dynamic-log-enabled";
 
+        /** 是否打印api调用日志：线上建议关闭 */
+        public static final String API_LOG_ENABLED = "yanger.logger.api-log-enabled";
+
     }
 
 

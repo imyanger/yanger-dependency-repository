@@ -34,4 +34,7 @@ public class LogbackProperties {
     /** 动态日志等级接口可修改的包 */
     private String dynamicLogPackage;
 
+    /** 是否打印api调用日志：线上建议关闭 */
+    private boolean apiLogEnabled = false;
+
 }
