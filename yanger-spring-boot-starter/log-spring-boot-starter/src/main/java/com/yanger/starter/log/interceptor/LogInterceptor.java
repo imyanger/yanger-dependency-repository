@@ -1,7 +1,9 @@
 package com.yanger.starter.log.interceptor;
 
 import com.yanger.starter.log.annotation.BusinessLog;
+import com.yanger.starter.log.entity.LogInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -9,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.lang.reflect.Method;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class LogInterceptor implements HandlerInterceptor {
+
+    @Autowired(required = false)
+    private ILogHandler logHandler;
 
     /** 记录请求时间 */
     private static final ThreadLocal<Long> threadLocalTime = new ThreadLocal<>();
@@ -41,12 +47,24 @@ public class LogInterceptor implements HandlerInterceptor {
             Method method = h.getMethod();
             String description = h.hasMethodAnnotation(BusinessLog.class) ? h.getMethodAnnotation(BusinessLog.class).description() : "";
             Class<?> declaringClass = method.getDeclaringClass();
-            String simpleName = declaringClass.getSimpleName();
+            String simpleClassName = declaringClass.getSimpleName();
             String methodName = method.getName();
             Long startTime = threadLocalTime.get();
             threadLocalTime.remove();
             long exeTimes = System.currentTimeMillis() - startTime;
-            log.info("{}[{}-{}]({}) 执行耗时{}ms", description, simpleName, methodName, request.getRequestURI(), exeTimes);
+            if(logHandler != null) {
+                LogInfo logInfo = LogInfo.builder()
+                    .description(description)
+                    .className(declaringClass.getName())
+                    .simpleClassName(simpleClassName)
+                    .exeTimes(exeTimes)
+                    .methodName(methodName)
+                    .requestURI(request.getRequestURI())
+                    .handlerMethod(h)
+                    .build();
+                logHandler.handler(logInfo);
+            }
+            log.info("{}[{}-{}]({}) 执行耗时{}ms", description, simpleClassName, methodName, request.getRequestURI(), exeTimes);
         }
     }
 
