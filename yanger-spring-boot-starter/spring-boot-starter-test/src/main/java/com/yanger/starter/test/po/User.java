@@ -1,5 +1,6 @@
 package com.yanger.starter.test.po;
 
+import com.yanger.starter.mybatis.annotation.PasswordField;
 import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.starter.mybatis.entity.BaseTimeLogicPO;
 import com.yanger.starter.test.enums.FileType;
@@ -25,5 +26,8 @@ public class User extends BaseTimeLogicPO<Long, User> {
 
     @SensitiveField
     private String mobile;
+
+    @PasswordField
+    private String pwd;
 
 }

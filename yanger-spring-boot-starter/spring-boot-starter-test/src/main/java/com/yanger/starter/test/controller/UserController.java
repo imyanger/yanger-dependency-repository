@@ -92,7 +92,7 @@ public class UserController {
     public User save(@RequestBody @Validated User user) {
         // userService.save(user);
         userDao.insert(user);
-        return user;
+        return userService.getById(user.getId());
     }
 
     /**

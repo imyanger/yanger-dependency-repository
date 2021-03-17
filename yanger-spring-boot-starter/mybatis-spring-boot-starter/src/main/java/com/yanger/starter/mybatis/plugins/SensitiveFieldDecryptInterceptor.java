@@ -1,7 +1,6 @@
 package com.yanger.starter.mybatis.plugins;
 
 import com.yanger.starter.basic.entity.BaseDTO;
-import com.yanger.starter.mybatis.annotation.SensitiveBody;
 import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.starter.mybatis.entity.BasePO;
 import com.yanger.tools.web.tools.AesUtils;
@@ -77,13 +76,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
      * @param o o
      */
     private void process(Object o) {
-        ReflectionUtils.doWithFields(o.getClass(), field -> {
-            Object fieldValue = ReflectionUtils.getFieldValue(o, field.getName());
-            if (fieldValue != null) {
-                process(fieldValue);
-            }
-        }, field -> o instanceof BaseDTO && field.getAnnotation(SensitiveBody.class) != null);
-
         ReflectionUtils.doWithFields(o.getClass(), field -> {
             Object fieldValue = ReflectionUtils.getFieldValue(o, field.getName());
             if (!StringUtils.isEmpty(fieldValue)) {

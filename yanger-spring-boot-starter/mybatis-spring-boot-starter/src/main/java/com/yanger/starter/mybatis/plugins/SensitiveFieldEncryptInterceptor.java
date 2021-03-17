@@ -1,7 +1,9 @@
 package com.yanger.starter.mybatis.plugins;
 
 import com.baomidou.mybatisplus.core.toolkit.Constants;
+import com.yanger.starter.mybatis.annotation.PasswordField;
 import com.yanger.starter.mybatis.annotation.SensitiveField;
+import com.yanger.tools.general.tools.EncryptUtils;
 import com.yanger.tools.web.tools.AesUtils;
 import com.yanger.tools.web.tools.Base64Utils;
 import com.yanger.tools.web.tools.ReflectionUtils;
@@ -130,6 +132,13 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
                     byte[] encrypt = AesUtils.encrypt(String.valueOf(fieldValue), this.sensitiveKey);
                     String encryptStr = Base64Utils.encodeToString(encrypt);
                     ReflectionUtils.setFieldValue(parameter, field.getName(), encryptStr);
+                }
+            }
+            if (field.isAnnotationPresent(PasswordField.class)) {
+                // 密码md5加密
+                Object fieldValue = ReflectionUtils.getFieldValue(parameter, field.getName());
+                if (!StringUtils.isEmpty(fieldValue)) {
+                    ReflectionUtils.setFieldValue(parameter, field.getName(), EncryptUtils.getMD5(fieldValue.toString()));
                 }
             }
         }
