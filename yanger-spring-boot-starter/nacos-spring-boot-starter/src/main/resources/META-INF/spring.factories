@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.nacos.config.YangerNacosProperties,\
-  com.yanger.starter.nacos.config.NacosAutoConfiguration
-org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-  com.yanger.starter.nacos.config.YangerNacosBootstrapConfiguration

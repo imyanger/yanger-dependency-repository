@@ -39,8 +39,6 @@
         <module>../log-spring-boot-starter</module>
         <module>../cache-spring-boot-starter</module>
         <module>../mongo-spring-boot-starter</module>
-        <module>../nacos-spring-boot-starter</module>
-        <module>../dubbo-spring-boot-starter</module>
     </modules>
 
     <dependencies>

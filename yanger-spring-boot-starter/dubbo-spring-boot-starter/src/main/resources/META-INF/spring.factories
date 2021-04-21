@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationListener=\
-  com.yanger.starter.dubbo.listener.DubboRegistryCheckListener
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.dubbo.autoconfigure.DubboAutoConfiguration
