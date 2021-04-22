@@ -52,6 +52,7 @@
         <spring-jdbc.version>5.2.12.RELEASE</spring-jdbc.version>
         <c3p0.version>0.9.5.4</c3p0.version>
         <hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+        <!--can't find-->
         <jetcache.version>2.5.16.F.RELEASE</jetcache.version>
         <jackson-datatype-jsr310.version>2.11.3</jackson-datatype-jsr310.version>
         <commons-pool2.version>2.7.0</commons-pool2.version>
