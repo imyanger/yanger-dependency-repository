@@ -1,8 +1,6 @@
 package com.yanger.starter.cache.support;
 
 import com.alicp.jetcache.CacheValueHolder;
-import com.alicp.jetcache.spi.ValueDecoderRegister;
-import com.alicp.jetcache.support.AbstractValueDecoder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yanger.starter.basic.annotation.AutoService;
@@ -21,8 +19,8 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2021/3/1 18:47
  */
 @Slf4j
-@AutoService(ValueDecoderRegister.class)
-public class JacksonValueDecoder extends CacheAbstractValueDecoder implements ValueDecoderRegister {
+@AutoService(JacksonValueDecoder.class)
+public class JacksonValueDecoder extends CacheAbstractValueDecoder {
 
     /** INSTANCE */
     public static final JacksonValueDecoder INSTANCE = new JacksonValueDecoder();
@@ -107,26 +105,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder implements Va
             return JsonUtils.parse(MAPPER, source, new TypeReference<T>() {
             });
         }
-    }
-
-    /**
-     * Identity number int
-     *
-     * @return the int
-     */
-    @Override
-    public int identityNumber() {
-        return JacksonValueEncoder.IDENTITY_NUMBER;
-    }
-
-    /**
-     * Gets decoder *
-     *
-     * @return the decoder
-     */
-    @Override
-    public AbstractValueDecoder getDecoder() {
-        return INSTANCE;
     }
 
 }
