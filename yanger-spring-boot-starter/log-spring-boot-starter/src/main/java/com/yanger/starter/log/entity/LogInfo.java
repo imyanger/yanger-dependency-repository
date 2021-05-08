@@ -1,13 +1,11 @@
 package com.yanger.starter.log.entity;
 
-import org.springframework.web.method.HandlerMethod;
-
-import java.io.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * @Description 拦截日志对象
@@ -28,7 +26,7 @@ public class LogInfo implements Serializable {
     /** 简单类名 */
     private  String simpleClassName;
 
-    /** 命名 */
+    /** 完整类名 */
     private  String className;
 
     /** 方法名 */
@@ -39,8 +37,5 @@ public class LogInfo implements Serializable {
 
     /** 执行时间 */
     private  Long exeTimes;
-
-    /** handlerMethod */
-    private HandlerMethod handlerMethod;
 
 }

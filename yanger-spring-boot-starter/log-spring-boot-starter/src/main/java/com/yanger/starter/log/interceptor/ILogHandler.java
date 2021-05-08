@@ -1,6 +1,11 @@
 package com.yanger.starter.log.interceptor;
 
 import com.yanger.starter.log.entity.LogInfo;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Description 日志处理器
@@ -16,6 +21,6 @@ public interface ILogHandler {
      * @param: logInfo
      * @throws
      */
-    void handler(LogInfo logInfo);
+    void handler(HttpServletRequest request, HttpServletResponse response, HandlerMethod handler, ModelAndView modelAndView, LogInfo logInfo);
 
 }

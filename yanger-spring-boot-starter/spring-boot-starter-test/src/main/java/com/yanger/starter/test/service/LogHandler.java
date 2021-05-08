@@ -4,6 +4,11 @@ import com.yanger.starter.log.entity.LogInfo;
 import com.yanger.starter.log.interceptor.ILogHandler;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Description TODO
@@ -14,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class LogHandler implements ILogHandler {
 
     @Override
-    public void handler(LogInfo logInfo) {
+    public void handler(HttpServletRequest request, HttpServletResponse response, HandlerMethod handler, ModelAndView modelAndView, LogInfo logInfo) {
         System.out.println(logInfo);
     }
 

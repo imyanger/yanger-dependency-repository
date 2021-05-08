@@ -60,9 +60,8 @@ public class LogInterceptor implements HandlerInterceptor {
                     .exeTimes(exeTimes)
                     .methodName(methodName)
                     .requestURI(request.getRequestURI())
-                    .handlerMethod(h)
                     .build();
-                logHandler.handler(logInfo);
+                logHandler.handler(request, response, h, modelAndView, logInfo);
             }
             log.info("{}[{}-{}]({}) 执行耗时{}ms", description, simpleClassName, methodName, request.getRequestURI(), exeTimes);
         }
