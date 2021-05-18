@@ -34,9 +34,7 @@ public abstract class ConcurrentFactoryMap<K, V> implements ConcurrentMap<K, V> 
     /**
      * Concurrent factory map
      */
-    private ConcurrentFactoryMap() {
-
-    }
+    private ConcurrentFactoryMap() { }
 
     /**
      * Sentinel

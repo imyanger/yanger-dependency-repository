@@ -219,4 +219,5 @@ public abstract class AbstractBundle {
     public boolean containsKey(@NotNull String key) {
         return this.getResourceBundle().containsKey(key);
     }
+
 }
