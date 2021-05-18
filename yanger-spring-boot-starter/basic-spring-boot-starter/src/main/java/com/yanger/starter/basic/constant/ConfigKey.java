@@ -90,7 +90,10 @@ public final class ConfigKey {
         public static final String TOKEN_USER_KEY = "yanger.token.login-user";
 
         /** session 中验证码的key值 */
-        public static final String TOKEN_RANDOM_CODE = "yanger.token.random.code";
+        public static final String TOKEN_RANDOM_CODE = "yanger.token.random—code";
+
+        /** 用户信息存储方式，session 还是 header 获取 */
+        public static final String TOKEN_TYPE = "yanger.token.type";
 
     }
 

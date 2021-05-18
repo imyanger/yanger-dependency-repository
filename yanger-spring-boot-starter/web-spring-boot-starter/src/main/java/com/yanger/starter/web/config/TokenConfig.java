@@ -2,6 +2,7 @@ package com.yanger.starter.web.config;
 
 import com.yanger.starter.basic.constant.ConfigDefaultValue;
 
+import com.yanger.starter.basic.enums.TokenType;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -34,5 +35,8 @@ public class TokenConfig {
 
     /** request session 中验证码的key值 */
     private String tokenRandomCode = ConfigDefaultValue.TokenConfigValue.TOKEN_RANDOM_CODE;
+
+    /** 用户信息存储方式，session 还是 header 获取 */
+    private TokenType tokenType = ConfigDefaultValue.TokenConfigValue.TOKEN_TYPE;
 
 }

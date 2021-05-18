@@ -1,5 +1,7 @@
 package com.yanger.starter.basic.constant;
 
+import com.yanger.starter.basic.enums.TokenType;
+
 /**
  * @Description 常用的配置默认值
  * @Author yanger
@@ -40,6 +42,9 @@ public class ConfigDefaultValue {
 
         /** session 中验证码的key值 */
         public static final String TOKEN_RANDOM_CODE = "yanger-spring-boot-token-random-code";
+
+        /** 用户信息存储方式，session 还是 header 获取 */
+        public static final TokenType TOKEN_TYPE = TokenType.HEADER;
 
     }
 
