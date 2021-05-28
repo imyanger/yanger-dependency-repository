@@ -39,7 +39,7 @@ public abstract class AbstractBundle {
     private Reference<ResourceBundle> myBundle;
 
     /**
-     * Abstract bundle
+     * 构造方法
      *
      * @param pathToBundle path to bundle
      */

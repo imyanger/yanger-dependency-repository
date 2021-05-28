@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>idoc</artifactId>
+        <groupId>com.github.houbb</groupId>
+        <version>0.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>idoc-test</artifactId>
+    <description>The test module of i-doc project.</description>
+
+    <dependencies>
+        <!--============================== SELF ==============================-->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>idoc-api</artifactId>
+        </dependency>
+
+        <!--============================== OTHER ==============================-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.houbb</groupId>
+                <artifactId>idoc-core</artifactId>
+                <version>${project.version}</version>
+                <configuration>
+                    <generates>
+                        <generate>com.github.houbb.idoc.ftl.api.generator.MarkdownDocGenerator</generate>
+                    </generates>
+                    <generateFilters>
+                        <generateFilter>com.github.houbb.idoc.test.filter.MyGenerateAliasFilter</generateFilter>
+                    </generateFilters>
+                    <isAllInOne>true</isAllInOne>
+                    <typeAliases>
+                        <typeAlias>
+                            <key>java.lang.String</key>
+                            <value>字符串</value>
+                        </typeAlias>
+                    </typeAliases>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.houbb</groupId>
+                        <artifactId>idoc-test</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

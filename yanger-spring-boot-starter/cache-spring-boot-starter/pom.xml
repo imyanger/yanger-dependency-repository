@@ -6,9 +6,9 @@
 
     <parent>
         <groupId>com.yanger</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>yanger-spring-boot-starter</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath>../spring-boot-starter-parent/pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>cache-spring-boot-starter</artifactId>

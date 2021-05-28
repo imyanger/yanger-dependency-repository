@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <name>yanger-dependencies</name>
-    <description>base spring boot starter</description>
+    <description>yanger dependencies</description>
 
     <developers>
         <developer>
@@ -28,7 +28,7 @@
     <modules>
         <module>../yanger-tools</module>
         <module>../yanger-code-generator</module>
-        <module>../yanger-spring-boot-starter/spring-boot-starter-parent</module>
+        <module>../yanger-spring-boot-starter</module>
     </modules>
 
     <properties>
