@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 用户信息
+ *
  * @author binbin.hou
  * @since 0.0.1
  */
@@ -12,6 +13,7 @@ public class User {
 
     /**
      * 名称
+     *
      * @require 是
      * @remark 中文名称，请认真填写
      */

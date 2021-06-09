@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.yanger</groupId>
@@ -15,8 +15,9 @@
     <dependencies>
         <!--============================== SELF ==============================-->
         <dependency>
-            <groupId>com.github.houbb</groupId>
-            <artifactId>idoc-api</artifactId>
+            <groupId>com.yanger</groupId>
+            <artifactId>doc-generator</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!--============================== OTHER ==============================-->
@@ -35,7 +36,7 @@
                 <version>${project.version}</version>
                 <configuration>
                     <generates>
-                        <generate>com.github.houbb.idoc.api.core.genenrator.markdown.MarkdownDocGenerator</generate>
+                        <generate>com.yanger.doc.generator.markdown.MarkdownDocGenerator</generate>
                     </generates>
                     <generateFilters>
                         <generateFilter>com.github.houbb.idoc.test.filter.MyGenerateAliasFilter</generateFilter>

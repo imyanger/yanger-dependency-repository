@@ -2,6 +2,7 @@ package com.github.houbb.idoc.test.model;
 
 /**
  * 别名测试
+ *
  * @author binbin.hou
  * @since 0.0.1
  */

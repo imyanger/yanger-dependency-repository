@@ -1,12 +1,12 @@
 package com.github.houbb.idoc.test.model;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
  * 类型别名测试对象
+ *
  * @author binbin.hou
  * @since 0.1.0
  */
