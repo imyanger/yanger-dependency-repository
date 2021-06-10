@@ -1,4 +1,4 @@
-package com.github.houbb.idoc.test.model;
+package com.yanger.doc.model;
 
 import java.util.Date;
 import java.util.List;

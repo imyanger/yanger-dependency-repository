@@ -1,7 +1,7 @@
-package com.github.houbb.idoc.test.filter;
+package com.yanger.doc.test.filter;
 
-import com.github.houbb.idoc.api.core.filter.IDocGenerateFilter;
-import com.github.houbb.idoc.common.model.metadata.DocClass;
+import com.yanger.doc.common.model.metadata.DocClass;
+import com.yanger.doc.generator.filter.IDocGenerateFilter;
 
 /**
  * 自定义生成过滤器

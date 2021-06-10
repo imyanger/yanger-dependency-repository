@@ -1,6 +1,6 @@
-package com.github.houbb.idoc.test.service;
+package com.yanger.doc.service;
 
-import com.github.houbb.idoc.test.model.User;
+import com.yanger.doc.model.User;
 
 /**
  * 查询用户服务类

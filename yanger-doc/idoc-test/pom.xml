@@ -39,7 +39,7 @@
                         <generate>com.yanger.doc.generator.markdown.MarkdownDocGenerator</generate>
                     </generates>
                     <generateFilters>
-                        <generateFilter>com.github.houbb.idoc.test.filter.MyGenerateAliasFilter</generateFilter>
+                        <generateFilter>com.yanger.doc.test.filter.MyGenerateAliasFilter</generateFilter>
                     </generateFilters>
                     <isAllInOne>true</isAllInOne>
                     <typeAliases>
@@ -51,9 +51,9 @@
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>com.github.houbb</groupId>
+                        <groupId>com.yanger</groupId>
                         <artifactId>idoc-test</artifactId>
-                        <version>${project.version}</version>
+                        <version>1.0.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
