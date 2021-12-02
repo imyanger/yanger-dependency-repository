@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * @Description This class represents a cached set of class definition information
+ * This class represents a cached set of class definition information
  *     that allows for easy mapping between property names and getter/setter methods.
  * @Author yanger
  * @Date 2020/12/29 17:32

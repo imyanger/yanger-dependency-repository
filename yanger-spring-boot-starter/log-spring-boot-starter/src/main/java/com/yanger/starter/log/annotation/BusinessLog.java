@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description 业务日志注解
+ * 业务日志注解
  * @Author yanger
  * @Date 2021/3/10 14:00
  */

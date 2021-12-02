@@ -20,7 +20,7 @@ import java.util.Map;
 import lombok.SneakyThrows;
 
 /**
- * @Description 处理 @RequestSingleParam
+ * 处理 @RequestSingleParam
  *     1. 只支持 POST/PUT json 格式的数据解析
  *     2. 可解析多个字段, 前提是 request 允许多次读取
  * @Author yanger

@@ -4,7 +4,7 @@ import com.yanger.starter.mongo.conditions.AbstractWrapper;
 import com.yanger.starter.mongo.mapper.Model;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description 工具类代码生成参数
+ * 工具类代码生成参数
  * @Author yanger
  * @Date 2020/7/27 9:29
  */

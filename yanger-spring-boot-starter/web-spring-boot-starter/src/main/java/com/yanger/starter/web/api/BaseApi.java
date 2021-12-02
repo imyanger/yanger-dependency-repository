@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description 基础的 api 基类
+ * 基础的 api 基类
  * @Author yanger
  * @Date 2021/1/27 15:24
  */

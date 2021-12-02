@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Description Expression evaluator
+ * Expression evaluator
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

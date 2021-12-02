@@ -2,7 +2,7 @@ package com.yanger.starter.cache.util;
 
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.cache.exception.CacheLockException;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
 /**
- * @Description redis lock 工具
+ * redis lock 工具
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
@@ -48,7 +48,7 @@ public class CacheLockUtils {
                 return lock;
             }
         }
-        throw new CacheLockException(StringFormatter.format("尝试 {} 次获取分布式锁失败, 耗时: [{} {}]  ",
+        throw new CacheLockException(StringFormat.format("尝试 {} 次获取分布式锁失败, 耗时: [{} {}]  ",
                                                             retries, retries * expire, unit.name()));
     }
 
@@ -125,7 +125,7 @@ public class CacheLockUtils {
                 return true;
             }
         }
-        throw new CacheLockException(StringFormatter.format("尝试 {} 次获取分布式锁失败, 耗时: [{} 秒]  ",
+        throw new CacheLockException(StringFormat.format("尝试 {} 次获取分布式锁失败, 耗时: [{} 秒]  ",
                                                         retries, retries * milliseconds / 1000));
     }
 

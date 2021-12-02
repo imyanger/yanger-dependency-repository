@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.RequestAbstractForm;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.ReflectionUtils;
 
@@ -18,7 +18,7 @@ import org.springframework.http.HttpInputMessage;
 import java.io.*;
 
 /**
- * @Description 处理 @RequestAbstractForm, 用于接口接收抽象类, 此注解将自动转换为对应子类
+ * 处理 @RequestAbstractForm, 用于接口接收抽象类, 此注解将自动转换为对应子类
  * @Author yanger
  * @Date 2021/1/27 18:47
  */
@@ -66,7 +66,7 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
 
         if (!SerializeEnum.class.isAssignableFrom(subClass)) {
             throw new BasicException(
-                StringFormatter.format("参数转换失败, [{}] 需要实现 SerializeEnum 接口. RequestAbstractForm.value: [{}]", subClass.getSimpleName(),
+                StringFormat.format("参数转换失败, [{}] 需要实现 SerializeEnum 接口. RequestAbstractForm.value: [{}]", subClass.getSimpleName(),
                                        subClass));
         }
         Object[] parse = new Object[1];

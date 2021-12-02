@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 
 /**
- * @Description XSS过滤
+ * XSS过滤
  * @Author yanger
  * @Date 2021/1/27 16:21
  */

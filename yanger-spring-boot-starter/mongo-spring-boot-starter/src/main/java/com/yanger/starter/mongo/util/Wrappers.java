@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Description Wrapper 条件构造
+ * Wrapper 条件构造
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

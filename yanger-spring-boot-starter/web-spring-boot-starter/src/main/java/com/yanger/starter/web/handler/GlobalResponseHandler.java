@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- * @Description 统一返回
+ * 统一返回
  * @Author yanger
  * @Date 2020/12/7 18:58
  */
@@ -23,7 +23,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
      * @throws
-     * @Description 判断支持的类型
+     * 判断支持的类型
      * @Author yanger
      * @Date 2021/1/25 18:31
      * @param: methodParameter

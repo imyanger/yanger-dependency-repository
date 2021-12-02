@@ -40,7 +40,7 @@ import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 用于输出每条 SQL 语句及其执行时间
+ * 用于输出每条 SQL 语句及其执行时间
  * @Author yanger
  * @Date 2021/1/28 18:41
  */

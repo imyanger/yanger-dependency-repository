@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @Description 基于配置生成 machineId, 需要在部署的每一台机器上配置不同的机器号
+ * 基于配置生成 machineId, 需要在部署的每一台机器上配置不同的机器号
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

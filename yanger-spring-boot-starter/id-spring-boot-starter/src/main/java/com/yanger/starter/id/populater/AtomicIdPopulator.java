@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @Description 通过 CAS 无锁生成时间和序列号
+ * 通过 CAS 无锁生成时间和序列号
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

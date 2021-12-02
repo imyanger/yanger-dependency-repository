@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Description 启动成功后将实现指定的提示信息, 主要用于 starter 的自动装配类
+ * 启动成功后将实现指定的提示信息, 主要用于 starter 的自动装配类
  * @Author yanger
  * @Date 2021/1/27 19:32
  */

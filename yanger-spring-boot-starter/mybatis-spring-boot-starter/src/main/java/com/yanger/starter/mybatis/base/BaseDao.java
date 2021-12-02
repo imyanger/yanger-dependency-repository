@@ -3,7 +3,7 @@ package com.yanger.starter.mybatis.base;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * @Description 基础Dao
+ * 基础Dao
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

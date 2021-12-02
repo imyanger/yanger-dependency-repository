@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Description 分布式 id 生成服务发布方式
+ * 分布式 id 生成服务发布方式
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

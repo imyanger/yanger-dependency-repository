@@ -23,7 +23,7 @@ import java.util.Set;
 import cn.hutool.core.text.StrFormatter;
 
 /**
- * @Description 可序列化为 json 的枚举接口
+ * 可序列化为 json 的枚举接口
  * @Author yanger
  * @Date 2021/1/27 16:52
  */

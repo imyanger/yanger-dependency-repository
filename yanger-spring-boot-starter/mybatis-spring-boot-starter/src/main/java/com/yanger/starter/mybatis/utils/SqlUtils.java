@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Contract;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description sql工具类
+ * sql工具类
  * @Author yanger
  * @Date 2021/1/28 18:42
  */

@@ -1,1 +1,0 @@
-package com.github.houbb.idoc.core.api.generator;

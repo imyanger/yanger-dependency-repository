@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * @Description 字节解析工具类
+ * 字节解析工具类
  * @Author yanger
  * @Date 2020/12/29 20:05
  */

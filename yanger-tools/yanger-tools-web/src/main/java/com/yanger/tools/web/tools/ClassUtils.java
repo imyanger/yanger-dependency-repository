@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Description 类工具类
+ * 类工具类
  * @Author yanger
  * @Date 2020/12/18 18:45
  */

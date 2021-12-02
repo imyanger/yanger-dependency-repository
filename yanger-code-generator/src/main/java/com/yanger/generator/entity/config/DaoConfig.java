@@ -5,7 +5,7 @@ import java.io.*;
 import lombok.Data;
 
 /**
- * @Description dao配置
+ * dao配置
  * @Author yanger
  * @Date 2020/7/20 17:38
  */

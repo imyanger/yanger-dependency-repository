@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description Druid连接池配置
+ * Druid连接池配置
  * @Author yanger
  * @Date 2021/1/28 15:36
  */

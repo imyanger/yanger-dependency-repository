@@ -4,7 +4,7 @@ import com.alicp.jetcache.autoconfigure.LettuceFactory;
 import com.alicp.jetcache.autoconfigure.RedisLettuceAutoConfiguration;
 import com.yanger.starter.basic.boost.YangerAutoConfiguration;
 import com.yanger.starter.basic.util.JsonUtils;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.jetbrains.annotations.Contract;
@@ -32,7 +32,7 @@ import io.lettuce.core.RedisURI;
 import io.lettuce.core.resource.ClientResources;
 
 /**
- * @Description Lettuce 装配
+ * Lettuce 装配
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
@@ -132,7 +132,7 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
             // 集群
             return new LettuceConnectionFactory(this.getClusterConfiguration(uriList), clientConfiguration);
         } else {
-            throw new IllegalStateException(StringFormatter.format("url 配置错误: {}", JsonUtils.toJson(uriList)));
+            throw new IllegalStateException(StringFormat.format("url 配置错误: {}", JsonUtils.toJson(uriList)));
         }
 
     }

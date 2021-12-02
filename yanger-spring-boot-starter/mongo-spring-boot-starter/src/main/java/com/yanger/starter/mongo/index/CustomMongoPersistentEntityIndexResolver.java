@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * @Description 处理 {@link MongoCollection} 的 复合索引和 {@link MongoColumn} 字段索引
+ * 处理 {@link MongoCollection} 的 复合索引和 {@link MongoColumn} 字段索引
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

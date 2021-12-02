@@ -1,7 +1,7 @@
 package com.yanger.starter.mongo.convert;
 
 /**
- * @Description 枚举转换为 Serializable 类型, 实体 -> DB
+ * 枚举转换为 Serializable 类型, 实体 -> DB
  *     将 SerializeEnum[S] 转换为 Serializable[R] 子类[T]进行存储到 DB
  * @Author yanger
  * @Date 2020/12/29 17:32

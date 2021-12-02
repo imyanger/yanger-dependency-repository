@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 启动完成后输出信息
+ * 启动完成后输出信息
  * @Author yanger
  * @Date 2020/12/29 20:07
  */

@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description id字段基础DTO对象
+ * id字段基础DTO对象
  * @Author yanger
  * @Date 2021/1/29 9:45
  */

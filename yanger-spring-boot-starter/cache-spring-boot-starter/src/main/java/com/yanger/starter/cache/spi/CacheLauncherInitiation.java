@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 import java.util.Map;
 
 /**
- * @Description 默认配置
+ * 默认配置
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

@@ -28,7 +28,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 从 db 中读取枚举
+ * 从 db 中读取枚举
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

@@ -27,14 +27,14 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
- * @Description 解析参数生成代码生成结构对象
+ * 解析参数生成代码生成结构对象
  * @Author yanger
  * @Date 2020/9/16 19:55
  */
 public class TemplateStructureParser {
 
     /**
-     * @Description 解析参数，组织代码生成结构
+     * 解析参数，组织代码生成结构
      * @author yanger
      * @date 2020/9/16 23:51
      * @param generatorConfig
@@ -99,7 +99,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 获取api模板名
+     * 获取api模板名
      * @Author yanger
      * @Date 2020/9/16 20:00 
      * @param: apiConfig 
@@ -125,7 +125,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 获取service模板
+     * 获取service模板
      * @author yanger
      * @date 2020/9/16 22:10
      * @param daoUtilType
@@ -150,7 +150,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 获取service实现类模板
+     * 获取service实现类模板
      * @author yanger
      * @date 2020/9/16 22:10
      * @param daoUtilType
@@ -183,7 +183,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 获取dao模板
+     * 获取dao模板
      * @author yanger
      * @date 2020/9/16 22:37
      * @param daoUtilType
@@ -206,7 +206,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 获取转换工具模板
+     * 获取转换工具模板
      * @author yanger
      * @date 2020/9/16 22:57
      * @param apiParam
@@ -234,7 +234,7 @@ public class TemplateStructureParser {
     }
 
     /**
-     * @Description 构造所有需要生成模型类的 TemplateStructure 集合
+     * 构造所有需要生成模型类的 TemplateStructure 集合
      * @Author yanger
      * @Date 2020/11/10 18:44
      * @param: generatorConfig
@@ -266,7 +266,7 @@ public class TemplateStructureParser {
 
 
     /**
-     * @Description 构造 TemplateStructure 对象
+     * 构造 TemplateStructure 对象
      * @Author yanger
      * @Date 2020/11/10 18:44
      * @param: modelName

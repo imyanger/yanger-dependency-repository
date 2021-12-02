@@ -5,7 +5,7 @@ import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.convert.support.GenericConversionService;
 
 /**
- * @Description 类型 转换 服务,添加了 IEnum 转换
+ * 类型 转换 服务,添加了 IEnum 转换
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

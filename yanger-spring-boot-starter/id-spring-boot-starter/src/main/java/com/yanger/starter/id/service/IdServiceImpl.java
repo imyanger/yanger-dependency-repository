@@ -12,7 +12,7 @@ import com.yanger.starter.id.populater.SyncIdPopulator;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description id 生成服务
+ * id 生成服务
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

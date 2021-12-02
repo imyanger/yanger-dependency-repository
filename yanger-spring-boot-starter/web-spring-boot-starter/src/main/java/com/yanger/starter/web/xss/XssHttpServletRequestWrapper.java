@@ -21,7 +21,7 @@ import javax.servlet.ServletInputStream;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description xss 过滤处理, 在 cache request 的基础上对 xss 进行处理
+ * xss 过滤处理, 在 cache request 的基础上对 xss 进行处理
  * @Author yanger
  * @Date 2021/1/27 16:21
  */

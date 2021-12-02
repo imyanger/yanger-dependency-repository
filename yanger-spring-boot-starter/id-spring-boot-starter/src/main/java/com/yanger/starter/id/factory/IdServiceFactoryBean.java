@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description id service 工厂bean
+ * id service 工厂bean
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

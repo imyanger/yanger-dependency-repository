@@ -12,7 +12,7 @@ import org.springframework.util.Assert;
 import java.io.*;
 
 /**
- * @Description 资源工具类
+ * 资源工具类
  * @Author yanger
  * @Date 2020/12/22 11:55
  */

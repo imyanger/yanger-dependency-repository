@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Description 自定义的 sql 注入
+ * 自定义的 sql 注入
  * @Author yanger
  * @Date 2021/1/28 18:02
  */

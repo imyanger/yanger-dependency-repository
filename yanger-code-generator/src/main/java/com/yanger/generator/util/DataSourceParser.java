@@ -13,7 +13,7 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 数据库解析工具
+ * 数据库解析工具
  * @Author yanger
  * @Date 2020/11/18 16:08
  */
@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DataSourceParser {
 
     /**
-     * @Description 根据数据源获取数据库表结构信息
+     * 根据数据源获取数据库表结构信息
      * @Author yanger
      * @Date 2020/11/18 19:17
      * @param: dbConfig
@@ -36,7 +36,7 @@ public class DataSourceParser {
     }
 
     /**
-     * @Description 根据数据源获取数据库表结构信息
+     * 根据数据源获取数据库表结构信息
      * @Author yanger
      * @Date 2020/11/18 19:17
      * @param: dbConfig

@@ -3,7 +3,7 @@ package com.yanger.starter.basic.entity;
 import java.io.*;
 
 /**
- * @Description TODO
+ * TODO
  * @Author yanger
  * @Date 2021/1/29 9:44
  */

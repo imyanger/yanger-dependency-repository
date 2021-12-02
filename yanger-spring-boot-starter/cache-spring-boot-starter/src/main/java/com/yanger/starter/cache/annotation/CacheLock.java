@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description 基于 redis 分布式锁
+ * 基于 redis 分布式锁
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

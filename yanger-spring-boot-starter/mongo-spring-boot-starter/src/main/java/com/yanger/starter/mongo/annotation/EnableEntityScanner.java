@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

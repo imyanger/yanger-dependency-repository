@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * @author YangHao
- * @Description jwt工具类
+ * jwt工具类
  * @date 2018年9月23日-下午4:28:57
  */
 public class JwtUtils {
@@ -87,7 +87,7 @@ public class JwtUtils {
     }
 
     /**
-     * @Description 获取token的时间
+     * 获取token的时间
      * @Author yanger
      * @Date 2020/12/10 18:27
      * @param: jwt

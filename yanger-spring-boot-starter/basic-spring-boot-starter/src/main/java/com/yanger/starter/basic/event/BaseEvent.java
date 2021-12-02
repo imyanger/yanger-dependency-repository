@@ -3,7 +3,7 @@ package com.yanger.starter.basic.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @Description 框架事件基类
+ * 框架事件基类
  * @Author yanger
  * @Date 2021/2/25 10:22
  */

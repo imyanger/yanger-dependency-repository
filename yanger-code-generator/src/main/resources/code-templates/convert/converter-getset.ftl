@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 </#list>
 
 /**
- * @Description ${modelName}数据转换工具类
+ * ${modelName}数据转换工具类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
@@ -44,7 +44,7 @@ public class ${modelName}Converter {
 <#list converterParams as converterParam >
     <#if 1 == converterParam.converterType.value>
     /**
-     * @Description ${converterParam.sourceName}对象转换为${converterParam.targetName}对象
+     * ${converterParam.sourceName}对象转换为${converterParam.targetName}对象
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${converterParam.sourceName?uncap_first} ${converterParam.sourceName}对象
@@ -63,7 +63,7 @@ public class ${modelName}Converter {
     }
     <#elseif 2 == converterParam.converterType.value>
     /**
-     * @Description ${converterParam.sourceName}集合转换为${converterParam.targetName}集合
+     * ${converterParam.sourceName}集合转换为${converterParam.targetName}集合
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${converterParam.sourceName?uncap_first}s ${converterParam.sourceName}集合
@@ -77,7 +77,7 @@ public class ${modelName}Converter {
     }
     <#elseif 3 == converterParam.converterType.value>
     /**
-     * @Description PageInfo<${converterParam.sourceName}>转换为PageInfo<${converterParam.targetName}>集合
+     * PageInfo<${converterParam.sourceName}>转换为PageInfo<${converterParam.targetName}>集合
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param page ${converterParam.sourceName}的PageInfo分页对象
@@ -96,7 +96,7 @@ public class ${modelName}Converter {
     }
     <#elseif 5 == converterParam.converterType.value>
     /**
-     * @Description Page<${converterParam.sourceName}>转换为Page<${converterParam.targetName}>集合
+     * Page<${converterParam.sourceName}>转换为Page<${converterParam.targetName}>集合
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param page ${converterParam.sourceName}的Page分页对象
@@ -113,7 +113,7 @@ public class ${modelName}Converter {
     }
 	<#elseif 4 == converterParam.converterType.value>
     /**
-     * @Description Page<${converterParam.sourceName}>转换为Page<${converterParam.targetName}>集合
+     * Page<${converterParam.sourceName}>转换为Page<${converterParam.targetName}>集合
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param page ${converterParam.sourceName}的Page分页对象

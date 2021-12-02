@@ -10,7 +10,7 @@ import cn.hutool.core.text.StrFormatter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 依赖数据库分配机器 id
+ * 依赖数据库分配机器 id
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

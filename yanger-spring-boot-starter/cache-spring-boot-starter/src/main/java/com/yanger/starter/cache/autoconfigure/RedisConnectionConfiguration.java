@@ -15,7 +15,7 @@ import io.lettuce.core.RedisURI;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description Redis 连接 配置
+ * Redis 连接 配置
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

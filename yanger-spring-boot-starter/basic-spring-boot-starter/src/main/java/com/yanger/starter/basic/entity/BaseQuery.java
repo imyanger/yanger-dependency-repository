@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description 分页查询参数
+ * 分页查询参数
  * @Author yanger
  * @Date 2021/1/29 10:36
  */

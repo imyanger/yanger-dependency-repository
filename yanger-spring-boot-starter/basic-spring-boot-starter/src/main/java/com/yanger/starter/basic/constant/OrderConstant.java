@@ -1,7 +1,7 @@
 package com.yanger.starter.basic.constant;
 
 /**
- * @Description Order注解顺序
+ * Order注解顺序
  * @Author yanger
  * @Date 2021/1/26 19:18
  */

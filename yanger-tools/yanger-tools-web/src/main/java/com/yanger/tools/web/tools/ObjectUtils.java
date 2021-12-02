@@ -8,7 +8,7 @@ import java.util.Objects;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 对象工具类
+ * 对象工具类
  * @Author yanger
  * @Date 2020/12/22 14:10
  */

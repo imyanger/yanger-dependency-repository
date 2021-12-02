@@ -5,7 +5,7 @@ import com.yanger.starter.basic.constant.FullyQualifiedName;
 import org.springframework.util.ClassUtils;
 
 /**
- * @Description spring 应用运行类型
+ * spring 应用运行类型
  * @Author yanger
  * @Date 2020/12/29 16:12
  */

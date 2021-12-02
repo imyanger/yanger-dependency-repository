@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @Description launcher 扩展，用于一些组件发现
+ * launcher 扩展，用于一些组件发现
  * @Author yanger
  * @Date 2020/12/29 18:57
  */

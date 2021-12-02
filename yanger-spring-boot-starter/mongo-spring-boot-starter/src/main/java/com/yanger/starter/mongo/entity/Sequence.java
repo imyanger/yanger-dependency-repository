@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import lombok.Data;
 
 /**
- * @Description mongodb id 自增序列实体
+ * mongodb id 自增序列实体
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

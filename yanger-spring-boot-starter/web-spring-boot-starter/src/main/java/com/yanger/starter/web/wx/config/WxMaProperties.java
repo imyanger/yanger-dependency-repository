@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * @Description 微信配置类
+ * 微信配置类
  * @Author yanger
  * @Date 2021/1/11 17:58
  */

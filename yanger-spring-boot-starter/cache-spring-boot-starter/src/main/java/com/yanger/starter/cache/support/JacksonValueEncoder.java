@@ -20,7 +20,7 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 
 /**
- * @Description json 系列化器
+ * json 系列化器
  * useIdentityNumber 属性用于修改 serialPolicy 以后的值兼容（比如 serialPolicy 改成新的了,redis 里面还是旧的）
  * @Author yanger
  * @Date 2021/3/1 18:47

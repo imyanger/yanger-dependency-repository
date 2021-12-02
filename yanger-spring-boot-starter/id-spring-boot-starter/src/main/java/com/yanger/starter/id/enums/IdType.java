@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import lombok.Getter;
 
 /**
- * @Description id 类型
+ * id 类型
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

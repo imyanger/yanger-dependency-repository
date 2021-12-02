@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @Description 框架事件处理基类
+ * 框架事件处理基类
  * @Author yanger
  * @Date 2021/2/22 18:10
  */

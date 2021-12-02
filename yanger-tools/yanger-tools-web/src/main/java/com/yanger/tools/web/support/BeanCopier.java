@@ -26,7 +26,7 @@ import java.security.ProtectionDomain;
 import java.util.Map;
 
 /**
- * @Description spring cglib, 修改 支持链式 bean, 自定义的 BeanCopier 解决 spring boot 和 cglib ClassLoader classLoader 不一致的问题
+ * spring cglib, 修改 支持链式 bean, 自定义的 BeanCopier 解决 spring boot 和 cglib ClassLoader classLoader 不一致的问题
  * @Author yanger
  * @Date 2020/12/29 19:33
  */

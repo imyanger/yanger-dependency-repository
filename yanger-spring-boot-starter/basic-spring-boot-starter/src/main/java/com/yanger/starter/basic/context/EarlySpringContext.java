@@ -15,7 +15,7 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 以静态变量保存 Spring ApplicationContext, 可在任何代码任何地方任何时候取出 ApplicaitonContext
+ * 以静态变量保存 Spring ApplicationContext, 可在任何代码任何地方任何时候取出 ApplicaitonContext
  * 以前使用 ApplicationContextAware 接口注入, 但是有时需要在 bean 中使用, 不能确保在使用之前已经将 ApplicaitonContext 注入
  * 可能会出现 null 异常, 因此修改为使用 ApplicationContextInitializer,
  * 会在 ConfigurableApplicationContext 类型（或者子类型）的 ApplicationContext 做 refresh 之前,

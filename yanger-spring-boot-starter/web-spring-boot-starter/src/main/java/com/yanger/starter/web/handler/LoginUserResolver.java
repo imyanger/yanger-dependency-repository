@@ -17,7 +17,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import javax.annotation.Resource;
 
 /**
- * @Description 登录信息解析
+ * 登录信息解析
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

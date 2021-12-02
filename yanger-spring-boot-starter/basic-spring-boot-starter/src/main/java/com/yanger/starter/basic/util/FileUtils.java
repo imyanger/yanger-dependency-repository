@@ -31,7 +31,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 文件工具类
+ * 文件工具类
  * @Author yanger
  * @Date 2021/2/25 10:13
  */

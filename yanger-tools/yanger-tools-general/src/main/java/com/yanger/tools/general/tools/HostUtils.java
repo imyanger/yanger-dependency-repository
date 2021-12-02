@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import cn.hutool.core.io.FileUtil;
 
 /**
- * @Description hosts 文件操作工具
+ * hosts 文件操作工具
  * @Author yanger
  * @Date 2020/12/18 18:49
  */

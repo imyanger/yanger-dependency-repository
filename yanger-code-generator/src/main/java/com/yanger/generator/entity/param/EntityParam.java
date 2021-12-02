@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * @author yanger
- * @Description 模型类生成的参数
+ * 模型类生成的参数
  * @date 2020/7/25
  */
 @Data

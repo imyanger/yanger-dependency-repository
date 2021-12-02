@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Description 扩展的自定义方法
+ * 扩展的自定义方法
  * @Author yanger
  * @Date 2021/1/28 18:07
  */

@@ -10,7 +10,7 @@ import cn.hutool.core.lang.Snowflake;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 雪花算法生成全局唯一 id
+ * 雪花算法生成全局唯一 id
  * @Author yanger
  * @Date 2020/12/22 10:59
  */

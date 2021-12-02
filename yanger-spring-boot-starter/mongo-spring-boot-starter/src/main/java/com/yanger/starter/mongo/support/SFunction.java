@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.function.Function;
 
 /**
- * @Description 支持序列化的 Function
+ * 支持序列化的 Function
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

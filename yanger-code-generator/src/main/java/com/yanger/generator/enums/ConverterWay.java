@@ -3,7 +3,7 @@ package com.yanger.generator.enums;
 import lombok.Getter;
 
 /**
- * @Description 对象转换工具类型
+ * 对象转换工具类型
  * @Author yanger
  * @Date 2020/7/20 18:06
  */

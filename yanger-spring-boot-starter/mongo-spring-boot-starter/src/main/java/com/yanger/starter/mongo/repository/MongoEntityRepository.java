@@ -9,7 +9,7 @@ import java.io.*;
 /**
  * @param <T> parameter 主键类型
  * @param <M> parameter 实体类型
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

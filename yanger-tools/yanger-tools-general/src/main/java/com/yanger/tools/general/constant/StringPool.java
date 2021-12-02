@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 
 
 /**
- * @Description 字符常量
+ * 字符常量
  * @Author yanger
  * @Date 2020/12/17 16:47
  */

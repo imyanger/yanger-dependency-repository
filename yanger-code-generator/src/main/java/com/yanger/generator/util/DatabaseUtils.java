@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 数据库处理工具类
+ * 数据库处理工具类
  * @Author yanger
  * @Date 2020/11/18 16:22
  */
@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DatabaseUtils {
 
     /**
-     * @Description 获取数据库连接
+     * 获取数据库连接
      * @Author yanger
      * @Date 2020/11/18 16:27
      * @param: driverName
@@ -56,7 +56,7 @@ public class DatabaseUtils {
     }
 
     /**
-     * @Description 获取数据库产品名称
+     * 获取数据库产品名称
      * @Author yanger
      * @Date 2020/11/18 16:27
      * @param: conn
@@ -74,7 +74,7 @@ public class DatabaseUtils {
     }
 
     /**
-     * @Description 获取所有的表
+     * 获取所有的表
      * @Author yanger
      * @Date 2020/11/18 19:16
      * @param: conn
@@ -98,7 +98,7 @@ public class DatabaseUtils {
     }
 
     /**
-     * @Description 组织表信息
+     * 组织表信息
      * @Author yanger
      * @Date 2020/11/18 19:16
      * @param: conn
@@ -133,7 +133,7 @@ public class DatabaseUtils {
     }
 
     /**
-     * @Description 组织列信息
+     * 组织列信息
      * @Author yanger
      * @Date 2020/11/18 19:16
      * @param: conn
@@ -180,7 +180,7 @@ public class DatabaseUtils {
     }
 
     /**
-     * @Description 获取所有的主键
+     * 获取所有的主键
      * @Author yanger
      * @Date 2020/11/18 19:16
      * @param: conn

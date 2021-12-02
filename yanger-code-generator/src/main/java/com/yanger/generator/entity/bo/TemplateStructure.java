@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description 代码生成结构
+ * 代码生成结构
  * @Author yanger
  * @Date 2020/9/16 19:43
  */

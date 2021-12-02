@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Description 通过 ReentrantLock 生成时间和序列号
+ * 通过 ReentrantLock 生成时间和序列号
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

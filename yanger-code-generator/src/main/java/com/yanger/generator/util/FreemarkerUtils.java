@@ -52,7 +52,7 @@ public class FreemarkerUtils {
     }
 
     /**
-     * @Description 传入需要转义的字符串进行转义
+     * 传入需要转义的字符串进行转义
      * @author yanger
      * @date 2020/7/17
      * @param originStr 源串
@@ -63,7 +63,7 @@ public class FreemarkerUtils {
     }
 
     /**
-     * @Description process Template Into String
+     * process Template Into String
      * @author yanger
      * @date 2020/7/17
      * @param template 模板
@@ -78,7 +78,7 @@ public class FreemarkerUtils {
     }
 
     /**
-     * @Description process String
+     * process String
      * @author yanger
      * @date 2020/7/17
      * @param templateName 模板名字
@@ -93,7 +93,7 @@ public class FreemarkerUtils {
     }
 
     /**
-     * @Description process String
+     * process String
      * @author yanger
      * @date 2020/7/17
      * @param templateName 模板名字

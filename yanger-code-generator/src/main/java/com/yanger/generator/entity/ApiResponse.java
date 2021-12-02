@@ -3,7 +3,7 @@ package com.yanger.generator.entity;
 import lombok.Data;
 
 /**
- * @Description api调用通用处理对象
+ * api调用通用处理对象
  * @Author yanger
  * @Date 2020/5/26 17:24
  */

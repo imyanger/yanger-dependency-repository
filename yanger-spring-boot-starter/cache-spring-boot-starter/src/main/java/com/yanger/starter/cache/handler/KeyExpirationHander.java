@@ -1,7 +1,7 @@
 package com.yanger.starter.cache.handler;
 
 /**
- * @Description 过期时间处理器
+ * 过期时间处理器
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

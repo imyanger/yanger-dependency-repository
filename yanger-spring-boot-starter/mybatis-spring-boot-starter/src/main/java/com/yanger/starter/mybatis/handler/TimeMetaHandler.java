@@ -9,7 +9,7 @@ import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 处理新增和更新的基础数据填充, 配合 BaseEntity 和 MyBatisPlusConfig 使用
+ * 处理新增和更新的基础数据填充, 配合 BaseEntity 和 MyBatisPlusConfig 使用
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

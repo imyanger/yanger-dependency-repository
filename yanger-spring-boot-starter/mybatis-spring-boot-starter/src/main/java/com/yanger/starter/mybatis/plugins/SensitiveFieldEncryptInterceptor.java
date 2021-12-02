@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @Description 敏感字符加密
+ * 敏感字符加密
  * @Author yanger
  * @Date 2021/1/28 19:06
  */

@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.Map;
 
 /**
- * @Description 将 mongodb 的数据转换为枚举
+ * 将 mongodb 的数据转换为枚举
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

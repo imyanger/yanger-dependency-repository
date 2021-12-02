@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 枚举写入到 db
+ * 枚举写入到 db
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

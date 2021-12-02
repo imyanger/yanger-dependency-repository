@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 登录拦截器
+ * 登录拦截器
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

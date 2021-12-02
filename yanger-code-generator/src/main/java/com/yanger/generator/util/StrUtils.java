@@ -6,7 +6,7 @@ package com.yanger.generator.util;
 public class StrUtils {
 
     /**
-     * @Description 首字母大写
+     * 首字母大写
      * @author yanger
      * @date 2020/7/17
      * @param str
@@ -17,7 +17,7 @@ public class StrUtils {
     }
 
     /**
-     * @Description 首字母小写
+     * 首字母小写
      * @author yanger
      * @date 2020/7/17
      * @param str
@@ -28,7 +28,7 @@ public class StrUtils {
     }
 
     /**
-     * @Description 下划线转驼峰
+     * 下划线转驼峰
      * @author yanger
      * @date 2020/7/17
      * @param underscoreName
@@ -56,7 +56,7 @@ public class StrUtils {
     }
 
     /**
-     * @Description 驼峰转下划线
+     * 驼峰转下划线
      * @author yanger
      * @date 2020/7/17
      * @param para

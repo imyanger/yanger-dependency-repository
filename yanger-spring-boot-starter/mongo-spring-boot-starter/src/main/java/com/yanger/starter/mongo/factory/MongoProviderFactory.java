@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 管理 mongoTemplate
+ * 管理 mongoTemplate
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

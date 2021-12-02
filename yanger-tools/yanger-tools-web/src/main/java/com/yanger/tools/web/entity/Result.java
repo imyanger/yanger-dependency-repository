@@ -17,7 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Description 通用返回体
+ * 通用返回体
  * @Author yanger
  * @Date 2020/12/21 18:23
  */

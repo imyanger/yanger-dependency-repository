@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @Description 微信登录数据
+ * 微信登录数据
  * @Author yanger
  * @Date 2020-12-04 23:07:44
  */

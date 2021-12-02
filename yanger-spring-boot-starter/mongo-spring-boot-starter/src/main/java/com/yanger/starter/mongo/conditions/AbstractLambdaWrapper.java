@@ -4,7 +4,7 @@ import com.yanger.starter.mongo.mapper.Model;
 import com.yanger.starter.mongo.support.SFunction;
 
 /**
- * @Description 统一处理解析 lambda 获取 column
+ * 统一处理解析 lambda 获取 column
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

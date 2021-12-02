@@ -5,9 +5,9 @@ import com.alicp.jetcache.CacheValueHolder;
 import com.yanger.starter.cache.handler.KeyExpirationHander;
 import com.yanger.starter.cache.handler.KeyExpirationListenerAdapter;
 import com.yanger.starter.cache.service.AbstractCacheService;
-import com.yanger.tools.general.function.CheckedConsumer;
 import com.yanger.tools.web.exception.AssertUtils;
-
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -17,12 +17,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
+import java.util.function.Consumer;
 
 /**
- * @Description redis 缓存实现
+ * redis 缓存实现
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
@@ -116,7 +114,7 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
      * @return true成功 false 失败
      */
     @Override
-    public Boolean set(String key, Object value, Long time, CheckedConsumer<String> consumer) {
+    public Boolean set(String key, Object value, Long time, Consumer<String> consumer) {
         this.addHander(key, consumer);
         return this.set(key, value, time);
     }
@@ -130,7 +128,7 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
      * @return true成功 false失败
      */
     @Override
-    public Boolean set(String key, Object value, CheckedConsumer<String> consumer) {
+    public Boolean set(String key, Object value, Consumer<String> consumer) {
         this.addHander(key, consumer);
         return this.set(key, value);
     }
@@ -141,7 +139,7 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
      * @param key      key
      * @param consumer consumer
      */
-    private void addHander(String key, CheckedConsumer<String> consumer) {
+    private void addHander(String key, Consumer<String> consumer) {
         this.keyExpirationListenerAdapter.addHander(key, new KeyExpirationHander() {
 
             /**

@@ -4,8 +4,7 @@ import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.CacheResult;
 import com.alicp.jetcache.CacheResultCode;
 import com.yanger.starter.cache.exception.CacheNotSupportException;
-import com.yanger.tools.general.function.CheckedConsumer;
-
+import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,11 +13,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import lombok.Getter;
+import java.util.function.Consumer;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
@@ -119,7 +117,7 @@ public abstract class AbstractCacheService implements CacheService {
      * @return true成功 false 失败
      */
     @Override
-    public Boolean set(String key, Object value, Long time, CheckedConsumer<String> consumer) {
+    public Boolean set(String key, Object value, Long time, Consumer<String> consumer) {
         throw new CacheNotSupportException(NOT_SUPPORT_MESSAGE);
     }
 
@@ -132,7 +130,7 @@ public abstract class AbstractCacheService implements CacheService {
      * @return true成功 false失败
      */
     @Override
-    public Boolean set(String key, Object value, CheckedConsumer<String> consumer) {
+    public Boolean set(String key, Object value, Consumer<String> consumer) {
         throw new CacheNotSupportException(NOT_SUPPORT_MESSAGE);
     }
 

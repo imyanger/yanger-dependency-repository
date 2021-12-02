@@ -33,7 +33,7 @@ import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @Description 分读写的 json 消息 处理器
+ * 分读写的 json 消息 处理器
  * @Author yanger
  * @Date 2021/1/27 17:34
  */

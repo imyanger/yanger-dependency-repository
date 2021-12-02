@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Description 默认的登录后处理逻辑
+ * 默认的登录后处理逻辑
  * @Author yanger
  * @Date 2021/2/2 18:18
  */
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 public class DefaultLoginService implements LoginService {
 
     /**
-     * @Description 处理登录逻辑
+     * 处理登录逻辑
      * @Author yanger
      * @Date 2021/1/27 15:50
      * @param: loginData
@@ -31,7 +31,7 @@ public class DefaultLoginService implements LoginService {
     }
 
     /**
-     * @Description 处理微信登录的逻辑
+     * 处理微信登录的逻辑
      * @Author yanger
      * @Date 2021/1/27 15:51
      * @param: wxLoginData
@@ -44,7 +44,7 @@ public class DefaultLoginService implements LoginService {
     }
 
     /**
-     * @Description 验证码获取的处理
+     * 验证码获取的处理
      * @Author yanger
      * @Date 2021/2/2 18:16
      * @param: kaptchaData

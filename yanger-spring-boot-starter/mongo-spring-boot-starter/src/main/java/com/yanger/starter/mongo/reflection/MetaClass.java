@@ -16,7 +16,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

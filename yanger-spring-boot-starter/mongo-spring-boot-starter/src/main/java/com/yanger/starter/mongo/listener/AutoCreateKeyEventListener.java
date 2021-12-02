@@ -16,7 +16,7 @@ import cn.hutool.core.lang.Snowflake;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自动生成 id
+ * 自动生成 id
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

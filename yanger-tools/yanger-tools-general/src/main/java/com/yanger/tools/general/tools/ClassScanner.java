@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 类扫描器, 扫描给定包及其子包中的所有类
+ * 类扫描器, 扫描给定包及其子包中的所有类
  * @Author yanger
  * @Date 2020/12/29 20:05
  */

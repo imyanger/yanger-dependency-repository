@@ -17,7 +17,7 @@ import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 18:33
  */

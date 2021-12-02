@@ -13,7 +13,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 通过所有机器列表为每一个机器生成一个唯一的 id, 适合服务节点较少的情况
+ * 通过所有机器列表为每一个机器生成一个唯一的 id, 适合服务节点较少的情况
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

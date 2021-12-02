@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 动态修改日志等级
+ * 动态修改日志等级
  * @Author yanger
  * @Date 2021/2/26 14:59
  */

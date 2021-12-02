@@ -3,10 +3,9 @@ package com.yanger.tools.general.constant;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 字符串常量
+ * 字符串常量
  * @Author yanger
  * @Date 2020/12/11 18:15
- * @throws
  */
 @UtilityClass
 public class CharPool {

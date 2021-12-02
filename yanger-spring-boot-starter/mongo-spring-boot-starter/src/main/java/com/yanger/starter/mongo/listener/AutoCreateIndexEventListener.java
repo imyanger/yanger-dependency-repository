@@ -18,7 +18,7 @@ import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自动生成索引, 解决直接使用 collection name 时不创建索引的问题
+ * 自动生成索引, 解决直接使用 collection name 时不创建索引的问题
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

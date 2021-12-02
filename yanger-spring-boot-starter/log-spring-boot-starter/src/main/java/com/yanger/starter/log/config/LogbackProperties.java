@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 /**
- * @Description logback
+ * logback
  * @Author yanger
  * @Date 2021/2/25 17:56
  */

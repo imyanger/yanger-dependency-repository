@@ -11,7 +11,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import java.io.*;
 
 /**
- * @Description 针对 api 服务对 android 和 ios 和 web 处理的 分读写的 jackson 处理
+ * 针对 api 服务对 android 和 ios 和 web 处理的 分读写的 jackson 处理
  *     1. app 端上报数据是 使用 readObjectMapper
  *     2. 返回给 app 端的数据使用 writeObjectMapper
  * @Author yanger

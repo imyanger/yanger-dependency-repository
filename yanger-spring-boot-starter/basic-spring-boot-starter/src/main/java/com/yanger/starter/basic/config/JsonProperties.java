@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 /**
- * @Description Json 配置
+ * Json 配置
  * @Author yanger
  * @Date 2021/2/26 10:22
  */

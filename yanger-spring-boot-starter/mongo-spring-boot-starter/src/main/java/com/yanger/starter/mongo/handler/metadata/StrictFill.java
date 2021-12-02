@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @Description 严格填充模式 model
+ * 严格填充模式 model
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 /**
- * @Description ${modelName}的接口Controller类
+ * ${modelName}的接口Controller类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
@@ -55,7 +55,7 @@ public class ${modelName}${apiSuffixName} {
     private ${serviceInterfaceName} ${modelName?uncap_first}Service;
 
     /**
-     * @Description 保存${modelName}
+     * 保存${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${saveObjName?uncap_first} ${modelName}数据
@@ -72,7 +72,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 批量保存${modelName}
+     * 批量保存${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${saveObjName?uncap_first}s ${modelName}数据集合
@@ -89,7 +89,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 根据id删除${modelName}
+     * 根据id删除${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -103,7 +103,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 根据多个id批量删除${modelName}
+     * 根据多个id批量删除${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ids 主键集合
@@ -117,7 +117,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 更新${modelName}
+     * 更新${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${saveObjName?uncap_first} ${modelName}数据
@@ -134,7 +134,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 根据id查找${modelName}
+     * 根据id查找${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -151,7 +151,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 根据条件查询${modelName}
+     * 根据条件查询${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${queryObjName?uncap_first} 查询条件对象
@@ -171,7 +171,7 @@ public class ${modelName}${apiSuffixName} {
     }
 
     /**
-     * @Description 根据条件分页查询${modelName}
+     * 根据条件分页查询${modelName}
      * @Author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${queryObjName?uncap_first} 查询条件对象

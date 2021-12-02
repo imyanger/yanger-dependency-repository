@@ -13,7 +13,7 @@ import java.util.Map;
 import lombok.Data;
 
 /**
- * @Description mongo 配置类
+ * mongo 配置类
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

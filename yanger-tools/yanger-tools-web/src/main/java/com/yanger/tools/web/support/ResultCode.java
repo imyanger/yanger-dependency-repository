@@ -1,7 +1,7 @@
 package com.yanger.tools.web.support;
 
 /**
- * @Description 请求响应代码接口枚举
+ * 请求响应代码接口枚举
  * @Author yanger
  * @Date 2020/12/18 18:01
  */

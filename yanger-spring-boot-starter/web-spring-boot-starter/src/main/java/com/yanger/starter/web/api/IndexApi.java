@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.error.WxErrorException;
 
 /**
- * @Description Notebook的接口Controller类
+ * Notebook的接口Controller类
  * @Author yanger
  * @Date 2020-12-04 23:07:44
  */
@@ -57,7 +57,7 @@ public class IndexApi extends BaseApi {
 
     /**
      * @throws
-     * @Description 微信小程序授权登录
+     * 微信小程序授权登录
      * @Author yanger
      * @Date 2021/1/14 17:23
      * @param: wxLoginData
@@ -83,7 +83,7 @@ public class IndexApi extends BaseApi {
 
     /**
      * @throws
-     * @Description 手机微信登录
+     * 手机微信登录
      * @Author yanger
      * @Date 2021/1/14 17:22
      * @param: wxLoginData
@@ -97,7 +97,7 @@ public class IndexApi extends BaseApi {
     }
 
     /**
-     * @Description 获取验证码
+     * 获取验证码
      * @Author yanger
      * @Date 2021/2/2 18:12
      * @return: com.yanger.tools.web.entity.Result<java.lang.String>
@@ -117,7 +117,7 @@ public class IndexApi extends BaseApi {
     }
 
     /**
-     * @Description 获取计算型验证码
+     * 获取计算型验证码
      * @Author yanger
      * @Date 2021/2/2 18:12
      * @return: com.yanger.tools.web.entity.Result<java.lang.String>
@@ -138,7 +138,7 @@ public class IndexApi extends BaseApi {
 
     /**
      * @throws
-     * @Description 设置 Token
+     * 设置 Token
      * @Author yanger
      * @Date 2021/1/27 15:23
      * @param: authUser

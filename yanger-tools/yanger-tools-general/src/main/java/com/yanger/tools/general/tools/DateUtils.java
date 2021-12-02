@@ -1,8 +1,10 @@
 package com.yanger.tools.general.tools;
 
+import cn.hutool.core.lang.Assert;
+import com.yanger.tools.general.constant.DateConstant;
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.format.StringFormatter;
-
+import com.yanger.tools.general.format.ConcurrentDateFormat;
+import com.yanger.tools.general.format.StringFormat;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -10,13 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAccessor;
@@ -27,50 +23,30 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import cn.hutool.core.lang.Assert;
-
 /**
- * @Description 对日期操作的公共方法类
+ * 对日期操作的公共方法类
  * @Author yanger
  * @date 2018年10月13日
  */
 public class DateUtils {
 
-    /** The constant PATTERN_DATETIME. */
-    public static final String PATTERN_DATETIME = "yyyy-MM-dd HH:mm:ss";
-
-    /** The constant PATTERN_DATE. */
-    public static final String PATTERN_DATE = "yyyy-MM-dd";
-
-    /** 时分秒 */
-    public static final String PATTERN_TIME = "HH:mm:ss";
-
-    /** PATTERN_DATE_NO_SEPARATOR */
-    public static final String PATTERN_DATE_NO_SEPARATOR = "yyyyMMdd";
-
-    /** PATTERN_TIME_NO_SEPARATOR */
-    public static final String PATTERN_TIME_NO_SEPARATOR = "HHmmss";
-
-    /** PATTERN_DATETIME_NO_SEPARATOR */
-    public static final String PATTERN_DATETIME_NO_SEPARATOR = PATTERN_DATE_NO_SEPARATOR + PATTERN_TIME_NO_SEPARATOR;
-
     /** 老 date 格式化 */
-    public static final ConcurrentDateFormat DATETIME_FORMAT = ConcurrentDateFormat.of(PATTERN_DATETIME);
+    public static final ConcurrentDateFormat DATETIME_FORMAT = ConcurrentDateFormat.of(DateConstant.PATTERN_DATETIME);
 
     /** The constant DATE_FORMAT. */
-    public static final ConcurrentDateFormat DATE_FORMAT = ConcurrentDateFormat.of(PATTERN_DATE);
+    public static final ConcurrentDateFormat DATE_FORMAT = ConcurrentDateFormat.of(DateConstant.PATTERN_DATE);
 
     /** The constant TIME_FORMAT. */
-    public static final ConcurrentDateFormat TIME_FORMAT = ConcurrentDateFormat.of(PATTERN_TIME);
+    public static final ConcurrentDateFormat TIME_FORMAT = ConcurrentDateFormat.of(DateConstant.PATTERN_TIME);
 
     /** java 8 时间格式化 */
-    public static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern(DateUtils.PATTERN_DATETIME);
+    public static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern(DateConstant.PATTERN_DATETIME);
 
     /** The constant DATE_FORMATTER. */
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DateUtils.PATTERN_DATE);
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DateConstant.PATTERN_DATE);
 
     /** The constant TIME_FORMATTER. */
-    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(DateUtils.PATTERN_TIME);
+    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(DateConstant.PATTERN_TIME);
 
     /**
      * 添加年
@@ -414,7 +390,7 @@ public class DateUtils {
      * @return the date
      */
     public static Date parseDateTime(String dateStr) {
-        return parse(dateStr, PATTERN_DATETIME);
+        return parse(dateStr, DateConstant.PATTERN_DATETIME);
     }
 
     /**
@@ -433,7 +409,7 @@ public class DateUtils {
         try {
             return format.parse(dateStr);
         } catch (ParseException e) {
-            throw new RuntimeException(StringFormatter.format("不能将 {} 以 {} 格式转换为 Date 类型", dateStr, pattern), e);
+            throw new RuntimeException(StringFormat.format("不能将 {} 以 {} 格式转换为 Date 类型", dateStr, pattern), e);
         }
     }
 
@@ -448,7 +424,7 @@ public class DateUtils {
         try {
             return format.parse(dateStr);
         } catch (ParseException e) {
-            throw new RuntimeException(StringFormatter.format("不能将 {} 以 {} 格式转换为 Date 类型", dateStr, format.getFormat()), e);
+            throw new RuntimeException(StringFormat.format("不能将 {} 以 {} 格式转换为 Date 类型", dateStr, format.getFormat()), e);
         }
     }
 
@@ -655,9 +631,9 @@ public class DateUtils {
         //剩余秒数
         second = second % 60;
         if (days > 0) {
-            return StringFormatter.format("{}天{}小时{}分{}秒", days, hours, minutes, second);
+            return StringFormat.format("{}天{}小时{}分{}秒", days, hours, minutes, second);
         } else {
-            return StringFormatter.format("{}小时{}分{}秒", hours, minutes, second);
+            return StringFormat.format("{}小时{}分{}秒", hours, minutes, second);
         }
     }
 

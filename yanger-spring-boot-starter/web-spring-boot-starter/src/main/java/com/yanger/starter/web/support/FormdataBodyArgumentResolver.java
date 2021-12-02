@@ -19,7 +19,7 @@ import java.io.*;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 处理 @FormDataBody, 用于将 formdata 数据转换为实体
+ * 处理 @FormDataBody, 用于将 formdata 数据转换为实体
  * @Author yanger
  * @Date 2021/1/27 18:52
  */

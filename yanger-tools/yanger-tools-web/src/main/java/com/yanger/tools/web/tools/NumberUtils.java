@@ -12,7 +12,7 @@ import org.springframework.lang.Nullable;
 import cn.hutool.core.util.NumberUtil;
 
 /**
- * @Description NumberUtils
+ * NumberUtils
  * @Author yanger
  * @Date 2020/12/21 10:10
  */

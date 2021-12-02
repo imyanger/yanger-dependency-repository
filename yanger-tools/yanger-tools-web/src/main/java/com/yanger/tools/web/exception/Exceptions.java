@@ -11,7 +11,7 @@ import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.io.FastStringWriter;
 
 /**
- * @Description 异常处理工具类
+ * 异常处理工具类
  * @Author yanger
  * @Date 2020/12/21 9:45
  */

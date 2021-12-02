@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description 忽略登录验证
+ * 忽略登录验证
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

@@ -5,7 +5,7 @@ import java.io.*;
 import lombok.Data;
 
 /**
- * @Description 代码生成通用配置
+ * 代码生成通用配置
  * @Author yanger
  * @Date 2020/5/26 18:22
  */

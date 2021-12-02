@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 import lombok.SneakyThrows;
 
 /**
- * @Description 业务断言
+ * 业务断言
  * @Author yanger
  * @Date 2020/12/18 10:34
  */

@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description id 生成配置装配
+ * id 生成配置装配
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

@@ -6,14 +6,14 @@ import ${serviceObjPackage}.${serviceObjName};
 import java.util.List;
 
 /**
- * @Description ${modelName}的业务逻辑Service接口类
+ * ${modelName}的业务逻辑Service接口类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
 public interface ${serviceInterfaceName} {
 
     /**
-     * @Description 保存${modelName}
+     * 保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} ${modelName}数据
@@ -22,7 +22,7 @@ public interface ${serviceInterfaceName} {
     void save(${serviceObjName} ${serviceObjName?uncap_first});
 
     /**
-     * @Description 批量保存${modelName}
+     * 批量保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first}s ${modelName}数据集合
@@ -31,7 +31,7 @@ public interface ${serviceInterfaceName} {
     void saveList(List<${serviceObjName}> ${serviceObjName?uncap_first}s);
 
     /**
-     * @Description 根据id删除${modelName}
+     * 根据id删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -40,7 +40,7 @@ public interface ${serviceInterfaceName} {
     void deleteById(Long id);
 
     /**
-     * @Description 根据多个id批量删除${modelName}
+     * 根据多个id批量删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ids 主键集合
@@ -49,7 +49,7 @@ public interface ${serviceInterfaceName} {
     void deleteByIds(List<Long> ids);
 
     /**
-     * @Description 更新${modelName}
+     * 更新${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} ${modelName}数据
@@ -58,7 +58,7 @@ public interface ${serviceInterfaceName} {
     void update(${serviceObjName} ${serviceObjName?uncap_first});
 
     /**
-     * @Description 根据id查找${modelName}
+     * 根据id查找${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -67,7 +67,7 @@ public interface ${serviceInterfaceName} {
     ${serviceObjName} find(Long id);
 
     /**
-     * @Description 根据条件查询${modelName}
+     * 根据条件查询${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} 查询条件对象
@@ -76,7 +76,7 @@ public interface ${serviceInterfaceName} {
     List<${serviceObjName}> find(${serviceObjName} ${serviceObjName?uncap_first});
 
     /**
-     * @Description 根据条件分页查询${modelName}
+     * 根据条件分页查询${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} 查询条件对象

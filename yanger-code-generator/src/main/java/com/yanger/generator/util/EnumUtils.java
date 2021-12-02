@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
 /**
- * @Description 枚举工具类
+ * 枚举工具类
  * @Author yanger
  * @Date 2020/8/27 19:14
  */

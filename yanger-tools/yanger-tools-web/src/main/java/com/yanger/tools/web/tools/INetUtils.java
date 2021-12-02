@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description NetUtils 接口
+ * NetUtils 接口
  * @Author yanger
  * @Date 2020/12/21 10:19
  */

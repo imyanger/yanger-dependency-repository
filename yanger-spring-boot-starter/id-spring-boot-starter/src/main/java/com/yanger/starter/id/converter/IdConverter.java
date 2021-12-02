@@ -4,7 +4,7 @@ import com.yanger.starter.id.entity.Id;
 
 
 /**
- * @Description ID 对象和长整型 id 互转
+ * ID 对象和长整型 id 互转
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

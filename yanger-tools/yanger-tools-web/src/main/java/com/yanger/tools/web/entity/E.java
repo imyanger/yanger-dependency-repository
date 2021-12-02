@@ -5,7 +5,7 @@ import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.support.IResultCode;
 
 /**
- * @Description 异常调用类
+ * 异常调用类
  * @Author yanger
  * @Date 2020/12/21 18:23
  */

@@ -15,7 +15,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * @Description swagger配置类
+ * swagger配置类
  * @Author yanger
  * @Date 2020/7/15 16:27
  */

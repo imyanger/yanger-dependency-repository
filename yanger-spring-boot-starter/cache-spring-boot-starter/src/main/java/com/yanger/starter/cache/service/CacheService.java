@@ -1,14 +1,13 @@
 package com.yanger.starter.cache.service;
 
-import com.yanger.tools.general.function.CheckedConsumer;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2021/3/1 18:47
  */
@@ -68,7 +67,7 @@ public interface CacheService {
      * @param consumer consumer
      * @return true成功 false 失败
      */
-    Boolean set(String key, Object value, Long time, CheckedConsumer<String> consumer);
+    Boolean set(String key, Object value, Long time, Consumer<String> consumer);
 
     /**
      * 普通缓存放入
@@ -78,7 +77,7 @@ public interface CacheService {
      * @param consumer consumer
      * @return true成功 false失败
      */
-    Boolean set(String key, Object value, CheckedConsumer<String> consumer);
+    Boolean set(String key, Object value, Consumer<String> consumer);
 
     /**
      * 递增

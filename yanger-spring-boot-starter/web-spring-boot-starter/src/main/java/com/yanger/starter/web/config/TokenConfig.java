@@ -10,7 +10,7 @@ import lombok.Data;
 
 /**
  * @author YangHao
- * @description jwt 常量类
+ * jwt 常量类
  * @date 2018年9月23日-下午4:28:57
  */
 @Data

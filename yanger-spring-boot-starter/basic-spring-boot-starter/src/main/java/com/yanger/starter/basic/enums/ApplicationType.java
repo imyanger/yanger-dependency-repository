@@ -3,7 +3,7 @@ package com.yanger.starter.basic.enums;
 import org.springframework.util.ClassUtils;
 
 /**
- * @Description 应用类型
+ * 应用类型
  * @Author yanger
  * @Date 2020/12/29 16:12
  */

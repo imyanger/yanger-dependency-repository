@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.Map;
 
 /**
- * @Description Serializable 转换为枚举, DB -> 实体
+ * Serializable 转换为枚举, DB -> 实体
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

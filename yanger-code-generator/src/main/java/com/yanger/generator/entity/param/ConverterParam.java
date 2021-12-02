@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description 转换信息
+ * 转换信息
  * @Author yanger
  * @Date 2020/7/27 9:24
  */

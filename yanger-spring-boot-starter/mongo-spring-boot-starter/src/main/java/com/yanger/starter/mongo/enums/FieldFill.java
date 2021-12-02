@@ -1,7 +1,7 @@
 package com.yanger.starter.mongo.enums;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2021/3/2 11:53
  */

@@ -15,7 +15,7 @@ import org.springframework.integration.redis.util.RedisLockRegistry;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 基于 Redis 的分布式锁自动配置类
+ * 基于 Redis 的分布式锁自动配置类
  * 注意: 只有配置了 redis 相关配置才会开启
  * @Author yanger
  * @Date 2021/3/1 18:47

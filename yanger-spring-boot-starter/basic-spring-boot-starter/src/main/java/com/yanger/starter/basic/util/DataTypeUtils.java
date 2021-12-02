@@ -1,6 +1,6 @@
 package com.yanger.starter.basic.util;
 
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.general.tools.DateUtils;
 import com.yanger.tools.web.exception.BasicException;
 
@@ -24,7 +24,7 @@ import java.util.Set;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description TODO
+ * TODO
  * @Author yanger
  * @Date 2021/1/27 18:42
  */
@@ -906,7 +906,7 @@ public class DataTypeUtils {
             BigDecimal bigDecimal = targetData.setScale(0, BigDecimal.ROUND_CEILING);
             if (targetData.compareTo(bigDecimal) != 0) {
                 throw new DataTypeException(
-                    StringFormatter.format("类型为 {} 的数据 {} 为小数,无法转换为类型 {}",
+                    StringFormat.format("类型为 {} 的数据 {} 为小数,无法转换为类型 {}",
                                            targetData.getClass(),
                                            targetData,
                                            clazz.getName()));
@@ -967,7 +967,7 @@ public class DataTypeUtils {
             boolean minOverflow = min != null && src.compareTo(min) < 0;
             if (maxOverflow || minOverflow) {
                 throw new DataTypeException(
-                    StringFormatter.format("类型为 {} 的数值 {} 不在数据类型 {} 可以容纳的数值范围内",
+                    StringFormat.format("类型为 {} 的数值 {} 不在数据类型 {} 可以容纳的数值范围内",
                                            srcObj.getClass().getName(),
                                            srcObj,
                                            destClazz.getName()));
@@ -987,7 +987,7 @@ public class DataTypeUtils {
         @Contract("_, _ -> new")
         private static <T> DataTypeException returnCouldNotConvertException(Class<T> destClazz, Object srcObj) {
             return new DataTypeException(
-                StringFormatter.format("类型为 {} 的数据 {} 无法转换为类型 {}",
+                StringFormat.format("类型为 {} 的数据 {} 无法转换为类型 {}",
                                        srcObj == null ? "null" : srcObj.getClass(),
                                        srcObj,
                                        destClazz == null ? "null" : destClazz.getName()));
@@ -1343,7 +1343,7 @@ public class DataTypeUtils {
             } catch (BasicException ignored) {
             }
             throw new DataTypeException(
-                StringFormatter.format("无法把数据类型为 {} 的数据 {} 转换到枚举类型 {}", targetObject.getClass().getName(), targetObject, clazz));
+                StringFormat.format("无法把数据类型为 {} 的数据 {} 转换到枚举类型 {}", targetObject.getClass().getName(), targetObject, clazz));
         }
 
     }

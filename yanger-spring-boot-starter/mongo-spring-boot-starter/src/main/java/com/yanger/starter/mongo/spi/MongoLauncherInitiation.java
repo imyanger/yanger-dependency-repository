@@ -13,7 +13,7 @@ import org.springframework.core.env.Environment;
 import java.util.Map;
 
 /**
- * @Description 通过 SPI 加载 mongo 默认配置
+ * 通过 SPI 加载 mongo 默认配置
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

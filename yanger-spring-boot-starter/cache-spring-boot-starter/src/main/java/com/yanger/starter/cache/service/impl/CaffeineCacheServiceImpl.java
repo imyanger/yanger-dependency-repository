@@ -4,7 +4,7 @@ import com.alicp.jetcache.Cache;
 import com.yanger.starter.cache.service.AbstractCacheService;
 
 /**
- * @Description Caffeine 缓存实现
+ * Caffeine 缓存实现
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

@@ -37,7 +37,7 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 代码生成器顶级抽象类
+ * 代码生成器顶级抽象类
  * @Author yanger
  * @Date 2020/7/20 17:38
  */
@@ -45,7 +45,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Generator {
 
     /**
-     * @Description 生成代码
+     * 生成代码
      * @author yanger
      */
     public void generate(GeneratorConfig generatorConfig) {
@@ -68,7 +68,7 @@ public class Generator {
     }
 
     /**
-     * @Description 生成代码
+     * 生成代码
      * @Author yanger
      * @Date 2020/11/18 19:15
      * @param: generatorConfig
@@ -104,7 +104,7 @@ public class Generator {
     }
 
     /**
-     * @Description 移除不包含的模板类型
+     * 移除不包含的模板类型
      * @Author yanger
      * @Date 2020/12/17 14:17
      * @param: templateStructures
@@ -125,7 +125,7 @@ public class Generator {
     }
 
     /**
-     * @Description 解析 sql 获取 TableInfo
+     * 解析 sql 获取 TableInfo
      * @Author yanger
      * @Date 2020/8/30 11:57
      * @param: sqlFilePath
@@ -166,7 +166,7 @@ public class Generator {
     }
 
     /**
-     * @Description 参数校验
+     * 参数校验
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: generatorConfig
@@ -180,7 +180,7 @@ public class Generator {
     }
 
     /**
-     * @Description 通用参数校验
+     * 通用参数校验
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: generalConfig
@@ -195,7 +195,7 @@ public class Generator {
     }
 
     /**
-     * @Description api 参数校验
+     * api 参数校验
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: apiConfig
@@ -207,7 +207,7 @@ public class Generator {
     }
 
     /**
-     * @Description service 参数校验
+     * service 参数校验
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: serviceConfig
@@ -217,7 +217,7 @@ public class Generator {
     }
 
     /**
-     * @Description dao 参数校验
+     * dao 参数校验
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: daoConfig
@@ -239,7 +239,7 @@ public class Generator {
     }
 
     /**
-     * @Description 校验数据库配置
+     * 校验数据库配置
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: serviceConfig
@@ -271,7 +271,7 @@ public class Generator {
     }
 
     /**
-     * @Description 校验方法类型
+     * 校验方法类型
      * @Author yanger
      * @Date 2020/8/29 14:13
      * @param: objTypeName

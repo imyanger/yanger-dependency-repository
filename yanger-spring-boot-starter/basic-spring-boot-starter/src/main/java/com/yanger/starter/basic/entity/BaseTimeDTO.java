@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @Description 时间字段基础DTO对象
+ * 时间字段基础DTO对象
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

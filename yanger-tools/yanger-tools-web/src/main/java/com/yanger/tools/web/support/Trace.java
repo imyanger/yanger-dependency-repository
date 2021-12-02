@@ -5,7 +5,7 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 import org.jetbrains.annotations.Contract;
 
 /**
- * @Description 用来存储traceID相关信息
+ * 用来存储traceID相关信息
  * @Author yanger
  * @Date 2020/12/18 11:27
  */

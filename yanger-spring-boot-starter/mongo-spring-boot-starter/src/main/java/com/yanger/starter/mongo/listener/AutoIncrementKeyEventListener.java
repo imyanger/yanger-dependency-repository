@@ -21,7 +21,7 @@ import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自增主键设置
+ * 自增主键设置
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

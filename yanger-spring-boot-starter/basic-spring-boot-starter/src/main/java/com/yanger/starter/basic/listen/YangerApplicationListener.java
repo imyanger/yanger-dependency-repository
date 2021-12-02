@@ -1,36 +1,22 @@
 package com.yanger.starter.basic.listen;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.function.CheckedRunnable;
-
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.boot.context.event.ApplicationContextInitializedEvent;
-import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
-import org.springframework.boot.context.event.ApplicationFailedEvent;
-import org.springframework.boot.context.event.ApplicationPreparedEvent;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.boot.context.event.ApplicationStartedEvent;
-import org.springframework.boot.context.event.ApplicationStartingEvent;
+import org.springframework.boot.context.event.*;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
-import org.springframework.context.event.ContextClosedEvent;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.ContextStartedEvent;
-import org.springframework.context.event.ContextStoppedEvent;
-import org.springframework.context.event.GenericApplicationListener;
+import org.springframework.context.event.*;
 import org.springframework.core.ResolvableType;
 
 import java.util.Map;
 
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-
 /**
- * @Description 抽象所有事件处理器的公共代码
+ * 抽象所有事件处理器的公共代码
  *     * 以下事件全部由 {@link org.springframework.boot.context.event.EventPublishingRunListener} 发布
  *     * 每个实现类都必须重写后的方法的执行次数, 因为 spring boot 和 spring cloud 的原因, 会存在多个上下文, 因此会执行多次自定义事件处理逻辑
  * @Author yanger
@@ -294,7 +280,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          * @param consumer consumer
          */
         @Contract(pure = true)
-        public static void executeAtFirst(String key, CheckedRunnable consumer) {
+        public static void executeAtFirst(String key, Runnable consumer) {
             executeAt(key, 0, consumer);
         }
 
@@ -306,7 +292,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          * @param consumer consumer
          */
         @Contract(pure = true)
-        public static void executeAtNext(String key, CheckedRunnable consumer) {
+        public static void executeAtNext(String key, Runnable consumer) {
             executeAt(key, 1, consumer);
         }
 
@@ -317,7 +303,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          * @param index    index
          * @param consumer consumer
          */
-        public static void executeAt(String key, int index, CheckedRunnable consumer) {
+        public static void executeAt(String key, int index, Runnable consumer) {
             if (getExecuteCurrentCount(key) == index) {
                 execute(consumer);
             }
@@ -330,7 +316,7 @@ public interface YangerApplicationListener extends GenericApplicationListener {
          *
          * @param consumer consumer
          */
-        public static void execute(CheckedRunnable consumer) {
+        public static void execute(Runnable consumer) {
             try {
                 consumer.run();
             } catch (Throwable throwable) {

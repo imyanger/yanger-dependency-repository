@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description 用户信息
+ * 用户信息
  * @Author yanger
  * @Date 2020/12/10 18:17
  */

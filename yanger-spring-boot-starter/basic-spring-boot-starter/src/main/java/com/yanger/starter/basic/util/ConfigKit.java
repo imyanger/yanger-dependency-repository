@@ -21,7 +21,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @Description 全局配置工具类, 用于获取整个应用的配置
+ * 全局配置工具类, 用于获取整个应用的配置
  *     生命周期:
  *     1. 初始化 {@link #init(ConfigurableEnvironment)}
  *     2. 运行期间 (特指应用已经启动完成, 输出了 start finished 之后)

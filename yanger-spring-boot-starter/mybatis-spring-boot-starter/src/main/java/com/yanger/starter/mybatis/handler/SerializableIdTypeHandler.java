@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @Description id 转换器
+ * id 转换器
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

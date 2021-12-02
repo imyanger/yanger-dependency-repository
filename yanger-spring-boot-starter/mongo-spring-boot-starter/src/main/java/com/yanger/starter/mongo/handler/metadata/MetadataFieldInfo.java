@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * @Description object 字段反射信息
+ * object 字段反射信息
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

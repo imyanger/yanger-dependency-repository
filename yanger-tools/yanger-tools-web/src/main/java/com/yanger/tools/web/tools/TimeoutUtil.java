@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 简单超时工具类
+ * 简单超时工具类
  * @Author yanger
  * @Date 2021/2/22 18:13
  */

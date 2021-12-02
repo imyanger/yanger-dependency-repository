@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import lombok.RequiredArgsConstructor;
 
 /**
- * @Description 抽象的 插入一条数据（选择字段插入）
+ * 抽象的 插入一条数据（选择字段插入）
  * @Author yanger
  * @Date 2021/1/28 18:04
  */

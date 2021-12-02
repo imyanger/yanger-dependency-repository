@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @Description {@link ImportBeanDefinitionRegistrar} to store the base package from the importing configuration
+ * {@link ImportBeanDefinitionRegistrar} to store the base package from the importing configuration
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

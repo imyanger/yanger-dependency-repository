@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自动生成 createTime, updateTime
+ * 自动生成 createTime, updateTime
  *     只有设置了 {@link com.yanger.starter.mongo.autoconfigure.sync.MongoProperties#isEnableAutoCreateTime()}} 才会生效
  * @Author yanger
  * @Date 2020/12/29 17:32

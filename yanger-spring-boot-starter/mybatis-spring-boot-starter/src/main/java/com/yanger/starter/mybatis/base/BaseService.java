@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @Description 基础 Service
+ * 基础 Service
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

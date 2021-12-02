@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description 忽略通用返回
+ * 忽略通用返回
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @Description Class for storing {@link  @EntityScan} specified packages for reference later (e.g. by JPA auto-configuration).
+ * Class for storing {@link  @EntityScan} specified packages for reference later (e.g. by JPA auto-configuration).
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

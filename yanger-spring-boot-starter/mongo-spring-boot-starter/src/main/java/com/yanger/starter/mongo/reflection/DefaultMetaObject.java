@@ -8,7 +8,7 @@ import com.yanger.starter.mongo.reflection.wrapper.ObjectWrapperFactory;
 import org.jetbrains.annotations.Contract;
 
 /**
- * @Description 默认的实体元数据包装对象, 使用 {@link DefaultMetaObject#forObject} 生成 {@link MetaObject}
+ * 默认的实体元数据包装对象, 使用 {@link DefaultMetaObject#forObject} 生成 {@link MetaObject}
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

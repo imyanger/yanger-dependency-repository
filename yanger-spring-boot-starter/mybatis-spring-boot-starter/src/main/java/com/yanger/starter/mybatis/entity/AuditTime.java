@@ -3,7 +3,7 @@ package com.yanger.starter.mybatis.entity;
 import java.util.Date;
 
 /**
- * @Description 时间字段接口
+ * 时间字段接口
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

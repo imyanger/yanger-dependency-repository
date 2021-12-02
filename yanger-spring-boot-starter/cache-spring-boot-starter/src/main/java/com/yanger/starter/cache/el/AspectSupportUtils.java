@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Method;
 
 /**
- * @Description redis 分布式锁 key 解析工具
+ * redis 分布式锁 key 解析工具
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

@@ -1,7 +1,7 @@
 package com.yanger.generator.exception;
 
 /**
- * @Description Config校验异常
+ * Config校验异常
  * @Author yanger
  * @Date 2020/8/29 13:48
  */

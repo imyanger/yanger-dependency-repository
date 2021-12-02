@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description 自动装配标志
+ * 自动装配标志
  * @Author yanger
  * @Date 2021/1/29 10:40
  */

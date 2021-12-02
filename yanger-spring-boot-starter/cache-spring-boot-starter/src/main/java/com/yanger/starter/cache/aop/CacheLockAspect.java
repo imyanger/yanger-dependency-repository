@@ -17,7 +17,7 @@ import java.util.concurrent.locks.Lock;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 分布式锁 aop 拦截，拦截 CacheLock 注解
+ * 分布式锁 aop 拦截，拦截 CacheLock 注解
  * spring-integration 对 redis 分布锁的支持,底层应该也是 lua 脚本的实现,可完美解决线程挂掉造成的死锁,以及执行时间过长锁释放掉,误删别人的锁
  * @Author yanger
  * @Date 2021/3/1 18:47

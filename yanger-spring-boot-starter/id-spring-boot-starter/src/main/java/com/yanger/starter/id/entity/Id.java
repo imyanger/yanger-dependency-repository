@@ -7,7 +7,7 @@ import java.io.*;
 import lombok.Data;
 
 /**
- * @Description ID 对象
+ * ID 对象
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

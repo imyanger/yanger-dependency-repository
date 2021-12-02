@@ -2,7 +2,7 @@ package com.yanger.tools.web.support;
 
 import com.google.common.primitives.Ints;
 
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.web.tools.NumberUtils;
 
 import org.jetbrains.annotations.Contract;
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * @Description 链式 map (linkedmap) key 必须为 string
+ * 链式 map (linkedmap) key 必须为 string
  * @Author yanger
  * @Date 2020/12/22 10:30
  */
@@ -144,7 +144,7 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
      * @return 字段值 str
      */
     public String getStr(String attr) {
-        return StringFormatter.toStr(get(attr), null);
+        return StringFormat.toStr(get(attr), null);
     }
 
     /**

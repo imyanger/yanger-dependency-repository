@@ -23,7 +23,7 @@ import org.springframework.data.util.TypeInformation;
 import java.util.Optional;
 
 /**
- * @Description 字段名转换配置项类
+ * 字段名转换配置项类
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

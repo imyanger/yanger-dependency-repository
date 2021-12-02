@@ -6,7 +6,7 @@ import com.yanger.starter.id.entity.IdMeta;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description 通过 synchronized 生成时间和序列号
+ * 通过 synchronized 生成时间和序列号
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

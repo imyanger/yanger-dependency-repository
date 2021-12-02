@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 /**
- * @Description 对象拷贝类
+ * 对象拷贝类
  * @Author yanger
  * @Date 2020/7/17 18:34
  */
 public class ConverterUtils extends BeanUtils {
 
     /**
-     * @Description 单个对象拷贝，方便函数式调用
+     * 单个对象拷贝，方便函数式调用
      * @author yanger
      * @date 2020/7/17
      * @param source 数据源类
@@ -28,7 +28,7 @@ public class ConverterUtils extends BeanUtils {
     }
 
     /**
-     * @Description 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
+     * 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
      * @author yanger
      * @date 2020/7/17
      * @param source 数据源类
@@ -44,7 +44,7 @@ public class ConverterUtils extends BeanUtils {
     }
 
     /**
-     * @Description 集合数据的拷贝
+     * 集合数据的拷贝
      * @author yanger
      * @date 2020/7/17
      * @param sources 数据源类
@@ -56,7 +56,7 @@ public class ConverterUtils extends BeanUtils {
     }
 
     /**
-     * @Description 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
+     * 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
      * @author yanger
      * @date 2020/7/17
      * @param sources 数据源类

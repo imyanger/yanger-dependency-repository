@@ -14,7 +14,7 @@ import static org.reflections.ReflectionUtils.forName;
 import static org.reflections.util.Utils.index;
 
 /**
- * @Description 复写 Reflections ，去掉日志输出
+ * 复写 Reflections ，去掉日志输出
  * @Author yanger
  * @Date 2021/1/27 9:58
  */

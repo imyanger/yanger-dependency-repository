@@ -16,7 +16,7 @@ import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigDefaultValue;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.tools.ConcurrentDateFormat;
+import com.yanger.tools.general.format.ConcurrentDateFormat;
 import com.yanger.tools.web.exception.Exceptions;
 
 import org.jetbrains.annotations.Contract;
@@ -936,7 +936,7 @@ public class JsonUtils {
     }
 
     /**
-     * @Description 使用静态内部类实例化单例对象, 此 ObjectMapper 会在全局使用
+     * 使用静态内部类实例化单例对象, 此 ObjectMapper 会在全局使用
      * @Author yanger
      * @Date 2020/12/28 19:16
      * @throws

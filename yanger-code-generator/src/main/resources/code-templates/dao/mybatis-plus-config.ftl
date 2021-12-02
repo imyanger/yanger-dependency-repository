@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @Description mybatis-plus配置类
+ * mybatis-plus配置类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */

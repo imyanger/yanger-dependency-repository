@@ -26,7 +26,7 @@ import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
 import me.chanjar.weixin.common.error.WxErrorException;
 
 /**
- * @Description 微信配置加载类
+ * 微信配置加载类
  * @Author yanger
  * @Date 2021/1/11 17:58
  */

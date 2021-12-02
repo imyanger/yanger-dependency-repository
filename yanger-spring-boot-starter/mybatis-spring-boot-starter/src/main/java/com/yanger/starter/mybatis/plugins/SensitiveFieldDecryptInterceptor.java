@@ -26,7 +26,7 @@ import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 敏感字符解密
+ * 敏感字符解密
  * @Author yanger
  * @Date 2021/1/28 19:06
  */

@@ -3,7 +3,7 @@ package com.yanger.starter.mongo.exception;
 import com.yanger.tools.web.exception.BasicException;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

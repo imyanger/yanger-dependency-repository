@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description ActiveRecord 模式 CRUD
+ * ActiveRecord 模式 CRUD
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

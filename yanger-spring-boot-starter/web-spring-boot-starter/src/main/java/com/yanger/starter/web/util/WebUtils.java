@@ -47,7 +47,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 用于处理HTTP请求的工具类
+ * 用于处理HTTP请求的工具类
  * @Author yanger
  * @Date 2020/11/25 18:35
  */

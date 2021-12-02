@@ -1,7 +1,7 @@
 package com.yanger.starter.basic.constant;
 
 /**
- * @Description 类常量
+ * 类常量
  * @Author yanger
  * @Date 2020/12/29 17:14
  */

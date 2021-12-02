@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.MongoPersistentEntity;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自定义索引创建策略, 用于处理 {@link MongoColumn} 组合注解
+ * 自定义索引创建策略, 用于处理 {@link MongoColumn} 组合注解
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * @Description 断言工具类
+ * 断言工具类
  * @Author yanger
  * @Date 2020/12/18 14:29
  */

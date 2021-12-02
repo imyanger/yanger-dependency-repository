@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description 代码生成参数
+ * 代码生成参数
  * @Author yanger
  * @Date 2020/7/21 9:47
  */

@@ -3,7 +3,7 @@ package com.yanger.starter.cache.el;
 import lombok.Data;
 
 /**
- * @Description Expression root object
+ * Expression root object
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

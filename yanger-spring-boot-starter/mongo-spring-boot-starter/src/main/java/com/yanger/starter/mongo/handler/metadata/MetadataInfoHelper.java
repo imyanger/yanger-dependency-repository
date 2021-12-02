@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import static java.util.stream.Collectors.toList;
 
 /**
- * @Description 实体类反射表辅助类
+ * 实体类反射表辅助类
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

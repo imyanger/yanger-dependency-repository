@@ -5,7 +5,7 @@ import com.yanger.starter.mongo.mapper.Model;
 import com.yanger.starter.mongo.support.SFunction;
 
 /**
- * @Description Lambda 更新封装
+ * Lambda 更新封装
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

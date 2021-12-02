@@ -14,7 +14,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 配置加载完成后检查是否存在 datasource 配置, 如果不不存在, 则排除 datasource 自动配置, 避免启动失败
+ * 配置加载完成后检查是否存在 datasource 配置, 如果不不存在, 则排除 datasource 自动配置, 避免启动失败
  * @Author yanger
  * @Date 2021/1/29 9:40
  */

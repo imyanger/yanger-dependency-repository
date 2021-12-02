@@ -13,7 +13,7 @@ import java.util.Map;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 定义常用的 sql关键字
+ * 定义常用的 sql关键字
  * @Author yanger
  * @Date 2021/1/29 9:40
  */

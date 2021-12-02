@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.Getter;
 
 /**
- * @Description jetcache 配置
+ * jetcache 配置
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

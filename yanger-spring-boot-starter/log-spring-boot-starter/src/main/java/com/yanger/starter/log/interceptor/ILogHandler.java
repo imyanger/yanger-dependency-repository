@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description 日志处理器
+ * 日志处理器
  * @Author yanger
  * @Date 2021/3/16 17:11
  */
 public interface ILogHandler {
 
     /**
-     * @Description 处理接口拦截信息（交由子类实现）
+     * 处理接口拦截信息（交由子类实现）
      * @Author yanger
      * @Date 2021/3/16 17:34
      * @param: logInfo

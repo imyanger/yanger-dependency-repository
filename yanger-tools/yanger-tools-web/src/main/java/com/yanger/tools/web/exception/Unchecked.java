@@ -1,12 +1,6 @@
 package com.yanger.tools.web.exception;
 
-import com.yanger.tools.general.function.CheckedCallable;
-import com.yanger.tools.general.function.CheckedComparator;
-import com.yanger.tools.general.function.CheckedConsumer;
-import com.yanger.tools.general.function.CheckedFunction;
-import com.yanger.tools.general.function.CheckedRunnable;
-import com.yanger.tools.general.function.CheckedSupplier;
-
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,10 +11,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import lombok.experimental.UtilityClass;
-
 /**
- * @Description Lambda 受检异常处理
+ * Lambda 受检异常处理
  * @Author yanger
  * @Date 2020/12/29 19:26
  */
@@ -38,7 +30,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static <T, R> Function<T, R> function(CheckedFunction<T, R> mapper) {
+    public static <T, R> Function<T, R> function(Function<T, R> mapper) {
         Objects.requireNonNull(mapper);
         return t -> {
             try {
@@ -59,7 +51,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static <T> Consumer<T> consumer(CheckedConsumer<T> mapper) {
+    public static <T> Consumer<T> consumer(Consumer<T> mapper) {
         Objects.requireNonNull(mapper);
         return t -> {
             try {
@@ -80,7 +72,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static <T> Supplier<T> supplier(CheckedSupplier<T> mapper) {
+    public static <T> Supplier<T> supplier(Supplier<T> mapper) {
         Objects.requireNonNull(mapper);
         return () -> {
             try {
@@ -100,7 +92,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static Runnable runnable(CheckedRunnable runnable) {
+    public static Runnable runnable(Runnable runnable) {
         Objects.requireNonNull(runnable);
         return () -> {
             try {
@@ -121,7 +113,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static <T> Callable<T> callable(CheckedCallable<T> callable) {
+    public static <T> Callable<T> callable(Callable<T> callable) {
         Objects.requireNonNull(callable);
         return () -> {
             try {
@@ -142,7 +134,7 @@ public class Unchecked {
      */
     @NotNull
     @Contract(pure = true)
-    public static <T> Comparator<T> comparator(CheckedComparator<T> comparator) {
+    public static <T> Comparator<T> comparator(Comparator<T> comparator) {
         Objects.requireNonNull(comparator);
         return (T o1, T o2) -> {
             try {

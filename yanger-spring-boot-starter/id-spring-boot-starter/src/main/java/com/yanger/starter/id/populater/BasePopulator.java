@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description 基本的生成时间和序列号
+ * 基本的生成时间和序列号
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

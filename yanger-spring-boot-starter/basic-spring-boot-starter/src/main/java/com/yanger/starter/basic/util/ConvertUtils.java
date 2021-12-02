@@ -19,7 +19,7 @@ import java.util.List;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 基于 spring ConversionService 类型转换
+ * 基于 spring ConversionService 类型转换
  * @Author yanger
  * @Date 2020/12/29 19:16
  */

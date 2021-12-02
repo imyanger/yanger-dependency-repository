@@ -5,7 +5,7 @@ import com.yanger.starter.mongo.mapper.Model;
 import com.yanger.starter.mongo.support.SFunction;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

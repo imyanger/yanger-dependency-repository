@@ -10,7 +10,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 只打印一次的日志
+ * 只打印一次的日志
  * @Author yanger
  * @Date 2020/12/29 17:59
  */

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description Api转换工具类参数
+ * Api转换工具类参数
  * @Author yanger
  * @Date 2020/8/26 16:48
  */

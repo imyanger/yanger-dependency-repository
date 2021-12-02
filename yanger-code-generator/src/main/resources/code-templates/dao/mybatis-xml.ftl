@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @Description ${modelName}的数据持久层Dao类接口类
+ * ${modelName}的数据持久层Dao类接口类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
@@ -16,7 +16,7 @@ import java.util.List;
 public interface ${daoInterfaceName} {
 
     /**
-     * @Description 保存${modelName}
+     * 保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first} ${modelName}数据
@@ -25,7 +25,7 @@ public interface ${daoInterfaceName} {
     int insert(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 批量保存${modelName}
+     * 批量保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first}s ${modelName}数据集合
@@ -34,7 +34,7 @@ public interface ${daoInterfaceName} {
     int batchInsert(List<${modelName}> ${modelName?uncap_first}s);
 
     /**
-     * @Description 根据条件删除${modelName}
+     * 根据条件删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first} ${modelName}数据（条件参数）
@@ -43,7 +43,7 @@ public interface ${daoInterfaceName} {
     int delete(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 根据id删除${modelName}
+     * 根据id删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -52,7 +52,7 @@ public interface ${daoInterfaceName} {
     int deleteById(Long id);
 
     /**
-     * @Description 根据多个id批量删除${modelName}
+     * 根据多个id批量删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ids 主键集合
@@ -61,7 +61,7 @@ public interface ${daoInterfaceName} {
     int deleteByIds(@Param("ids") List<Long> ids);
 
     /**
-     * @Description 更新${modelName}，字段为null时覆盖原数据
+     * 更新${modelName}，字段为null时覆盖原数据
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first}
@@ -70,7 +70,7 @@ public interface ${daoInterfaceName} {
     int update(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 可选择的更新${modelName}，字段为null时不覆盖原数据
+     * 可选择的更新${modelName}，字段为null时不覆盖原数据
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first}
@@ -79,7 +79,7 @@ public interface ${daoInterfaceName} {
     int updateSelective(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 根据条件查询${modelName}
+     * 根据条件查询${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first} ${modelName}数据（条件参数）
@@ -88,7 +88,7 @@ public interface ${daoInterfaceName} {
     List<${modelName}> select(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 根据id查找${modelName}
+     * 根据id查找${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -97,7 +97,7 @@ public interface ${daoInterfaceName} {
     ${modelName} selectById(Long id);
 
     /**
-     * @Description 根据多个id批量查找${modelName}
+     * 根据多个id批量查找${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ids 主键集合
@@ -106,7 +106,7 @@ public interface ${daoInterfaceName} {
     List<${modelName}> selectByIds(@Param("ids") List<Long> ids);
 
     /**
-     * @Description 获取满足条件的${modelName}数量
+     * 获取满足条件的${modelName}数量
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${modelName?uncap_first} ${modelName}数据（条件参数）
@@ -115,7 +115,7 @@ public interface ${daoInterfaceName} {
     int getCount(${modelName} ${modelName?uncap_first});
 
     /**
-     * @Description 获取总条数
+     * 获取总条数
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @return int 总数据行数

@@ -33,7 +33,7 @@ import java.io.*;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description mybatis 自动配置类
+ * mybatis 自动配置类
  * @Author yanger
  * @Date 2021/1/28 15:36
  */

@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自定义转换器
+ * 自定义转换器
  * @Author yanger
  * @Date 2020/12/29 19:23
  */

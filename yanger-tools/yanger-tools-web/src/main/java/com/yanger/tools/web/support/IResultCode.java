@@ -1,7 +1,7 @@
 package com.yanger.tools.web.support;
 
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.general.tools.StringTools;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.*;
 
 /**
- * @Description 请求响应代码接口
+ * 请求响应代码接口
  * @Author yanger
  * @Date 2020/12/18 11:31
  */
@@ -64,12 +64,12 @@ public interface IResultCode extends Serializable {
         Object first = customerMessage[0];
         if (StringUtils.isNotBlank(message)) {
             if (StringTools.contains(message, StringPool.EMPTY_JSON)) {
-                return StringFormatter.format(message, customerMessage);
+                return StringFormat.format(message, customerMessage);
             } else if (first != null && StringUtils.isNotBlank(first.toString())) {
                 if (StringTools.contains(first.toString(), StringPool.EMPTY_JSON)) {
                     Object[] params = new String[customerMessage.length - 1];
                     System.arraycopy(customerMessage, 1, params, 0, customerMessage.length - 1);
-                    return (message.endsWith("，") ? message : message + "，") + StringFormatter.format(first.toString(), params);
+                    return (message.endsWith("，") ? message : message + "，") + StringFormat.format(first.toString(), params);
                 } else {
                     return (message.endsWith("，") ? message : message + "，") + first.toString();
                 }
@@ -79,7 +79,7 @@ public interface IResultCode extends Serializable {
             if (StringTools.contains(first.toString(), StringPool.EMPTY_JSON)) {
                 Object[] params = new String[customerMessage.length - 1];
                 System.arraycopy(customerMessage, 1, params, 0, customerMessage.length - 1);
-                return StringFormatter.format(first.toString(), params);
+                return StringFormat.format(first.toString(), params);
             }
             return first.toString();
         }

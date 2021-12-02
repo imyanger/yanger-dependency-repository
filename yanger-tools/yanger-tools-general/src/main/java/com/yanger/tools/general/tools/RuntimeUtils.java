@@ -15,7 +15,7 @@ import java.util.List;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 运行时工具类
+ * 运行时工具类
  * @Author yanger
  * @Date 2020/12/22 11:03
  */

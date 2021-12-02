@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description Base64工具
+ * Base64工具
  * @Author yanger
  * @Date 2020/12/18 18:37
  */

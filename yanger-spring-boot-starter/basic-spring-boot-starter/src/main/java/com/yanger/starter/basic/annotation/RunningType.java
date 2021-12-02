@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description 应用运行类型
+ * 应用运行类型
  * @Author yanger
  * @Date 2020/12/29 16:12
  */

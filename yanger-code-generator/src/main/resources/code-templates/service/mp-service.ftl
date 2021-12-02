@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @Description ${modelName}的业务逻辑Service类
+ * ${modelName}的业务逻辑Service类
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
@@ -30,7 +30,7 @@ public class ${serviceImplName} {
     private ${daoInterfaceName} ${daoInterfaceName?uncap_first};
 
     /**
-     * @Description 保存${modelName}
+     * 保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} ${modelName}数据
@@ -44,7 +44,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 批量保存${modelName}
+     * 批量保存${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first}s ${modelName}数据集合
@@ -60,7 +60,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 根据id删除${modelName}
+     * 根据id删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -71,7 +71,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 根据多个id批量删除${modelName}
+     * 根据多个id批量删除${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ids 主键集合
@@ -82,7 +82,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 更新${modelName}
+     * 更新${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} ${modelName}数据
@@ -96,7 +96,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 根据id查找${modelName}
+     * 根据id查找${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param id 主键
@@ -111,7 +111,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 根据条件查询${modelName}
+     * 根据条件查询${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} 查询条件对象
@@ -131,7 +131,7 @@ public class ${serviceImplName} {
     }
 
     /**
-     * @Description 根据条件分页查询${modelName}
+     * 根据条件分页查询${modelName}
      * @author ${authorName}
      * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
      * @param ${serviceObjName?uncap_first} 查询条件对象

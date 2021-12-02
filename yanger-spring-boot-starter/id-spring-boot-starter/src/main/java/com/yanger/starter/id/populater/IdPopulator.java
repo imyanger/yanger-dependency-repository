@@ -6,7 +6,7 @@ import com.yanger.starter.id.entity.IdMeta;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description 根据时间和序列号填充 id
+ * 根据时间和序列号填充 id
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

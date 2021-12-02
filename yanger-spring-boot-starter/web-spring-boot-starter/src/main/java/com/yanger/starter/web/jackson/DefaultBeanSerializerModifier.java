@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Description jackson 默认值为 null 时的处理, 主要是为了避免 app 端出现null导致闪退
+ * jackson 默认值为 null 时的处理, 主要是为了避免 app 端出现null导致闪退
  *     规则:
  *     {@code
  *     number: 0

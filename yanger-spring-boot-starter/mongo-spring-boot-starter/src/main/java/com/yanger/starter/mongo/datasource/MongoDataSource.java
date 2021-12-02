@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.transaction.support.TransactionTemplate;
 
 /**
- * @Description mongodb 多数据源配置
+ * mongodb 多数据源配置
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

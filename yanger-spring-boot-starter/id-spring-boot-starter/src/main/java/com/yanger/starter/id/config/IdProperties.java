@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import lombok.Data;
 
 /**
- * @Description id 配置项
+ * id 配置项
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

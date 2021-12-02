@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @Description 通过 SPI 加载 mybatis 默认配置
+ * 通过 SPI 加载 mybatis 默认配置
  * @Author yanger
  * @Date 2021/1/29 9:40
  */

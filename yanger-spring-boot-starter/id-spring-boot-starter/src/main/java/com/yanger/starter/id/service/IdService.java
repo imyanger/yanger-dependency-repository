@@ -5,7 +5,7 @@ import com.yanger.starter.id.entity.Id;
 import java.util.Date;
 
 /**
- * @Description id 生成服务
+ * id 生成服务
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

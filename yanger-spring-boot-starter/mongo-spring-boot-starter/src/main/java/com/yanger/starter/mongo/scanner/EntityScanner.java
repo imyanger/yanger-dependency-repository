@@ -39,7 +39,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description An entity scanner that searches the classpath from an {@link  @EntityScan} specified packages.
+ * An entity scanner that searches the classpath from an {@link  @EntityScan} specified packages.
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

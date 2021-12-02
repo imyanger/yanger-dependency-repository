@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import cn.hutool.core.text.StrSpliter;
 
 /**
- * @Description string tool
+ * string tool
  * @Author yanger
  * @Date 2020/12/21 10:27
  */

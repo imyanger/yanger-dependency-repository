@@ -52,7 +52,7 @@ import java.util.function.Function;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 缓存配置装配类
+ * 缓存配置装配类
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

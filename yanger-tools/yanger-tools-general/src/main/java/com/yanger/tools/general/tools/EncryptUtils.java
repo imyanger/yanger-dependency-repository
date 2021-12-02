@@ -7,7 +7,7 @@ import cn.hutool.core.codec.Base64;
 
 /**
  * @author YangHao
- * @Description 加密工具类
+ * 加密工具类
  * @Author yanger
  */
 public class EncryptUtils {

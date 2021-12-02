@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description 登录拦截器
+ * 登录拦截器
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yanger</groupId>
+        <artifactId>dependencies-test</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>test001-general-test</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <packaging>jar</packaging>
+
+    <name>test001-general-test</name>
+    <description>test project</description>
+
+    <developers>
+        <developer>
+            <name>yanger</name>
+            <email>imyanger@qq.com</email>
+            <organization>yanger</organization>
+            <organizationUrl>https://github.com/imyanger</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/imyanger/yanger-dependency-repository</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yanger</groupId>
+            <artifactId>tools-general</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

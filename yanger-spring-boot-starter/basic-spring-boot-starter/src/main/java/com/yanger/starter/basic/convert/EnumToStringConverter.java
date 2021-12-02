@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentMap;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 接收参数 同 jackson Enum -> String 转换
+ * 接收参数 同 jackson Enum -> String 转换
  * @Author yanger
  * @Date 2020/12/29 19:21
  */

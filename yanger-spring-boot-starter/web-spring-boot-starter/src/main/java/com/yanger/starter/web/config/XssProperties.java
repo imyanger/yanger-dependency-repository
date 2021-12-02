@@ -8,7 +8,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * @Description Xss配置类
+ * Xss配置类
  * @Author yanger
  * @Date 2021/1/27 16:41
  */

@@ -15,7 +15,7 @@ import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ClassInfoList;
 
 /**
- * @Description 装在基础 Bean 对象
+ * 装在基础 Bean 对象
  * @Author yanger
  * @Date 2021/2/1 17:38
  */

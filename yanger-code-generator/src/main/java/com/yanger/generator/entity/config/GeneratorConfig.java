@@ -9,7 +9,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * @Description 代码生成配置
+ * 代码生成配置
  * @Author yanger
  * @Date 2020/7/20 17:38
  */
@@ -37,7 +37,7 @@ public class GeneratorConfig implements Serializable {
     private List<TemplateType> templateTypes = new ArrayList<>(0);
 
     /**
-     * @Description 增加生成模板类型
+     * 增加生成模板类型
      * @Author yanger
      * @Date 2020/12/17 14:11
      * @param: templateType

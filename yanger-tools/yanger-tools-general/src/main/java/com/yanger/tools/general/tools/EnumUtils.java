@@ -11,7 +11,7 @@ import java.util.function.Predicate;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 枚举工具类
+ * 枚举工具类
  * @Author yanger
  * @Date 2020/8/27 19:14
  */
@@ -51,7 +51,7 @@ public class EnumUtils {
      * @param clazz   the clazz
      * @param ordinal the ordinal   需要的枚举值在设定的枚举类中的顺序, 以 0 开始
      * @return t t
-     * @author xiehao
+     * @author YangHao
      */
     public static <T extends Enum<T>> T indexOf(@NotNull Class<T> clazz, int ordinal) {
         return clazz.getEnumConstants()[ordinal];
@@ -64,7 +64,7 @@ public class EnumUtils {
      * @param clazz the clazz
      * @param name  the name
      * @return Enum T
-     * @author xiehao
+     * @author YangHao
      */
     @NotNull
     public static <T extends Enum<T>> T nameOf(Class<T> clazz, String name) {

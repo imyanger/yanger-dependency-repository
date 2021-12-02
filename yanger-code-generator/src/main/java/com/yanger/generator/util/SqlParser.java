@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/5/26 11:12
  * @throws
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class SqlParser {
 
     /**
-     * @Description 解析sql
+     * 解析sql
      * @return com.yanger.generator.entity.TableInfo
      * @Author yanger
      * @Date 2020/5/26 10:22
@@ -36,7 +36,7 @@ public class SqlParser {
     }
 
     /**
-     * @Description 解析sql
+     * 解析sql
      * @return com.yanger.generator.entity.TableInfo
      * @Author yanger
      * @Date 2020/5/26 10:21
@@ -47,7 +47,7 @@ public class SqlParser {
     }
 
     /**
-     * @Description 解析sql
+     * 解析sql
      * @Author yanger
      * @Date 2020/6/30 10:38
      * @Param [sql, tinyintTransType, nameCase]
@@ -80,7 +80,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取字段类型
+     * 获取字段类型
      * @Date 2020/5/26 13:37
      * @Param [typeName, tinyintTransType]
      * @return java.lang.String
@@ -90,7 +90,7 @@ public class SqlParser {
     }
 
     /**
-     * @Description 处理特殊字符
+     * 处理特殊字符
      * @return java.lang.String
      * @Author yanger
      * @Date 2020/5/26 10:42
@@ -109,7 +109,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取表名
+     * 获取表名
      * @Date 2020/5/26 10:54
      * @Param [sql]
      * @return java.lang.String
@@ -153,7 +153,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取表的注释
+     * 获取表的注释
      * @Date 2020/5/26 10:54
      * @Param [sql]
      * @return java.lang.String
@@ -187,7 +187,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取列信息
+     * 获取列信息
      * @Date 2020/5/26 16:09
      * @Param [sql, nameCase, tinyintTransType]
      * @return java.util.List<com.yanger.generator.entity.ColumnInfo>
@@ -245,7 +245,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取包含列的sql
+     * 获取包含列的sql
      * @Date 2020/5/26 13:45
      * @Param [sql]
      * @return java.lang.String
@@ -289,7 +289,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 判断是否是正常的列
+     * 判断是否是正常的列
      * @Date 2020/5/26 11:56
      * @Param [columnLine, lineIndex]
      * @return boolean
@@ -306,7 +306,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取字段类型
+     * 获取字段类型
      * @Date 2020/5/26 13:37
      * @Param [columnLine, tinyintTransType]
      * @return java.lang.String
@@ -367,7 +367,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 获取列注释信息
+     * 获取列注释信息
      * @Date 2020/5/26 13:46
      * @Param [sql, columnName, columnLine]
      * @return java.lang.String
@@ -408,7 +408,7 @@ public class SqlParser {
 
     /**
      * @Author yanger
-     * @Description 解析主键
+     * 解析主键
      * @Date 2020/5/26 13:46
      * @Param [sql]
      * @return java.lang.String

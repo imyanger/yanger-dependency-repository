@@ -12,7 +12,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 字段名处理工具
+ * 字段名处理工具
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

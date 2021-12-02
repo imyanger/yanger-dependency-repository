@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Description 装在基础 Bean 对象
+ * 装在基础 Bean 对象
  * @Author yanger
  * @Date 2021/2/1 17:38
  */

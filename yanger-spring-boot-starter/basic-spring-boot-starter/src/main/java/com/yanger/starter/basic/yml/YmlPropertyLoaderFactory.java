@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description yml 文件加载工具类
+ * yml 文件加载工具类
  * @Author yanger
  * @Date 2020/12/29 18:31
  */

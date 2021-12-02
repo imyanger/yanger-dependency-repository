@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Description LRUCache
+ * LRUCache
  * @Author yanger
  * @Date 2020/12/21 10:27
  */

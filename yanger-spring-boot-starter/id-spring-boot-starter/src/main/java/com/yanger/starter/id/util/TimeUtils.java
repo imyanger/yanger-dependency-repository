@@ -1,12 +1,12 @@
 package com.yanger.starter.id.util;
 
 import com.yanger.starter.id.enums.IdType;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 时间工具类
+ * 时间工具类
  * @Author yanger
  * @Date 2021/1/28 19:08
  */
@@ -26,12 +26,12 @@ public class TimeUtils {
     public static void validateTimestamp(long lastTimestamp, long timestamp) {
         if (timestamp < lastTimestamp) {
             if (log.isErrorEnabled()) {
-                log.error(StringFormatter.format("Clock moved backwards.  Refusing to generate id for {} second/milisecond.",
+                log.error(StringFormat.format("Clock moved backwards.  Refusing to generate id for {} second/milisecond.",
                                               lastTimestamp - timestamp));
             }
 
             throw new IllegalStateException(
-                StringFormatter.format("Clock moved backwards.  Refusing to generate id for {} second/milisecond.",
+                StringFormat.format("Clock moved backwards.  Refusing to generate id for {} second/milisecond.",
                                     lastTimestamp - timestamp));
         }
     }
@@ -45,7 +45,7 @@ public class TimeUtils {
      */
     public static long tillNextTimeUnit(long lastTimestamp, IdType idType) {
         if (log.isInfoEnabled()) {
-            log.info(StringFormatter.format("Ids are used out during {}. Waiting till next second/milisencond.",
+            log.info(StringFormat.format("Ids are used out during {}. Waiting till next second/milisencond.",
                                          lastTimestamp));
         }
 
@@ -55,7 +55,7 @@ public class TimeUtils {
         }
 
         if (log.isInfoEnabled()) {
-            log.info(StringFormatter.format("Next second/milisencond {} is up.", timestamp));
+            log.info(StringFormat.format("Next second/milisencond {} is up.", timestamp));
         }
 
         return timestamp;

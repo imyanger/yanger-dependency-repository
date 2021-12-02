@@ -23,7 +23,7 @@ import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 统一异常处理
+ * 统一异常处理
  * @Author yanger
  * @Date 2020/12/7 19:04
  */

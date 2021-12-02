@@ -1,7 +1,7 @@
 package com.yanger.starter.id.enums;
 
 /**
- * @Description id 同步类型
+ * id 同步类型
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

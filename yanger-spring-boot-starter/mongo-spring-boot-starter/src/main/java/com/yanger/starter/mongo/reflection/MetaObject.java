@@ -17,7 +17,7 @@ import java.util.Map;
 import lombok.Getter;
 
 /**
- * @Description 实体元数据包装对象
+ * 实体元数据包装对象
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

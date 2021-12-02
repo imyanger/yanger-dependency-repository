@@ -12,7 +12,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
- * @Description 数据库表反射信息
+ * 数据库表反射信息
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

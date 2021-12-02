@@ -3,7 +3,7 @@ package com.yanger.generator.enums;
 import lombok.Getter;
 
 /**
- * @Description 模板类型
+ * 模板类型
  * @Author yanger
  * @Date 2020/7/20 18:06
  */

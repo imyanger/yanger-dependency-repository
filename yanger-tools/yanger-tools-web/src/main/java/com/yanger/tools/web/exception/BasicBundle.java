@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description 消息外置, 需要在 resources/messages 创建对应的 [CoreBundle.properties] 文件
+ * 消息外置, 需要在 resources/messages 创建对应的 [CoreBundle.properties] 文件
  * @Author yanger
  * @Date 2020/12/25 13:47
  */

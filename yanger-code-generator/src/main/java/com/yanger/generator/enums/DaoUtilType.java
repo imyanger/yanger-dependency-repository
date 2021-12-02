@@ -3,7 +3,7 @@ package com.yanger.generator.enums;
 import lombok.Getter;
 
 /**
- * @Description 模型对象类型
+ * 模型对象类型
  * @Author yanger
  * @Date 2020/7/20 18:06
  */
@@ -28,7 +28,7 @@ public enum DaoUtilType {
     }
 
     /**
-     * @Description 是否doa层工具为MybatisXml
+     * 是否doa层工具为MybatisXml
      * @author yanger
      * @date 2020/9/16 22:19
      * @param daoUtilType
@@ -39,7 +39,7 @@ public enum DaoUtilType {
     }
 
     /**
-     * @Description 是否doa层工具为MybatisAnnotation
+     * 是否doa层工具为MybatisAnnotation
      * @author yanger
      * @date 2020/9/16 22:19
      * @param daoUtilType
@@ -50,7 +50,7 @@ public enum DaoUtilType {
     }
 
     /**
-     * @Description 是否doa层工具为Mybatis
+     * 是否doa层工具为Mybatis
      * @author yanger
      * @date 2020/9/16 22:19
      * @param daoUtilType
@@ -61,7 +61,7 @@ public enum DaoUtilType {
     }
 
     /**
-     * @Description 是否doa层工具为MybatisPlus
+     * 是否doa层工具为MybatisPlus
      * @author yanger
      * @date 2020/9/16 22:19
      * @param daoUtilType
@@ -72,7 +72,7 @@ public enum DaoUtilType {
     }
 
     /**
-     * @Description 是否doa层工具为JPA
+     * 是否doa层工具为JPA
      * @author yanger
      * @date 2020/9/16 22:19
      * @param daoUtilType

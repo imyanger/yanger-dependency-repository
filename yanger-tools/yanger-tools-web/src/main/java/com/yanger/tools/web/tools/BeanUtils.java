@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * @Description 对象拷贝类
+ * 对象拷贝类
  * @Author yanger
  * @Date 2020/7/17 18:34
  */

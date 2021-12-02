@@ -22,7 +22,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @Description ${modelName}数据，对应数据库${tableName}表
+ * ${modelName}数据，对应数据库${tableName}表
  * @Author ${authorName}
  * @Date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */

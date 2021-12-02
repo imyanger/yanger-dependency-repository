@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * @Description 元对象字段填充控制器抽象类, 实现公共字段自动写入
+ * 元对象字段填充控制器抽象类, 实现公共字段自动写入
  *     所有入参的 MetaObject 必定是 entity 或其子类的 MetaObject
  * @Author yanger
  * @Date 2020/12/29 17:32

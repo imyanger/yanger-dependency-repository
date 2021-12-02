@@ -17,7 +17,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description url处理工具类
+ * url处理工具类
  * @Author yanger
  * @Date 2020/12/22 14:06
  */

@@ -1,7 +1,7 @@
 package com.yanger.tools.web.tools;
 
 /**
- * @Description ConverterUtils的回调类
+ * ConverterUtils的回调类
  * @Author yanger
  * @Date 2020/7/17 18:36
  */

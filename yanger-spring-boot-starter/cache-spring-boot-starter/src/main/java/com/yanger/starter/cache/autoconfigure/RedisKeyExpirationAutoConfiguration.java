@@ -13,7 +13,7 @@ import org.springframework.data.redis.listener.KeyExpirationEventMessageListener
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
 /**
- * @Description redis key 过期装配
+ * redis key 过期装配
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

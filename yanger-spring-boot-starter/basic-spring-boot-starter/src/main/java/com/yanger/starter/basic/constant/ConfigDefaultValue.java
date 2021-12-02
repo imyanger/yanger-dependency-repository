@@ -3,7 +3,7 @@ package com.yanger.starter.basic.constant;
 import com.yanger.starter.basic.enums.TokenType;
 
 /**
- * @Description 常用的配置默认值
+ * 常用的配置默认值
  * @Author yanger
  * @Date 2020/12/21 10:02
  */

@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author 验证码生成器
- * @Description jwt工具类
+ * jwt工具类
  * @date 2018年9月23日-下午4:28:57
  */
 @Slf4j

@@ -11,7 +11,7 @@ import java.net.*;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 用来获取各种目录
+ * 用来获取各种目录
  * @Author yanger
  * @Date 2020/12/22 14:04
  */

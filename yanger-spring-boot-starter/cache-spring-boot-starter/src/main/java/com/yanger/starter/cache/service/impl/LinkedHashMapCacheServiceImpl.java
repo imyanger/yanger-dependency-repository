@@ -4,7 +4,7 @@ import com.alicp.jetcache.Cache;
 import com.yanger.starter.cache.service.AbstractCacheService;
 
 /**
- * @Description LinkedHashMap 缓存实现
+ * LinkedHashMap 缓存实现
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

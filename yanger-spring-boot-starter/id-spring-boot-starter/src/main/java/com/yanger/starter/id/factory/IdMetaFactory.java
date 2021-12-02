@@ -6,7 +6,7 @@ import com.yanger.starter.id.enums.IdType;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @Description ID 元数据工厂
+ * ID 元数据工厂
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

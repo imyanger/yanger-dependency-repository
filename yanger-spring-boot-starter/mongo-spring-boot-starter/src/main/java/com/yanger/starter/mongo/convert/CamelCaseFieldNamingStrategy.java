@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description 自定义策略, 目的: myName -> MY_NAME, 其他自带的策略:
+ * 自定义策略, 目的: myName -> MY_NAME, 其他自带的策略:
  *     {@link CamelCaseAbbreviatingFieldNamingStrategy}: 首字母大写
  *     {@link CamelCaseSplittingFieldNamingStrategy}: 分隔驼峰命名, 传入自定义分隔符
  *     {@link SnakeCaseFieldNamingStrategy}: 下划线风格

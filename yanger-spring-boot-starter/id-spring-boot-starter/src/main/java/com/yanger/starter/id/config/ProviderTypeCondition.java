@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
- * @Description 自定义条件用于初始化指定的 bean, 默认雪花算法
+ * 自定义条件用于初始化指定的 bean, 默认雪花算法
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

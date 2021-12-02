@@ -9,7 +9,7 @@ import org.springframework.data.convert.WritingConverter;
 import java.time.LocalDateTime;
 
 /**
- * @Description Java -> MongoDB
+ * Java -> MongoDB
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

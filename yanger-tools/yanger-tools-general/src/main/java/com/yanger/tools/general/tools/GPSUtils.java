@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description GPS 工具类
+ * GPS 工具类
  * @Author yanger
  * @Date 2021/2/4 9:38
  */
@@ -23,7 +23,7 @@ public class GPSUtils {
     public GPSUtils() { }
 
     /**
-     * @Description 世界坐标转国测局坐标
+     * 世界坐标转国测局坐标
      * @Author yanger
      * @Date 2021/2/4 9:42 
      * @param: latitude 维度
@@ -39,7 +39,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 世界坐标转百度坐标
+     * 世界坐标转百度坐标
      * @Author yanger
      * @Date 2021/2/4 9:42
      * @param: latitude 维度
@@ -55,7 +55,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 国测局坐标转世界坐标
+     * 国测局坐标转世界坐标
      * @Author yanger
      * @Date 2021/2/4 9:42
      * @param: latitude 维度
@@ -74,7 +74,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 百度坐标转世界坐标
+     * 百度坐标转世界坐标
      * @Author yanger
      * @Date 2021/2/4 9:42
      * @param: latitude 维度
@@ -88,7 +88,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 国测局坐标转百度坐标
+     * 国测局坐标转百度坐标
      * @Author yanger
      * @Date 2021/2/4 9:42
      * @param: latitude 维度
@@ -105,7 +105,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 百度坐标转国测局坐标
+     * 百度坐标转国测局坐标
      * @Author yanger
      * @Date 2021/2/4 9:42
      * @param: latitude 维度
@@ -136,7 +136,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 获取坐标点偏移量
+     * 获取坐标点偏移量
      * @Author yanger
      * @Date 2021/2/4 9:48
      * @param: latitude 维度
@@ -161,7 +161,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 获取坐标点偏移量
+     * 获取坐标点偏移量
      * @Author yanger
      * @Date 2021/2/4 9:48
      * @param: latitude 维度
@@ -178,7 +178,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 获取坐标点偏移量
+     * 获取坐标点偏移量
      * @Author yanger
      * @Date 2021/2/4 9:48
      * @param: latitude 维度
@@ -195,7 +195,7 @@ public class GPSUtils {
     }
 
     /**
-     * @Description 给定坐标是否在区域内
+     * 给定坐标是否在区域内
      * @Author yanger
      * @Date 2021/2/4 9:48
      * @param: polygon

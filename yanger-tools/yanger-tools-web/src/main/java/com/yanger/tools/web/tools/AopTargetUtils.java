@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description Aop获取代理对象
+ * Aop获取代理对象
  * @Author yanger
  * @Date 2020/12/21 10:35
  */

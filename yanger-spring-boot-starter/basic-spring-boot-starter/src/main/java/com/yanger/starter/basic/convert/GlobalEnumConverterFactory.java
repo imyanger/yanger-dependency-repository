@@ -11,7 +11,7 @@ import org.springframework.core.convert.converter.ConverterFactory;
 import java.util.Map;
 
 /**
- * @Description spring mvc 枚举转换 (前端传入的都是 String 类型, 因此这里直接指定为 String, 但是真实的值包含: value/name/枚举下标)
+ * spring mvc 枚举转换 (前端传入的都是 String 类型, 因此这里直接指定为 String, 但是真实的值包含: value/name/枚举下标)
  * @Author yanger
  * @Date 2021/1/27 17:06
  */

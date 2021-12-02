@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @Description 拦截日志对象
+ * 拦截日志对象
  * @Author yanger
  * @Date 2021/3/16 17:05
  */

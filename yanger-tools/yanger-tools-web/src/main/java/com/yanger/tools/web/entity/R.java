@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @Description 通用返回体
+ * 通用返回体
  * @Author yanger
  * @Date 2020/12/21 18:23
  */

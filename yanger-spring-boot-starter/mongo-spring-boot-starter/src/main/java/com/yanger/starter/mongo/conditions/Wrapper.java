@@ -6,7 +6,7 @@ import com.yanger.starter.mongo.mapper.Model;
 import java.io.*;
 
 /**
- * @Description mongodb 搜索语句包装类
+ * mongodb 搜索语句包装类
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

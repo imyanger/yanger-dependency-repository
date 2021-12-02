@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import lombok.experimental.UtilityClass;
 
 /**
- * @Description 系统工具类
+ * 系统工具类
  * @Author yanger
  * @Date 2020/12/22 10:53
  */

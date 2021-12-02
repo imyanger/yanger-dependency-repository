@@ -5,7 +5,7 @@ import com.yanger.starter.mongo.exception.QueryException;
 import org.springframework.data.mongodb.core.query.Criteria;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

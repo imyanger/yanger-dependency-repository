@@ -5,7 +5,7 @@ import com.yanger.starter.basic.enums.ApplicationType;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description 应用参数
+ * 应用参数
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

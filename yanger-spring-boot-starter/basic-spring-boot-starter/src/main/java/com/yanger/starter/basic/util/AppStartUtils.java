@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 应用启动工具类
+ * 应用启动工具类
  * @Author yanger
  * @Date 2020/12/29 18:16
  */

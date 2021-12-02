@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * @Description rest 接口参数自定义处理与绑定
+ * rest 接口参数自定义处理与绑定
  * @Author yanger
  * @Date 2021/1/27 18:18
  */

@@ -30,7 +30,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
- * @Description 参数处理工具类
+ * 参数处理工具类
  * @Author yanger
  * @Date 2020/8/27 16:39
  */
@@ -38,7 +38,7 @@ public class ParamUtils {
 
 
     /**
-     * @Description 组织 ApiParam 参数
+     * 组织 ApiParam 参数
      * @Author yanger
      * @Date 2020/11/10 11:14
      * @param: generatorConfig
@@ -78,7 +78,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 ServiceParam 参数
+     * 组织 ServiceParam 参数
      * @Author yanger
      * @Date 2020/11/10 11:15
      * @param: generatorConfig
@@ -115,7 +115,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 DaoParam 参数
+     * 组织 DaoParam 参数
      * @Author yanger
      * @Date 2020/11/10 14:20
      * @param: generatorConfig
@@ -145,7 +145,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 EntityParam 参数
+     * 组织 EntityParam 参数
      * @Author yanger
      * @Date 2020/11/10 14:19 
      * @param: generatorConfig
@@ -173,7 +173,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 UtilsParam 参数
+     * 组织 UtilsParam 参数
      * @Author yanger
      * @Date 2020/11/10 18:19
      * @param: generatorConfig
@@ -185,7 +185,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 UtilsParam 参数
+     * 组织 UtilsParam 参数
      * @Author yanger
      * @Date 2020/11/10 18:20
      * @param: generatorConfig
@@ -236,7 +236,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组织 GenerateParam 参数
+     * 组织 GenerateParam 参数
      * @Author yanger
      * @Date 2020/8/30 12:21
      * @param: generatorConfig
@@ -264,7 +264,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 根据 model 名称和模型类型 组织包名
+     * 根据 model 名称和模型类型 组织包名
      * @Author yanger
      * @Date 2020/8/30 13:40
      * @param: codePackage
@@ -279,7 +279,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 获取对象名称
+     * 获取对象名称
      * @Author yanger
      * @Date 2020/8/30 13:42
      * @param: modelName
@@ -294,7 +294,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 根据 ApiParam 生成 ApiConverterParam
+     * 根据 ApiParam 生成 ApiConverterParam
      * @Author yanger
      * @Date 2020/8/28 9:17
      * @param: apiParam
@@ -335,7 +335,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 根据 ServiceParam 生成 ServiceConverterParam
+     * 根据 ServiceParam 生成 ServiceConverterParam
      * @Author yanger
      * @Date 2020/8/28 9:55
      * @param: serviceParam
@@ -363,7 +363,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 根据 ApiParam、ServiceParam 生成 ConverterParam 集合
+     * 根据 ApiParam、ServiceParam 生成 ConverterParam 集合
      * @Author yanger
      * @Date 2020/11/10 18:15
      * @param: apiParam
@@ -449,7 +449,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 获取转换方法
+     * 获取转换方法
      * @Author yanger
      * @Date 2020/8/28 9:17
      * @param: modelName
@@ -462,7 +462,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 获取转换方法
+     * 获取转换方法
      * @Author yanger
      * @Date 2020/8/28 9:17
      * @param: modelName
@@ -475,7 +475,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 获取转换方法
+     * 获取转换方法
      * @Author yanger
      * @Date 2020/8/28 9:16
      * @param: modelName
@@ -500,7 +500,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 获取对象简单描述
+     * 获取对象简单描述
      * @Author yanger
      * @Date 2020/8/28 9:16
      * @param: modelName
@@ -512,7 +512,7 @@ public class ParamUtils {
     }
 
     /**
-     * @Description 组装字段部分
+     * 组装字段部分
      * @Author yanger
      * @Date 2020/8/28 9:15
      * @param: objName

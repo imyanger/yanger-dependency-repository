@@ -3,7 +3,7 @@ package com.yanger.starter.basic.exception;
 import com.yanger.tools.web.exception.BasicException;
 
 /**
- * @Description 配置 异常
+ * 配置 异常
  * @Author yanger
  * @Date 2020/12/29 18:37
  */

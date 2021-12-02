@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description Api代码生成的参数
+ * Api代码生成的参数
  * @Author yanger
  * @Date 2020/7/21 9:58
  */

@@ -4,7 +4,7 @@ import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.enums.DeployType;
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.exception.IdWorkerException;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 
 import java.util.Date;
 
@@ -123,11 +123,11 @@ public class SnowflakeIdServiceImpl implements IdService {
         }
         // 检查机房 id 和机器 id 是否超过 31 不能小于 0
         if (machineId > this.maxMachineId || machineId < 0) {
-            throw new IllegalArgumentException(StringFormatter.format("worker Id can't be greater than {} or less than 0",
+            throw new IllegalArgumentException(StringFormat.format("worker Id can't be greater than {} or less than 0",
                                                                       this.maxMachineId));
         }
         if (dataCenterId > this.maxDataCenterId || dataCenterId < 0) {
-            throw new IllegalArgumentException(StringFormatter.format("datacenter Id can't be greater than {} or less than 0",
+            throw new IllegalArgumentException(StringFormat.format("datacenter Id can't be greater than {} or less than 0",
                                                                       this.maxDataCenterId));
         }
         this.machineId = machineId;
@@ -185,7 +185,7 @@ public class SnowflakeIdServiceImpl implements IdService {
         long timestamp = this.genTime();
         if (timestamp < this.lastTimestamp) {
             // 如果服务器时间有问题(时钟后退) 报错.
-            throw new IllegalStateException(StringFormatter.format("Clock moved backwards. Refusing to generate id for {}ms",
+            throw new IllegalStateException(StringFormat.format("Clock moved backwards. Refusing to generate id for {}ms",
                                                                    this.lastTimestamp - timestamp));
         }
         // 在同一个毫秒内, 又发送了一个请求生成一个id, 这个时候把 seqence 序号给递增 1, 最多就是 4096

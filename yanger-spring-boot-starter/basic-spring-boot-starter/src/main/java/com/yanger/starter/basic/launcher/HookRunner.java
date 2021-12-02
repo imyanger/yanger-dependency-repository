@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 处理主类上的启动标识, 如果是 {@link ApplicationType#SERVICE} 则启动一个守护线程, 防止主线程退出
+ * 处理主类上的启动标识, 如果是 {@link ApplicationType#SERVICE} 则启动一个守护线程, 防止主线程退出
  * @Author yanger
  * @Date 2020/12/29 17:07
  */

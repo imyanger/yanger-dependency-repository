@@ -53,7 +53,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description mongodb 自动配置类
+ * mongodb 自动配置类
  *     https://docs.spring.io/spring-data/mongodb/docs/2.2.1.RELEASE/reference/html
  * @Author yanger
  * @Date 2020/12/29 17:32

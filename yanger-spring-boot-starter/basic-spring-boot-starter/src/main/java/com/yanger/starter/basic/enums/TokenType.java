@@ -1,7 +1,7 @@
 package com.yanger.starter.basic.enums;
 
 /**
- * @Description 用户信息存储方式，session 还是 header 获取
+ * 用户信息存储方式，session 还是 header 获取
  * @Author yanger
  * @Date 2020/12/29 16:12
  */

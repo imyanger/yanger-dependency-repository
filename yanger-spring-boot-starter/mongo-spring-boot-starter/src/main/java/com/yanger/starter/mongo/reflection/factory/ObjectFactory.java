@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @Description MyBatis uses an ObjectFactory to create all needed new Objects
+ * MyBatis uses an ObjectFactory to create all needed new Objects
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

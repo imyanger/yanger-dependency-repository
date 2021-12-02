@@ -14,7 +14,7 @@ import com.yanger.starter.basic.util.ConvertUtils;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.basic.util.YmlUtils;
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 
 import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -41,7 +41,7 @@ import java.util.jar.Manifest;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 基础启动
+ * 基础启动
  * @Author yanger
  * @Date 2020/12/29 16:56
  */
@@ -82,7 +82,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 获取参数中配置文件路径 ： eg：--yanger.app.config-path=D:\yangr\
+     * 获取参数中配置文件路径 ： eg：--yanger.app.config-path=D:\yangr\
      * @Author yanger
      * @Date 2021/1/25 10:00
      * @param: args
@@ -99,7 +99,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 设置参数中的参数
+     * 设置参数中的参数
      * @Author yanger
      * @Date 2021/1/25 10:00
      * @param: args
@@ -178,7 +178,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 加载 yaml 文件配置
+     * 加载 yaml 文件配置
      * @Author yanger
      * @Date 2021/2/3 15:47
      */
@@ -195,7 +195,7 @@ public final class BasicRunner {
             }
             loadMapCustomProperties(bootProperties);
             if (bootProperties != null && bootProperties.get(ConfigKey.SpringConfigKey.PROFILES_ACTIVE) != null) {
-                String activeName = StringFormatter.format(App.Const.BOOT_CONFIG_ACTIVE_FILE_NAME, bootProperties.get(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
+                String activeName = StringFormat.format(App.Const.BOOT_CONFIG_ACTIVE_FILE_NAME, bootProperties.get(ConfigKey.SpringConfigKey.PROFILES_ACTIVE));
                 Map<String, Object> activeProperties = YmlUtils.getYamlProperties(activeName);
                 loadMapCustomProperties(activeProperties);
             }
@@ -203,7 +203,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 添加map属性到自定义配置
+     * 添加map属性到自定义配置
      * @Author yanger
      * @Date 2021/2/3 14:53
      * @param: map
@@ -305,7 +305,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 将配置属性添加到系统环境变量System中
+     * 将配置属性添加到系统环境变量System中
      * @Author yanger
      * @Date 2021/2/3 14:57
      */
@@ -321,7 +321,7 @@ public final class BasicRunner {
     }
 
     /**
-     * @Description 控制台输出默认配置和自定义配置
+     * 控制台输出默认配置和自定义配置
      * @Author yanger
      * @Date 2021/2/3 14:57
      */

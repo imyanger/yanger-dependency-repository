@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * @Description Lambda 受检异常
+ * Lambda 受检异常
  * @Author yanger
  * @Date 2020/12/18 14:37
  */

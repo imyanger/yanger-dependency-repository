@@ -17,7 +17,7 @@ import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description abstract id 生成服务
+ * abstract id 生成服务
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

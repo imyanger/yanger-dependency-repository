@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description web配置类
+ * web配置类
  * @Author yanger
  * @Date 2020/7/17 18:13
  */

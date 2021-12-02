@@ -3,7 +3,7 @@ package com.yanger.starter.id.entity;
 import org.jetbrains.annotations.Contract;
 
 /**
- * @Description ID 元数据
+ * ID 元数据
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

@@ -1,8 +1,7 @@
 package com.yanger.tools.web.exception;
 
-import com.yanger.tools.general.constant.CharPool;
 import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.format.StringFormatter;
+import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.web.support.ResultCode;
 import com.yanger.tools.web.support.Trace;
 import com.yanger.tools.web.tools.NumberUtils;
@@ -11,7 +10,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 基础异常类
+ * 基础异常类
  * @Author yanger
  * @Date 2020/12/18 10:36
  */
@@ -67,7 +66,7 @@ public class BasicException extends RuntimeException {
      * @param args    args
      */
     public BasicException(String message, Object... args) {
-        this(StringFormatter.mergeFormat(message, args));
+        this(StringFormat.mergeFormat(message, args));
         this.code = DEFAULT_ERROR_CODE;
         this.message = message;
         this.traceId = Trace.context().get();
@@ -96,7 +95,7 @@ public class BasicException extends RuntimeException {
     public static BasicException of(String code, String message, Object... args) {
         BasicException basicException = new BasicException();
         basicException.code = code;
-        basicException.message = StringFormatter.mergeFormat(message, args);
+        basicException.message = StringFormat.mergeFormat(message, args);
         basicException.traceId = Trace.context().get();
         return basicException;
     }

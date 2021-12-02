@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 默认的审计字段填充 (createTime 和 updateTime)
+ * 默认的审计字段填充 (createTime 和 updateTime)
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

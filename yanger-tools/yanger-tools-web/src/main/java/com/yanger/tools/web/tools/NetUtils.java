@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description NET工具类
+ * NET工具类
  * @Author yanger
  * @Date 2020/12/21 10:30
  */

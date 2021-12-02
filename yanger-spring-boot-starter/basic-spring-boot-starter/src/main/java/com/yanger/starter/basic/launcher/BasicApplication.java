@@ -21,7 +21,7 @@ import io.github.classgraph.ClassInfoList;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 基础启动类
+ * 基础启动类
  * @Author yanger
  * @Date 2020/12/29 16:12
  */

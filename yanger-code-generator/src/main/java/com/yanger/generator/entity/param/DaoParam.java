@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @Description Dao代码生成的参数
+ * Dao代码生成的参数
  * @Author yanger
  * @Date 2020/7/22 18:19
  */

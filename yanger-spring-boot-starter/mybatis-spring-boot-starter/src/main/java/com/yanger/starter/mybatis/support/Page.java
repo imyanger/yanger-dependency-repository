@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @Description 分页对象
+ * 分页对象
  * @Author yanger
  * @Date 2021/1/29 11:41
  */

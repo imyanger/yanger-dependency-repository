@@ -9,7 +9,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * @Description 数据源配置
+ * 数据源配置
  * @Author yanger
  * @Date 2020/7/20 17:38
  */
@@ -40,7 +40,7 @@ public class DataSourceConfig implements Serializable {
     private List<String> tables;
 
     /**
-     * @Description 添加要生成的表
+     * 添加要生成的表
      * @Author yanger
      * @Date 2020/11/18 16:47
      * @param: table
@@ -56,7 +56,7 @@ public class DataSourceConfig implements Serializable {
     }
 
     /**
-     * @Description 判断是不是完整的DB配置
+     * 判断是不是完整的DB配置
      * @Author yanger
      * @Date 2020/11/18 18:47
      * @return: boolean
@@ -66,7 +66,7 @@ public class DataSourceConfig implements Serializable {
     }
 
     /**
-     * @Description 判断是不是DB
+     * 判断是不是DB
      * @Author yanger
      * @Date 2020/11/18 18:47
      * @return: boolean

@@ -5,7 +5,7 @@ import com.yanger.starter.basic.annotation.AutoService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description
+
  * @Author yanger
  * @Date 2021/3/1 18:47
  */

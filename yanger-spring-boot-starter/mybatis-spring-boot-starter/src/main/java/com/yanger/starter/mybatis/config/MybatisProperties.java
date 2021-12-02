@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
 
 /**
- * @Description 数据库配置
+ * 数据库配置
  * @Author yanger
  * @Date 2021/1/28 15:35
  */

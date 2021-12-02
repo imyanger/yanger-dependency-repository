@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 
 /**
- * @Description 微信请求代理类
+ * 微信请求代理类
  * @Author yanger
  * @Date 2021/1/11 17:58
  */

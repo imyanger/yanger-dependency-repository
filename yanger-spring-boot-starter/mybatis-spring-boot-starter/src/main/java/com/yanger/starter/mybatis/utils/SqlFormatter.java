@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 /**
- * @Description Hibernate BasicFormatterImpl
+ * Hibernate BasicFormatterImpl
  * @Author yanger
  * @Date 2021/1/28 18:42
  */

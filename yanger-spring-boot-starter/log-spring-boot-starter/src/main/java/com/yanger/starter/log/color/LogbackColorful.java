@@ -6,7 +6,7 @@ import ch.qos.logback.core.pattern.color.ANSIConstants;
 import ch.qos.logback.core.pattern.color.ForegroundCompositeConverterBase;
 
 /**
- * @Description 日志颜色
+ * 日志颜色
  * @Author yanger
  * @Date 2021/2/25 19:09
  */

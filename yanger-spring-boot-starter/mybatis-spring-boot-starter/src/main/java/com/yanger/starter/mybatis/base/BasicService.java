@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @Description BaseService 实现类（ 泛型: M 是 mapper 对象,T 是实体 , PK 是主键泛型 ）
+ * BaseService 实现类（ 泛型: M 是 mapper 对象,T 是实体 , PK 是主键泛型 ）
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

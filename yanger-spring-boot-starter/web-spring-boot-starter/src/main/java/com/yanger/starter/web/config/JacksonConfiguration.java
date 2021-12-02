@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Primary;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description Jackson配置类
+ * Jackson配置类
  * @Author yanger
  * @Date 2021/1/27 19:27
  */

@@ -13,7 +13,7 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description yaml文件解析
+ * yaml文件解析
  * @Author yanger
  * @Date 2021/1/20 16:39
  */

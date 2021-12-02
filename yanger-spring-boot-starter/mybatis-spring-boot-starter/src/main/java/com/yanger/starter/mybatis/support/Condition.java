@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * @Description 分页工具
+ * 分页工具
  * @Author yanger
  * @Date 2021/1/29 9:40
  */
