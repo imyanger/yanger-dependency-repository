@@ -29,9 +29,10 @@ public class DateTimeFormat {
 
     /**
      * 日期时间格式化
-     *
-     * @param temporal 时间
-     * @return 格式化后的时间 string
+     * @param temporal TemporalAccessor 接口实现
+     * @return {@link String} 格式化后的日期时间字符串
+     * @Author yanger
+     * @Date 2021/12/02 21:09
      */
     @NotNull
     public static String formatDateTime(TemporalAccessor temporal) {
@@ -39,10 +40,11 @@ public class DateTimeFormat {
     }
 
     /**
-     * 日期时间格式化
-     *
-     * @param temporal 时间
-     * @return 格式化后的时间 string
+     * 日期格式化
+     * @param temporal TemporalAccessor 接口实现
+     * @return {@link String} 格式化后的日期字符串
+     * @Author yanger
+     * @Date 2021/12/02 21:09
      */
     @NotNull
     public static String formatDate(TemporalAccessor temporal) {
@@ -51,9 +53,10 @@ public class DateTimeFormat {
 
     /**
      * 时间格式化
-     *
-     * @param temporal 时间
-     * @return 格式化后的时间 string
+     * @param temporal TemporalAccessor 接口实现
+     * @return {@link String} 格式化后的时间字符串
+     * @Author yanger
+     * @Date 2021/12/02 21:09
      */
     @NotNull
     public static String formatTime(TemporalAccessor temporal) {
@@ -61,11 +64,12 @@ public class DateTimeFormat {
     }
 
     /**
-     * 日期格式化
-     *
-     * @param temporal 时间
-     * @param pattern  表达式
-     * @return 格式化后的时间 string
+     * 日期时间格式化
+     * @param temporal TemporalAccessor 接口实现
+     * @param pattern 日期时间格式
+     * @return {@link String} 格式化后的日期时间字符串
+     * @Author yanger
+     * @Date 2021/12/02 21:10
      */
     @NotNull
     public static String format(TemporalAccessor temporal, String pattern) {
@@ -74,10 +78,11 @@ public class DateTimeFormat {
 
     /**
      * 将字符串转换为时间
-     *
-     * @param dateStr 时间字符串
-     * @param pattern 表达式
-     * @return 时间 temporal accessor
+     * @param dateStr 日期时间字符串
+     * @param pattern 日期时间格式
+     * @return {@link TemporalAccessor}
+     * @Author yanger
+     * @Date 2021/12/02 21:10
      */
     @NotNull
     public static TemporalAccessor parse(String dateStr, String pattern) {
@@ -87,10 +92,11 @@ public class DateTimeFormat {
 
     /**
      * 将字符串转换为时间
-     *
-     * @param dateStr   时间字符串
-     * @param formatter DateTimeFormatter
-     * @return 时间 temporal accessor
+     * @param dateStr 日期时间字符串
+     * @param formatter 日期时间格式化 DateTimeFormatter 对象
+     * @return {@link TemporalAccessor}
+     * @Author yanger
+     * @Date 2021/12/02 21:10
      */
     @NotNull
     public static TemporalAccessor parse(String dateStr, @NotNull DateTimeFormatter formatter) {
@@ -98,20 +104,22 @@ public class DateTimeFormat {
     }
 
     /**
-     * 时间转 Instant
-     *
-     * @param dateTime 时间
-     * @return Instant instant
+     * LocalDateTime 时间转 Instant
+     * @param dateTime LocalDateTime对象
+     * @return {@link Instant}
+     * @Author yanger
+     * @Date 2021/12/02 21:10
      */
     public static Instant toInstant(@NotNull LocalDateTime dateTime) {
         return dateTime.atZone(ZoneId.systemDefault()).toInstant();
     }
 
     /**
-     * Instant 转 时间
-     *
-     * @param instant Instant
-     * @return Instant local date time
+     * Instant 转 LocalDateTime
+     * @param instant Instant 对象
+     * @return {@link LocalDateTime}
+     * @Author yanger
+     * @Date 2021/12/02 21:11
      */
     @NotNull
     public static LocalDateTime toDateTime(Instant instant) {
