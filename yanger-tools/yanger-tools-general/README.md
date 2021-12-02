@@ -1,11 +1,14 @@
 ## General tools
 包含一些常用的工具类，可作用于简单的 java 工程（不包含 web 依赖）。
 
+
 ### 1. constant
 基础的常量池，消除硬编码。
 * CharPool：一些字节常量
 * Charsets：常用编码集
+* DateConstant：日期时间格式的常量
 * StringPool：字符串常量
+
 
 ### 2. format
 一些转换工具。
@@ -41,7 +44,15 @@
 > 2021-11
 
 #### DateTimeFormat
-DateTime 工具类。
+DateTime 工具类, 提供 TemporalAccessor，LocalDateTime，Instant 的转换
+```java
+    @Test
+    public void testDateTimeFormat() {
+        String formatString = DateTimeFormat.format(LocalDate.now(), "yyyy-MM");
+        System.out.println(formatString);
+    }
+```
+
 
 ### 3. tools
 

@@ -1,9 +1,11 @@
 package com.yanger.test.format;
 
 import com.yanger.tools.general.format.ConcurrentDateFormat;
+import com.yanger.tools.general.format.DateTimeFormat;
 import com.yanger.tools.general.format.StringFormat;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class TestFormatTools {
@@ -22,6 +24,12 @@ public class TestFormatTools {
         System.out.println(now);
         String now2 = ConcurrentDateFormat.of("yyyy-MM").format(new Date());
         System.out.println(now2);
+    }
+
+    @Test
+    public void testDateTimeFormat() {
+        String formatString = DateTimeFormat.format(LocalDate.now(), "yyyy-MM");
+        System.out.println(formatString);
     }
 
 }
