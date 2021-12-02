@@ -18,13 +18,13 @@ import java.time.temporal.TemporalAccessor;
 @UtilityClass
 public class DateTimeFormat {
 
-    /** The constant DATETIME_FORMAT */
+    /** 日期时间格式化对象：yyyy-MM-dd HH:mm:ss */
     public static final DateTimeFormatter DATETIME_FORMAT = DateTimeFormatter.ofPattern(DateConstant.PATTERN_DATETIME);
 
-    /** The constant DATE_FORMAT */
+    /** 日期格式化对象：yyyy-MM-dd */
     public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern(DateConstant.PATTERN_DATE);
 
-    /** The constant TIME_FORMAT */
+    /** 时间格式化对象：HH:mm:ss */
     public static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern(DateConstant.PATTERN_TIME);
 
     /**
