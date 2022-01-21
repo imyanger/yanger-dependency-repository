@@ -1,14 +1,14 @@
 package com.yanger.tools.general.tools;
 
+import cn.hutool.core.codec.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-import cn.hutool.core.codec.Base64;
-
 /**
- * @author YangHao
  * 加密工具类
  * @Author yanger
+ * @Date 2018/12/29 20:05
  */
 public class EncryptUtils {
 
@@ -19,10 +19,11 @@ public class EncryptUtils {
     public final static String ENCODING = "UTF-8";
 
     /**
-     * @param source
-     * @return MD5加密
-     * @author YangHao
-     * @date 2018年9月18日-上午12:03:25
+     * MD5加密
+     * @param source 待加密字符串
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String getMD5(String source) {
         return getMD5(source.getBytes());
@@ -30,11 +31,10 @@ public class EncryptUtils {
 
     /**
      * MD5加密
-     *
-     * @param source
-     * @return MD5加密
-     * @author YangHao
-     * @date 2018年9月18日-上午12:03:25
+     * @param source 待加密字符串
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String getMD5(byte[] source) {
         String s = null;
@@ -69,12 +69,11 @@ public class EncryptUtils {
 
     /**
      * AES加密
-     *
-     * @param src 加密内容
-     * @param key 加密key
-     * @return AES加密
-     * @author YangHao
-     * @date 2018年9月18日-上午12:03:25
+     * @param src 待加密字符串
+     * @param key 秘钥
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String AESEncrypt(String src, String key) throws Exception {
         if (key == null || key.length() != 16) {
@@ -90,12 +89,11 @@ public class EncryptUtils {
 
     /**
      * AES解密
-     *
-     * @param src 解密内容
-     * @param key 解密key
-     * @return AES解密
-     * @author YangHao
-     * @date 2018年9月18日-上午12:03:25
+     * @param src 待加密字符串
+     * @param key 秘钥
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String AESDecrypt(String src, String key) throws Exception {
         if (key == null || key.length() != 16) {
@@ -113,11 +111,10 @@ public class EncryptUtils {
 
     /**
      * 十六进制转字节
-     *
+     * @param strhex 十六进字符串
+     * @return {@link byte[]}
      * @Author yanger
-     * @Date 2020/12/11 18:33
-     * @param: strhex
-     * @return: byte[]
+     * @Date 2021/12/08 23:36
      */
     private static byte[] hex2byte(String strhex) {
         if (strhex == null) {
@@ -136,11 +133,10 @@ public class EncryptUtils {
 
     /**
      * 字节转十六进制
-     *
+     * @param b 字节数组
+     * @return {@link String}
      * @Author yanger
-     * @Date 2020/12/11 18:34
-     * @param: b
-     * @return: java.lang.String
+     * @Date 2021/12/08 23:36
      */
     private static String byte2hex(byte[] b) {
         String hs = "";
@@ -158,9 +154,10 @@ public class EncryptUtils {
 
     /**
      * Base64编码
-     *
-     * @param data：待编码数据
-     * @return String-编码数据
+     * @param data 待编码字符串
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String encode(String data) {
         // 执行编码
@@ -169,9 +166,10 @@ public class EncryptUtils {
 
     /**
      * Base64解码
-     *
-     * @param data：待解码数据
-     * @return String：解码数据
+     * @param data Base64编码字符串
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2021/12/08 23:36
      */
     public static String decode(String data) {
         // 执行解码

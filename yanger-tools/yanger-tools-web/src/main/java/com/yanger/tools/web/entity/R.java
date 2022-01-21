@@ -18,7 +18,6 @@ public final class R<T> extends Result<T> {
 
     /**
      * R
-     *
      * @param code    code
      * @param message message
      * @param data    data
@@ -31,7 +30,6 @@ public final class R<T> extends Result<T> {
 
     /**
      * Build result
-     *
      * @param <T>     parameter
      * @param code    code
      * @param msg     msg

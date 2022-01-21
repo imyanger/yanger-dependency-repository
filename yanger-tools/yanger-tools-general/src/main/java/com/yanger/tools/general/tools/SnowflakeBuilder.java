@@ -1,13 +1,13 @@
 package com.yanger.tools.general.tools;
 
+import cn.hutool.core.lang.Snowflake;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 
-import java.net.*;
-
-import cn.hutool.core.lang.Snowflake;
-import lombok.experimental.UtilityClass;
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 
 /**
  * 雪花算法生成全局唯一 id
@@ -18,9 +18,32 @@ import lombok.experimental.UtilityClass;
 public class SnowflakeBuilder {
 
     /**
-     * 活动机器编号
-     *
-     * @return work id
+     * build 构造
+     * @return {@link long}
+     * @Author yanger
+     * @Date 2022/01/21 21:49
+     */
+    public static long builder() {
+        return new Snowflake(getWorkId(), getDataCenterId()).nextId();
+    }
+
+    /**
+     * build 构造
+     * @param workerId 机器编号
+     * @param regionId 区域编号
+     * @return {@link long}
+     * @Author yanger
+     * @Date 2022/01/21 21:49
+     */
+    public static long builder(long workerId, long regionId) {
+        return new Snowflake(workerId, regionId).nextId();
+    }
+
+    /**
+     * 获取机器编号
+     * @return {@link Long}
+     * @Author yanger
+     * @Date 2022/01/21 21:48
      */
     private static Long getWorkId() {
         try {
@@ -38,9 +61,11 @@ public class SnowflakeBuilder {
     }
 
     /**
-     * 区域编号
-     *
-     * @return data center id
+     * 获取区域编号
+     * @param
+     * @return {@link Long}
+     * @Author yanger
+     * @Date 2022/01/21 21:48
      */
     private static Long getDataCenterId() {
         int[] ints = StringUtils.toCodePoints(SystemUtils.getHostName());
@@ -49,27 +74,6 @@ public class SnowflakeBuilder {
             sums += i;
         }
         return (long) (sums % 32);
-
-    }
-
-    /**
-     * Builder long
-     *
-     * @return the long
-     */
-    public static long builder() {
-        return new Snowflake(getWorkId(), getDataCenterId()).nextId();
-    }
-
-    /**
-     * Builder long
-     *
-     * @param workerId worker id
-     * @param regionId region id
-     * @return the long
-     */
-    public static long builder(long workerId, long regionId) {
-        return new Snowflake(workerId, regionId).nextId();
     }
 
 }

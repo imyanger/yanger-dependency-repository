@@ -112,7 +112,7 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
      */
     @SuppressWarnings("unchecked")
     private static <T extends SerializeEnum<?>> T valueOf(Class<? extends SerializeEnum<?>> clazz, Object source) {
-        T result = (T) EnumUtils.getEnumObject(clazz, v -> v.getValue().equals(source)).orElse(null);
+        T result = (T) EnumUtils.getEnum(clazz, v -> v.getValue().equals(source)).orElse(null);
         if (result != null) {
             return result;
         }

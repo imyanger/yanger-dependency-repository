@@ -1,10 +1,9 @@
 package com.yanger.tools.general.tools;
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * 系统工具类
@@ -13,9 +12,6 @@ import lombok.experimental.UtilityClass;
  */
 @UtilityClass
 public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
-
-    /** NAMESPACE */
-    public static final String USER_NAMESPACE = "user.namespace";
 
     /** 获取 user home */
     @Nullable
@@ -33,15 +29,12 @@ public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
     @Nullable
     public static final String OS_NAME = getProperty("os.name");
 
-    /** 在启动参数中直接修改 namespace, 优先级最高 */
-    @Nullable
-    public static final String USER_NAMESPACE_VALUE = getProperty(USER_NAMESPACE);
-
     /**
      * 优先获取 JVM 参数, 然后才是系统环境变量
-     *
-     * @param property property
-     * @return the system property
+     * @param property
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2022/01/21 22:49
      */
     @Nullable
     public static String getProperty(String property) {
@@ -50,18 +43,20 @@ public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
     }
 
     /**
-     * Is linux boolean
-     *
-     * @return boolean boolean
+     * 是否 linux
+     * @return {@link boolean}
+     * @Author yanger
+     * @Date 2022/01/21 22:49
      */
     public static boolean isLinux() {
         return org.apache.commons.lang3.SystemUtils.IS_OS_LINUX;
     }
 
     /**
-     * Is mac boolean
-     *
-     * @return the boolean
+     * 是否 mac
+     * @return {@link boolean}
+     * @Author yanger
+     * @Date 2022/01/21 22:49
      */
     @Contract(pure = true)
     public static boolean isMac() {
@@ -69,9 +64,10 @@ public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
     }
 
     /**
-     * Is windows boolean
-     *
-     * @return the boolean
+     * 是否 windows
+     * @return {@link boolean}
+     * @Author yanger
+     * @Date 2022/01/21 22:49
      */
     @Contract(pure = true)
     public static boolean isWindows() {
@@ -79,14 +75,7 @@ public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
     }
 
     public enum OsType {
-        /** Linux os type */
-        LINUX,
-
-        /** Mac os type */
-        MAC,
-
-        /** Windows os type */
-        WINDOWS
+        LINUX, MAC, WINDOWS
     }
 
 }

@@ -13,8 +13,7 @@ public class E {
 
     /**
      * 设置异常信息
-     *
-     * @param message message
+     * @param message 报错信息
      * @return the exception when
      */
     public static ExceptionWhen message(String message) {
@@ -23,9 +22,8 @@ public class E {
 
     /**
      * 设置异常信息
-     *
-     * @param code    code
-     * @param message message
+     * @param code 错误码
+     * @param message 报错信息
      * @return the exception when
      */
     public static ExceptionWhen message(Integer code, String message) {
@@ -34,8 +32,7 @@ public class E {
 
     /**
      * 设置异常信息
-     *
-     * @param resultCode result code
+     * @param resultCode resultCode 对象
      * @return the exception when
      */
     public static ExceptionWhen message(IResultCode resultCode) {
@@ -44,9 +41,8 @@ public class E {
 
     /**
      * 设置异常信息
-     *
-     * @param resultCode result code
-     * @param message    message
+     * @param resultCode resultCode 对象
+     * @param message 报错信息
      * @return the exception when
      */
     public static ExceptionWhen message(IResultCode resultCode, Object... message) {
@@ -55,8 +51,7 @@ public class E {
 
     /**
      * 抛出异常的条件
-     *
-     * @param condition condition
+     * @param condition 判断条件
      * @return the exception when . inner exception
      */
     public static ExceptionWhen.InnerException when(boolean condition) {
@@ -81,8 +76,7 @@ public class E {
 
         /**
          * 抛出异常的条件
-         *
-         * @param condition condition
+         * @param condition 判断条件
          * @return the inner exception
          */
         public InnerException when(boolean condition) {
@@ -103,21 +97,7 @@ public class E {
                 this.message = message;
                 this.condition = condition;
             }
-
-            /**
-             * 抛出异常
-             */
-            public void exception() {
-                if (condition) {
-                    throw BasicException.of(code, message);
-                }
-            }
-
-            /**
-             * 抛出异常
-             *
-             * @param c 异常类
-             */
+            
             public void exception(Class<? extends BasicException> c) {
                 if (condition) {
                     Object o = null;
@@ -130,11 +110,11 @@ public class E {
                         try {
                             superclass = (Class<? extends BasicException>) Class.forName(canonicalName).getSuperclass();
                             exception(superclass);
-                        } catch (Exception ie) {
-                            if (ie.getClass().equals(superclass)) {
-                                throw (BasicException)ie;
+                        } catch (Exception exception) {
+                            if (exception.getClass().equals(superclass)) {
+                                throw (BasicException)exception;
                             }
-                            exception();
+                            throw BasicException.of(code, message);
                         }
                     }
                     if (o instanceof BasicException) {

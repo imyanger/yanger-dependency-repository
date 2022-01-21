@@ -1,12 +1,12 @@
 package com.yanger.starter.mongo.convert;
 
-import com.yanger.tools.general.tools.DateUtils;
-
+import com.yanger.tools.general.constant.DateConstant;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * MongoDB -> Java
@@ -24,7 +24,7 @@ public class StringToDateConverter implements Converter<String, LocalDateTime> {
      */
     @Override
     public LocalDateTime convert(@NotNull String source) {
-        return LocalDateTime.parse(source, DateUtils.DATETIME_FORMATTER);
+        return LocalDateTime.parse(source, DateTimeFormatter.ofPattern(DateConstant.PATTERN_DATETIME));
     }
 
 }

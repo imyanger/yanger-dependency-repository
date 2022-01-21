@@ -1,31 +1,18 @@
 package com.yanger.tools.general.tools;
 
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorConvertOp;
-import java.awt.image.CropImageFilter;
-import java.awt.image.FilteredImageSource;
-import java.awt.image.ImageFilter;
+import java.awt.image.*;
 import java.io.*;
-import java.net.*;
-
-import javax.imageio.ImageIO;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
+import java.net.URL;
 
 /**
  * 图片工具类
@@ -37,18 +24,23 @@ import lombok.extern.slf4j.Slf4j;
 @SuppressWarnings("checkstyle:ParameterNumber")
 public class ImageUtils {
 
-    /**
-     * 默认输出图片类型
-     */
+    /** 默认输出图片类型 */
     public static final String DEFAULT_IMG_TYPE = "JPEG";
+
+    /** 缩放类型--放大 */
+    public static final String ZOOM_TYPE_ZOOM_IN = "ZOOM_IN";
+
+    /** 缩放类型--缩小 */
+    public static final String ZOOM_TYPE_ZOOM_OUT = "ZOOM_OUT";
 
     /**
      * 转换输入流到byte
-     *
      * @param src  源
      * @param type 类型
-     * @return byte[] byte [ ]
+     * @return byte[]
      * @throws IOException 异常
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     public static byte[] toByteArray(BufferedImage src, String type) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -58,10 +50,11 @@ public class ImageUtils {
 
     /**
      * 默认字符串
-     *
      * @param str        字符串
      * @param defaultStr 默认值
-     * @return string string
+     * @return string
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     @Contract(value = "null, _ -> param2; !null, _ -> param1", pure = true)
     public static String defaultString(String str, String defaultStr) {
@@ -70,9 +63,10 @@ public class ImageUtils {
 
     /**
      * 获取图像内容
-     *
      * @param srcImageFile 文件路径
-     * @return BufferedImage buffered image
+     * @return BufferedImage
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     @Nullable
     public static BufferedImage readImage(String srcImageFile) {
@@ -86,9 +80,10 @@ public class ImageUtils {
 
     /**
      * 获取图像内容
-     *
      * @param srcImageFile 文件
-     * @return BufferedImage buffered image
+     * @return BufferedImage
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     @Nullable
     public static BufferedImage readImage(File srcImageFile) {
@@ -102,9 +97,10 @@ public class ImageUtils {
 
     /**
      * 获取图像内容
-     *
      * @param srcInputStream 输入流
-     * @return BufferedImage buffered image
+     * @return BufferedImage
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     @Nullable
     public static BufferedImage readImage(InputStream srcInputStream) {
@@ -118,9 +114,10 @@ public class ImageUtils {
 
     /**
      * 获取图像内容
-     *
      * @param url URL地址
-     * @return BufferedImage buffered image
+     * @return BufferedImage
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     @Nullable
     public static BufferedImage readImage(URL url) {
@@ -133,29 +130,54 @@ public class ImageUtils {
     }
 
     /**
+     * 按比例放大图片
+     * @param src    源图像
+     * @param output 输出流
+     * @param type   类型
+     * @param scale  放大比例
+     * @Author yanger
+     * @Date 2021/12/08 23:47
+     */
+    public static void zoomInWithScale(@NotNull BufferedImage src, OutputStream output, String type, double scale) {
+        zoomScale(src, output, type, scale, ZOOM_TYPE_ZOOM_IN);
+    }
+
+
+    /**
+     * 按比例缩小图片
+     * @param src    源图像
+     * @param output 输出流
+     * @param type   类型
+     * @param scale  缩小比例
+     * @Author yanger
+     * @Date 2021/12/08 23:47
+     */
+    public static void zoomOutWithScale(@NotNull BufferedImage src, OutputStream output, String type, double scale) {
+        zoomScale(src, output, type, scale, ZOOM_TYPE_ZOOM_OUT);
+    }
+
+    /**
      * 缩放图像 (按比例缩放)
-     *
      * @param src    源图像
      * @param output 输出流
      * @param type   类型
      * @param scale  缩放比例
-     * @param flag   缩放选择:true 放大; false 缩小;
+     * @param zoomType 缩放类型
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void zoomScale(@NotNull BufferedImage src,
-                                 OutputStream output,
-                                 String type,
-                                 double scale,
-                                 boolean flag) {
+    private static void zoomScale(@NotNull BufferedImage src,
+                                  OutputStream output, String type, double scale, String zoomType) {
         try {
             // 得到源图宽
             int width = src.getWidth();
             // 得到源图长
             int height = src.getHeight();
-            if (flag) {
+            if (ZOOM_TYPE_ZOOM_IN.equals(zoomType)) {
                 // 放大
                 width = Long.valueOf(Math.round(width * scale)).intValue();
                 height = Long.valueOf(Math.round(height * scale)).intValue();
-            } else {
+            } else if (ZOOM_TYPE_ZOOM_OUT.equals(zoomType)) {
                 // 缩小
                 width = Long.valueOf(Math.round(width / scale)).intValue();
                 height = Long.valueOf(Math.round(height / scale)).intValue();
@@ -177,22 +199,18 @@ public class ImageUtils {
 
     /**
      * 缩放图像 (按高度和宽度缩放)
-     *
      * @param src       源图像
      * @param output    输出流
      * @param type      类型
      * @param height    缩放后的高度
      * @param width     缩放后的宽度
      * @param bb        比例不对时是否需要补白: true为补白; false为不补白;
-     * @param fillColor 填充色,null时为Color.WHITE
+     * @param fillColor 填充色, null时为Color.WHITE
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void zoomFixed(@NotNull BufferedImage src,
-                                 OutputStream output,
-                                 String type,
-                                 int height,
-                                 int width,
-                                 boolean bb,
-                                 Color fillColor) {
+    public static void zoomFixed(@NotNull BufferedImage src, OutputStream output,
+                                 String type, int height, int width, boolean bb, Color fillColor) {
         try {
             double ratio = 0.0;
             Image itemp = src.getScaledInstance(width, height, BufferedImage.SCALE_SMOOTH);
@@ -213,9 +231,11 @@ public class ImageUtils {
                 g.setColor(fill);
                 g.fillRect(0, 0, width, height);
                 if (width == itemp.getWidth(null)) {
-                    g.drawImage(itemp, 0, (height - itemp.getHeight(null)) / 2, itemp.getWidth(null), itemp.getHeight(null), fill, null);
+                    g.drawImage(itemp, 0, (height - itemp.getHeight(null)) / 2,
+                            itemp.getWidth(null), itemp.getHeight(null), fill, null);
                 } else {
-                    g.drawImage(itemp, (width - itemp.getWidth(null)) / 2, 0, itemp.getWidth(null), itemp.getHeight(null), fill, null);
+                    g.drawImage(itemp, (width - itemp.getWidth(null)) / 2, 0,
+                            itemp.getWidth(null), itemp.getHeight(null), fill, null);
                 }
                 g.dispose();
                 itemp = image;
@@ -231,7 +251,6 @@ public class ImageUtils {
 
     /**
      * 图像裁剪(按指定起点坐标和宽高切割)
-     *
      * @param src    源图像
      * @param output 切片后的图像地址
      * @param type   类型
@@ -239,14 +258,10 @@ public class ImageUtils {
      * @param y      目标切片起点坐标Y
      * @param width  目标切片宽度
      * @param height 目标切片高度
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void crop(BufferedImage src,
-                            OutputStream output,
-                            String type,
-                            int x,
-                            int y,
-                            int width,
-                            int height) {
+    public static void crop(BufferedImage src, OutputStream output, String type, int x, int y, int width, int height) {
         try {
             // 源图宽度
             int srcWidth = src.getHeight();
@@ -273,18 +288,15 @@ public class ImageUtils {
 
     /**
      * 图像切割 (指定切片的行数和列数)
-     *
      * @param src    源图像地址
      * @param output 目标文件
      * @param type   类型
      * @param prows  目标切片行数. 默认2,必须是范围 [1, 20] 之内
      * @param pcols  目标切片列数. 默认2,必须是范围 [1, 20] 之内
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void sliceWithNumber(BufferedImage src,
-                                       OutputStream output,
-                                       String type,
-                                       int prows,
-                                       int pcols) {
+    public static void sliceWithNumber(BufferedImage src, OutputStream output, String type, int prows, int pcols) {
         try {
             int rows = prows <= 0 || prows > 20 ? 2 : prows;
             int cols = pcols <= 0 || pcols > 20 ? 2 : pcols;
@@ -324,18 +336,15 @@ public class ImageUtils {
 
     /**
      * 图像切割 (指定切片的宽度和高度)
-     *
      * @param src         源图像地址
      * @param output      目标文件
      * @param type        类型
      * @param pdestWidth  目标切片宽度. 默认200
      * @param pdestHeight 目标切片高度. 默认150
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void sliceWithSize(BufferedImage src,
-                                     OutputStream output,
-                                     String type,
-                                     int pdestWidth,
-                                     int pdestHeight) {
+    public static void sliceWithSize(BufferedImage src, OutputStream output, String type, int pdestWidth, int pdestHeight) {
         try {
             int destWidth = pdestWidth <= 0 ? 200 : pdestWidth;
             int destHeight = pdestHeight <= 0 ? 150 : pdestHeight;
@@ -375,10 +384,11 @@ public class ImageUtils {
 
     /**
      * 图像类型转换: GIF-JPG、GIF-PNG、PNG-JPG、PNG-GIF(X)、BMP-PNG
-     *
      * @param src        源图像地址
      * @param output     目标图像地址
      * @param formatName 包含格式非正式名称的 String: 如JPG、JPEG、GIF等
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     public static void convert(BufferedImage src, OutputStream output, String formatName) {
         try {
@@ -393,10 +403,11 @@ public class ImageUtils {
 
     /**
      * 彩色转为黑白
-     *
      * @param src    源图像地址
      * @param output 目标图像地址
      * @param type   类型
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
     public static void gray(BufferedImage src, OutputStream output, String type) {
         try {
@@ -414,7 +425,6 @@ public class ImageUtils {
 
     /**
      * 给图片添加文字水印
-     *
      * @param src      源图像
      * @param output   输出流
      * @param type     类型
@@ -425,17 +435,11 @@ public class ImageUtils {
      * @param x        修正值
      * @param y        修正值
      * @param alpha    透明度: alpha 必须是范围 [0.0, 1.0] 之内 (包含边界值) 的一个浮点数字
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void textStamp(BufferedImage src,
-                                 OutputStream output,
-                                 String type,
-                                 String text,
-                                 Font font,
-                                 Color color,
-                                 int position,
-                                 int x,
-                                 int y,
-                                 float alpha) {
+    public static void textStamp(BufferedImage src, OutputStream output, String type,
+                                 String text, Font font, Color color, int position, int x, int y, float alpha) {
         try {
             int width = src.getWidth(null);
             int height = src.getHeight(null);
@@ -461,11 +465,10 @@ public class ImageUtils {
 
     /**
      * 计算text的长度 (一个中文算两个字符)
-     *
      * @param text text
      * @return int int
      */
-    public static int calcTextWidth(@NotNull String text) {
+    private static int calcTextWidth(@NotNull String text) {
         int length = 0;
         for (int i = 0; i < text.length(); i++) {
             if ((text.charAt(i) + "").getBytes().length > 1) {
@@ -479,7 +482,6 @@ public class ImageUtils {
 
     /**
      * 给图片添加图片水印
-     *
      * @param src      源图像
      * @param output   输出流
      * @param type     类型
@@ -488,15 +490,11 @@ public class ImageUtils {
      * @param x        修正值
      * @param y        修正值
      * @param alpha    透明度: alpha 必须是范围 [0.0, 1.0] 之内 (包含边界值) 的一个浮点数字
+     * @Author yanger
+     * @Date 2021/12/08 23:47
      */
-    public static void imageStamp(BufferedImage src,
-                                  OutputStream output,
-                                  String type,
-                                  BufferedImage stamp,
-                                  int position,
-                                  int x,
-                                  int y,
-                                  float alpha) {
+    public static void imageStamp(BufferedImage src, OutputStream output,
+                                  String type, BufferedImage stamp, int position, int x, int y, float alpha) {
         try {
             int width = src.getWidth();
             int height = src.getHeight();

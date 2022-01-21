@@ -83,7 +83,7 @@ public interface SerializeEnum<T extends Serializable> {
         String errorMessage = StrFormatter.format("枚举类型转换错误: 没有找到对应枚举. value = {}, SerializeEnum = {}",
                                                   value,
                                                   clazz);
-        return EnumUtils.getEnumObject(clazz, e -> e.getValue().equals(value)).orElseThrow(() -> new BasicException(errorMessage));
+        return EnumUtils.getEnum(clazz, e -> e.getValue().equals(value)).orElseThrow(() -> new BasicException(errorMessage));
     }
 
     /**
@@ -99,7 +99,7 @@ public interface SerializeEnum<T extends Serializable> {
         T result;
         String value = String.valueOf(finalValue);
         // 使用 name() 匹配
-        Optional<? extends Enum<?>> getForName = EnumUtils.getEnumObject(clz, e -> e.name().equals(value));
+        Optional<? extends Enum<?>> getForName = EnumUtils.getEnum(clz, e -> e.name().equals(value));
         if (getForName.isPresent()) {
             result = (T) getForName.get();
         } else {
@@ -110,7 +110,7 @@ public interface SerializeEnum<T extends Serializable> {
                 throw new BasicException("通过枚举下标查找枚举出错: [{}] 无法转换为下标", value);
             }
             // 使用下标匹配
-            Optional<? extends Enum<?>> getForOrdinal = EnumUtils.getEnumObject(clz, e -> e.ordinal() == index);
+            Optional<? extends Enum<?>> getForOrdinal = EnumUtils.getEnum(clz, e -> e.ordinal() == index);
             result = (T) getForOrdinal.orElseThrow(() -> new BasicException("无法将 [{}] 转换为 [{}]", value, clz));
         }
         return result;

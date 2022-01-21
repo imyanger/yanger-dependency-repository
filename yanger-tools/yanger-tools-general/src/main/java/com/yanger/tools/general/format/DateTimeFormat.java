@@ -4,9 +4,6 @@ import com.yanger.tools.general.constant.DateConstant;
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
@@ -101,29 +98,6 @@ public class DateTimeFormat {
     @NotNull
     public static TemporalAccessor parse(String dateStr, @NotNull DateTimeFormatter formatter) {
         return formatter.parse(dateStr);
-    }
-
-    /**
-     * LocalDateTime 时间转 Instant
-     * @param dateTime LocalDateTime对象
-     * @return {@link Instant}
-     * @Author yanger
-     * @Date 2021/12/02 21:10
-     */
-    public static Instant toInstant(@NotNull LocalDateTime dateTime) {
-        return dateTime.atZone(ZoneId.systemDefault()).toInstant();
-    }
-
-    /**
-     * Instant 转 LocalDateTime
-     * @param instant Instant 对象
-     * @return {@link LocalDateTime}
-     * @Author yanger
-     * @Date 2021/12/02 21:11
-     */
-    @NotNull
-    public static LocalDateTime toDateTime(Instant instant) {
-        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
     }
 
 }

@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * LRUCache
+ * LRU cache 缓存容器
  * @Author yanger
  * @Date 2020/12/21 10:27
  */
@@ -14,28 +14,27 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
     private static final long serialVersionUID = -5167631809472116969L;
 
-    /** DEFAULT_LOAD_FACTOR */
+    /** 默认加载因子 */
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    /** DEFAULT_MAX_CAPACITY */
+    /** 默认最大容量 */
     private static final int DEFAULT_MAX_CAPACITY = 1000;
 
     /** Lock */
     private final Lock lock = new ReentrantLock();
 
-    /** Max capacity */
+    /** 最大容量 */
     private volatile int maxCapacity;
 
     /**
-     * Lru cache
+     * 无参构造
      */
     public LRUCache() {
         this(DEFAULT_MAX_CAPACITY);
     }
 
     /**
-     * Lru cache
-     *
+     * 自定义最大容量构造
      * @param maxCapacity max capacity
      */
     public LRUCache(int maxCapacity) {
@@ -44,10 +43,11 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Remove eldest entry
-     *
-     * @param eldest eldest
-     * @return the boolean
+     * 是否需要删除最旧的记录
+     * @param eldest
+     * @return {@link boolean}
+     * @Author yanger
+     * @Date 2022/01/06 0:29
      */
     @Override
     protected boolean removeEldestEntry(java.util.Map.Entry<K, V> eldest) {
@@ -55,10 +55,11 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Contains key
-     *
+     * 是否包含指定 key
      * @param key key
-     * @return the boolean
+     * @return {@link boolean}
+     * @Author yanger
+     * @Date 2022/01/06 0:32
      */
     @Override
     public boolean containsKey(Object key) {
@@ -71,10 +72,11 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Get
-     *
+     * 根据 key 获取 value
      * @param key key
-     * @return the v
+     * @return {@link V}
+     * @Author yanger
+     * @Date 2022/01/06 0:33
      */
     @Override
     public V get(Object key) {
@@ -87,11 +89,12 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Put
-     *
-     * @param key   key
+     * 设置 key-value 缓存
+     * @param key key
      * @param value value
-     * @return the v
+     * @return {@link V}
+     * @Author yanger
+     * @Date 2022/01/06 0:34
      */
     @Override
     public V put(K key, V value) {
@@ -104,10 +107,11 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Remove
-     *
+     * 根据 key 删除缓存
      * @param key key
-     * @return the v
+     * @return {@link V}
+     * @Author yanger
+     * @Date 2022/01/06 0:34
      */
     @Override
     public V remove(Object key) {
@@ -120,9 +124,10 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Size
-     *
-     * @return the int
+     * 获取缓存容器大小
+     * @return {@link int}
+     * @Author yanger
+     * @Date 2022/01/06 0:35
      */
     @Override
     public int size() {
@@ -135,7 +140,9 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Clear
+     * 清空缓存
+     * @Author yanger
+     * @Date 2022/01/06 0:35
      */
     @Override
     public void clear() {
@@ -148,18 +155,20 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     /**
-     * Gets max capacity *
-     *
-     * @return the max capacity
+     * 获取容器的最大容量
+     * @return {@link int} 最大容量
+     * @Author yanger
+     * @Date 2022/01/06 0:36
      */
     public int getMaxCapacity() {
         return this.maxCapacity;
     }
 
     /**
-     * Sets max capacity *
-     *
-     * @param maxCapacity max capacity
+     * 设置容器的最大容量
+     * @param maxCapacity 最大容量
+     * @Author yanger
+     * @Date 2022/01/06 0:37
      */
     public void setMaxCapacity(int maxCapacity) {
         this.maxCapacity = maxCapacity;

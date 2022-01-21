@@ -2,7 +2,7 @@ package com.yanger.tools.general.tools;
 
 import com.yanger.tools.general.constant.CharPool;
 import com.yanger.tools.general.constant.StringPool;
-
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.jetbrains.annotations.Contract;
@@ -12,8 +12,6 @@ import java.lang.management.ManagementFactory;
 import java.time.Duration;
 import java.util.List;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * 运行时工具类
  * @Author yanger
@@ -22,36 +20,37 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class RuntimeUtils {
 
-    /** CPU_NUM */
+    /** cpu 数量 */
     private static final int CPU_NUM = Runtime.getRuntime().availableProcessors();
 
-    /** pId */
-    private static volatile int pId = -1;
+    /** pid */
+    private static volatile int pid = -1;
 
     /**
      * 获得当前进程的PID
-     * 当失败时返回-1
-     *
-     * @return pid p id
+     * @return {@link int} 进程 id，当失败时返回-1
+     * @Author yanger
+     * @Date 2022/01/21 21:39
      */
     public static int getPid() {
-        if (pId > 0) {
-            return pId;
+        if (pid > 0) {
+            return pid;
         }
         // something like '<pid>@<hostname>', at least in SUN / Oracle JVMs
         String jvmName = ManagementFactory.getRuntimeMXBean().getName();
         int index = jvmName.indexOf(CharPool.AT);
         if (index > 0) {
-            pId = NumberUtils.toInt(jvmName.substring(0, index), -1);
-            return pId;
+            pid = NumberUtils.toInt(jvmName.substring(0, index), -1);
+            return pid;
         }
         return -1;
     }
 
     /**
      * 返回应用启动到现在的时间
-     *
-     * @return {Duration}
+     * @return {@link Duration}
+     * @Author yanger
+     * @Date 2022/01/21 21:40
      */
     public static Duration getUpTime() {
         long upTime = ManagementFactory.getRuntimeMXBean().getUptime();
@@ -60,8 +59,9 @@ public class RuntimeUtils {
 
     /**
      * 返回输入的JVM参数列表
-     *
-     * @return jvm参数 jvm arguments
+     * @return {@link String}
+     * @Author yanger
+     * @Date 2022/01/21 21:40
      */
     @NotNull
     public static String getJvmArguments() {
@@ -71,8 +71,9 @@ public class RuntimeUtils {
 
     /**
      * 获取CPU核数
-     *
-     * @return cpu count
+     * @return {@link int}
+     * @Author yanger
+     * @Date 2022/01/21 21:40
      */
     @Contract(pure = true)
     public static int getCpuNum() {

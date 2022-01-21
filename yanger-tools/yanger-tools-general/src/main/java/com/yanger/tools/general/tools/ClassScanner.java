@@ -1,17 +1,19 @@
 package com.yanger.tools.general.tools;
 
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
-import java.net.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.JarURLConnection;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 类扫描器, 扫描给定包及其子包中的所有类
@@ -24,24 +26,20 @@ public class ClassScanner {
 
     /**
      * 从包 package 中获取所有的 Class
-     *
-     * @param pack pack
-     * @return classes classes
-
+     * @param packageName 全限定报名
+     * @return {@link Set< Class<?>>}
+     * @Author yanger
+     * @Date 2021/12/02 23:08
      */
-    public static @NotNull Set<Class<?>> getClasses(String pack) {
-
+    public static @NotNull Set<Class<?>> getClasses(String packageName) {
         // 第一个 class 类的集合
         Set<Class<?>> classes = new LinkedHashSet<>();
         // 获取包的名字 并进行替换
-        String packageName = pack;
         String packageDirName = packageName.replace('.', '/');
         // 定义一个枚举的集合 并进行循环来处理这个目录下的 things
         Enumeration<URL> dirs;
         try {
-            dirs = Thread.currentThread()
-                .getContextClassLoader()
-                .getResources(packageDirName);
+            dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);
             // 循环迭代下去
             while (dirs.hasMoreElements()) {
                 // 获取下一个元素
@@ -54,16 +52,12 @@ public class ClassScanner {
                     // 获取包的物理路径
                     String filePath = URLDecoder.decode(url.getFile(), "UTF-8");
                     // 以文件的方式扫描整个包下的文件 并添加到集合中
-                    findAndAddClassesInPackageByFile(packageName,
-                                                     filePath,
-                                                     classes);
+                    findAndAddClassesInPackageByFile(packageName, filePath, classes);
                 } else if ("jar".equals(protocol)) {
                     // 如果是 jar 包文件, 定义一个 JarFile
-                    System.err.println("jar 类型的扫描");
-                    JarFile jar;
                     try {
                         // 获取 jar
-                        jar = ((JarURLConnection) url.openConnection()).getJarFile();
+                        JarFile jar = ((JarURLConnection) url.openConnection()).getJarFile();
                         // 从此 jar 包 得到一个枚举类
                         Enumeration<JarEntry> entries = jar.entries();
                         // 同样的进行循环迭代
@@ -112,15 +106,13 @@ public class ClassScanner {
 
     /**
      * 以文件的形式来获取包下的所有 Class
-     *
      * @param packageName package name
      * @param packagePath package path
-     * @param classes     classes
-
+     * @param classes
+     * @Author yanger
+     * @Date 2021/12/04 16:03
      */
-    private static void findAndAddClassesInPackageByFile(String packageName,
-                                                         String packagePath,
-                                                         Set<Class<?>> classes) {
+    private static void findAndAddClassesInPackageByFile(String packageName, String packagePath, Set<Class<?>> classes) {
         // 获取此包的目录 建立一个 File
         File dir = new File(packagePath);
         // 如果不存在或者 也不是目录就直接返回
@@ -130,20 +122,17 @@ public class ClassScanner {
         }
         // 如果存在 就获取包下的所有文件 包括目录
         // 自定义过滤规则 如果可以循环 (包含子目录) 或则是以.class 结尾的文件 (编译好的 java 类文件)
-        File[] dirfiles = dir.listFiles(file -> (file.isDirectory()) ||
-                                                (file.getName().endsWith(".class")));
+        File[] dirfiles = dir.listFiles(file -> (file.isDirectory()) || (file.getName().endsWith(".class")));
         // 循环所有文件
         if (dirfiles != null) {
             for (File file : dirfiles) {
                 // 如果是目录 则继续扫描
                 if (file.isDirectory()) {
                     findAndAddClassesInPackageByFile(packageName + "."
-                                                     + file.getName(), file.getAbsolutePath(),
-                                                     classes);
+                            + file.getName(), file.getAbsolutePath(), classes);
                 } else {
                     // 如果是 java 类文件 去掉后面的.class 只留下类名
-                    String className = file.getName().substring(0,
-                                                                file.getName().length() - 6);
+                    String className = file.getName().substring(0, file.getName().length() - 6);
                     try {
                         classes.add(Thread.currentThread()
                                         .getContextClassLoader()

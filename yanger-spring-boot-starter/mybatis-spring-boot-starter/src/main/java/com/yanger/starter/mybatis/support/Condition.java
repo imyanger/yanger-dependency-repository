@@ -38,8 +38,8 @@ public class Condition {
             query.getStartTime(),
             query.getEndTime());
 
-        Arrays.stream(StringTools.toStrArray(",", SqlKeyword.filter(query.getAscs()))).forEach(o -> page.addOrder(OrderItem.asc(o)));
-        Arrays.stream(StringTools.toStrArray(",", SqlKeyword.filter(query.getDescs()))).forEach(o -> page.addOrder(OrderItem.desc(o)));
+        Arrays.stream(StringTools.toStrArray(SqlKeyword.filter(query.getAscs()), ",")).forEach(o -> page.addOrder(OrderItem.asc(o)));
+        Arrays.stream(StringTools.toStrArray(SqlKeyword.filter(query.getDescs()), ",")).forEach(o -> page.addOrder(OrderItem.desc(o)));
         return page;
     }
 
