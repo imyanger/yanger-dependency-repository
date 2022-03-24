@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 重要信息字段脱敏注解
+ * 密码加密处理，使用 EncryptUtils.getMD5()进行加密
  * @Author yanger
  * @Date 2021/1/28 19:08
  */

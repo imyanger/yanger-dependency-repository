@@ -1,10 +1,11 @@
 package com.yanger.starter.mongo.autoconfigure.sync;
 
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.mongo.annotation.MongoCollection;
 import com.yanger.starter.mongo.convert.CustomMongoMappingContext;
-import com.yanger.starter.mongo.convert.YangerMongoCustomConversions;
-
+import com.yanger.starter.mongo.convert.DefaultMongoCustomConversions;
+import com.yanger.starter.mongo.property.MongoProperties;
+import lombok.SneakyThrows;
 import org.apache.commons.collections.CollectionUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
@@ -23,23 +24,19 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.SneakyThrows;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 @Configuration
 @EnableConfigurationProperties(MongoProperties.class)
-public class MongoDataAutoConfiguration implements YangerAutoConfiguration {
+public class MongoDataAutoConfiguration implements BaseAutoConfiguration {
 
     /** Converter customizers */
     private final List<ConverterCustomizer> converterCustomizers;
 
     /**
      * Mongo data configuration
-     *
      * @param converterCustomizersProvider converter customizers provider
      */
     MongoDataAutoConfiguration(@NotNull ObjectProvider<List<ConverterCustomizer>> converterCustomizersProvider) {
@@ -48,7 +45,6 @@ public class MongoDataAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 自定义 mongodb 字段类型转换
-     *
      * @return the mongo custom conversions
      */
     @Bean
@@ -59,12 +55,11 @@ public class MongoDataAutoConfiguration implements YangerAutoConfiguration {
             this.converterCustomizers.forEach(l -> l.customize(converters));
         }
 
-        return new YangerMongoCustomConversions(converters);
+        return new DefaultMongoCustomConversions(converters);
     }
 
     /**
      * 配置 mongo 映射上下文
-     *
      * @param properties         properties
      * @param conversions        conversions
      * @param applicationContext application context

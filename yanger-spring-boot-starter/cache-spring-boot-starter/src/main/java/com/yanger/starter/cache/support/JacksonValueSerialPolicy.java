@@ -1,7 +1,6 @@
 package com.yanger.starter.cache.support;
 
 import com.alicp.jetcache.anno.SerialPolicy;
-
 import org.jetbrains.annotations.Contract;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
@@ -37,7 +36,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
 
     /**
      * Encoder function
-     *
      * @return the function
      */
     @Override
@@ -47,7 +45,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
 
     /**
      * Decoder function
-     *
      * @return the function
      */
     @Override
@@ -57,7 +54,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
 
     /**
      * Serialize byte [ ]
-     *
      * @param o o
      * @return the byte [ ]
      * @throws SerializationException serialization exception
@@ -69,7 +65,6 @@ public class JacksonValueSerialPolicy implements SerialPolicy, RedisSerializer<O
 
     /**
      * Deserialize object
-     *
      * @param bytes bytes
      * @return the object
      * @throws SerializationException serialization exception

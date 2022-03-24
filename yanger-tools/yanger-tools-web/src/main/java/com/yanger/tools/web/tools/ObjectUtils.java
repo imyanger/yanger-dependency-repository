@@ -1,11 +1,10 @@
 package com.yanger.tools.web.tools;
 
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.springframework.lang.Nullable;
 
 import java.util.Objects;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * 对象工具类
@@ -18,7 +17,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断对象为null
-     *
      * @param object 对象
      * @return 对象是否为空 boolean
      */
@@ -29,7 +27,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断对象不为null
-     *
      * @param object 对象
      * @return 对象是否不为空 boolean
      */
@@ -40,7 +37,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断对象为true
-     *
      * @param object 对象
      * @return 对象是否为true boolean
      */
@@ -51,7 +47,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断对象为false
-     *
      * @param object 对象
      * @return 对象是否为false boolean
      */
@@ -62,7 +57,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断数组不为空
-     *
      * @param array 数组
      * @return 数组是否为空 boolean
      */
@@ -73,7 +67,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 判断对象不为空
-     *
      * @param obj 数组
      * @return 数组是否为空 boolean
      */
@@ -84,7 +77,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象 eq
-     *
      * @param o1 Object
      * @param o2 Object
      * @return 是否eq boolean
@@ -96,7 +88,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 比较两个对象是否不相等. <br>
-     *
      * @param o1 对象1
      * @param o2 对象2
      * @return 是否不eq boolean
@@ -108,7 +99,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 返回对象的 hashCode
-     *
      * @param obj Object
      * @return hashCode int
      */
@@ -118,7 +108,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 如果对象为null,返回默认值
-     *
      * @param object       Object
      * @param defaultValue 默认值
      * @return Object object
@@ -130,7 +119,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 强转string
-     *
      * @param object Object
      * @return String string
      */
@@ -141,7 +129,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 强转string
-     *
      * @param object       Object
      * @param defaultValue 默认值
      * @return String string
@@ -160,7 +147,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 int  (支持 String 和 Number) ,默认: 0
-     *
      * @param object Object
      * @return int int
      */
@@ -170,7 +156,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 int  (支持 String 和 Number)
-     *
      * @param object       Object
      * @param defaultValue 默认值
      * @return int int
@@ -193,7 +178,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 long  (支持 String 和 Number) ,默认: 0L
-     *
      * @param object Object
      * @return long long
      */
@@ -203,7 +187,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 long  (支持 String 和 Number) ,默认: 0L
-     *
      * @param object       Object
      * @param defaultValue the default value
      * @return long long
@@ -226,7 +209,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Float
-     *
      * @param object Object
      * @return 结果 float
      */
@@ -236,7 +218,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Float
-     *
      * @param object       Object
      * @param defaultValue float
      * @return 结果 float
@@ -259,7 +240,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Double
-     *
      * @param object Object
      * @return 结果 double
      */
@@ -269,7 +249,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Double
-     *
      * @param object       Object
      * @param defaultValue double
      * @return 结果 double
@@ -292,7 +271,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Byte
-     *
      * @param object Object
      * @return 结果 byte
      */
@@ -302,7 +280,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Byte
-     *
      * @param object       Object
      * @param defaultValue byte
      * @return 结果 byte
@@ -325,7 +302,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Short
-     *
      * @param object Object
      * @return 结果 short
      */
@@ -335,7 +311,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Short
-     *
      * @param object       Object
      * @param defaultValue short
      * @return 结果 short
@@ -358,7 +333,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Boolean
-     *
      * @param object Object
      * @return 结果 boolean
      */
@@ -369,7 +343,6 @@ public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
     /**
      * 对象转为 Boolean
-     *
      * @param object       Object
      * @param defaultValue 默认值
      * @return 结果 boolean

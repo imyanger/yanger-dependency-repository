@@ -41,7 +41,7 @@
     <!--错误日志记录-->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${LOG_HOME}/error/${APP_NAME}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/error/${APP_NAME}-%d{yyyy-MM-dd}-error.log</FileNamePattern>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
@@ -54,7 +54,7 @@
     <!--消息日志记录-->
     <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${LOG_HOME}/info/${APP_NAME}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/info/${APP_NAME}-%d{yyyy-MM-dd}-info.log</FileNamePattern>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
@@ -64,15 +64,26 @@
         </filter>
     </appender>
 
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+    <logger name="org.springframework" level="info" />
+    <!--myibatis log configure -->
+    <logger name="com.apache.ibatis" level="info" />
+    <logger name="java.sql.Connection" level="info" />
+    <logger name="java.sql.Statement" level="info" />
+    <logger name="java.sql.PreparedStatement" level="info" />
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <springProfile name="dev" >
+        <root level="${LOG_LEVEL}">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE" />
+        </root>
+    </springProfile>
+
     <springProfile name="test" >
-        <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
-        <logger name="org.springframework" level="info" />
-        <!--myibatis log configure -->
-        <logger name="com.apache.ibatis" level="info" />
-        <logger name="java.sql.Connection" level="info" />
-        <logger name="java.sql.Statement" level="info" />
-        <logger name="java.sql.PreparedStatement" level="info" />
-        <!-- 日志输出级别 -->
         <root level="${LOG_LEVEL}">
             <appender-ref ref="STDOUT" />
             <appender-ref ref="FILE" />
@@ -82,34 +93,11 @@
     </springProfile>
 
     <springProfile name="prod" >
-        <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
-        <logger name="org.springframework" level="info" />
-        <!--myibatis log configure -->
-        <logger name="com.apache.ibatis" level="info" />
-        <logger name="java.sql.Connection" level="info" />
-        <logger name="java.sql.Statement" level="info" />
-        <logger name="java.sql.PreparedStatement" level="info" />
-        <!-- 日志输出级别 -->
         <root level="${LOG_LEVEL}">
             <appender-ref ref="STDOUT" />
             <appender-ref ref="FILE" />
             <appender-ref ref="ERROR_FILE" />
             <appender-ref ref="INFO_FILE" />
-        </root>
-    </springProfile>
-
-    <springProfile name="dev" >
-        <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
-        <logger name="org.springframework" level="info" />
-        <!--myibatis log configure -->
-        <logger name="com.apache.ibatis" level="info" />
-        <logger name="java.sql.Connection" level="info" />
-        <logger name="java.sql.Statement" level="info" />
-        <logger name="java.sql.PreparedStatement" level="info" />
-        <!-- 日志输出级别 -->
-        <root level="${LOG_LEVEL}">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE" />
         </root>
     </springProfile>
 

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.yanger.starter.mybatis.enums.DeleteEnum;
 
-import java.io.*;
+import java.io.Serializable;
 
 /**
  * 逻辑删除基础对象
@@ -26,8 +26,7 @@ public abstract class BaseLogicPO<T extends Serializable, M extends Model<M>> ex
     private DeleteEnum deleted = DeleteEnum.N;
 
     /**
-     * Gets deleted *
-     *
+     * Gets deleted
      * @return the deleted
      */
     @Override
@@ -36,8 +35,7 @@ public abstract class BaseLogicPO<T extends Serializable, M extends Model<M>> ex
     }
 
     /**
-     * Sets deleted *
-     *
+     * Sets deleted
      * @param deleted deleted
      * @return the deleted
      */

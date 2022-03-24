@@ -3,18 +3,12 @@ package com.yanger.starter.mybatis.support;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.function.Predicate;
-
 import lombok.Data;
 import lombok.ToString;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * 分页对象
@@ -55,7 +49,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 分页构造函数
-     *
      * @param current 当前页
      * @param size    每页显示条数
      */
@@ -65,7 +58,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * Page plus
-     *
      * @param current   current
      * @param size      size
      * @param startTime start time
@@ -79,7 +71,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * Page
-     *
      * @param current current
      * @param size    size
      * @param total   total
@@ -90,7 +81,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * Page
-     *
      * @param current       current
      * @param size          size
      * @param isSearchCount is search count
@@ -101,7 +91,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * Page
-     *
      * @param current       current
      * @param size          size
      * @param total         total
@@ -118,7 +107,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 是否存在上一页
-     *
      * @return true / false
      */
     public boolean hasPrevious() {
@@ -127,7 +115,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 是否存在下一页
-     *
      * @return true / false
      */
     public boolean hasNext() {
@@ -135,8 +122,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Gets records *
-     *
+     * Gets records
      * @return the records
      */
     @Override
@@ -145,8 +131,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets records *
-     *
+     * Sets records
      * @param records records
      * @return the records
      */
@@ -157,8 +142,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Gets total *
-     *
+     * Gets total
      * @return the total
      */
     @Override
@@ -167,8 +151,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets total *
-     *
+     * Sets total
      * @param total total
      * @return the total
      */
@@ -179,8 +162,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Gets size *
-     *
+     * Gets size
      * @return the size
      */
     @Override
@@ -189,8 +171,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets size *
-     *
+     * Sets size
      * @param size size
      * @return the size
      */
@@ -201,8 +182,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Gets current *
-     *
+     * Gets current
      * @return the current
      */
     @Override
@@ -211,8 +191,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets current *
-     *
+     * Sets current
      * @param current current
      * @return the current
      */
@@ -224,7 +203,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 查找 order 中正序排序的字段数组
-     *
      * @param filter 过滤器
      * @return 返回正序排列的字段数组 string [ ]
      */
@@ -241,7 +219,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 移除符合条件的条件
-     *
      * @param filter 条件判断
      */
     private void removeOrder(Predicate<OrderItem> filter) {
@@ -254,7 +231,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 添加新的排序条件, 构造条件可以使用工厂
-     *
      * @param items 条件
      * @return 返回分页参数本身 page
      */
@@ -265,7 +241,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * 添加新的排序条件, 构造条件可以使用工厂
-     *
      * @param items 条件
      * @return 返回分页参数本身 page
      */
@@ -276,7 +251,6 @@ public class Page<T> implements IPage<T> {
 
     /**
      * Orders list
-     *
      * @return the list
      */
     @Override
@@ -285,8 +259,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Gets orders *
-     *
+     * Gets orders
      * @return the orders
      */
     public List<OrderItem> getOrders() {
@@ -294,8 +267,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets orders *
-     *
+     * Sets orders
      * @param orders orders
      */
     public void setOrders(List<OrderItem> orders) {
@@ -303,8 +275,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Optimize count sql boolean
-     *
+     * Optimize count sql
      * @return the boolean
      */
     @Override
@@ -313,8 +284,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Is search count boolean
-     *
+     * Is search count
      * @return the boolean
      */
     @Override
@@ -326,8 +296,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets search count *
-     *
+     * Sets search count
      * @param isSearchCount is search count
      * @return the search count
      */
@@ -337,8 +306,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Sets optimize count sql *
-     *
+     * Sets optimize count sql
      * @param optimizeCountSql optimize count sql
      * @return the optimize count sql
      */
@@ -348,8 +316,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Hit count *
-     *
+     * Hit count
      * @param hit hit
      */
     @Override
@@ -358,8 +325,7 @@ public class Page<T> implements IPage<T> {
     }
 
     /**
-     * Is hit count boolean
-     *
+     * Is hit count
      * @return the boolean
      */
     @Override

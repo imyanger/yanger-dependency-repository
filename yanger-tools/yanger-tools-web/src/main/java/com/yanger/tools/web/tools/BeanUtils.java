@@ -1,10 +1,9 @@
 package com.yanger.tools.web.tools;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.support.BeanCopier;
-
+import com.yanger.tools.web.support.ConverterUtilsCallBack;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
@@ -14,12 +13,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 import java.beans.PropertyDescriptor;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Supplier;
 
 /**
@@ -32,7 +26,6 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 单个对象拷贝，方便函数式调用
-     *
      * @param source 数据源类
      * @param target 目标类::new(eg: UserVO::new)
      * @return T
@@ -46,7 +39,6 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 单个对象拷贝，方便函数式调用，增加回调方法（可自定义字段拷贝规则）
-     *
      * @param source   数据源类
      * @param target   目标类::new(eg: UserVO::new)
      * @param callBack 回调函数
@@ -62,7 +54,6 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 集合数据的拷贝
-     *
      * @param sources 数据源类
      * @param target  目标类::new(eg: UserVO::new)
      * @return java.util.List<T>
@@ -74,7 +65,6 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 带回调函数的集合数据的拷贝（可自定义字段拷贝规则）
-     *
      * @param sources  数据源类
      * @param target   目标类::new(eg: UserVO::new)
      * @param callBack 回调函数
@@ -97,11 +87,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 实例化对象
-     *
      * @param <T>      泛型标记
      * @param clazzStr 类名
      * @return 对象 t
-
      */
     @NotNull
     public static <T> T newInstance(String clazzStr) {
@@ -115,11 +103,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 实例化对象
-     *
      * @param <T>   泛型标记
      * @param clazz 类
      * @return 对象 t
-
      */
     @NotNull
     public static <T> T newInstance(Class<?> clazz) {
@@ -128,11 +114,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 获取Bean的属性
-     *
      * @param bean         bean
      * @param propertyName 属性名
      * @return 属性值 property
-
      */
     public static Object getProperty(Object bean, String propertyName) {
         Assert.notNull(bean, "bean Could not null");
@@ -141,11 +125,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 设置Bean属性
-     *
      * @param bean         bean
      * @param propertyName 属性名
      * @param value        属性值
-
      */
     public static void setProperty(Object bean, String propertyName, Object value) {
         Assert.notNull(bean, "bean Could not null");
@@ -154,12 +136,10 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 深复制
-     * 注意: 不支持链式Bean
-     *
+     * 注意: 不支持链式 Bean
      * @param <T>    泛型标记
      * @param source 源对象
      * @return T t
-
      */
     public static <T> T clone(T source) {
         return (T) BeanUtils.copy(source, source.getClass());
@@ -167,13 +147,11 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * copy 对象属性到另一个对象,默认不使用Convert
-     * 注意: 不支持链式Bean,链式用 copyProperties
-     *
+     * 注意: 不支持链式 Bean,链式用 copyProperties
      * @param <T>    泛型标记
      * @param source 源对象
      * @param clazz  类名
      * @return T t
-
      */
     @Contract("null, _ -> null")
     public static <T> T copy(Object source, Class<T> clazz) {
@@ -185,16 +163,12 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * copy 对象属性,默认不使用Convert
-     * <p>
      * 支持 map bean copy
-     * </p>
-     *
      * @param <T>         泛型标记
      * @param source      源对象
      * @param sourceClazz 源类型
      * @param targetClazz 转换成的类型
      * @return T t
-
      */
     @Contract("null, _, _ -> null")
     public static <T> T copy(Object source, Class sourceClazz, Class<T> targetClazz) {
@@ -206,15 +180,11 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * copy 列表对象,默认不使用Convert
-     * <p>
      * 支持 map bean copy
-     * </p>
-     *
      * @param <T>         泛型标记
      * @param sourceList  源列表
      * @param targetClazz 转换成的类型
      * @return T list
-
      */
     @Contract("null, _ -> !null")
     public static <T> List<T> copy(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -242,13 +212,11 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * from each other, as long as the properties match. Any bean properties that the
      * source bean exposes but the target bean does not will silently be ignored.
      * <p>This is just a convenience method. For more complex transfer needs,
-     *
      * @param <T>         泛型标记
      * @param sourceList  the source list bean
      * @param targetClazz the target bean class
      * @return List list
      * @throws BeansException if the copying failed
-
      */
     @Contract("null, _ -> !null")
     public static <T> List<T> copyProperties(@Nullable Collection<?> sourceList, Class<T> targetClazz) {
@@ -272,13 +240,11 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
      * from each other, as long as the properties match. Any bean properties that the
      * source bean exposes but the target bean does not will silently be ignored.
      * <p>This is just a convenience method. For more complex transfer needs,
-     *
      * @param <T>         泛型标记
      * @param source      the source bean
      * @param targetClazz the target bean class
      * @return T t
      * @throws BeansException if the copying failed
-
      */
     @Contract("null, _ -> null")
     @Nullable
@@ -294,10 +260,8 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     /**
      * 将对象装成 map 形式.
      * 注意: 返回的 Map 不能使用 put 添加键值对, 因为 BeanMap 未做实现, 所以不会添加成功, 必须使用强转为 BeanMap 后才使用 put
-     *
      * @param bean 源对象
      * @return {Map}
-
      */
     @Contract("null -> new")
     @SuppressWarnings("unchecked")
@@ -310,10 +274,8 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * To string map map
-     *
      * @param bean bean
      * @return the map
-
      */
     @Contract("null -> !null")
     public static Map<String, String> toStringMap(Object bean) {
@@ -329,12 +291,10 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 将map 转为 bean
-     *
      * @param <T>       泛型标记
      * @param beanMap   map
      * @param valueType 对象类型
      * @return {T}
-
      */
     public static <T> T toBean(Map<String, Object> beanMap, Class<T> valueType) {
         Objects.requireNonNull(beanMap, "beanMap Could not null");
@@ -349,10 +309,8 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     /**
      * 拷贝对象
      * 注意: 不支持链式Bean,链式用 copyProperties
-     *
      * @param source     源对象
      * @param targetBean 需要赋值的对象
-
      */
     public static void copy(@NotNull Object source, @NotNull Object targetBean) {
         BeanCopier copier = BeanCopier
@@ -363,10 +321,8 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 获取 Bean 的所有 get方法
-     *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
-
      */
     public static PropertyDescriptor[] getBeanGetters(Class<?> type) {
         return getPropertiesHelper(type, true, false);
@@ -374,12 +330,10 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * Get properties helper property descriptor [ ]
-     *
      * @param type  type
      * @param read  read
      * @param write write
      * @return the property descriptor [ ]
-
      */
     private static PropertyDescriptor[] getPropertiesHelper(Class<?> type, boolean read, boolean write) {
         try {
@@ -404,10 +358,8 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
     /**
      * 获取 Bean 的所有 set方法
-     *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
-
      */
     public static PropertyDescriptor[] getBeanSetters(Class<?> type) {
         return getPropertiesHelper(type, false, true);

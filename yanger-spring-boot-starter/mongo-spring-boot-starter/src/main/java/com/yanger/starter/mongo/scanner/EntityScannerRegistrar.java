@@ -1,7 +1,6 @@
 package com.yanger.starter.mongo.scanner;
 
 import com.yanger.starter.mongo.annotation.EnableEntityScanner;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
@@ -11,11 +10,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * {@link ImportBeanDefinitionRegistrar} to store the base package from the importing configuration
@@ -25,8 +20,7 @@ import java.util.Set;
 public class EntityScannerRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
-     * Register bean definitions *
-     *
+     * Register bean definitions
      * @param metadata metadata
      * @param registry registry
      */
@@ -36,8 +30,7 @@ public class EntityScannerRegistrar implements ImportBeanDefinitionRegistrar {
     }
 
     /**
-     * Gets packages to scan *
-     *
+     * Gets packages to scan
      * @param metadata metadata
      * @return the packages to scan
      */

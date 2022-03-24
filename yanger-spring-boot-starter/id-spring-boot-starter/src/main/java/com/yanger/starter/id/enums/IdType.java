@@ -1,9 +1,8 @@
 package com.yanger.starter.id.enums;
 
+import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
-
-import lombok.Getter;
 
 /**
  * id 类型
@@ -65,7 +64,6 @@ public enum IdType {
 
     /**
      * Parse
-     *
      * @param name name
      * @return the id type
      */
@@ -75,13 +73,11 @@ public enum IdType {
         } else if (MAX_PEAK.getName().equals(name)) {
             return MAX_PEAK;
         }
-
         return null;
     }
 
     /**
      * Parse
-     *
      * @param type type
      * @return the id type
      */
@@ -92,7 +88,6 @@ public enum IdType {
         } else if (type == 0) {
             return MAX_PEAK;
         }
-
         return null;
     }
 

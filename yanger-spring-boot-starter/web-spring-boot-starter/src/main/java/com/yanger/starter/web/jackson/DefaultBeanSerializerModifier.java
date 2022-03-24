@@ -1,19 +1,14 @@
 package com.yanger.starter.web.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.BeanDescription;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializationConfig;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 import com.yanger.tools.general.constant.StringPool;
-
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.time.temporal.TemporalAccessor;
 import java.util.Collection;
@@ -37,7 +32,6 @@ import java.util.List;
 public class DefaultBeanSerializerModifier extends com.fasterxml.jackson.databind.ser.BeanSerializerModifier {
     /**
      * Change properties list
-     *
      * @param config         config
      * @param beanDesc       bean desc
      * @param beanProperties bean properties

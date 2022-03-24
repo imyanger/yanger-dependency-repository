@@ -18,7 +18,6 @@ public class ProtobufValueEncoder extends AbstractValueEncoder {
 
     /**
      * Jackson value encoder
-     *
      * @param useIdentityNumber use identity number
      */
     private ProtobufValueEncoder(boolean useIdentityNumber) {
@@ -27,7 +26,6 @@ public class ProtobufValueEncoder extends AbstractValueEncoder {
 
     /**
      * Apply byte [ ]
-     *
      * @param o o
      * @return the byte [ ]
      */

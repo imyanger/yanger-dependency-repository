@@ -3,10 +3,9 @@ package com.yanger.starter.mybatis.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.yanger.starter.basic.entity.IBaseEntity;
-
-import java.io.*;
-
 import lombok.Builder;
+
+import java.io.Serializable;
 
 /**
  * 包含 id 的基础对象
@@ -29,7 +28,6 @@ public abstract class BasePO<T extends Serializable, M extends Model<M>> extends
      * Active Record 模式需要满足 2 个要求:
      * 1. 重写 pkVal();
      * 2. 存在 XxxDao;
-     *
      * @return the serializable
      */
     @Override
@@ -39,7 +37,6 @@ public abstract class BasePO<T extends Serializable, M extends Model<M>> extends
 
     /**
      * Pk val serializable
-     *
      * @return the serializable
      */
     @Override
@@ -49,7 +46,6 @@ public abstract class BasePO<T extends Serializable, M extends Model<M>> extends
 
     /**
      * 必须使用 @Builder 注解, 不然在使用 wrapper 转换时 id 会丢失
-     *
      * @param id id
      * @return the id
      */

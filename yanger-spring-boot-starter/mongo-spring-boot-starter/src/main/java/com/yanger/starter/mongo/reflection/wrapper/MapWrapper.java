@@ -1,12 +1,10 @@
 package com.yanger.starter.mongo.reflection.wrapper;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.starter.mongo.reflection.DefaultMetaObject;
 import com.yanger.starter.mongo.reflection.MetaObject;
 import com.yanger.starter.mongo.reflection.factory.ObjectFactory;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -14,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -25,7 +22,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Map wrapper
-     *
      * @param metaObject meta object
      * @param map        map
      */
@@ -36,7 +32,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Get object
-     *
      * @param prop prop
      * @return the object
      */
@@ -51,8 +46,7 @@ public class MapWrapper extends BaseWrapper {
     }
 
     /**
-     * Set *
-     *
+     * Set
      * @param prop  prop
      * @param value value
      */
@@ -68,7 +62,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Find property string
-     *
      * @param name                name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -80,7 +73,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -90,7 +82,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -99,8 +90,7 @@ public class MapWrapper extends BaseWrapper {
     }
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
@@ -124,8 +114,7 @@ public class MapWrapper extends BaseWrapper {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -150,7 +139,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -161,7 +149,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -186,7 +173,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Instantiate property value meta object
-     *
      * @param name          name
      * @param prop          prop
      * @param objectFactory object factory
@@ -204,7 +190,6 @@ public class MapWrapper extends BaseWrapper {
 
     /**
      * Is collection boolean
-     *
      * @return the boolean
      */
     @Override
@@ -213,8 +198,7 @@ public class MapWrapper extends BaseWrapper {
     }
 
     /**
-     * Add *
-     *
+     * Add
      * @param element element
      */
     @Override
@@ -223,8 +207,7 @@ public class MapWrapper extends BaseWrapper {
     }
 
     /**
-     * Add all *
-     *
+     * Add all
      * @param <E>     parameter
      * @param element element
      */

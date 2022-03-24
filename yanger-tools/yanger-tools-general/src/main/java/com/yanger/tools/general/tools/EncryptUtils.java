@@ -1,6 +1,7 @@
 package com.yanger.tools.general.tools;
 
 import cn.hutool.core.codec.Base64;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -10,6 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
  * @Author yanger
  * @Date 2018/12/29 20:05
  */
+@Slf4j
 public class EncryptUtils {
 
     /** 加密类型 */
@@ -62,7 +64,8 @@ public class EncryptUtils {
             }
             s = new String(str);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("get MD5 error", e);
+            return null;
         }
         return s;
     }
@@ -75,16 +78,21 @@ public class EncryptUtils {
      * @Author yanger
      * @Date 2021/12/08 23:36
      */
-    public static String AESEncrypt(String src, String key) throws Exception {
+    public static String AESEncrypt(String src, String key) {
         if (key == null || key.length() != 16) {
-            throw new Exception("key不满足条件");
+            throw new RuntimeException("请使用 16 位 key 进行加密");
         }
-        byte[] raw = key.getBytes();
-        SecretKeySpec skeySpec = new SecretKeySpec(raw, KEY_AES);
-        Cipher cipher = Cipher.getInstance(KEY_AES);
-        cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
-        byte[] encrypted = cipher.doFinal(src.getBytes());
-        return byte2hex(encrypted);
+        try {
+            byte[] raw = key.getBytes();
+            SecretKeySpec skeySpec = new SecretKeySpec(raw, KEY_AES);
+            Cipher cipher = Cipher.getInstance(KEY_AES);
+            cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
+            byte[] encrypted = cipher.doFinal(src.getBytes());
+            return byte2hex(encrypted);
+        } catch (Exception e) {
+            log.error("AES Encrypt error", e);
+            return null;
+        }
     }
 
     /**
@@ -95,18 +103,23 @@ public class EncryptUtils {
      * @Author yanger
      * @Date 2021/12/08 23:36
      */
-    public static String AESDecrypt(String src, String key) throws Exception {
+    public static String AESDecrypt(String src, String key) {
         if (key == null || key.length() != 16) {
-            throw new Exception("key不满足条件");
+            throw new RuntimeException("请使用 16 位 key 进行加密");
         }
-        byte[] raw = key.getBytes();
-        SecretKeySpec skeySpec = new SecretKeySpec(raw, KEY_AES);
-        Cipher cipher = Cipher.getInstance(KEY_AES);
-        cipher.init(Cipher.DECRYPT_MODE, skeySpec);
-        byte[] encrypted1 = hex2byte(src);
-        byte[] original = cipher.doFinal(encrypted1);
-        String originalString = new String(original);
-        return originalString;
+        try {
+            byte[] raw = key.getBytes();
+            SecretKeySpec skeySpec = new SecretKeySpec(raw, KEY_AES);
+            Cipher cipher = Cipher.getInstance(KEY_AES);
+            cipher.init(Cipher.DECRYPT_MODE, skeySpec);
+            byte[] encrypted1 = hex2byte(src);
+            byte[] original = cipher.doFinal(encrypted1);
+            String originalString = new String(original);
+            return originalString;
+        } catch (Exception e) {
+            log.error("AES Encrypt error", e);
+            return null;
+        }
     }
 
     /**

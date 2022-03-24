@@ -31,7 +31,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 首字母变大写
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -51,7 +51,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 首字母变小写
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -71,7 +71,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 下划线转驼峰
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -82,7 +82,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 驼峰转下划线
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -93,7 +93,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 横线转驼峰
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -105,7 +105,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 驼峰转横线
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:55
@@ -117,7 +117,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 替换 sign 为驼峰
-     * @param str
+     * @param str 待处理字符串
      * @param sign
      * @return {@link String}
      * @Author yanger
@@ -140,7 +140,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 替换驼峰为 sign
-     * @param str
+     * @param str 待处理字符串
      * @param sign
      * @return {@link String}
      * @Author yanger
@@ -568,7 +568,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 删除空白符
-     * @param str
+     * @param str 待处理字符串
      * @return {@link String}
      * @Author yanger
      * @Date 2022/01/21 21:57
@@ -627,7 +627,7 @@ public class StringTools extends StringUtils {
     /**
      * 截取分隔字符串之前的字符串,不包括分隔字符串<br>
      *  默认查找最后一个分隔符
-     * @param string
+     * @param string 待处理字符串
      * @param separator
      * @return {@link String}
      * @Author yanger
@@ -680,7 +680,7 @@ public class StringTools extends StringUtils {
     /**
      * 截取分隔字符串之后的字符串,不包括分隔字符串<br>
      * 默认查找第一个分隔符
-     * @param string
+     * @param string 待处理字符串
      * @param separator
      * @return {@link String}
      * @Author yanger
@@ -708,7 +708,7 @@ public class StringTools extends StringUtils {
 
     /**
      * 转换为 String 数组
-     * @param str
+     * @param str 待处理字符串
      * @param split
      * @return {@link String[]}
      * @Author yanger

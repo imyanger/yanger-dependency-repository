@@ -31,8 +31,8 @@ public class SystemUtils extends org.apache.commons.lang3.SystemUtils {
 
     /**
      * 优先获取 JVM 参数, 然后才是系统环境变量
-     * @param property
-     * @return {@link String}
+     * @param property 参数 key
+     * @return {@link String} 属性值
      * @Author yanger
      * @Date 2022/01/21 22:49
      */

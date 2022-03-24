@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.yanger.starter.basic.listen.StarterInfoRunner
-org.springframework.context.ApplicationContextInitializer=\
-  com.yanger.starter.basic.context.EarlySpringContext

@@ -5,7 +5,6 @@ import com.yanger.starter.basic.constant.App;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.env.Environment;
 
@@ -43,7 +42,6 @@ public class CacheLauncherInitiation implements LauncherInitiation {
 
     /**
      * 加载默认配置
-     *
      * @param env               系统变量 Environment
      * @param appName           服务名
      * @return the chain map
@@ -76,7 +74,7 @@ public class CacheLauncherInitiation implements LauncherInitiation {
 
     @Override
     public String getName() {
-        return "fcache-spring-boot-starter:CacheLauncherInitiation";
+        return "cache-spring-boot-starter:CacheLauncherInitiation";
     }
 
 }

@@ -2,13 +2,12 @@ package com.yanger.starter.web.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * 针对 api 服务对 android 和 ios 和 web 处理的 分读写的 jackson 处理
@@ -23,21 +22,10 @@ public class MappingApiJackson2HttpMessageConverter extends AbstractReadWriteJac
     @Nullable
     private String jsonPrefix;
 
-    /**
-     * Construct a new {@link MappingApiJackson2HttpMessageConverter} using default configuration
-     * provided by {@link Jackson2ObjectMapperBuilder}.
-     */
     public MappingApiJackson2HttpMessageConverter() {
         this(Jackson2ObjectMapperBuilder.json().build());
     }
 
-    /**
-     * Construct a new {@link MappingApiJackson2HttpMessageConverter} with a custom {@link ObjectMapper}.
-     * You can use {@link Jackson2ObjectMapperBuilder} to build it easily.
-     *
-     * @param objectMapper ObjectMapper
-     * @see Jackson2ObjectMapperBuilder#json() Jackson2ObjectMapperBuilder#json()Jackson2ObjectMapperBuilder#json()
-     */
     public MappingApiJackson2HttpMessageConverter(ObjectMapper objectMapper) {
         super(objectMapper, initWriteObjectMapper(objectMapper), MediaType.APPLICATION_JSON, new MediaType("application", "*+json"));
     }
@@ -45,7 +33,6 @@ public class MappingApiJackson2HttpMessageConverter extends AbstractReadWriteJac
     /**
      * 初始化负责序列化的 ObjectMapper, 设置 null 处理.
      * 如果需要扩展, 只需要重写 setSerializerFactory 即可.
-     *
      * @param readObjectMapper read object mapper
      * @return the object mapper
      */
@@ -60,7 +47,6 @@ public class MappingApiJackson2HttpMessageConverter extends AbstractReadWriteJac
     /**
      * Specify a custom prefix to use for this view's JSON output.
      * Default is none.
-     *
      * @param jsonPrefix jsonPrefix
      * @see #setPrefixJson #setPrefixJson#setPrefixJson#setPrefixJson#setPrefixJson#setPrefixJson
      */
@@ -73,7 +59,6 @@ public class MappingApiJackson2HttpMessageConverter extends AbstractReadWriteJac
      * <p>Prefixing the JSON string in this manner is used to help prevent JSON Hijacking.
      * The prefix renders the string syntactically invalid as a script so that it cannot be hijacked.
      * This prefix should be stripped before parsing the string as JSON.
-     *
      * @param prefixJson prefixJson
      * @see #setJsonPrefix #setJsonPrefix#setJsonPrefix#setJsonPrefix#setJsonPrefix#setJsonPrefix
      */
@@ -82,8 +67,7 @@ public class MappingApiJackson2HttpMessageConverter extends AbstractReadWriteJac
     }
 
     /**
-     * Write prefix *
-     *
+     * Write prefix
      * @param generator generator
      * @param object    object
      * @throws IOException io exception

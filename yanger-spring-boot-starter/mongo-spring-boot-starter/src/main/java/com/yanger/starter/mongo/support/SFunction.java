@@ -1,6 +1,6 @@
 package com.yanger.starter.mongo.support;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.function.Function;
 
 /**
@@ -11,4 +11,5 @@ import java.util.function.Function;
 @SuppressWarnings("all")
 @FunctionalInterface
 public interface SFunction<T, R> extends Function<T, R>, Serializable {
+
 }

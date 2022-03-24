@@ -2,25 +2,25 @@ package com.yanger.starter.mongo.enums;
 
 
 import com.yanger.tools.web.exception.BasicException;
-
 import org.springframework.data.mongodb.core.query.Criteria;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public enum OP {
+
     /** Or op */
     OR,
+
     /** And op */
     AND,
+
     /** Nor op */
     NOR;
 
     /**
-     * Op *
-     *
+     * Op
      * @param criteria  criteria
      * @param criterias criterias
      */

@@ -23,7 +23,6 @@ public class LambdaUpdateWrapper<M extends Model<M>> extends AbstractLambdaWrapp
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaUpdate(entity)
-     *
      * @param entity entity
      */
     public LambdaUpdateWrapper(M entity) {
@@ -32,7 +31,6 @@ public class LambdaUpdateWrapper<M extends Model<M>> extends AbstractLambdaWrapp
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaUpdate(entity)
-     *
      * @param entityClass entity class
      */
     public LambdaUpdateWrapper(Class<M> entityClass) {
@@ -41,7 +39,6 @@ public class LambdaUpdateWrapper<M extends Model<M>> extends AbstractLambdaWrapp
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaUpdate(...)
-     *
      * @param entity      entity
      * @param entityClass entity class
      */
@@ -52,7 +49,6 @@ public class LambdaUpdateWrapper<M extends Model<M>> extends AbstractLambdaWrapp
 
     /**
      * Instance lambda update wrapper
-     *
      * @return the lambda update wrapper
      */
     @Override

@@ -1,24 +1,22 @@
 package com.yanger.starter.mongo.reflection.invoker;
 
 import com.yanger.starter.mongo.reflection.Reflector;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public class SetFieldInvoker implements Invoker {
+
     /** Field */
     private final Field field;
 
     /**
      * Set field invoker
-     *
      * @param field field
      */
     @Contract(pure = true)
@@ -28,7 +26,6 @@ public class SetFieldInvoker implements Invoker {
 
     /**
      * Invoke object
-     *
      * @param target target
      * @param args   args
      * @return the object
@@ -50,8 +47,7 @@ public class SetFieldInvoker implements Invoker {
     }
 
     /**
-     * Gets type *
-     *
+     * Gets type
      * @return the type
      */
     @Override

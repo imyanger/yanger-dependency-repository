@@ -5,11 +5,7 @@ import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.CacheBuilder;
 import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 import com.alicp.jetcache.anno.support.SpringConfigProvider;
-import com.alicp.jetcache.autoconfigure.AutoConfigureBeans;
-import com.alicp.jetcache.autoconfigure.CaffeineAutoConfiguration;
-import com.alicp.jetcache.autoconfigure.JetCacheAutoConfiguration;
-import com.alicp.jetcache.autoconfigure.LinkedHashMapAutoConfiguration;
-import com.alicp.jetcache.autoconfigure.RedisLettuceAutoConfiguration;
+import com.alicp.jetcache.autoconfigure.*;
 import com.alicp.jetcache.external.ExternalCacheBuilder;
 import com.alicp.jetcache.support.StatInfo;
 import com.alicp.jetcache.support.StatInfoLogger;
@@ -18,38 +14,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.cache.handler.KeyExpirationListenerAdapter;
 import com.yanger.starter.cache.jackson.JavaTimeModule;
+import com.yanger.starter.cache.property.CacheProperties;
 import com.yanger.starter.cache.service.CacheService;
 import com.yanger.starter.cache.service.impl.CaffeineCacheServiceImpl;
 import com.yanger.starter.cache.service.impl.LinkedHashMapCacheServiceImpl;
 import com.yanger.starter.cache.service.impl.RedisCacheServiceImpl;
-import com.yanger.starter.cache.support.FastjsonKeyConvertor;
-import com.yanger.starter.cache.support.JacksonValueDecoder;
-import com.yanger.starter.cache.support.JacksonValueEncoder;
-import com.yanger.starter.cache.support.JacksonValueSerialPolicy;
-import com.yanger.starter.cache.support.ProtobufValueDecoder;
-import com.yanger.starter.cache.support.ProtobufValueEncoder;
-import com.yanger.starter.cache.support.ProtobufValueSerialPolicy;
-
+import com.yanger.starter.cache.support.*;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 缓存配置装配类
@@ -62,11 +47,10 @@ import lombok.extern.slf4j.Slf4j;
 @Import(value = {LettuceConnectionConfiguration.class, RedisKeyExpirationAutoConfiguration.class})
 @EnableConfigurationProperties(CacheProperties.class)
 @AutoConfigureAfter({JetCacheAutoConfiguration.class})
-public class CacheAutoConfiguration implements YangerAutoConfiguration {
+public class CacheAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 自定义序列化/反序列化
-     *
      * @param jacksonValueDecoder jackson value decoder
      * @param jacksonValueEncoder jackson value encoder
      * @return the spring config provider
@@ -103,7 +87,6 @@ public class CacheAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * RedisTemplate bean
-     *
      * @param connectionFactory        connectionFactory
      * @param jacksonValueSerialPolicy jackson value serial policy
      * @return the redis template
@@ -138,7 +121,6 @@ public class CacheAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * Redis CacheService 实现, 如果配置为多级缓存, 优先使用 RedisCacheService 作为 CacheService 的实现
-     *
      * @param redisTemplate                redis template
      * @param keyExpirationListenerAdapter key expiration listener adapter
      * @param redisClient                  redis client
@@ -166,7 +148,6 @@ public class CacheAutoConfiguration implements YangerAutoConfiguration {
     /**
      * 使用全局配置生成一个默认的本地 cache 实现包装实例
      * 传入 LinkedHashMapAutoConfiguration，使得 Spring 优先加载 LinkedHashMapAutoConfiguration，避免 autoConfigureBeans.localCacheBuilders 为空
-     *
      * @param cacheProperties    cache properties
      * @param autoConfigureBeans auto configure beans
      * @return the cache service
@@ -184,7 +165,6 @@ public class CacheAutoConfiguration implements YangerAutoConfiguration {
     /**
      * 使用全局配置生成一个默认的本地 cache 实现包装实例
      * 传入 LinkedHashMapAutoConfiguration，使得 Spring 优先加载 LinkedHashMapAutoConfiguration，避免 autoConfigureBeans.localCacheBuilders 为空
-     *
      * @return the cache service
      */
     @Bean
@@ -199,7 +179,6 @@ public class CacheAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * Build cache
-     *
      * @param autoConfigureBeans auto configure beans
      * @return the cache
      */

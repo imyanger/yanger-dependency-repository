@@ -1,15 +1,14 @@
 package com.yanger.starter.mongo.handler.metadata;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * 数据库表反射信息
@@ -25,15 +24,18 @@ public class MetadataInfo implements Constants {
      * 实体类型
      */
     private Class<?> entityType;
+
     /**
      * 实体名称
      */
     private String name;
 
+
     /**
      * 表字段信息列表
      */
     private List<MetadataFieldInfo> fieldList;
+
 
     /**
      * 表字段是否启用了插入填充
@@ -41,6 +43,7 @@ public class MetadataInfo implements Constants {
     @Getter
     @Setter(AccessLevel.NONE)
     private boolean withInsertFill;
+
     /**
      * 表字段是否启用了更新填充
      */
@@ -50,7 +53,6 @@ public class MetadataInfo implements Constants {
 
     /**
      * Metadata info
-     *
      * @param entityType entity type
      */
     @Contract(pure = true)
@@ -59,8 +61,7 @@ public class MetadataInfo implements Constants {
     }
 
     /**
-     * Sets field list *
-     *
+     * Sets field list
      * @param fieldList field list
      */
     void setFieldList(@NotNull List<MetadataFieldInfo> fieldList) {
@@ -74,4 +75,5 @@ public class MetadataInfo implements Constants {
             }
         });
     }
+
 }

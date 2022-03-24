@@ -9,7 +9,6 @@ import com.yanger.starter.basic.util.ConfigKit;
 import com.yanger.tools.general.tools.StringTools;
 import com.yanger.tools.web.tools.BeanUtils;
 import com.yanger.tools.web.tools.NumberUtils;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,8 +23,7 @@ import java.util.Map;
 public class Condition {
 
     /**
-     * 转化成mybatis plus中的Page
-     *
+     * 转化成mybatis plus 中的 Page
      * @param <T>   the type parameter
      * @param query the query
      * @return page page
@@ -45,7 +43,6 @@ public class Condition {
 
     /**
      * 获取 mybatis plus 中的 QueryWrapper
-     *
      * @param <T>    the type parameter
      * @param entity the entity
      * @return query wrapper
@@ -58,7 +55,6 @@ public class Condition {
 
     /**
      * 获取 mybatis plus中的 QueryWrapper
-     *
      * @param <T>   the type parameter
      * @param query the query
      * @param clazz the clazz

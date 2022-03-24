@@ -1,13 +1,11 @@
 package com.yanger.starter.mongo.reflection.property;
 
 import com.yanger.starter.mongo.reflection.Reflector;
-
 import org.jetbrains.annotations.Contract;
 
 import java.lang.reflect.Field;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -22,8 +20,7 @@ public final class PropertyCopier {
     }
 
     /**
-     * Copy bean properties *
-     *
+     * Copy bean properties
      * @param type            type
      * @param sourceBean      source bean
      * @param destinationBean destination bean

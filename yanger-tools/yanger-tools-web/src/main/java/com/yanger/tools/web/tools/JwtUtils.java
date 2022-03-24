@@ -23,12 +23,10 @@ public class JwtUtils {
 
     private static final Long expiresSecond = 1000L * 60 * 60 * 24;
 
-
     /**
      * 根据对象生成token
      *
      * @param object
-     * @return
      * @author YangHao
      * @date 2018年9月23日-下午4:28:57
      */
@@ -38,10 +36,8 @@ public class JwtUtils {
 
     /**
      * 根据对象生成token
-     *
      * @param object        待生成的对象
      * @param expiresSecond 超时时间
-     * @return
      * @author YangHao
      * @date 2018年9月23日-下午4:28:57
      */
@@ -61,9 +57,7 @@ public class JwtUtils {
 
     /**
      * 根据token解析出对象
-     *
      * @param jwt
-     * @return
      * @author YangHao
      * @date 2018年9月23日-下午4:28:57
      */
@@ -90,9 +84,8 @@ public class JwtUtils {
      * 获取token的时间
      * @Author yanger
      * @Date 2020/12/10 18:27
-     * @param: jwt
-     * @return: java.util.Date
-     * @throws
+     * @param jwt
+     * @return java.util.Date
      */
     public static Date getExpiration(String jwt) {
         final JWTVerifier verifier = new JWTVerifier(SECRET);
@@ -110,7 +103,6 @@ public class JwtUtils {
 
     /**
      * 判断token是否过期
-     *
      * @param jwt
      * @return true-过期
      * @author YangHao

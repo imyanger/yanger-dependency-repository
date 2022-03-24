@@ -1,10 +1,6 @@
 package com.yanger.starter.web.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * 解析 json 格式的参数, 可直接注入单个参数到 controller
@@ -18,21 +14,18 @@ public @interface RequestSingleParam {
 
     /**
      * Value string
-     *
      * @return the string
      */
     String value();
 
     /**
      * Required boolean
-     *
      * @return the boolean
      */
     boolean required() default true;
 
     /**
      * Default value string
-     *
      * @return the string
      */
     String defaultValue() default "";

@@ -1,9 +1,12 @@
 package com.yanger.tools.web.tools;
 
+import cn.hutool.core.lang.Assert;
+import cn.hutool.core.util.StrUtil;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.exception.Exceptions;
-
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
@@ -16,27 +19,11 @@ import org.springframework.core.convert.TypeDescriptor;
 
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.lang.reflect.*;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import cn.hutool.core.lang.Assert;
-import cn.hutool.core.util.StrUtil;
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
 
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
@@ -71,7 +58,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 Bean 的所有 get方法
-     *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
      */
@@ -81,7 +67,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 Bean 的所有 PropertyDescriptor
-     *
      * @param type  类
      * @param read  读取方法
      * @param write 写方法
@@ -110,7 +95,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 Bean 的所有 set方法
-     *
      * @param type 类
      * @return PropertyDescriptor数组 property descriptor [ ]
      */
@@ -120,7 +104,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 bean 的属性信息
-     *
      * @param propertyType 类型
      * @param propertyName 属性名
      * @return {Property}
@@ -136,7 +119,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 bean 的属性信息
-     *
      * @param propertyType 类型
      * @param propertyName 属性名
      * @return {Property}
@@ -152,7 +134,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 bean 的属性信息
-     *
      * @param propertyType       类型
      * @param propertyDescriptor PropertyDescriptor
      * @param propertyName       属性名
@@ -167,7 +148,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 类属性信息
-     *
      * @param propertyType       类型
      * @param propertyDescriptor PropertyDescriptor
      * @param propertyName       属性名
@@ -185,7 +165,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 所有 field 属性上的注解
-     *
      * @param <T>             注解泛型
      * @param clazz           类
      * @param fieldName       属性名
@@ -203,7 +182,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 类属性
-     *
      * @param clazz     类信息
      * @param fieldName 属性名
      * @return Field field
@@ -222,7 +200,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 拼接字符串第二个字符串第一个字母大写
-     *
      * @param concatStr concat str
      * @param str       str
      * @return the string
@@ -244,10 +221,7 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
     }
 
     /**
-     * <p>
      * 获取 public get方法的值
-     * </p>
-     *
      * @param cls    ignore
      * @param entity 实体
      * @param str    属性字符串内容
@@ -260,17 +234,16 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
             Method method = cls.getMethod(guessGetterName(fieldMaps.get(str), str));
             return method.invoke(entity);
         } catch (NoSuchMethodException e) {
-            throw new BasicException("Error: NoSuchMethod in %s.  Cause:", e, cls.getSimpleName());
+            throw new BasicException(e, "Error: NoSuchMethod in %s.  Cause:", cls.getSimpleName());
         } catch (IllegalAccessException e) {
-            throw new BasicException("Error: Cannot execute a private method. in %s.  Cause:", e, cls.getSimpleName());
+            throw new BasicException(e, "Error: Cannot execute a private method. in %s.  Cause:", cls.getSimpleName());
         } catch (InvocationTargetException e) {
-            throw new BasicException("Error: InvocationTargetException on getMethodValue.  Cause:" + e);
+            throw new BasicException(e, "Error: InvocationTargetException on getMethodValue.  Cause:");
         }
     }
 
     /**
      * 猜测方法名
-     *
      * @param field 字段
      * @param str   属性字符串内容
      * @return the string
@@ -281,7 +254,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 猜测方法属性对应的 Getter 名称, 具体规则请参考 JavaBeans 规范
-     *
      * @param name 属性名称
      * @param type 属性类型
      * @return 返回猜测的名称 string
@@ -292,7 +264,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取 public get方法的值
-     *
      * @param entity 实体
      * @param str    属性字符串内容
      * @return Object method value
@@ -307,7 +278,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 反射对象获取泛型
-     *
      * @param clazz 对象
      * @param index 泛型所在位置
      * @return Class super class generic type
@@ -334,7 +304,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取该类的所有属性列表
-     *
      * @param clazz 反射类
      * @return the field map
      */
@@ -346,7 +315,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取该类的所有属性列表
-     *
      * @param clazz 反射类
      * @return the field list
      */
@@ -366,16 +334,14 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 获取该类的所有属性列表
-     *
      * @param clazz 反射类
      * @return the list
      */
     public static @NotNull List<Field> doGetFieldList(@NotNull Class<?> clazz) {
         if (clazz.getSuperclass() != null) {
             /* 排除重载属性 */
-            Map<String, Field> fieldMap = excludeOverrideSuperField(clazz.getDeclaredFields(),
-                /* 处理父类字段 */
-                                                                    getFieldList(clazz.getSuperclass()));
+            Map<String, Field> fieldMap = excludeOverrideSuperField(clazz.getDeclaredFields(), getFieldList(clazz.getSuperclass()));
+
             List<Field> fieldList = new ArrayList<>();
             /*
              * 重写父类属性过滤后处理忽略部分, 支持过滤父类属性功能
@@ -398,7 +364,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 排序重置父类属性
-     *
      * @param fields         子类属性
      * @param superFieldList 父类属性
      * @return the map
@@ -416,8 +381,7 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
     }
 
     /**
-     * 获取字段get方法
-     *
+     * 获取字段 get 方法
      * @param cls   class
      * @param field 字段
      * @return Get方法 method
@@ -426,13 +390,12 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
         try {
             return cls.getDeclaredMethod(guessGetterName(field, field.getName()));
         } catch (NoSuchMethodException e) {
-            throw new BasicException("Error: NoSuchMethod in %s.  Cause:", e, cls.getName());
+            throw new BasicException(e, "Error: NoSuchMethod in %s.  Cause:", cls.getName());
         }
     }
 
     /**
      * 判断是否为基本类型或基本包装类型
-     *
      * @param clazz class
      * @return 是否基本类型或基本包装类型 boolean
      */
@@ -443,7 +406,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 循环向上转型, 获取对象的 DeclaredMethod
-     *
      * @param object         : 子类对象
      * @param methodName     : 父类中的方法名
      * @param parameterTypes : 父类中的方法参数类型
@@ -465,17 +427,13 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 直接调用对象方法, 而忽略修饰符(private, protected, default)
-     *
      * @param object         : 子类对象
      * @param methodName     : 父类中的方法名
      * @param parameterTypes : 父类中的方法参数类型
      * @param parameters     : 父类中的方法参数
      * @return 父类中方法的执行结果 object
      */
-    public static @Nullable Object invokeMethod(Object object,
-                                                String methodName,
-                                                Class<?>[] parameterTypes,
-                                                Object[] parameters) {
+    public static @Nullable Object invokeMethod(Object object, String methodName, Class<?>[] parameterTypes, Object[] parameters) {
         // 根据 对象、方法名和对应的方法参数 通过反射 调用上面的方法获取 Method 对象
         Method method = getDeclaredMethod(object, methodName, parameterTypes);
         try {
@@ -493,7 +451,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 循环向上转型, 获取对象的 DeclaredField
-     *
      * @param object    : 子类对象
      * @param fieldName : 父类中的属性名
      * @return 父类中的属性对象 declared field
@@ -515,7 +472,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 直接设置对象属性值, 忽略 private/protected 修饰符, 也不经过 setter
-     *
      * @param object    : 子类对象
      * @param fieldName : 父类中的属性名
      * @param value     : 将要设置的值
@@ -538,7 +494,6 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
 
     /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
-     *
      * @param object    : 子类对象
      * @param fieldName : 父类中的属性名
      * @return : 父类中的属性值
@@ -559,4 +514,5 @@ public class ReflectionUtils extends org.springframework.util.ReflectionUtils {
         }
         return null;
     }
+
 }

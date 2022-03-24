@@ -21,7 +21,6 @@ public final class CustomMongoConversionService extends DefaultConversionService
 
     /**
      * Gets instance.
-     *
      * @return the instance
      */
     @Contract(pure = true)

@@ -16,7 +16,6 @@ public class MybatisSqlInjector extends DefaultSqlInjector {
 
     /**
      * 获取 mapper sql 集合
-     *
      * @param mapperClass mapper class
      * @return the method list
      */

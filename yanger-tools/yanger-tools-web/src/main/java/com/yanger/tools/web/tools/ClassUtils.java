@@ -1,7 +1,6 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.web.exception.BasicException;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.BridgeMethodResolver;
@@ -14,11 +13,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.method.HandlerMethod;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,7 +39,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取方法参数信息
-     *
      * @param constructor    构造器
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
@@ -57,7 +51,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取方法参数信息
-     *
      * @param method         方法
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
@@ -70,7 +63,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取Annotation
-     *
      * @param <A>            泛型标记
      * @param method         Method
      * @param annotationType 注解类
@@ -94,7 +86,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取Annotation
-     *
      * @param <A>            泛型标记
      * @param handlerMethod  HandlerMethod
      * @param annotationType 注解类
@@ -112,8 +103,7 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     }
 
     /**
-     * 获取接口上的泛型T
-     *
+     * 获取接口上的泛型 T
      * @param clazz          clazz
      * @param interfaceClass interface class
      * @param index          泛型索引
@@ -123,7 +113,7 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
         Type[] types = clazz.getGenericInterfaces();
         Type targetType = Arrays.stream(types).filter(type -> type.toString().contains(interfaceClass.getName())).findAny().orElse(null);
         if (targetType == null) {
-            throw new BasicException("[{}] 未实现 [{}] 接口", clazz, interfaceClass);
+            throw new BasicException(BasicException.DEFAULT_ERROR_CODE, "[{}] 未实现 [{}] 接口", clazz, interfaceClass);
         }
         ParameterizedType parameterizedType = (ParameterizedType) targetType;
         Type type = parameterizedType.getActualTypeArguments()[index];
@@ -132,7 +122,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取父类上的泛型
-     *
      * @param clazz clazz
      * @param index index
      * @return the class
@@ -146,7 +135,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 递归获取泛型类型
-     *
      * @param type  type
      * @param index index
      * @return the class
@@ -167,7 +155,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 判断传入的类型是否是布尔类型
-     *
      * @param type 类型
      * @return 如果是原生布尔或者包装类型布尔 , 均返回 true
      */
@@ -178,7 +165,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 判断是否为代理对象
-     *
      * @param clazz 传入 class 对象
      * @return 如果对象class是代理 class, 返回 true
      */
@@ -196,7 +182,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取当前对象的 class
-     *
      * @param clazz 传入
      * @return 如果是代理的class , 返回父 class, 否则返回自身
      */
@@ -206,7 +191,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
 
     /**
      * 获取当前对象的class
-     *
      * @param object 对象
      * @return 返回对象的 user class
      */
@@ -218,7 +202,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * 根据指定的 class ,  实例化一个对象, 根据构造参数来实例化
      * 在 java9 及其之后的版本 Class.newInstance() 方法已被废弃
-     *
      * @param <T>   类型, 由输入类型决定
      * @param clazz 需要实例化的对象
      * @return 返回新的实例 @ not null t
@@ -229,13 +212,12 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
             constructor.setAccessible(true);
             return constructor.newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new BasicException("实例化对象时出现错误,请尝试给 %s 添加无参的构造方法", e, clazz.getName());
+            throw new BasicException(e, "实例化对象时出现错误,请尝试给 %s 添加无参的构造方法", clazz.getName());
         }
     }
 
     /**
      * 请仅在确定类存在的情况下调用该方法
-     *
      * @param name 类名称
      * @return 返回转换后的 Class
      */
@@ -243,7 +225,7 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
         try {
             return Class.forName(name);
         } catch (ClassNotFoundException e) {
-            throw new BasicException("找不到指定的class！请仅在明确确定会有 class 的时候, 调用该方法", e);
+            throw new BasicException(e, "找不到指定的class！请仅在明确确定会有 class 的时候, 调用该方法");
         }
     }
 
@@ -251,7 +233,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * Determine the name of the package of the given class,
      * e.g. "java.lang" for the {@code java.lang.String} class.
-     *
      * @param clazz the class
      * @return the package name, or the empty String if the class     is defined in the default package
      */
@@ -263,7 +244,6 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * Determine the name of the package of the given fully-qualified class name,
      * e.g. "java.lang" for the {@code java.lang.String} class name.
-     *
      * @param fqClassName the fully-qualified class name
      * @return the package name, or the empty String if the class     is defined in the default package
      */

@@ -13,14 +13,12 @@ public interface IdService {
 
     /**
      * 生成分布式 id
-     *
      * @return the long
      */
     long genId();
 
     /**
      * 反解分布式 id
-     *
      * @param id id
      * @return the id
      */
@@ -28,7 +26,6 @@ public interface IdService {
 
     /**
      * 生成某一时段的 id
-     *
      * @param time time
      * @param seq  seq
      * @return the long
@@ -37,7 +34,6 @@ public interface IdService {
 
     /**
      * Make id
-     *
      * @param time    time
      * @param seq     seq
      * @param machine machine
@@ -47,7 +43,6 @@ public interface IdService {
 
     /**
      * Make id
-     *
      * @param deployType gen method
      * @param time       time
      * @param seq        seq
@@ -58,7 +53,6 @@ public interface IdService {
 
     /**
      * Make id
-     *
      * @param idType     idType
      * @param deployType gen method
      * @param time       time
@@ -70,7 +64,6 @@ public interface IdService {
 
     /**
      * Make id
-     *
      * @param version    version
      * @param idType     idType
      * @param deployType gen method
@@ -84,7 +77,6 @@ public interface IdService {
 
     /**
      * 将整型时间戳转换为时间
-     *
      * @param time time
      * @return the date
      */

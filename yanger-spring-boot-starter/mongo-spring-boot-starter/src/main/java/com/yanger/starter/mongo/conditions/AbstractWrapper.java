@@ -2,7 +2,6 @@ package com.yanger.starter.mongo.conditions;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-
 import com.mongodb.WriteConcern;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
@@ -20,7 +19,8 @@ import com.yanger.starter.mongo.mapper.Model;
 import com.yanger.starter.mongo.util.FieldConvertUtils;
 import com.yanger.starter.mongo.util.Wrappers;
 import com.yanger.tools.web.exception.BasicException;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
@@ -34,19 +34,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.NearQuery;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
+import java.util.*;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -55,23 +46,29 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /** 数据库表映射实体类 */
     private M entity;
+    
     /** 实体类型(主要用于确定泛型以及取TableInfo缓存) */
     private Class<M> entityClass;
+    
     /** 占位符 */
     @Getter
     protected final Children typedThis = (Children) this;
+    
     /** prefix */
     @Getter
     @Setter
     protected String prefix = null;
+    
     /** suffix */
     @Getter
     @Setter
     protected String suffix = null;
+    
     /** Mongo template */
     @Getter
     @Setter
     protected MongoTemplate mongoTemplate;
+    
     /** Map */
     @Getter
     @Setter
@@ -83,8 +80,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     protected abstract Children instance();
 
     /**
-     * Gets entity *
-     *
+     * Gets entity
      * @return the entity
      */
     @Override
@@ -93,8 +89,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     }
 
     /**
-     * Sets entity *
-     *
+     * Sets entity
      * @param entity entity
      * @return the entity
      */
@@ -104,8 +99,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     }
 
     /**
-     * Gets entity class *
-     *
+     * Gets entity class
      * @return the entity class
      */
     protected Class<M> getEntityClass() {
@@ -116,8 +110,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     }
 
     /**
-     * Sets entity class *
-     *
+     * Sets entity class
      * @param entityClass entity class
      * @return the entity class
      */
@@ -130,7 +123,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Fields wrapper.
-     *
      * @param fields the fields
      * @return the wrapper
      */
@@ -144,7 +136,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Where wrapper.
-     *
      * @param property the property
      * @param values   the values
      * @return the wrapper
@@ -163,7 +154,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Limit wrapper.
-     *
      * @param limit the limit
      * @param page  the page
      * @return the wrapper
@@ -175,7 +165,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Limit wrapper.
-     *
      * @param limit the limit
      * @param page  the page
      * @param skip  the skip
@@ -192,7 +181,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Nor wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -203,8 +191,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     }
 
     /**
-     * Push *
-     *
+     * Push
      * @param op           op
      * @param criteriaList criteria list
      */
@@ -216,7 +203,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Nor wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -229,7 +215,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Nor wrapper.
-     *
      * @param key       the key
      * @param value     the value
      * @param operators the operators
@@ -242,7 +227,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * And wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -254,7 +238,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * And wrapper.
-     *
      * @param key       the key
      * @param value     the value
      * @param operators the operators
@@ -267,7 +250,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Gte wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -279,7 +261,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Gt wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -291,7 +272,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Lt wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -303,7 +283,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Lte wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -315,7 +294,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Gte or null wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -326,7 +304,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Gt or null wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -337,7 +314,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Lte or null wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -348,7 +324,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Lt or null wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -359,7 +334,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Or null wrapper
-     *
      * @param criteria criteria
      * @param key      key
      * @return the wrapper
@@ -377,7 +351,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * In wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -389,7 +362,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Nin wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -401,7 +373,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Size wrapper.
-     *
      * @param key  the key
      * @param size the size
      * @return the wrapper
@@ -413,7 +384,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Exists wrapper.
-     *
      * @param key  the key
      * @param flag the flag
      * @return the wrapper
@@ -425,7 +395,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Or wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -437,7 +406,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Or wrapper.
-     *
      * @param key       the key
      * @param value     the value
      * @param operators the operators
@@ -450,7 +418,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * My self wrapper.
-     *
      * @param myself the myself
      * @return the wrapper
      */
@@ -461,7 +428,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Fuzzy wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -475,7 +441,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * And wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -487,7 +452,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Ne wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -499,7 +463,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Or wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -511,7 +474,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Skip wrapper.
-     *
      * @param limit the limit
      * @param skip  the skip
      * @return the wrapper
@@ -527,7 +489,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Desc wrapper.
-     *
      * @param properties the properties
      * @return the wrapper
      */
@@ -539,7 +500,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Asc wrapper.
-     *
      * @param properties the properties
      * @return the wrapper
      */
@@ -551,7 +511,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Type wrapper.
-     *
      * @param key  the key
      * @param type the type
      * @return the wrapper
@@ -563,7 +522,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Between wrapper.
-     *
      * @param key     the key
      * @param begin   the begin
      * @param end     the end
@@ -584,7 +542,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * WriteConcern.FSYNC_SAFE: 抛出网络错误异常、服务器错误异常; 写操作等待服务器将数据刷新到磁盘.
      * WriteConcern.JOURNAL_SAFE:抛出网络错误异常、服务器错误异常; 写操作等待服务器提交到磁盘的日志文件.
      * WriteConcern.REPLICAS_SAFE:抛出网络错误异常、服务器错误异常; 等待至少2台服务器完成写操作.
-     *
      * @return the mongo
      */
     public Children safe() {
@@ -594,7 +551,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Prefix mongo.
-     *
      * @param prefix the prefix
      * @return the mongo
      */
@@ -605,7 +561,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Suffix mongo.
-     *
      * @param suffix the suffix
      * @return the mongo
      */
@@ -616,7 +571,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Build criteria mongo.
-     *
      * @param criteria the criteria
      * @return the mongo
      */
@@ -627,7 +581,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * 地理坐标查询
-     *
      * @param lat the lat
      * @param lng the lng
      * @param cls the cls
@@ -651,7 +604,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * 获取数据源
      * 1. Mongo.build(mongoTemplate).xxx    --> 手动设置数据源(用于操作没有被 @MongoCollection 标识的实体)
      * 2. Mongo.build().xxx --> 通过实体注解获取数据源
-     *
      * @param clazz the clazz           实体类
      * @return the mongo template       mongo 操作模板类
      */
@@ -670,7 +622,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Load t.
-     *
      * @param id    the id
      * @param clazz the clazz
      * @return the t
@@ -683,7 +634,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Eq wrapper.
-     *
      * @param key   the key
      * @param value the value
      * @return the wrapper
@@ -708,7 +658,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * One t.
-     *
      * @param clazz the clazz
      * @return the t
      */
@@ -719,7 +668,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * One t
-     *
      * @return the t
      */
     public M one() {
@@ -730,7 +678,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Save.
-     *
      * @param obj the obj
      */
     public void save(M obj) {
@@ -739,7 +686,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Insert.
-     *
      * @param obj the obj
      */
     @SuppressWarnings("unchecked")
@@ -749,7 +695,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Collection name string
-     *
      * @param obj obj
      * @return the string
      */
@@ -764,7 +709,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
      * 通过实体注解获取 collectionName, 并且拼装前后缀
      * 1. 被 @MongoCollection 标识的实体使用 value
      * 2. 没有被 @MongoCollection 标识的实体使用 class simple name
-     *
      * @param clazz the clazz
      * @return the string
      */
@@ -788,7 +732,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Insert mongo type.
-     *
      * @param update the update
      * @param obj    the obj
      * @return the mongo type
@@ -808,7 +751,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Count long.
-     *
      * @param clazz the clazz
      * @return the long
      */
@@ -819,7 +761,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Update first write result.
-     *
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
@@ -830,8 +771,7 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
     }
 
     /**
-     * Gets update *
-     *
+     * Gets update
      * @param update update
      * @return the update
      */
@@ -845,7 +785,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Remove write result.
-     *
      * @param cls the cls
      * @return the write result
      */
@@ -856,7 +795,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * List list.
-     *
      * @param clazz the clazz
      * @return the list
      */
@@ -867,7 +805,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Insert batch.
-     *
      * @param objs  the objs
      * @param clazz the clazz
      */
@@ -877,7 +814,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * All list.
-     *
      * @param clazz the clazz
      * @return the list
      */
@@ -887,7 +823,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Upsert write result.
-     *
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
@@ -899,7 +834,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Update multi write result.
-     *
      * @param update the update
      * @param clazz  the clazz
      * @return the write result
@@ -911,7 +845,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Find and modify.
-     *
      * @param update the update
      * @param clazz  the clazz
      */
@@ -922,7 +855,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Find and update t.
-     *
      * @param clazz  the clazz
      * @param update the update
      * @return the t
@@ -934,7 +866,6 @@ public abstract class AbstractWrapper<M extends Model<M>, R, Children extends Ab
 
     /**
      * Find and update t.
-     *
      * @param clazz     the clazz
      * @param update    the update
      * @param upsert    the upsert

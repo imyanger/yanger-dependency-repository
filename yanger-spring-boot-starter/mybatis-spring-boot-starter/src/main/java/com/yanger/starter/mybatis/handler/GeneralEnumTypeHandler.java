@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.yanger.starter.basic.annotation.SerializeValue;
 import com.yanger.starter.basic.enums.SerializeEnum;
-
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaClass;
 import org.apache.ibatis.reflection.ReflectorFactory;
@@ -53,7 +52,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * General enum type handler
-     *
      * @param type type
      */
     @Contract("null -> fail")
@@ -78,7 +76,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 写入 DB 转换
-     *
      * @param ps        ps
      * @param i         the first parameter is 1, the second is 2, ...
      * @param parameter parameter
@@ -98,7 +95,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 读取 DB 时转换
-     *
      * @param rs         rs
      * @param columnName column name
      * @return the nullable result
@@ -114,7 +110,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 读取 DB 时转换
-     *
      * @param rs          rs
      * @param columnIndex column index
      * @return the nullable result
@@ -130,7 +125,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 读取 DB 时转换
-     *
      * @param cs          cs
      * @param columnIndex column index
      * @return the nullable result
@@ -146,7 +140,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 查找标记标记 EnumValue 字段
-     *
      * @param clazz class
      * @return EnumValue字段 optional
      */
@@ -165,7 +158,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 判断是否为MP枚举处理
-     *
      * @param clazz class
      * @return 是否为MP枚举处理 boolean
      */
@@ -178,7 +170,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * Value of e
-     *
      * @param enumClass enum class
      * @param value     value
      * @return the e
@@ -190,7 +181,6 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
 
     /**
      * 值比较
-     *
      * @param sourceValue 数据库字段值
      * @param targetValue 当前枚举属性值
      * @return 是否匹配 boolean
@@ -204,8 +194,7 @@ public class GeneralEnumTypeHandler<E extends Enum<?>> extends BaseTypeHandler<E
     }
 
     /**
-     * Gets value *
-     *
+     * Gets value
      * @param object object
      * @return the value
      */

@@ -1,24 +1,11 @@
 package com.yanger.tools.web.support;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.tools.web.tools.BeanUtils;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.asm.ClassVisitor;
 import org.springframework.asm.Type;
-import org.springframework.cglib.core.AbstractClassGenerator;
-import org.springframework.cglib.core.ClassEmitter;
-import org.springframework.cglib.core.CodeEmitter;
-import org.springframework.cglib.core.Constants;
-import org.springframework.cglib.core.Converter;
-import org.springframework.cglib.core.EmitUtils;
-import org.springframework.cglib.core.KeyFactory;
-import org.springframework.cglib.core.Local;
-import org.springframework.cglib.core.MethodInfo;
-import org.springframework.cglib.core.ReflectUtils;
-import org.springframework.cglib.core.Signature;
-import org.springframework.cglib.core.TypeUtils;
+import org.springframework.cglib.core.*;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Modifier;
@@ -26,7 +13,7 @@ import java.security.ProtectionDomain;
 import java.util.Map;
 
 /**
- * spring cglib, 修改 支持链式 bean, 自定义的 BeanCopier 解决 spring boot 和 cglib ClassLoader classLoader 不一致的问题
+ * spring cglib, 修改 支持链式 bean, 自定义的 BeanCopier 解决 spring boot 和 cglib ClassLoader 的 classLoader 不一致的问题
  * @Author yanger
  * @Date 2020/12/29 19:33
  */
@@ -34,39 +21,38 @@ public abstract class BeanCopier {
 
     /** KEY_FACTORY */
     private static final BeanCopierKey KEY_FACTORY = (BeanCopierKey) KeyFactory.create(BeanCopierKey.class);
+
     /** CONVERTER */
     private static final Type CONVERTER = TypeUtils.parseType("org.springframework.cglib.core.Converter");
+
     /** BEAN_COPIER */
     private static final Type BEAN_COPIER = TypeUtils.parseType(BeanCopier.class.getName());
+
     /** COPY */
-    private static final Signature COPY = new Signature("copy",
-                                                        Type.VOID_TYPE,
-                                                        new Type[] {Constants.TYPE_OBJECT, Constants.TYPE_OBJECT, CONVERTER});
+    private static final Signature COPY = new Signature(
+            "copy", Type.VOID_TYPE, new Type[] {Constants.TYPE_OBJECT, Constants.TYPE_OBJECT, CONVERTER});
+
     /** CONVERT */
     private static final Signature CONVERT = TypeUtils.parseSignature("Object convert(Object, Class, Object)");
 
     /**
-     * Create base bean copier.
-     *
+     * Create base bean copier
      * @param source       the source
      * @param target       the target
      * @param useConverter the use converter
      * @return the base bean copier
-
      */
     public static BeanCopier create(Class<?> source, Class<?> target, boolean useConverter) {
         return BeanCopier.create(source, target, null, useConverter);
     }
 
     /**
-     * Create base bean copier.
-     *
+     * Create base bean copier
      * @param source       the source
      * @param target       the target
      * @param classLoader  the class loader
      * @param useConverter the use converter
      * @return the base bean copier
-
      */
     public static BeanCopier create(Class<?> source, Class<?> target, ClassLoader classLoader, boolean useConverter) {
         Generator gen;
@@ -83,27 +69,16 @@ public abstract class BeanCopier {
 
     /**
      * 拷贝
-     *
      * @param from      源
      * @param to        目标
      * @param converter 转换器
-
      */
     public abstract void copy(Object from, Object to, Converter converter);
 
     /**
-     * The interface Bean copier key.
+     * The interface Bean copier key
      */
     interface BeanCopierKey {
-        /**
-         * 实例化
-         *
-         * @param source       源
-         * @param target       目标
-         * @param useConverter 是否使用转换
-         * @return object object
-
-         */
         Object newInstance(String source, String target, boolean useConverter);
     }
 
@@ -111,6 +86,7 @@ public abstract class BeanCopier {
      * The type Generator.
      */
     public static class Generator extends AbstractClassGenerator<Object> {
+
         /** SOURCE */
         private static final AbstractClassGenerator.Source SOURCE = new Source(BeanCopier.class.getName());
         /** Class loader */
@@ -124,8 +100,6 @@ public abstract class BeanCopier {
 
         /**
          * Instantiates a new Generator.
-         *
-
          */
         Generator() {
             super(SOURCE);
@@ -133,10 +107,8 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Instantiates a new Generator.
-         *
+         * Instantiates a new Generator
          * @param classLoader the class loader
-
          */
         Generator(ClassLoader classLoader) {
             super(SOURCE);
@@ -144,10 +116,8 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Sets source.
-         *
+         * Sets source
          * @param source the source
-
          */
         public void setSource(@NotNull Class<?> source) {
             if (!Modifier.isPublic(source.getModifiers())) {
@@ -157,10 +127,9 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Sets target.
+         * Sets target
          *
          * @param target the target
-
          */
         public void setTarget(@NotNull Class<?> target) {
             if (!Modifier.isPublic(target.getModifiers())) {
@@ -171,20 +140,16 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Sets use converter.
-         *
+         * Sets use converter
          * @param useConverter the use converter
-
          */
         public void setUseConverter(boolean useConverter) {
             this.useConverter = useConverter;
         }
 
         /**
-         * Gets default class loader *
-         *
+         * Gets default class loader
          * @return the default class loader
-
          */
         @Override
         protected ClassLoader getDefaultClassLoader() {
@@ -192,10 +157,8 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Gets protection domain *
-         *
+         * Gets protection domain
          * @return the protection domain
-
          */
         @Override
         protected ProtectionDomain getProtectionDomain() {
@@ -204,10 +167,8 @@ public abstract class BeanCopier {
 
         /**
          * First instance object
-         *
          * @param type type
          * @return the object
-
          */
         @Override
         protected Object firstInstance(Class type) {
@@ -216,10 +177,8 @@ public abstract class BeanCopier {
 
         /**
          * Next instance object
-         *
          * @param instance instance
          * @return the object
-
          */
         @Override
         protected Object nextInstance(Object instance) {
@@ -227,10 +186,8 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Create base bean copier.
-         *
+         * Create base bean copier
          * @return the base bean copier
-
          */
         public BeanCopier create() {
             Object key = KEY_FACTORY.newInstance(this.source.getName(), this.target.getName(), this.useConverter);
@@ -238,22 +195,15 @@ public abstract class BeanCopier {
         }
 
         /**
-         * Generate class *
-         *
+         * Generate class
          * @param v v
-
          */
         @Override
         public void generateClass(ClassVisitor v) {
             Type sourceType = Type.getType(this.source);
             Type targetType = Type.getType(this.target);
             ClassEmitter ce = new ClassEmitter(v);
-            ce.begin_class(Constants.V1_2,
-                           Constants.ACC_PUBLIC,
-                           this.getClassName(),
-                           BEAN_COPIER,
-                           null,
-                           Constants.SOURCE_FILE);
+            ce.begin_class(Constants.V1_2, Constants.ACC_PUBLIC, this.getClassName(), BEAN_COPIER, null, Constants.SOURCE_FILE);
 
             EmitUtils.null_constructor(ce);
             CodeEmitter e = ce.begin_method(Constants.ACC_PUBLIC, COPY, null);
@@ -308,14 +258,14 @@ public abstract class BeanCopier {
 
         /**
          * Compatible boolean
-         *
          * @param getter getter
          * @param setter setter
          * @return the boolean
-
          */
         private static boolean compatible(@NotNull PropertyDescriptor getter, @NotNull PropertyDescriptor setter) {
             return setter.getPropertyType().isAssignableFrom(getter.getPropertyType());
         }
+
     }
+
 }

@@ -1,5 +1,6 @@
 package com.yanger.starter.id.service;
 
+import cn.hutool.core.date.SystemClock;
 import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.enums.DeployType;
 import com.yanger.starter.id.enums.IdType;
@@ -7,8 +8,6 @@ import com.yanger.starter.id.exception.IdWorkerException;
 import com.yanger.tools.general.format.StringFormat;
 
 import java.util.Date;
-
-import cn.hutool.core.date.SystemClock;
 
 /**
  * Twitter的Snowflake 算法<br>
@@ -88,7 +87,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 构造
-     *
      * @param machineId    终端ID
      * @param dataCenterId 数据中心ID
      */
@@ -98,7 +96,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 构造
-     *
      * @param machineId        终端ID
      * @param dataCenterId     数据中心ID
      * @param isUseSystemClock 是否使用{@link SystemClock} 获取当前时间戳
@@ -109,7 +106,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Snowflake provider
-     *
      * @param epochDate        初始化时间起点（null表示默认起始日期）,后期修改会导致id重复,如果要修改连workerId dataCenterId, 慎用
      * @param machineId        工作机器节点id
      * @param dataCenterId     数据中心id
@@ -137,7 +133,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 根据 Snowflake 的 ID, 获取机器 id
-     *
      * @param id snowflake 算法生成的 id
      * @return 所属机器的id worker id
      */
@@ -147,7 +142,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 根据 Snowflake 的 ID, 获取数据中心 id
-     *
      * @param id snowflake算法生成的id
      * @return 所属数据中心 data center id
      */
@@ -157,7 +151,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Get sequence
-     *
      * @param id id
      * @return the long
      */
@@ -167,7 +160,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 根据 Snowflake 的 ID, 获取生成时间
-     *
      * @param id snowflake算法生成的id
      * @return 生成的时间 generate date time
      */
@@ -177,7 +169,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 下一个 ID
-     *
      * @return ID long
      */
     public synchronized long nextId() {
@@ -214,7 +205,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 下一个ID（字符串形式）
-     *
      * @return ID 字符串形式
      */
     public String nextIdStr() {
@@ -223,7 +213,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 循环等待下一个时间
-     *
      * @param lastTimestamp 上次记录的时间
      * @return 下一个时间 long
      */
@@ -237,7 +226,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 生成时间戳
-     *
      * @return 时间戳 long
      */
     private long genTime() {
@@ -246,7 +234,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 生成分布式 id
-     *
      * @return the long
      */
     @Override
@@ -256,7 +243,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 反解分布式 id
-     *
      * @param id id
      * @return the id
      */
@@ -268,7 +254,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 生成某一时段的 id
-     *
      * @param time time
      * @param seq  seq
      * @return the long
@@ -280,7 +265,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param time    time
      * @param seq     seq
      * @param machine machine
@@ -293,7 +277,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param deployType gen method
      * @param time       time
      * @param seq        seq
@@ -307,7 +290,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param idType     type
      * @param deployType gen method
      * @param time       time
@@ -322,7 +304,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param version    version
      * @param idType     type
      * @param deployType gen method
@@ -338,7 +319,6 @@ public class SnowflakeIdServiceImpl implements IdService {
 
     /**
      * 将整型时间戳转换为时间
-     *
      * @param time time
      * @return the date
      */
@@ -346,4 +326,5 @@ public class SnowflakeIdServiceImpl implements IdService {
     public Date transTime(long time) {
         return new Date(time);
     }
+
 }

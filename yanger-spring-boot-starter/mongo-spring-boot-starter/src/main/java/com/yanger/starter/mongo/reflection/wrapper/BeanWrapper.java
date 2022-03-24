@@ -1,5 +1,6 @@
 package com.yanger.starter.mongo.reflection.wrapper;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
 import com.yanger.starter.mongo.reflection.DefaultMetaObject;
 import com.yanger.starter.mongo.reflection.MetaClass;
 import com.yanger.starter.mongo.reflection.MetaObject;
@@ -7,15 +8,11 @@ import com.yanger.starter.mongo.reflection.ReflectionException;
 import com.yanger.starter.mongo.reflection.factory.ObjectFactory;
 import com.yanger.starter.mongo.reflection.invoker.Invoker;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import cn.hutool.core.exceptions.ExceptionUtil;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -23,12 +20,12 @@ public class BeanWrapper extends BaseWrapper {
 
     /** Object */
     private final Object object;
+
     /** Meta class */
     private final MetaClass metaClass;
 
     /**
      * Bean wrapper
-     *
      * @param metaObject meta object
      * @param object     object
      */
@@ -40,7 +37,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Get object
-     *
      * @param prop prop
      * @return the object
      */
@@ -55,8 +51,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Set *
-     *
+     * Set
      * @param prop  prop
      * @param value value
      */
@@ -72,7 +67,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Find property string
-     *
      * @param name                name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -84,7 +78,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -94,7 +87,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -103,8 +95,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
@@ -124,8 +115,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -146,7 +136,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -171,7 +160,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -196,7 +184,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Instantiate property value meta object
-     *
      * @param name          name
      * @param prop          prop
      * @param objectFactory object factory
@@ -222,8 +209,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Sets bean property *
-     *
+     * Sets bean property
      * @param prop   prop
      * @param object object
      * @param value  value
@@ -245,7 +231,6 @@ public class BeanWrapper extends BaseWrapper {
 
     /**
      * Is collection boolean
-     *
      * @return the boolean
      */
     @Override
@@ -254,8 +239,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Add *
-     *
+     * Add
      * @param element element
      */
     @Override
@@ -264,8 +248,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Add all *
-     *
+     * Add all
      * @param <E>  parameter
      * @param list list
      */
@@ -275,8 +258,7 @@ public class BeanWrapper extends BaseWrapper {
     }
 
     /**
-     * Gets bean property *
-     *
+     * Gets bean property
      * @param prop   prop
      * @param object object
      * @return the bean property

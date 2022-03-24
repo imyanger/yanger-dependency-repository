@@ -32,7 +32,7 @@
     </scm>
 
     <modules>
-        <module>./basic-spring-boot-starter</module>
+        <module>./base-spring-boot-starter</module>
         <module>./web-spring-boot-starter</module>
         <module>./mybatis-spring-boot-starter</module>
         <module>./id-spring-boot-starter</module>

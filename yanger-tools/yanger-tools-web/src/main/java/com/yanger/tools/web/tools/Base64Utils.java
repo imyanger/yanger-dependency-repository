@@ -1,7 +1,6 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.general.constant.Charsets;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +13,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 编码
-     *
      * @param value 字符串
      * @return {String}
      */
@@ -25,7 +23,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 编码
-     *
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
@@ -39,7 +36,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 编码URL安全
-     *
      * @param value 字符串
      * @return {String}
      */
@@ -50,7 +46,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 编码URL安全
-     *
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
@@ -64,7 +59,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 解码
-     *
      * @param value 字符串
      * @return {String}
      */
@@ -75,7 +69,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 解码
-     *
      * @param value   字符串
      * @param charset 字符集
      * @return {String}
@@ -89,7 +82,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 解码URL安全
-     *
      * @param value 字符串
      * @return {String}
      */
@@ -100,7 +92,6 @@ public class Base64Utils extends org.springframework.util.Base64Utils {
 
     /**
      * 解码URL安全
-     *
      * @param value   字符串
      * @param charset 字符集
      * @return {String}

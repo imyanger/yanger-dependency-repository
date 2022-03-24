@@ -1,14 +1,12 @@
 package com.yanger.starter.mongo.convert;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.starter.basic.enums.SerializeEnum;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.convert.converter.Converter;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -26,7 +24,6 @@ public abstract class AbstractGenericToEnumConverter<E extends Enum<?>, V extend
 
     /**
      * 建立映射关系 (V[value] <--> E[SerializeEnum])
-     *
      * @param enumClass enum class
      */
     @SuppressWarnings("unchecked")
@@ -48,7 +45,6 @@ public abstract class AbstractGenericToEnumConverter<E extends Enum<?>, V extend
      * 1. value
      * 2. name
      * 3. 枚举下标
-     *
      * @param source source
      * @return the t
      */

@@ -20,9 +20,9 @@ import java.util.List;
  * @Date 2020/12/29 17:32
  */
 public class CamelCaseFieldNamingStrategy implements FieldNamingStrategy {
+
     /**
      * Gets field name *
-     *
      * @param property property
      * @return the field name
      */
@@ -41,4 +41,5 @@ public class CamelCaseFieldNamingStrategy implements FieldNamingStrategy {
         }
         return sb.toString();
     }
+
 }

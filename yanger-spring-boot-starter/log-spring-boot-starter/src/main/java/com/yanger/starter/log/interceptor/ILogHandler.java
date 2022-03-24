@@ -1,6 +1,7 @@
 package com.yanger.starter.log.interceptor;
 
 import com.yanger.starter.log.entity.LogInfo;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +22,7 @@ public interface ILogHandler {
      * @param: logInfo
      * @throws
      */
+    @Async
     void handler(HttpServletRequest request, HttpServletResponse response, HandlerMethod handler, ModelAndView modelAndView, LogInfo logInfo);
 
 }

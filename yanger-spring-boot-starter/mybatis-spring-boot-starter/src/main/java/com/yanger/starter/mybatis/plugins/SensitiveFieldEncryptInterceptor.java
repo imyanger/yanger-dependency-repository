@@ -4,20 +4,15 @@ import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.yanger.starter.mybatis.annotation.PasswordField;
 import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.tools.general.tools.EncryptUtils;
-import com.yanger.tools.web.tools.AesUtils;
+import com.yanger.tools.web.tools.AesKit;
 import com.yanger.tools.web.tools.Base64Utils;
 import com.yanger.tools.web.tools.ReflectionUtils;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlCommandType;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Plugin;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
@@ -48,7 +43,6 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
 
     /**
      * Intercept
-     *
      * @param invocation invocation
      * @return the object
      * @throws Throwable throwable
@@ -96,7 +90,6 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
 
     /**
      * Plugin
-     *
      * @param target target
      * @return the object
      */
@@ -106,8 +99,7 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
     }
 
     /**
-     * Sets properties *
-     *
+     * Sets properties
      * @param properties properties
      */
     @Override
@@ -117,7 +109,6 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
 
     /**
      * Encrypt field
-     *
      * @param declaredFields declared fields
      * @param parameter      parameter
      * @param sqlCommandType sql command type
@@ -129,7 +120,7 @@ public class SensitiveFieldEncryptInterceptor implements Interceptor {
                 // 如果使用了加密注解，对内容加密再存储
                 Object fieldValue = ReflectionUtils.getFieldValue(parameter, field.getName());
                 if (!StringUtils.isEmpty(fieldValue)) {
-                    byte[] encrypt = AesUtils.encrypt(String.valueOf(fieldValue), this.sensitiveKey);
+                    byte[] encrypt = AesKit.encrypt(String.valueOf(fieldValue), this.sensitiveKey);
                     String encryptStr = Base64Utils.encodeToString(encrypt);
                     ReflectionUtils.setFieldValue(parameter, field.getName(), encryptStr);
                 }

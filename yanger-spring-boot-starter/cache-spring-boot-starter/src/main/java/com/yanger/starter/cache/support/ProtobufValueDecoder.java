@@ -1,7 +1,6 @@
 package com.yanger.starter.cache.support;
 
 import com.yanger.starter.basic.annotation.AutoService;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -25,7 +24,6 @@ public class ProtobufValueDecoder extends CacheAbstractValueDecoder {
 
     /**
      * Protobuf value decoder
-     *
      * @param useIdentityNumber use identity number
      */
     private ProtobufValueDecoder(boolean useIdentityNumber) {
@@ -34,7 +32,6 @@ public class ProtobufValueDecoder extends CacheAbstractValueDecoder {
 
     /**
      * Do apply object
-     *
      * @param buffer buffer
      * @return the object
      * @throws Exception exception

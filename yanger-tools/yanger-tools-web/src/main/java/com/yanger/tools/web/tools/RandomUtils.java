@@ -1,7 +1,7 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.web.exception.AssertUtils;
-
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -11,8 +11,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * TODO
@@ -52,8 +50,7 @@ public class RandomUtils {
 
     /**
      * <p>Returns the next pseudorandom, uniformly distributed int value from the Math.random() sequence.</p> N.B.
-     * All values are >= 0.
-     *
+     * All values are >= 0
      * @return the random int
      */
     public static int nextInt() {
@@ -63,7 +60,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed int value from the given <code>random</code>
      * sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @return the random int
      */
@@ -74,7 +70,6 @@ public class RandomUtils {
     /**
      * <p>Returns a pseudorandom, uniformly distributed int value between <code>0</code> (inclusive) and the specified
      * value (exclusive), from the Math.random() sequence.</p>
-     *
      * @param n the specified exclusive max-value
      * @return the random int
      */
@@ -85,7 +80,6 @@ public class RandomUtils {
     /**
      * <p>Returns a pseudorandom, uniformly distributed int value between <code>0</code> (inclusive) and the specified
      * value (exclusive), from the given Random sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @param n      the specified exclusive max-value
      * @return the random int
@@ -98,7 +92,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed long value from the Math.random() sequence.</p> N.B.
      * All values are >= 0.
-     *
      * @return the random long
      */
     public static long nextLong() {
@@ -107,7 +100,6 @@ public class RandomUtils {
 
     /**
      * <p>Returns the next pseudorandom, uniformly distributed long value from the given Random sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @return the random long
      */
@@ -117,7 +109,6 @@ public class RandomUtils {
 
     /**
      * <p>Returns the next pseudorandom, uniformly distributed boolean value from the Math.random() sequence.</p>
-     *
      * @return the random boolean
      */
     public static boolean nextBoolean() {
@@ -126,7 +117,6 @@ public class RandomUtils {
 
     /**
      * <p>Returns the next pseudorandom, uniformly distributed boolean value from the given random sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @return the random boolean
      */
@@ -137,7 +127,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed float value between <code>0.0</code> and <code>1.0</code>
      * from the Math.random() sequence.</p>
-     *
      * @return the random float
      */
     public static float nextFloat() {
@@ -147,7 +136,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed float value between <code>0.0</code> and <code>1.0</code>
      * from the given Random sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @return the random float
      */
@@ -158,7 +146,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed float value between <code>0.0</code> and <code>1.0</code>
      * from the Math.random() sequence.</p>
-     *
      * @return the random double
      */
     public static double nextDouble() {
@@ -168,7 +155,6 @@ public class RandomUtils {
     /**
      * <p>Returns the next pseudorandom, uniformly distributed float value between <code>0.0</code> and <code>1.0</code>
      * from the given Random sequence.</p>
-     *
      * @param random the Random sequence generator.
      * @return the random double
      */
@@ -178,7 +164,6 @@ public class RandomUtils {
 
     /**
      * Next int int.
-     *
      * @param startInclusive the start inclusive
      * @param endExclusive   the end exclusive
      * @return the int
@@ -189,7 +174,6 @@ public class RandomUtils {
 
     /**
      * Next long long.
-     *
      * @param startInclusive the start inclusive
      * @param endExclusive   the end exclusive
      * @return the long
@@ -200,7 +184,6 @@ public class RandomUtils {
 
     /**
      * Next double double.
-     *
      * @param startInclusive the start inclusive
      * @param endInclusive   the end inclusive
      * @return the double
@@ -211,7 +194,6 @@ public class RandomUtils {
 
     /**
      * Next float float.
-     *
      * @param startInclusive the start inclusive
      * @param endInclusive   the end inclusive
      * @return the float
@@ -222,7 +204,6 @@ public class RandomUtils {
 
     /**
      * Next size int.
-     *
      * @param startInclusive the start inclusive
      * @param endInclusive   the end inclusive
      * @return the int
@@ -233,7 +214,6 @@ public class RandomUtils {
 
     /**
      * 随机数生成
-     *
      * @param count 字符长度
      * @return 随机数 string
      */
@@ -244,7 +224,6 @@ public class RandomUtils {
 
     /**
      * 随机数生成
-     *
      * @param count      字符长度
      * @param randomType 随机数类别
      * @return 随机数 string
@@ -270,8 +249,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets long more than zero less than *
-     *
+     * Gets long more than zero less than
      * @param n n
      * @return the long more than zero less than
      */
@@ -285,8 +263,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets long less than *
-     *
+     * Gets long less than
      * @param n n
      * @return the long less than
      */
@@ -296,8 +273,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets long between *
-     *
+     * Gets long between
      * @param n n
      * @param m m
      * @return the long between
@@ -312,8 +288,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets long more than zero *
-     *
+     * Gets long more than zero
      * @return the long more than zero
      */
     static long getLongMoreThanZero() {
@@ -321,13 +296,11 @@ public class RandomUtils {
         while (res <= 0L) {
             res = JVM_RANDOM.nextLong();
         }
-
         return res;
     }
 
     /**
-     * Gets integer less than *
-     *
+     * Gets integer less than
      * @param n n
      * @return the integer less than
      */
@@ -337,8 +310,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with number *
-     *
+     * Gets string with number
      * @param n n
      * @return the string with number
      */
@@ -348,8 +320,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string *
-     *
+     * Gets string
      * @param n   n
      * @param arg arg
      * @return the string
@@ -365,8 +336,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets char *
-     *
+     * Gets char
      * @param arg arg
      * @return the char
      */
@@ -378,8 +348,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets integer between *
-     *
+     * Gets integer between
      * @param n n
      * @param m m
      * @return the integer between
@@ -394,8 +363,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets integer more than zero *
-     *
+     * Gets integer more than zero
      * @return the integer more than zero
      */
     static int getIntegerMoreThanZero() {
@@ -403,13 +371,11 @@ public class RandomUtils {
         while (res <= 0) {
             res = JVM_RANDOM.nextInt();
         }
-
         return res;
     }
 
     /**
-     * Gets random string *
-     *
+     * Gets random string
      * @param length length
      * @return the random string
      */
@@ -427,8 +393,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string shorten than *
-     *
+     * Gets string shorten than
      * @param n n
      * @return the string shorten than
      */
@@ -438,8 +403,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets integer more than zero less than *
-     *
+     * Gets integer more than zero less than
      * @param n n
      * @return the integer more than zero less than
      */
@@ -453,8 +417,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with character *
-     *
+     * Gets string with character
      * @param n n
      * @return the string with character
      */
@@ -464,8 +427,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with num and cha shorten than *
-     *
+     * Gets string with num and cha shorten than
      * @param n n
      * @return the string with num and cha shorten than
      */
@@ -475,8 +437,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with num and cha *
-     *
+     * Gets string with num and cha
      * @param n n
      * @return the string with num and cha
      */
@@ -486,8 +447,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string between *
-     *
+     * Gets string between
      * @param n n
      * @param m m
      * @return the string between
@@ -498,8 +458,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with num and cha between *
-     *
+     * Gets string with num and cha between
      * @param n n
      * @param m m
      * @return the string with num and cha between
@@ -510,8 +469,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with prefix *
-     *
+     * Gets string with prefix
      * @param n      n
      * @param prefix prefix
      * @return the string with prefix
@@ -527,8 +485,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with suffix *
-     *
+     * Gets string with suffix
      * @param n      n
      * @param suffix suffix
      * @return the string with suffix
@@ -544,8 +501,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets string with both *
-     *
+     * Gets string with both
      * @param n      n
      * @param prefix prefix
      * @param suffix suffix
@@ -565,8 +521,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets chese word with prifix *
-     *
+     * Gets chese word with prifix
      * @param n      n
      * @param prefix prefix
      * @return the chese word with prifix
@@ -582,8 +537,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets chese word *
-     *
+     * Gets chese word
      * @param len len
      * @return the chese word
      */
@@ -599,8 +553,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets chese char *
-     *
+     * Gets chese char
      * @return the chese char
      */
     private static char getCheseChar() {
@@ -608,8 +561,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets chese word with suffix *
-     *
+     * Gets chese word with suffix
      * @param n      n
      * @param suffix suffix
      * @return the chese word with suffix
@@ -625,8 +577,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets chese word with both *
-     *
+     * Gets chese word with both
      * @param n      n
      * @param prefix prefix
      * @param suffix suffix
@@ -646,8 +597,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets boolean *
-     *
+     * Gets boolean
      * @return the boolean
      */
     static boolean getBoolean() {
@@ -656,7 +606,6 @@ public class RandomUtils {
 
     /**
      * Get random array int [ ]
-     *
      * @param min min
      * @param max max
      * @param n   n
@@ -688,8 +637,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gets random collection *
-     *
+     * Gets random collection
      * @param min min
      * @param max max
      * @param n   n
@@ -704,7 +652,6 @@ public class RandomUtils {
             for (i = 1; i <= n; ++i) {
                 res.add(i);
             }
-
         } else {
             for (i = 0; i < n; ++i) {
                 int v = getIntegerBetween(mn, mx);
@@ -715,7 +662,6 @@ public class RandomUtils {
                 if (v == mn) {
                     ++mn;
                 }
-
                 while (res.contains(v)) {
                     v = getIntegerBetween(mn, mx);
                     if (v == mx) {
@@ -726,10 +672,8 @@ public class RandomUtils {
                         mn = v;
                     }
                 }
-
                 res.add(v);
             }
-
         }
         return res;
     }
@@ -738,7 +682,7 @@ public class RandomUtils {
      * 获取 uid
      * @Author yanger
      * @Date 2021/3/2 14:29
-     * @return: java.lang.String
+     * @return java.lang.String
      */
     @NotNull
     @Contract(" -> new")
@@ -757,7 +701,6 @@ public class RandomUtils {
 
     /**
      * Format unsigned long
-     *
      * @param val    val
      * @param buf    buf
      * @param offset offset
@@ -777,7 +720,6 @@ public class RandomUtils {
      * JVMRandom是一个包装器, 它通过数学随机方法及其系统范围内的随机对象.
      * 这样做是为了允许在类的所有成员之间共享种子的随机类-更好的名称应该是shared seed Random.
      * 当前的实现覆盖了方法 {@link Random#nextInt(int)} 和 {@link Random#nextLong()} 生成从 0（包含）到最大值（不包含）的正数.
-     *
      * @Author yanger
      * @Date 2021/1/28 18:54
      */
@@ -800,7 +742,6 @@ public class RandomUtils {
 
         /**
          * Unsupported in 2.0.
-         *
          * @param seed ignored
          */
         @Contract(pure = true)
@@ -813,7 +754,6 @@ public class RandomUtils {
 
         /**
          * Unsupported in 2.0.
-         *
          * @param byteArray ignored
          */
         @Contract("_ -> fail")
@@ -825,7 +765,6 @@ public class RandomUtils {
         /**
          * <p>Returns the next pseudorandom, uniformly distributed int value from the Math.random() sequence.</p> Identical
          * to <code>nextInt(Integer.MAX_VALUE)</code> <p> N.B. All values are >= 0. </p>
-         *
          * @return the random int
          */
         @Override
@@ -836,7 +775,6 @@ public class RandomUtils {
         /**
          * <p>Returns a pseudorandom, uniformly distributed int value between <code>0</code> (inclusive) and the specified
          * value (exclusive), from the Math.random() sequence.</p>
-         *
          * @param n the specified exclusive max-value
          * @return the random int
          * @throws IllegalArgumentException when <code>n &lt;= 0</code>
@@ -849,7 +787,6 @@ public class RandomUtils {
         /**
          * <p>Returns the next pseudorandom, uniformly distributed long value from the Math.random() sequence.</p> Identical
          * to <code>nextLong(Long.MAX_VALUE)</code> <p> N.B. All values are >= 0. </p>
-         *
          * @return the random long
          */
         @Override
@@ -860,7 +797,6 @@ public class RandomUtils {
         /**
          * <p>Returns a pseudorandom, uniformly distributed long value between <code>0</code> (inclusive) and the specified
          * value (exclusive), from the Math.random() sequence.</p>
-         *
          * @param n the specified exclusive max-value
          * @return the random long
          * @throws IllegalArgumentException when <code>n &lt;= 0</code>
@@ -890,7 +826,6 @@ public class RandomUtils {
 
         /**
          * Get the next unsigned random long
-         *
          * @return unsigned random long
          */
         private static long next63bits() {
@@ -900,7 +835,6 @@ public class RandomUtils {
 
         /**
          * Count the number of bits required to represent a long number.
-         *
          * @param num long number
          * @return number of bits required
          */
@@ -925,7 +859,6 @@ public class RandomUtils {
 
         /**
          * <p>Returns the next pseudorandom, uniformly distributed boolean value from the Math.random() sequence.</p>
-         *
          * @return the random boolean
          */
         @Override
@@ -936,7 +869,6 @@ public class RandomUtils {
         /**
          * <p>Returns the next pseudorandom, uniformly distributed float value between <code>0.0</code> and <code>1.0</code>
          * from the Math.random() sequence.</p>
-         *
          * @return the random float
          */
         @Override
@@ -946,7 +878,6 @@ public class RandomUtils {
 
         /**
          * <p>Synonymous to the Math.random() call.</p>
-         *
          * @return the random double
          */
         @Override
@@ -956,7 +887,6 @@ public class RandomUtils {
 
         /**
          * Next gaussian double
-         *
          * @return the double
          */
         @Contract(" -> fail")
@@ -964,6 +894,6 @@ public class RandomUtils {
         public synchronized double nextGaussian() {
             throw new UnsupportedOperationException();
         }
-
     }
+
 }

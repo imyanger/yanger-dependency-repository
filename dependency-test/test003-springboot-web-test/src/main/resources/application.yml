@@ -1,0 +1,11 @@
+server:
+  port: 8083
+
+yanger:
+  token:
+    enable: false
+  serialize-enum:
+    enable: true
+spring:
+  profiles:
+    active: prod

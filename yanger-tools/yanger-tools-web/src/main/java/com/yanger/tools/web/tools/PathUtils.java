@@ -1,14 +1,12 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.general.constant.Charsets;
-
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
-import java.net.*;
-
-import lombok.experimental.UtilityClass;
+import java.io.File;
+import java.net.URL;
 
 /**
  * 用来获取各种目录
@@ -34,8 +32,7 @@ public class PathUtils {
     public static final String JAR_FILE_SEPARATOR = "!/";
 
     /**
-     * 获取jar包运行时的当前目录
-     *
+     * 获取 jar 包运行时的当前目录
      * @return {String}
      */
     @Nullable
@@ -50,8 +47,7 @@ public class PathUtils {
     }
 
     /**
-     * To file path string.
-     *
+     * To file path string
      * @param url the url
      * @return the string
      */

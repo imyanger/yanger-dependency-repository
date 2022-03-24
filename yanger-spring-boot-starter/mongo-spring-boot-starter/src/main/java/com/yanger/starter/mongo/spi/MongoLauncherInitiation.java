@@ -5,7 +5,6 @@ import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.web.support.ChainMap;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
@@ -28,7 +27,6 @@ public class MongoLauncherInitiation implements LauncherInitiation {
 
     /**
      * 启动之前关闭默认的 RedisAutoConfiguration 自动装配
-     *
      * @param appName app name
      */
     @Override
@@ -48,8 +46,7 @@ public class MongoLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Launcher *
-     *
+     * Launcher
      * @param env     env
      * @param appName app name
      * @return the map
@@ -62,8 +59,7 @@ public class MongoLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets order *
-     *
+     * Gets order
      * @return the order
      */
     @Override
@@ -72,7 +68,7 @@ public class MongoLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets name *
+     * Gets name
      *
      * @return the name
      */
@@ -80,4 +76,5 @@ public class MongoLauncherInitiation implements LauncherInitiation {
     public String getName() {
         return "mongo-spring-boot-starter:MongoLauncherInitiation";
     }
+
 }

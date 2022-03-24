@@ -23,9 +23,6 @@ public class JavaTimeModule extends SimpleModule {
 
     private static final long serialVersionUID = -8312156928465504942L;
 
-    /**
-     * Java time module
-     */
     public JavaTimeModule() {
         super(PackageVersion.VERSION);
         this.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormat.DATETIME_FORMAT));

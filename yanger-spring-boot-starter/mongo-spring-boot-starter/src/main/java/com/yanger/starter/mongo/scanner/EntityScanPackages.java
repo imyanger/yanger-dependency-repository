@@ -10,14 +10,7 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Class for storing {@link  @EntityScan} specified packages for reference later (e.g. by JPA auto-configuration).
@@ -28,14 +21,15 @@ public class EntityScanPackages {
 
     /** BEAN */
     private static final String BEAN = EntityScanPackages.class.getName();
+
     /** NONE */
     private static final EntityScanPackages NONE = new EntityScanPackages();
+
     /** Package names */
     private final List<String> packageNames;
 
     /**
      * Entity scan packages
-     *
      * @param packageNames package names
      */
     public EntityScanPackages(@NotNull String... packageNames) {
@@ -51,7 +45,6 @@ public class EntityScanPackages {
     /**
      * Return the package names specified from all {@link  @EntityScan}
      * annotations.
-     *
      * @return the entity scan package names
      */
     List<String> getPackageNames() {
@@ -60,7 +53,6 @@ public class EntityScanPackages {
 
     /**
      * Return the {@link EntityScanPackages} for the given bean factory.
-     *
      * @param beanFactory the source bean factory
      * @return the {@link EntityScanPackages} for the bean factory (never {@code null})
      */
@@ -76,7 +68,6 @@ public class EntityScanPackages {
 
     /**
      * Register the specified entity scan packages with the system.
-     *
      * @param registry     the source registry
      * @param packageNames the package names to register
      */
@@ -88,7 +79,6 @@ public class EntityScanPackages {
 
     /**
      * Register the specified entity scan packages with the system.
-     *
      * @param registry     the source registry
      * @param packageNames the package names to register
      */
@@ -111,7 +101,6 @@ public class EntityScanPackages {
 
     /**
      * Add package names string [ ]
-     *
      * @param constructorArguments constructor arguments
      * @param packageNames         package names
      * @return the string [ ]
@@ -125,4 +114,5 @@ public class EntityScanPackages {
         merged.addAll(packageNames);
         return StringUtils.toStringArray(merged);
     }
+
 }

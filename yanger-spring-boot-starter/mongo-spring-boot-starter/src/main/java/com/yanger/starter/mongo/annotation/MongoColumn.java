@@ -1,21 +1,15 @@
 package com.yanger.starter.mongo.annotation;
 
 import com.yanger.starter.mongo.enums.FieldFill;
-
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -28,7 +22,6 @@ public @interface MongoColumn {
 
     /**
      * Name string
-     *
      * @return the string
      */
     @AliasFor(value = "value", annotation = Field.class)
@@ -36,21 +29,18 @@ public @interface MongoColumn {
 
     /**
      * Desc string.
-     *
      * @return the string
      */
     String desc() default "";
 
     /**
      * 字段自动填充策略
-     *
      * @return the field fill
      */
     FieldFill fill() default FieldFill.DEFAULT;
 
     /**
      * Target type field type
-     *
      * @return the field type
      */
     @AliasFor(value = "targetType", annotation = Field.class)
@@ -58,21 +48,18 @@ public @interface MongoColumn {
 
     /**
      * Required boolean.
-     *
      * @return the boolean
      */
     boolean required() default true;
 
     /**
      * Default value string.
-     *
      * @return the string
      */
     String defaultValue() default "";
 
     /**
      * If set to true reject all documents that contain a duplicate value for the indexed field.
-     *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-unique/"></a>
      */
@@ -80,14 +67,12 @@ public @interface MongoColumn {
 
     /**
      * Direction index direction
-     *
      * @return the index direction
      */
     IndexDirection direction() default IndexDirection.ASCENDING;
 
     /**
      * If set to true index will skip over any document that is missing the indexed field.
-     *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/index-sparse/"></a>
      */
@@ -140,14 +125,12 @@ public @interface MongoColumn {
     /**
      * If set to {@literal true} then MongoDB will ignore the given index name and instead generate a new name. Defaults
      * to {@literal false}.
-     *
      * @return boolean boolean
      */
     boolean useGeneratedName() default false;
 
     /**
      * If {@literal true} the index will be created in the background.
-     *
      * @return boolean boolean
      * @see <a href="https://docs.mongodb.org/manual/core/indexes/#background-construction"></a>
      */
@@ -155,7 +138,6 @@ public @interface MongoColumn {
 
     /**
      * Configures the number of seconds after which the collection should expire. Defaults to -1 for no expiry.
-     *
      * @return int int
      * @see <a href="https://docs.mongodb.org/manual/tutorial/expire-data/"></a>
      */
@@ -189,4 +171,5 @@ public @interface MongoColumn {
      * @return empty by default.
      */
     String expireAfter() default "";
+    
 }

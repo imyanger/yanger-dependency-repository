@@ -1,10 +1,9 @@
 package com.yanger.starter.mongo.convert;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.starter.basic.util.ConvertUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.core.convert.TypeDescriptor;
@@ -17,8 +16,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 枚举写入到 db
@@ -34,7 +31,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
 
     /**
      * Matches boolean
-     *
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
@@ -46,7 +42,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
 
     /**
      * Gets convertible types *
-     *
      * @return the convertible types
      */
     @Override
@@ -62,7 +57,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
      * 写入时将枚举转换为 value 字段或者 name
      * 1. 如果是 SerializeEnum 则写入 value
      * 2. 如果不是则写入 name
-     *
      * @param source     待写入的数据
      * @param sourceType 待写入的数据类型
      * @param targetType 需要被转换的类型
@@ -95,7 +89,6 @@ public class EnumToDbConverter implements ConditionalGenericConverter {
 
     /**
      * Invoke object
-     *
      * @param accessibleObject accessible object
      * @param source           source
      * @return the object

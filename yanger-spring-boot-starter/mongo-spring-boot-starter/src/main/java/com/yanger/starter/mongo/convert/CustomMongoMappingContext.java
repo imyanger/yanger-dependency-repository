@@ -5,7 +5,6 @@ import com.yanger.starter.mongo.entity.CustomBasicMongoPersistentEntity;
 import com.yanger.starter.mongo.enums.CollcetionType;
 import com.yanger.starter.mongo.enums.FieldConvert;
 import com.yanger.starter.mongo.index.CustomMongoPersistentEntityIndexCreator;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -40,7 +39,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
 
     /**
      * Gets field convert.
-     *
      * @return the field convert
      */
     @Contract(pure = true)
@@ -50,7 +48,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
 
     /**
      * Sets field convert.
-     *
      * @param fieldConvert the field convert
      */
     public static void setFieldConvert(FieldConvert fieldConvert) {
@@ -61,7 +58,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
      * 重写添加 mongod 实体逻辑:
      * 如果实体被 @MongoCollection 标识, 且 type = Sharding 则返回 null, 在对实体遍历创建索引时将被忽略.
      * 用于解决在分表情况下会生成一张无用的表.
-     *
      * @param type type
      * @return the optional
      * @see CustomMongoPersistentEntityIndexCreator#CustomMongoPersistentEntityIndexCreator CustomMongoPersistentEntityIndexCreator
@@ -80,7 +76,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
 
     /**
      * 修改没有配置 @MongoCollection value 属性时的 collection name 生成规则
-     *
      * @param <T>             parameter
      * @param typeInformation type information
      * @return the basic mongo persistent entity
@@ -93,7 +88,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
 
     /**
      * 设置字段转换处理器 (大小写, 驼峰, 下划线等)
-     *
      * @param fieldNamingStrategy field naming strategy
      */
     @Override
@@ -106,7 +100,6 @@ public class CustomMongoMappingContext extends MongoMappingContext {
 
     /**
      * Create persistent property mongo persistent property.
-     *
      * @param property         the property
      * @param owner            the owner
      * @param simpleTypeHolder the simple type holder
@@ -119,4 +112,5 @@ public class CustomMongoMappingContext extends MongoMappingContext {
                                                             @NotNull SimpleTypeHolder simpleTypeHolder) {
         return new CachingMongoPersistentProperty(property, owner, simpleTypeHolder, fieldNamingStrategy);
     }
+
 }

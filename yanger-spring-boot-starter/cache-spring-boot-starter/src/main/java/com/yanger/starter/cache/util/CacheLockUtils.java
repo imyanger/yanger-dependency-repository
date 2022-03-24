@@ -3,7 +3,6 @@ package com.yanger.starter.cache.util;
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.cache.exception.CacheLockException;
 import com.yanger.tools.general.format.StringFormat;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.integration.redis.util.RedisLockRegistry;
@@ -26,7 +25,6 @@ public class CacheLockUtils {
 
     /**
      * Lock
-     *
      * @param key     key 资源标识
      * @param retries retries 重试次数，最少一次
      * @param expire  expire 重试时间
@@ -54,7 +52,6 @@ public class CacheLockUtils {
 
     /**
      * Lock by expire
-     *
      * @param key     key
      * @param retries retries 重试次数，最少一次
      * @param seconds seconds 重试时间，单位秒
@@ -67,7 +64,6 @@ public class CacheLockUtils {
 
     /**
      * Lock by expire
-     *
      * @param key       key
      * @param retries   retries 重试次数，最少一次
      * @param seconds   seconds 重试时间，单位秒
@@ -81,7 +77,6 @@ public class CacheLockUtils {
 
     /**
      * Lock by expire
-     *
      * @param key     key
      * @param seconds seconds 重试时间，单位秒
      * @return the boolean
@@ -93,7 +88,6 @@ public class CacheLockUtils {
 
     /**
      * Lock by expire
-     *
      * @param key          key
      * @param retries      retries 次数，最少一次
      * @param milliseconds milliseconds 重试时间 毫秒
@@ -131,7 +125,6 @@ public class CacheLockUtils {
 
     /**
      * Unlock by expire
-     *
      * @param key key
      */
     public static void unlockByExpire(String key) {

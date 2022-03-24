@@ -1,10 +1,8 @@
 package com.yanger.tools.web.support;
 
 import com.google.common.primitives.Ints;
-
 import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.web.tools.NumberUtils;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.LinkedCaseInsensitiveMap;
@@ -31,7 +29,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * Chain map
-     *
      * @param size size
      */
     private ChainMap(int size) {
@@ -40,7 +37,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 初始化 map 容量
-     *
      * @param expectedSize the expected size
      * @return the int
      */
@@ -64,8 +60,7 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
     }
 
     /**
-     * Build chain map.
-     *
+     * Build chain map
      * @return the chain map
      */
     @NotNull
@@ -75,8 +70,7 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
     }
 
     /**
-     * Build chain map.
-     *
+     * Build chain map
      * @param size the size
      * @return the chain map
      */
@@ -88,7 +82,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 设置列,当键或值为null时忽略
-     *
      * @param attr  属性
      * @param value 值
      * @return 本身 ignore null
@@ -103,7 +96,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 存入 kv
-     *
      * @param attr  属性
      * @param value 值
      * @return 本身 kv
@@ -118,7 +110,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * Clone chain map
-     *
      * @return the chain map
      */
     @NotNull
@@ -128,8 +119,7 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
     }
 
     /**
-     * Gets obj.
-     *
+     * Gets obj
      * @param key the key
      * @return the obj
      */
@@ -139,7 +129,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 str
      */
@@ -149,7 +138,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 int
      */
@@ -160,7 +148,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 long
      */
@@ -171,7 +158,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 float
      */
@@ -180,8 +166,7 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
     }
 
     /**
-     * Gets double.
-     *
+     * Gets double
      * @param attr the attr
      * @return the double
      */
@@ -191,7 +176,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 bool
      */
@@ -206,7 +190,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 byte [ ]
      */
@@ -216,7 +199,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param <T>          值类型
      * @param attr         字段名
      * @param defaultValue 默认值
@@ -230,7 +212,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 date
      */
@@ -240,7 +221,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 time
      */
@@ -250,7 +230,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 timestamp
      */
@@ -260,7 +239,6 @@ public final class ChainMap extends LinkedCaseInsensitiveMap<Object> {
 
     /**
      * 获得特定类型值
-     *
      * @param attr 字段名
      * @return 字段值 number
      */

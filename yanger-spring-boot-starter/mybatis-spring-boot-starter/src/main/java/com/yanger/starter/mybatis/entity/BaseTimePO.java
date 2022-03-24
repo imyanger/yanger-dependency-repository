@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -30,8 +30,7 @@ public abstract class BaseTimePO<T extends Serializable, M extends Model<M>> ext
     private Date updateTime;
 
     /**
-     * Gets create time *
-     *
+     * Gets create time
      * @return the create time
      */
     @Override
@@ -40,8 +39,7 @@ public abstract class BaseTimePO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets create time *
-     *
+     * Sets create time
      * @param createTime create time
      * @return the create time
      */
@@ -52,8 +50,7 @@ public abstract class BaseTimePO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets update time *
-     *
+     * Sets update time
      * @param updateTime update time
      * @return the update time
      */
@@ -64,8 +61,7 @@ public abstract class BaseTimePO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Gets update time *
-     *
+     * Gets update time
      * @return the update time
      */
     @Override

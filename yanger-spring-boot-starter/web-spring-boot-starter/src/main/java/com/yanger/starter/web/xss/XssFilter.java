@@ -1,21 +1,13 @@
 package com.yanger.starter.web.xss;
 
 import com.yanger.starter.web.support.CacheRequestEnhanceWrapper;
-
+import lombok.AllArgsConstructor;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
-import java.io.*;
-import java.util.List;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-
-import lombok.AllArgsConstructor;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * XSS过滤
@@ -29,16 +21,14 @@ public class XssFilter implements Filter {
     private final List<String> excludePatterns;
 
     /**
-     * Init *
-     *
+     * Init
      * @param config config
      */
     @Override
     public void init(FilterConfig config) {}
 
     /**
-     * Do filter *
-     *
+     * Do filter
      * @param request  request
      * @param response response
      * @param chain    chain

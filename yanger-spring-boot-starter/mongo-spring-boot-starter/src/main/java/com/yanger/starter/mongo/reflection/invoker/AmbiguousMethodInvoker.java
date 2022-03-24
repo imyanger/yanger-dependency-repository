@@ -6,17 +6,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public class AmbiguousMethodInvoker extends MethodInvoker {
+
     /** Exception message */
     private final String exceptionMessage;
 
     /**
      * Ambiguous method invoker
-     *
      * @param method           method
      * @param exceptionMessage exception message
      */
@@ -27,7 +26,6 @@ public class AmbiguousMethodInvoker extends MethodInvoker {
 
     /**
      * Invoke object
-     *
      * @param target target
      * @param args   args
      * @return the object

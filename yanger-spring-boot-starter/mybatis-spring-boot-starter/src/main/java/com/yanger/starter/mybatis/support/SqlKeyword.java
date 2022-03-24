@@ -3,14 +3,12 @@ package com.yanger.starter.mybatis.support;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.tools.StringTools;
-
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * 定义常用的 sql关键字
@@ -51,7 +49,6 @@ public class SqlKeyword {
 
     /**
      * 条件构造器, 根据后缀来构建 qw 条件, 比如 _like --> qw.like
-     *
      * @param query 查询字段
      * @param qw    查询包装类
      */
@@ -91,7 +88,6 @@ public class SqlKeyword {
 
     /**
      * 获取数据库字段
-     *
      * @param column  字段名
      * @param keyword 关键字
      * @return column column
@@ -102,8 +98,7 @@ public class SqlKeyword {
     }
 
     /**
-     * 把SQL关键字替换为空字符串
-     *
+     * 把 SQL 关键字替换为空字符串
      * @param param 关键字
      * @return string string
      */

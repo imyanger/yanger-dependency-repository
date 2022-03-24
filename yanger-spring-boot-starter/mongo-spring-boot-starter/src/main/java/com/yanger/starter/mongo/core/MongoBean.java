@@ -1,14 +1,12 @@
 package com.yanger.starter.mongo.core;
 
-import org.springframework.data.mongodb.core.MongoTemplate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */

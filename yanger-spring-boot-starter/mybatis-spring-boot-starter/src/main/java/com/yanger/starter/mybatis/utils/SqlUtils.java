@@ -1,15 +1,13 @@
 package com.yanger.starter.mybatis.utils;
 
-import com.yanger.tools.web.tools.AesUtils;
+import com.yanger.tools.web.tools.AesKit;
 import com.yanger.tools.web.tools.Base64Utils;
-
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 
-import lombok.experimental.UtilityClass;
-
 /**
- * sql工具类
+ * sql 工具类
  * @Author yanger
  * @Date 2021/1/28 18:42
  */
@@ -25,7 +23,6 @@ public class SqlUtils {
 
     /**
      * Set sensitive key
-     *
      * @param sensitiveKey sensitive key
      */
     public void setSensitiveKey(String sensitiveKey) {
@@ -35,7 +32,6 @@ public class SqlUtils {
     /**
      * Get encrypt filed
      * 敏感字段做查询条件需加密后查询
-     *
      * @param value value
      * @return the string
      */
@@ -43,13 +39,12 @@ public class SqlUtils {
         if (StringUtils.isBlank(value) || StringUtils.isBlank(SqlUtils.SENSITIVE_KEY)) {
             return value;
         }
-        byte[] encrypt = AesUtils.encrypt(value, SqlUtils.SENSITIVE_KEY);
+        byte[] encrypt = AesKit.encrypt(value, SqlUtils.SENSITIVE_KEY);
         return Base64Utils.encodeToString(encrypt);
     }
 
     /**
-     * 格式sql
-     *
+     * 格式 sql
      * @param boundSql bound sql
      * @param format   format
      * @return the string

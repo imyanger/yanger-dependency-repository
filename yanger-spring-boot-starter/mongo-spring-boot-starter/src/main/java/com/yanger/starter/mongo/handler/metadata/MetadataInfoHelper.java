@@ -2,7 +2,6 @@ package com.yanger.starter.mongo.handler.metadata;
 
 import com.yanger.tools.web.tools.ClassUtils;
 import com.yanger.tools.web.tools.ReflectionUtils;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jetbrains.annotations.Contract;
@@ -36,7 +35,6 @@ public class MetadataInfoHelper {
      * <p>
      * 获取实体映射表信息
      * </p>
-     *
      * @param clazz 反射实体类
      * @return 数据库表反射信息 table info
      */
@@ -67,7 +65,6 @@ public class MetadataInfoHelper {
      * <p>
      * 获取所有实体映射表信息
      * </p>
-     *
      * @return 数据库表反射信息集合 metadata infos
      */
     @Contract(" -> new")
@@ -80,7 +77,6 @@ public class MetadataInfoHelper {
      * <p>
      * 实体类反射获取表信息【初始化】
      * </p>
-     *
      * @param clazz 反射实体类
      * @return 数据库表反射信息 metadata info
      */
@@ -103,7 +99,6 @@ public class MetadataInfoHelper {
 
     /**
      * 初始化 字段
-     *
      * @param clazz        实体类
      * @param metadataInfo 数据库表反射信息
      */
@@ -127,7 +122,6 @@ public class MetadataInfoHelper {
 
     /**
      * 获取该类的所有属性列表
-     *
      * @param clazz 反射类
      * @return 属性集合 all fields
      */
@@ -143,7 +137,6 @@ public class MetadataInfoHelper {
 
     /**
      * 字段属性初始化
-     *
      * @param metadataInfo 表信息
      * @param fieldList    字段列表
      * @param field        field

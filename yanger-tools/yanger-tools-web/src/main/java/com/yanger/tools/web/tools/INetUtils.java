@@ -1,20 +1,19 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.general.tools.LRUCache;
-
+import com.yanger.tools.web.support.CIDRTool;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.*;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * NetUtils 接口
@@ -518,7 +517,7 @@ public abstract class INetUtils {
 
         // if the pattern is subnet format, it will not be allowed to config port param in pattern.
         if (pattern.contains("/")) {
-            CIDRUtils utils = new CIDRUtils(pattern);
+            CIDRTool utils = new CIDRTool(pattern);
             return utils.isInRange(host);
         }
 

@@ -1,10 +1,10 @@
 package com.yanger.starter.web.entity;
 
-import java.io.*;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 微信登录数据

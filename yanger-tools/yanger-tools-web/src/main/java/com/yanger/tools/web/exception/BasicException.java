@@ -1,11 +1,6 @@
 package com.yanger.tools.web.exception;
 
-import com.yanger.tools.general.constant.StringPool;
-import com.yanger.tools.general.format.StringFormat;
-import com.yanger.tools.web.support.ResultCode;
-import com.yanger.tools.web.support.Trace;
-import com.yanger.tools.web.tools.NumberUtils;
-
+import com.yanger.tools.web.support.IResultCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,24 +10,20 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2020/12/18 10:36
  */
 @Slf4j
-public class BasicException extends RuntimeException {
+public class BasicException extends RuntimeException implements IResultCode{
 
     private static final long serialVersionUID = 3076052230646484392L;
 
     /** Code */
     @Getter
-    protected String code;
+    protected Integer code;
 
     /** Message */
     @Getter
     protected String message;
 
-    /** Trace id */
-    @Getter
-    protected String traceId;
-
     /** DEFAULT_ERROR_CODE */
-    public static final String DEFAULT_ERROR_CODE = "BASIC-500";
+    public static final Integer DEFAULT_ERROR_CODE = 500;
 
     /** DEFAULT_MESSAGE */
     public static final String DEFAULT_MESSAGE = "服务内部错误";
@@ -44,121 +35,129 @@ public class BasicException extends RuntimeException {
         super();
         this.code = DEFAULT_ERROR_CODE;
         this.message = DEFAULT_MESSAGE;
-        this.traceId = Trace.context().get();
     }
 
-    /**
-     * Instantiates a new Base exception.
-     *
-     * @param message message
-     */
     public BasicException(String message) {
         super();
         this.code = DEFAULT_ERROR_CODE;
-        this.message = message;
-        this.traceId = Trace.context().get();
+        this.message = generateFullMessage(getModuleMarker(), code, message);
+    }
+
+    public BasicException(Integer code, String message) {
+        super();
+        this.code = code;
+        this.message = generateFullMessage(getModuleMarker(), code, message);
     }
 
     /**
-     * msg 占位符替换
-     *
-     * @param message message
-     * @param args    args
+     * @param code
+     * @param message
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:46
      */
-    public BasicException(String message, Object... args) {
-        this(StringFormat.mergeFormat(message, args));
-        this.code = DEFAULT_ERROR_CODE;
-        this.message = message;
-        this.traceId = Trace.context().get();
+    public BasicException(Integer code, String message, Object... args) {
+        super();
+        this.code = code;
+        this.message = generateFullMessage(getModuleMarker(), code, message, args);
+    }
+
+    public BasicException(IResultCode resultCode) {
+        super();
+        this.code = resultCode.getCode();
+        this.message = generateFullMessage(resultCode.getModuleMarker(), resultCode.getCode(), resultCode.getMessage());
     }
 
     /**
-     * 传入code参数的构造使用of方法，避免两个参数重载问题
-     *
-     * @param code    code
-     * @param message message
+     * @param resultCode
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:46
      */
-    public static BasicException of(String code, String message) {
-        BasicException basicException = new BasicException();
-        basicException.code = code;
-        basicException.message = message;
-        basicException.traceId = Trace.context().get();
-        return basicException;
+    public BasicException(IResultCode resultCode, Object... args) {
+        super();
+        this.code = resultCode.getCode();
+        this.message = generateFullMessage(resultCode.getModuleMarker(), resultCode.getCode(), resultCode.getMessage(), args);
     }
 
-    /**
-     * 传入code参数的构造使用of方法，避免两个参数重载问题
-     *
-     * @param code    code
-     * @param message message
-     */
-    public static BasicException of(String code, String message, Object... args) {
-        BasicException basicException = new BasicException();
-        basicException.code = code;
-        basicException.message = StringFormat.mergeFormat(message, args);
-        basicException.traceId = Trace.context().get();
-        return basicException;
-    }
-
-    /**
-     * Base exception
-     *
-     * @param cause cause
-     */
     public BasicException(Throwable cause) {
         super(cause);
         this.code = DEFAULT_ERROR_CODE;
         this.message = DEFAULT_MESSAGE;
-        this.traceId = Trace.context().get();
     }
 
-    /**
-     * Base exception
-     *
-     * @param message message
-     * @param cause   cause
-     */
-    public BasicException(String message, Throwable cause) {
-        super(message, cause);
+    public BasicException(Throwable cause, String message) {
+        super(cause);
         this.code = DEFAULT_ERROR_CODE;
         this.message = message;
-        this.traceId = Trace.context().get();
+    }
+
+    public BasicException(Throwable cause, String message, Object... args) {
+        super(cause);
+        this.code = DEFAULT_ERROR_CODE;
+        this.message = generateFullMessage(getModuleMarker(), code, message, args);
     }
 
     /**
-     * Basic exception
-     *
-     * @param code    code
-     * @param message message
-     * @param cause   cause
+     * @param cause
+     * @param code
+     * @param message
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:46
      */
-    public BasicException(String code, String message, Throwable cause) {
-        super(message, cause);
+    public BasicException(Throwable cause, Integer code, String message, Object... args) {
+        super(cause);
         this.code = code;
-        this.message = message;
-        this.traceId = Trace.context().get();
+        this.message = generateFullMessage(getModuleMarker(), code, message, args);
+    }
+
+    public BasicException(Throwable cause, IResultCode resultCode) {
+        super(cause);
+        this.code = resultCode.getCode();
+        this.message = generateFullMessage(resultCode.getModuleMarker(), resultCode.getCode(), resultCode.getMessage());
     }
 
     /**
-     * 重写打印异常堆栈, 转为日志输出.
+     * @param cause
+     * @param resultCode
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:50
      */
-    @Override
-    public void printStackTrace() {
-        log.error(this.getMessage(), this);
+    public BasicException(Throwable cause, IResultCode resultCode, Object... args) {
+        super(cause);
+        this.code = resultCode.getCode();
+        this.message = generateFullMessage(resultCode.getModuleMarker(), resultCode.getCode(), resultCode.getMessage(), args);
     }
 
     /**
-     * 获取异常的返回状态码
+     * 使用默认code
+     * @param message
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:46
      */
-    public Integer getResultCode() {
-        if(code != null) {
-            if (NumberUtils.isNumer(code)) {
-                return NumberUtils.toInt(code, ResultCode.ERROR.getCode());
-            } else {
-                return NumberUtils.toInt(code.split(StringPool.DASH)[1], ResultCode.ERROR.getCode());
-            }
-        }
-        return ResultCode.ERROR.getCode();
+    public static BasicException of(String message, Object... args) {
+        return new BasicException(DEFAULT_ERROR_CODE, message, args);
+    }
+
+    /**
+     * 使用默认code
+     * @param cause
+     * @param message
+     * @param args
+     * @return {@link null}
+     * @Author yanger
+     * @Date 2022/03/21 14:46
+     */
+    public static BasicException of(Throwable cause, String message, Object... args) {
+        return new BasicException(cause, DEFAULT_ERROR_CODE, message, args);
     }
 
 }

@@ -69,19 +69,6 @@ public class GPSUtils {
     }
 
     /**
-     * 百度坐标转世界坐标
-     * @param latitude 维度
-     * @param longitude 经度
-     * @return {@link GPSUtils.Point}
-     * @Author yanger
-     * @Date 2021/12/08 23:55
-     */
-    public static GPSUtils.Point calBD09toWGS84(double latitude, double longitude) {
-        GPSUtils.Point gcj = calBD09toGCJ02(latitude, longitude);
-        return calGCJ02toWGS84(gcj.getLatitude(), gcj.getLongitude());
-    }
-
-    /**
      * 国测局坐标转百度坐标
      * @param latitude 维度
      * @param longitude 经度
@@ -95,6 +82,19 @@ public class GPSUtils {
         double retLat = z * Math.sin(theta) + 0.006D;
         double retLon = z * Math.cos(theta) + 0.0065D;
         return new Point(retLat, retLon);
+    }
+
+    /**
+     * 百度坐标转世界坐标
+     * @param latitude 维度
+     * @param longitude 经度
+     * @return {@link GPSUtils.Point}
+     * @Author yanger
+     * @Date 2021/12/08 23:55
+     */
+    public static GPSUtils.Point calBD09toWGS84(double latitude, double longitude) {
+        GPSUtils.Point gcj = calBD09toGCJ02(latitude, longitude);
+        return calGCJ02toWGS84(gcj.getLatitude(), gcj.getLongitude());
     }
 
     /**
@@ -116,7 +116,7 @@ public class GPSUtils {
     }
 
     /**
-     * 是否不在中国
+     * 是否在中国境外
      * @param latitude 维度
      * @param longitude 经度
      * @param precision 是否精确

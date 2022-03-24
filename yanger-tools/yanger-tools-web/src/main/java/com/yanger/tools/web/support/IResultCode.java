@@ -3,10 +3,10 @@ package com.yanger.tools.web.support;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.general.tools.StringTools;
-
+import com.yanger.tools.web.context.Trace;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.*;
+import java.io.Serializable;
 
 /**
  * 请求响应代码接口
@@ -18,13 +18,6 @@ public interface IResultCode extends Serializable {
     String DEFAULT_SERVER_NAME = "BASIC";
 
     /**
-     * 获取返回消息, 可使用占位符
-     *
-     * @return String message
-     */
-    String getMessage();
-
-    /**
      * 获取返回状态码
      *
      * @return String code
@@ -32,11 +25,18 @@ public interface IResultCode extends Serializable {
     Integer getCode();
 
     /**
+     * 获取返回消息, 可使用占位符
+     *
+     * @return String message
+     */
+    String getMessage();
+
+    /**
      * Name
      *
      * @return the string
      */
-    default String serverName() {
+    default String getModuleMarker() {
         return DEFAULT_SERVER_NAME;
     }
 
@@ -46,13 +46,12 @@ public interface IResultCode extends Serializable {
      * @return the string
      */
     default String generateCode() {
-        String serverName = serverName();
-        return serverName.concat(StringPool.DASH) + getCode();
+        String moduleMarker = getModuleMarker();
+        return StringTools.isNotBlank(moduleMarker) ? moduleMarker.concat(StringPool.DASH) + getCode() : getCode().toString();
     }
 
     /**
      * 根据错误码生成一定规则的错误编码【项目标识-错误码】
-     *
      * @param customerMessage 自定义的返回消息
      * @return the string
      */
@@ -84,6 +83,17 @@ public interface IResultCode extends Serializable {
             return first.toString();
         }
         return null;
+    }
+
+    default String generateFullMessage(String moduleMarker, Integer code, String message, Object... args){
+        String fullMessage = StringFormat.format(message, args);
+        String traceId = Trace.context().get();
+        return StringTools.builder()
+                .append(StringTools.isBlank(traceId) ? "" : traceId.concat(","))
+                .append(StringTools.isBlank(moduleMarker) ? "" : moduleMarker.concat(StringPool.DASH))
+                .append(code == null ? "" : code + ", ")
+                .append(fullMessage)
+                .toString();
     }
 
 }

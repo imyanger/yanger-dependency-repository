@@ -16,7 +16,6 @@ public interface CacheService {
 
     /**
      * 指定缓存失效时间
-     *
      * @param key  键
      * @param time 时间(秒)
      * @return boolean boolean
@@ -25,7 +24,6 @@ public interface CacheService {
 
     /**
      * 根据key 获取过期时间
-     *
      * @param key 键 不能为 null
      * @return 时间(秒) 返回0代表为永久有效;如果该key已经过期,将返回"-2";
      */
@@ -33,7 +31,6 @@ public interface CacheService {
 
     /**
      * 判断key是否存在
-     *
      * @param key 键
      * @return true 存在 false不存在
      */
@@ -41,7 +38,6 @@ public interface CacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key   键
      * @param value 值
      * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -51,7 +47,6 @@ public interface CacheService {
 
     /**
      * 普通缓存放入
-     *
      * @param key   键
      * @param value 值
      * @return true成功 false失败
@@ -60,7 +55,6 @@ public interface CacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key      键
      * @param value    值
      * @param time     时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -71,7 +65,6 @@ public interface CacheService {
 
     /**
      * 普通缓存放入
-     *
      * @param key      键
      * @param value    值
      * @param consumer consumer
@@ -81,7 +74,6 @@ public interface CacheService {
 
     /**
      * 递增
-     *
      * @param key   键
      * @param delta 要增加几(大于0)
      * @return long long
@@ -90,7 +82,6 @@ public interface CacheService {
 
     /**
      * 递减
-     *
      * @param key   键
      * @param delta 要减少几(小于0)
      * @return long long
@@ -99,14 +90,12 @@ public interface CacheService {
 
     /**
      * 删除缓存
-     *
      * @param keys keys
      */
     void del(@NotNull String... keys);
 
     /**
      * 删除缓存
-     *
      * @param key key
      * @return the boolean
      */
@@ -114,7 +103,6 @@ public interface CacheService {
 
     /**
      * 获取缓存
-     *
      * @param <T>   the type parameter
      * @param key   redis的key
      * @param clazz value的class类型
@@ -124,15 +112,13 @@ public interface CacheService {
 
     /**
      * 获取泛型
-     *
      * @param key 键
      * @return 值 object
      */
     Object get(String key);
 
     /**
-     * Sets if absent *
-     *
+     * Sets if absent
      * @param key   key
      * @param value value
      * @return the if absent
@@ -140,8 +126,7 @@ public interface CacheService {
     Boolean setIfAbsent(String key, String value);
 
     /**
-     * Sets if absent *
-     *
+     * Sets if absent
      * @param key        key
      * @param value      value
      * @param expireTime expire time
@@ -151,7 +136,6 @@ public interface CacheService {
 
     /**
      * Hset
-     *
      * @param key   key
      * @param field field
      * @param value value
@@ -161,7 +145,6 @@ public interface CacheService {
 
     /**
      * Hget
-     *
      * @param key   key
      * @param field field
      * @return the object
@@ -170,7 +153,6 @@ public interface CacheService {
 
     /**
      * Hget
-     *
      * @param <T>   parameter
      * @param key   key
      * @param field field
@@ -181,7 +163,6 @@ public interface CacheService {
 
     /**
      * Hlen
-     *
      * @param key key
      * @return the long
      */
@@ -189,7 +170,6 @@ public interface CacheService {
 
     /**
      * Hkeys
-     *
      * @param key key
      * @return the set
      */
@@ -197,7 +177,6 @@ public interface CacheService {
 
     /**
      * Hvals
-     *
      * @param key key
      * @return the set
      */
@@ -205,7 +184,6 @@ public interface CacheService {
 
     /**
      * Hvals
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -215,7 +193,6 @@ public interface CacheService {
 
     /**
      * Hexists
-     *
      * @param key   key
      * @param field field
      * @return the boolean
@@ -224,7 +201,6 @@ public interface CacheService {
 
     /**
      * Hdel
-     *
      * @param key   key
      * @param filed filed
      * @return the long
@@ -233,7 +209,6 @@ public interface CacheService {
 
     /**
      * Lpop
-     *
      * @param key key
      * @return the object
      */
@@ -241,7 +216,6 @@ public interface CacheService {
 
     /**
      * Lpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -251,7 +225,6 @@ public interface CacheService {
 
     /**
      * Llen
-     *
      * @param key key
      * @return the long
      */
@@ -259,7 +232,6 @@ public interface CacheService {
 
     /**
      * Lpush
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -268,7 +240,6 @@ public interface CacheService {
 
     /**
      * Rpush
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -277,7 +248,6 @@ public interface CacheService {
 
     /**
      * Rpop
-     *
      * @param key key
      * @return the object
      */
@@ -285,7 +255,6 @@ public interface CacheService {
 
     /**
      * Rpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -295,7 +264,6 @@ public interface CacheService {
 
     /**
      * Sadd
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -304,7 +272,6 @@ public interface CacheService {
 
     /**
      * Scard
-     *
      * @param key key
      * @return the long
      */
@@ -312,7 +279,6 @@ public interface CacheService {
 
     /**
      * Srem
-     *
      * @param key   key
      * @param value value
      * @return the long
@@ -321,7 +287,6 @@ public interface CacheService {
 
     /**
      * Spop
-     *
      * @param key key
      * @return the object
      */
@@ -329,7 +294,6 @@ public interface CacheService {
 
     /**
      * Spop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -339,7 +303,6 @@ public interface CacheService {
 
     /**
      * Smembers
-     *
      * @param key key
      * @return the set
      */
@@ -347,7 +310,6 @@ public interface CacheService {
 
     /**
      * Smembers
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -357,7 +319,6 @@ public interface CacheService {
 
     /**
      * zset  @param key key
-     *
      * @param key   key
      * @param score score
      * @param value value
@@ -367,7 +328,6 @@ public interface CacheService {
 
     /**
      * Zcard
-     *
      * @param key key
      * @return the long
      */
@@ -375,7 +335,6 @@ public interface CacheService {
 
     /**
      * Zscore
-     *
      * @param key   key
      * @param value value
      * @return the double
@@ -384,7 +343,6 @@ public interface CacheService {
 
     /**
      * Zrem
-     *
      * @param key   key
      * @param value value
      * @return the long

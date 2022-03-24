@@ -4,14 +4,12 @@ import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
-
+import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlSource;
 import org.jetbrains.annotations.NotNull;
-
-import lombok.RequiredArgsConstructor;
 
 /**
  * 抽象的 插入一条数据（选择字段插入）
@@ -26,7 +24,6 @@ public class AbstractInsertMethod extends AbstractMethod {
 
     /**
      * Inject mapped statement mapped statement
-     *
      * @param mapperClass mapper class
      * @param modelClass  model class
      * @param tableInfo   table info

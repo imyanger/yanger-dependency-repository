@@ -1,15 +1,8 @@
-package com.yanger.tools.web.tools;/**
- * <p>Description:  </p>
- *
- * @author yanghao
- * @date 2020.12.21 10:10
- */
-
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.springframework.lang.Nullable;
+package com.yanger.tools.web.tools;
 
 import cn.hutool.core.util.NumberUtil;
+import org.jetbrains.annotations.Contract;
+import org.springframework.lang.Nullable;
 
 /**
  * NumberUtils
@@ -44,7 +37,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
      *   NumberUtil.toInt("")   = 0
      *   NumberUtil.toInt("1")  = 1
      * </pre>
-     *
      * @param str the string to convert, may be null
      * @return the int represented by the string, or <code>zero</code> if     conversion fails
      */
@@ -53,13 +45,12 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
     }
 
     /**
-     * Is numer boolean
-     *
+     * Is number
      * @param str str
      * @return the boolean
      */
     @Contract("null -> false")
-    public static boolean isNumer(String str) {
+    public static boolean isNumber(String str) {
         return NumberUtil.isNumber(str);
     }
 
@@ -72,7 +63,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
      *   NumberUtil.toInt("", 1)   = 1
      *   NumberUtil.toInt("1", 0)  = 1
      * </pre>
-     *
      * @param str          the string to convert, may be null
      * @param defaultValue the default value
      * @return the int represented by the string, or the default if conversion fails
@@ -98,7 +88,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
      *   NumberUtil.toLong("")   = 0L
      *   NumberUtil.toLong("1")  = 1L
      * </pre>
-     *
      * @param str the string to convert, may be null
      * @return the long represented by the string, or <code>0</code> if     conversion fails
      */
@@ -115,7 +104,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
      *   NumberUtil.toLong("", 1L)   = 1L
      *   NumberUtil.toLong("1", 0L)  = 1L
      * </pre>
-     *
      * @param str          the string to convert, may be null
      * @param defaultValue the default value
      * @return the long represented by the string, or the default if conversion fails
@@ -134,7 +122,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
 
     /**
      * <p>Convert a <code>String</code> to a <code>Double</code>
-     *
      * @param value value
      * @return double value
      */
@@ -145,7 +132,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
 
     /**
      * <p>Convert a <code>String</code> to a <code>Double</code>
-     *
      * @param value        value
      * @param defaultValue 默认值
      * @return double value
@@ -160,7 +146,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
 
     /**
      * <p>Convert a <code>String</code> to a <code>Double</code>
-     *
      * @param value value
      * @return double value
      */
@@ -171,7 +156,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
 
     /**
      * <p>Convert a <code>String</code> to a <code>Double</code>
-     *
      * @param value        value
      * @param defaultValue 默认值
      * @return double value
@@ -182,27 +166,6 @@ public class NumberUtils extends org.springframework.util.NumberUtils {
             return Float.valueOf(value.trim());
         }
         return defaultValue;
-    }
-
-    /**
-     * 将 long 转短字符串为 64 进制
-     *
-     * @param i 数字
-     * @return 短字符串 string
-     */
-    @NotNull
-    @Contract(value = "_ -> new", pure = true)
-    public static String to64String(long i) {
-        int radix = DIGITS.length;
-        char[] buf = new char[65];
-        int charPos = 64;
-        i = -i;
-        while (i <= -radix) {
-            buf[charPos--] = DIGITS[(int) (-(i % radix))];
-            i = i / radix;
-        }
-        buf[charPos] = DIGITS[(int) (-i)];
-        return new String(buf, charPos, (65 - charPos));
     }
 
 }

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 逻辑删除枚举
+ * 数据状态枚举
  * @Author yanger
  * @Date 2021/1/29 9:40
  */

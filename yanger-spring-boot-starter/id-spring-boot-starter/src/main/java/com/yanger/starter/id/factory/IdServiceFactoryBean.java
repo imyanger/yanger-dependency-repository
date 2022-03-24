@@ -2,12 +2,10 @@ package com.yanger.starter.id.factory;
 
 import com.yanger.starter.id.enums.ProviderType;
 import com.yanger.starter.id.service.IdService;
-
-import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
-
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.InitializingBean;
 
 /**
  * id service 工厂bean
@@ -36,8 +34,7 @@ public class IdServiceFactoryBean implements FactoryBean<IdService>, Initializin
     }
 
     /**
-     * Gets object *
-     *
+     * Gets object
      * @return the object
      */
     @Override
@@ -46,8 +43,7 @@ public class IdServiceFactoryBean implements FactoryBean<IdService>, Initializin
     }
 
     /**
-     * Gets object type *
-     *
+     * Gets object type
      * @return the object type
      */
     @Override
@@ -57,7 +53,6 @@ public class IdServiceFactoryBean implements FactoryBean<IdService>, Initializin
 
     /**
      * Is singleton
-     *
      * @return the boolean
      */
     @Override

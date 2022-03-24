@@ -2,7 +2,8 @@ package com.yanger.starter.mongo.convert;
 
 import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.tools.general.tools.EnumUtils;
-
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -11,21 +12,14 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.ConditionalGenericConverter;
 import org.springframework.data.convert.ReadingConverter;
 
-import java.io.*;
+import java.io.Serializable;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 从 db 中读取枚举
@@ -35,12 +29,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @ReadingConverter
 public class DbToEnumConverter implements ConditionalGenericConverter {
+    
     /** 缓存 Enum 类信息,提升性能 */
     private static final ConcurrentMap<Class<?>, AccessibleObject> ENUM_CACHE_MAP = new ConcurrentHashMap<>(8);
 
     /**
      * Matches boolean
-     *
      * @param sourceType source type
      * @param targetType target type
      * @return the boolean
@@ -51,8 +45,7 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
     }
 
     /**
-     * Gets convertible types *
-     *
+     * Gets convertible types
      * @return the convertible types
      */
     @Override
@@ -66,7 +59,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * 读取时将 value/name 值转为枚举
-     *
      * @param source     待读取的数据
      * @param sourceType 待读取的数据类型
      * @param targetType 需要被转换的类型
@@ -104,7 +96,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * 兼容处理, 读取顺序 value > name > 下标
-     *
      * @param <T>    parameter
      * @param clazz  clazz
      * @param source source
@@ -121,7 +112,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * Value of t
-     *
      * @param <T>   parameter
      * @param clazz clazz
      * @param value value
@@ -135,7 +125,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * Invoke object
-     *
      * @param clazz            clazz
      * @param accessibleObject accessible object
      * @param value            value
@@ -157,7 +146,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * Value of enum
-     *
      * @param <T>       parameter
      * @param enumClass enum class
      * @param field     field
@@ -173,7 +161,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
     /**
      * 值比较
-     *
      * @param sourceValue 数据库字段值
      * @param targetValue 当前枚举属性值
      * @return 是否匹配 boolean
@@ -193,7 +180,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
         /**
          * Get field invoker
-         *
          * @param field field
          */
         public GetFieldInvoker(Field field) {
@@ -202,7 +188,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
         /**
          * Invoke object
-         *
          * @param target target
          * @return the object
          */
@@ -213,7 +198,6 @@ public class DbToEnumConverter implements ConditionalGenericConverter {
 
         /**
          * Gets type *
-         *
          * @return the type
          */
         public Class<?> getType() {

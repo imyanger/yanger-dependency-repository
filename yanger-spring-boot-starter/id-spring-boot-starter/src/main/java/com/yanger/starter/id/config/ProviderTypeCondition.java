@@ -2,7 +2,6 @@ package com.yanger.starter.id.config;
 
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.id.enums.ProviderType;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.condition.ConditionOutcome;
 import org.springframework.boot.autoconfigure.condition.SpringBootCondition;
@@ -31,7 +30,6 @@ public abstract class ProviderTypeCondition extends SpringBootCondition {
 
     /**
      * 匹配 ID 生成器类型
-     *
      * @param conditionContext      condition context
      * @param annotatedTypeMetadata annotated type metadata
      * @return the match outcome

@@ -2,26 +2,14 @@ package com.yanger.starter.mongo.reflection.factory;
 
 import com.yanger.starter.mongo.reflection.ReflectionException;
 import com.yanger.starter.mongo.reflection.Reflector;
-
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -32,7 +20,6 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
 
     /**
      * Create t
-     *
      * @param <T>  parameter
      * @param type type
      * @return the t
@@ -44,7 +31,6 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
 
     /**
      * Create t
-     *
      * @param <T>                 parameter
      * @param type                type
      * @param constructorArgTypes constructor arg types
@@ -61,7 +47,6 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
 
     /**
      * Is collection boolean
-     *
      * @param <T>  parameter
      * @param type type
      * @return the boolean
@@ -73,7 +58,6 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
 
     /**
      * Resolve interface class
-     *
      * @param type type
      * @return the class
      */
@@ -95,7 +79,6 @@ public class DefaultObjectFactory implements ObjectFactory, Serializable {
 
     /**
      * Instantiate class t
-     *
      * @param <T>                 parameter
      * @param type                type
      * @param constructorArgTypes constructor arg types

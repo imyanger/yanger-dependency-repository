@@ -4,7 +4,6 @@ import com.yanger.starter.mongo.reflection.MetaObject;
 import com.yanger.starter.mongo.reflection.ReflectionException;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -12,7 +11,6 @@ public class DefaultObjectWrapperFactory implements ObjectWrapperFactory {
 
     /**
      * Has wrapper for boolean
-     *
      * @param object object
      * @return the boolean
      */
@@ -22,8 +20,7 @@ public class DefaultObjectWrapperFactory implements ObjectWrapperFactory {
     }
 
     /**
-     * Gets wrapper for *
-     *
+     * Gets wrapper for
      * @param metaObject meta object
      * @param object     object
      * @return the wrapper for

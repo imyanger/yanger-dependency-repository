@@ -5,7 +5,7 @@ import com.yanger.starter.mongo.entity.Sequence;
 import com.yanger.starter.mongo.exception.MongoException;
 import com.yanger.starter.mongo.mapper.MongoPO;
 import com.yanger.tools.web.tools.ClassUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -18,8 +18,6 @@ import org.springframework.util.ReflectionUtils;
 
 import java.util.Objects;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 自增主键设置
  * @Author yanger
@@ -27,12 +25,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
+
     /** Mongo */
     private final MongoTemplate mongo;
 
     /**
      * Auto increment key event listener
-     *
      * @param mongoTemplate mongo template
      */
     public AutoIncrementKeyEventListener(MongoTemplate mongoTemplate) {
@@ -41,7 +39,6 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
 
     /**
      * 对象转换成数据库对象的时候操作 id 字段实现 id 自增
-     *
      * @param event event
      */
     @Override
@@ -65,7 +62,6 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
 
     /**
      * 利用 mongo 的 findAndModify 的原子性增加 id, 分布式环境下不适用.
-     *
      * @param collectionName collection name
      * @return the next id
      */
@@ -79,4 +75,5 @@ public class AutoIncrementKeyEventListener extends AbstractMongoEventListener<Mo
         Sequence inc = this.mongo.findAndModify(query, update, options, Sequence.class);
         return Objects.requireNonNull(inc).getSeqId();
     }
+
 }

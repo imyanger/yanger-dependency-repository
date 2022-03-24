@@ -21,7 +21,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
 
     private static final long serialVersionUID = 7951121625400869460L;
 
-    /** 状态字段: 正常(1)，禁用(0)，已删除(1) */
+    /** 状态字段: 正常(1)，禁用(0)，已删除(-1) */
     @TableField(value = DataStatus.STATUS)
     private StatusEnum status = StatusEnum.NORMAL;
 
@@ -35,7 +35,6 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
 
     /**
      * Gets status
-     *
      * @return the status
      */
     @Override
@@ -44,8 +43,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
     }
 
     /**
-     * Sets deleted *
-     *
+     * Sets deleted
      * @param status status
      * @return the status
      */
@@ -56,8 +54,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
     }
 
     /**
-     * Gets create time *
-     *
+     * Gets create time
      * @return the create time
      */
     @Override
@@ -66,8 +63,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
     }
 
     /**
-     * Sets create time *
-     *
+     * Sets create time
      * @param createTime create time
      * @return the create time
      */
@@ -78,8 +74,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
     }
 
     /**
-     * Gets update time *
-     *
+     * Gets update time
      * @return the update time
      */
     @Override
@@ -88,8 +83,7 @@ public abstract class BaseTimeStatusPO<T extends Serializable, M extends Model<M
     }
 
     /**
-     * Sets update time *
-     *
+     * Sets update time
      * @param updateTime update time
      * @return the update time
      */

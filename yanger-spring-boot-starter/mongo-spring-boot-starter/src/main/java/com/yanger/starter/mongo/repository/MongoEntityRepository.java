@@ -1,10 +1,9 @@
 package com.yanger.starter.mongo.repository;
 
 import com.yanger.starter.mongo.mapper.Model;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.io.*;
+import java.io.Serializable;
 
 /**
  * @param <T> parameter 主键类型

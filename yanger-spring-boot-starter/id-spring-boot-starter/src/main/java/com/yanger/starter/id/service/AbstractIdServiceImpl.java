@@ -9,12 +9,10 @@ import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.factory.IdMetaFactory;
 import com.yanger.starter.id.provider.MachineIdProvider;
 import com.yanger.starter.id.util.TimeUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 
 import java.util.Date;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * abstract id 生成服务
@@ -55,7 +53,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Abstract id service
-     *
      * @param type type
      */
     public AbstractIdServiceImpl(String type) {
@@ -64,7 +61,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Abstract id service
-     *
      * @param type type
      */
     @Contract(pure = true)
@@ -102,7 +98,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Gen id
-     *
      * @return the long
      */
     @Override
@@ -128,14 +123,12 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * 由子类实现生成唯一 id 需要的时间和序列号
-     *
      * @param id id
      */
     protected abstract void populateId(Id id);
 
     /**
      * Trans time
-     *
      * @param time time
      * @return the date
      */
@@ -152,7 +145,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Exp id
-     *
      * @param id id
      * @return the id
      */
@@ -163,7 +155,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param time time
      * @param seq  seq
      * @return the long
@@ -175,7 +166,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param time    time
      * @param seq     seq
      * @param machine machine
@@ -188,7 +178,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param deployType gen method
      * @param time       time
      * @param seq        seq
@@ -202,7 +191,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param idType     idType
      * @param deployType gen method
      * @param time       time
@@ -217,7 +205,6 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
     /**
      * Make id
-     *
      * @param version   version
      * @param type      type
      * @param deployType gen method
@@ -238,8 +225,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
 
 
     /**
-     * Sets machine id *
-     *
+     * Sets machine id
      * @param machineId machine id
      */
     public void setMachineId(long machineId) {
@@ -247,8 +233,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets gen method *
-     *
+     * Sets gen method
      * @param deployType gen method
      */
     public void setDeployType(long deployType) {
@@ -256,8 +241,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets type *
-     *
+     * Sets type
      * @param idTypeValue type
      */
     public void setIdTypeValue(long idTypeValue) {
@@ -265,8 +249,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets version *
-     *
+     * Sets version
      * @param version version
      */
     public void setVersion(long version) {
@@ -274,8 +257,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets id converter *
-     *
+     * Sets id converter
      * @param idConverter id converter
      */
     public void setIdConverter(IdConverter idConverter) {
@@ -283,8 +265,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets id meta *
-     *
+     * Sets id meta
      * @param idMeta id meta
      */
     public void setIdMeta(IdMeta idMeta) {
@@ -292,8 +273,7 @@ public abstract class AbstractIdServiceImpl implements IdService {
     }
 
     /**
-     * Sets machine id provider *
-     *
+     * Sets machine id provider
      * @param machineIdProvider machine id provider
      */
     public void setMachineIdProvider(MachineIdProvider machineIdProvider) {

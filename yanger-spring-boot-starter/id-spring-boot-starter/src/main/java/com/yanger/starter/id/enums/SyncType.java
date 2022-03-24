@@ -13,7 +13,7 @@ public enum SyncType {
     /** cas */
     CAS,
 
-    /** lock */
+    /** lock 默认 sync type */
     LOCK
 
 }

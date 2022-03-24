@@ -2,7 +2,6 @@ package com.yanger.starter.id.util;
 
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.tools.general.format.StringFormat;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,7 +18,6 @@ public class TimeUtils {
 
     /**
      * 验证时间是否被调慢.
-     *
      * @param lastTimestamp last timestamp
      * @param timestamp     timestamp
      */
@@ -38,7 +36,6 @@ public class TimeUtils {
 
     /**
      * 使用自旋锁处理在一秒内生成的所有 id 都被使用的情况(必须等到下一秒再生成 id)
-     *
      * @param lastTimestamp last timestamp
      * @param idType        id type
      * @return the long
@@ -63,7 +60,6 @@ public class TimeUtils {
 
     /**
      * 通过 {@link IdType} 确定产生的时间单位, 并使用 {@link TimeUtils#EPOCH} 压缩时间.
-     *
      * @param idType id type
      * @return the long
      */

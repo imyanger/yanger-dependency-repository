@@ -1,12 +1,11 @@
 package com.yanger.starter.mongo.convert;
 
 import com.google.common.collect.Maps;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -21,7 +20,6 @@ public class SerializableToEnumConverterFactory implements ConverterFactory<Seri
 
     /**
      * 根据 targetType 返回一个枚举转换器
-     *
      * @param <T>        parameter      枚举类型
      * @param targetType target type
      * @return the converter
@@ -41,7 +39,6 @@ public class SerializableToEnumConverterFactory implements ConverterFactory<Seri
     private static class GenericToEnumConverter<T extends Enum<?>> extends AbstractSerializableToEnumConverter<T> {
         /**
          * 建立映射关系 (V[value] <--> E[SerializeEnum])
-         *
          * @param enumClass enum class
          */
         GenericToEnumConverter(@NotNull Class<T> enumClass) {

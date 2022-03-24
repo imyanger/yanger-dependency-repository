@@ -1,7 +1,6 @@
 package com.yanger.starter.mongo.entity;
 
 import com.yanger.tools.general.tools.StringTools;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.mapping.BasicMongoPersistentEntity;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,7 +8,6 @@ import org.springframework.data.util.TypeInformation;
 import org.springframework.util.StringUtils;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -20,7 +18,6 @@ public class CustomBasicMongoPersistentEntity<T> extends BasicMongoPersistentEnt
 
     /**
      * 自定义 collection name, 如果没有指定, 则使用驼峰转下划线命名
-     *
      * @param typeInformation must not be {@literal null}.
      */
     public CustomBasicMongoPersistentEntity(TypeInformation<T> typeInformation) {
@@ -39,7 +36,6 @@ public class CustomBasicMongoPersistentEntity<T> extends BasicMongoPersistentEnt
 
     /**
      * Gets collection *
-     *
      * @return the collection
      */
     @NotNull

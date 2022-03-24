@@ -1,16 +1,13 @@
 package com.yanger.starter.mongo.core;
 
 import com.yanger.starter.mongo.util.FieldConvertUtils;
-
+import lombok.Getter;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Field;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-import lombok.Getter;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -43,7 +40,6 @@ public abstract class MongoQuery {
 
     /**
      * Field.
-     *
      * @param key the key
      */
     protected void field(String key) {
@@ -52,7 +48,6 @@ public abstract class MongoQuery {
 
     /**
      * And criteria.
-     *
      * @param key the key
      * @return the criteria
      */

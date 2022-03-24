@@ -1,22 +1,16 @@
 package com.yanger.starter.mybatis.plugins;
 
-import com.baomidou.mybatisplus.core.toolkit.Assert;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
-import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.baomidou.mybatisplus.core.toolkit.SystemClock;
+import com.baomidou.mybatisplus.core.toolkit.*;
 import com.yanger.starter.mybatis.utils.SqlUtils;
-
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Plugin;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.ResultHandler;
@@ -27,17 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-import lombok.extern.slf4j.Slf4j;
+import java.util.*;
 
 /**
  * 用于输出每条 SQL 语句及其执行时间
@@ -191,7 +175,6 @@ public class PerformanceInterceptor implements Interceptor {
 
     /**
      * Format object
-     *
      * @param invocation  invocation
      * @param originalSql original sql
      * @param result      result
@@ -224,7 +207,6 @@ public class PerformanceInterceptor implements Interceptor {
 
     /**
      * Plugin object
-     *
      * @param target target
      * @return the object
      */
@@ -237,8 +219,7 @@ public class PerformanceInterceptor implements Interceptor {
     }
 
     /**
-     * Sets properties *
-     *
+     * Sets properties
      * @param prop prop
      */
     @Override
@@ -255,7 +236,6 @@ public class PerformanceInterceptor implements Interceptor {
 
     /**
      * 获取此方法名的具体 Method
-     *
      * @param clazz      class 对象
      * @param methodName 方法名
      * @return 方法 method regular
@@ -275,7 +255,6 @@ public class PerformanceInterceptor implements Interceptor {
 
     /**
      * 获取sql语句开头部分
-     *
      * @param sql ignore
      * @return ignore int
      */

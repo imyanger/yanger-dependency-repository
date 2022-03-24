@@ -1,13 +1,12 @@
 package com.yanger.starter.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
-
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
+import java.io.Serializable;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +24,6 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
 
     /**
      * Serializable id type handler
-     *
      * @param type type
      */
     @Contract("null -> fail")
@@ -37,8 +35,7 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
     }
 
     /**
-     * Sets non null parameter *
-     *
+     * Sets non null parameter
      * @param ps        ps
      * @param i         the first parameter is 1, the second is 2, ...
      * @param parameter parameter
@@ -56,7 +53,6 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
 
     /**
      * 通过列表转换结果
-     *
      * @param rs         rs
      * @param columnName column name
      * @return the nullable result
@@ -72,7 +68,6 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
 
     /**
      * 通过字段下标获取转换结果
-     *
      * @param rs          rs
      * @param columnIndex column index
      * @return the nullable result
@@ -87,8 +82,7 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
     }
 
     /**
-     * Gets nullable result *
-     *
+     * Gets nullable result
      * @param cs          cs
      * @param columnIndex column index
      * @return the nullable result
@@ -104,7 +98,6 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
 
     /**
      * Value of
-     *
      * @param idClass id class
      * @param value   value
      * @return the serializable
@@ -121,8 +114,7 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
     }
 
     /**
-     * Gets value *
-     *
+     * Gets value
      * @param object object
      * @return the value
      */
@@ -130,4 +122,5 @@ public class SerializableIdTypeHandler extends BaseTypeHandler<Serializable> {
     private Object getValue(Object object) {
         return object;
     }
+
 }

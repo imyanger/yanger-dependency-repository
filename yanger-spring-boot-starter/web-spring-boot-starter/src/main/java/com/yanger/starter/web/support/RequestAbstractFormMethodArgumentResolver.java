@@ -8,14 +8,13 @@ import com.yanger.starter.web.annotation.RequestAbstractForm;
 import com.yanger.tools.general.format.StringFormat;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.ReflectionUtils;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.http.HttpInputMessage;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * 处理 @RequestAbstractForm, 用于接口接收抽象类, 此注解将自动转换为对应子类
@@ -26,7 +25,6 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
 
     /**
      * Request single param handler method argument resolver
-     *
      * @param objectMapper               object mapper
      * @param globalEnumConverterFactory global enum converter factory
      */
@@ -38,7 +36,6 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
 
     /**
      * Supports annotation
-     *
      * @return the class
      */
     @Override
@@ -48,7 +45,6 @@ public class RequestAbstractFormMethodArgumentResolver extends AbstractMethodArg
 
     /**
      * Bundle argument
-     *
      * @param parameter    parameter
      * @param javaType     java type
      * @param inputMessage input message

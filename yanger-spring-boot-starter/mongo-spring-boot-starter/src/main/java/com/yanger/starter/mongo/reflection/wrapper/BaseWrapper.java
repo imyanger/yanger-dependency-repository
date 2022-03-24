@@ -3,7 +3,6 @@ package com.yanger.starter.mongo.reflection.wrapper;
 import com.yanger.starter.mongo.reflection.MetaObject;
 import com.yanger.starter.mongo.reflection.ReflectionException;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -19,12 +17,12 @@ public abstract class BaseWrapper implements ObjectWrapper {
 
     /** NO_ARGUMENTS */
     protected static final Object[] NO_ARGUMENTS = new Object[0];
+
     /** Meta object */
     protected final MetaObject metaObject;
 
     /**
      * Base wrapper
-     *
      * @param metaObject meta object
      */
     @Contract(pure = true)
@@ -34,7 +32,6 @@ public abstract class BaseWrapper implements ObjectWrapper {
 
     /**
      * Resolve collection object
-     *
      * @param prop   prop
      * @param object object
      * @return the object
@@ -48,8 +45,7 @@ public abstract class BaseWrapper implements ObjectWrapper {
     }
 
     /**
-     * Gets collection value *
-     *
+     * Gets collection value
      * @param prop       prop
      * @param collection collection
      * @return the collection value
@@ -86,8 +82,7 @@ public abstract class BaseWrapper implements ObjectWrapper {
     }
 
     /**
-     * Sets collection value *
-     *
+     * Sets collection value
      * @param prop       prop
      * @param collection collection
      * @param value      value

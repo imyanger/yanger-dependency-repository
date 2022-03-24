@@ -2,7 +2,6 @@ package com.yanger.starter.id.factory;
 
 import com.yanger.starter.id.entity.IdMeta;
 import com.yanger.starter.id.enums.IdType;
-
 import org.jetbrains.annotations.Nullable;
 
 /**

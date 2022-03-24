@@ -3,11 +3,11 @@ package com.yanger.starter.mongo.exception;
 import com.yanger.tools.web.exception.BasicException;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public class QueryException extends BasicException {
+
     /** serialVersionUID */
     private static final long serialVersionUID = 4842002397836842293L;
 
@@ -20,7 +20,6 @@ public class QueryException extends BasicException {
 
     /**
      * Instantiates a new Query exception.
-     *
      * @param message the message
      */
     public QueryException(String message) {
@@ -29,17 +28,15 @@ public class QueryException extends BasicException {
 
     /**
      * Instantiates a new Query exception.
-     *
      * @param message the message
      * @param cause   the cause
      */
     public QueryException(String message, Throwable cause) {
-        super(message, cause);
+        super(cause, message);
     }
 
     /**
      * Instantiates a new Query exception.
-     *
      * @param cause the cause
      */
     public QueryException(Throwable cause) {

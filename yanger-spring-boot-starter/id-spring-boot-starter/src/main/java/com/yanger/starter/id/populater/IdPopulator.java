@@ -2,7 +2,6 @@ package com.yanger.starter.id.populater;
 
 import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
-
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -14,7 +13,6 @@ public interface IdPopulator {
 
     /**
      * Populate id
-     *
      * @param id     id
      * @param idMeta id meta
      */

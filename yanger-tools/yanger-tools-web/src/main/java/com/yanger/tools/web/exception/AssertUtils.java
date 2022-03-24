@@ -1,7 +1,6 @@
 package com.yanger.tools.web.exception;
 
 import com.yanger.tools.web.support.IResultCode;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.jetbrains.annotations.Contract;
@@ -19,298 +18,274 @@ public class AssertUtils extends Asserts {
 
     /**
      * 失败结果
-     *
-     * @param errorCode 异常错误码
+     * @param resultCode 异常错误码
      */
     @Contract("_ -> fail")
-    public static void fail(@NotNull IResultCode errorCode) {
-        fail(errorCode.generateCode(), errorCode.generateMessage());
+    public static void fail(@NotNull IResultCode resultCode) {
+        throw new BasicException(resultCode);
     }
 
     /**
      * 失败结果
-     *
-     * @param errorCode 异常错误码
+     * @param resultCode 异常错误码
      * @param params    参数占位符
      */
     @Contract("_ -> fail")
-    public static void fail(@NotNull IResultCode errorCode, Object... params) {
-        fail(errorCode.generateCode(), errorCode.generateMessage(params));
+    public static void fail(@NotNull IResultCode resultCode, Object... params) {
+        throw new BasicException(resultCode, params);
     }
 
     /**
      * 大于O
-     *
      * @param num       the num
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void gtZero(Integer num, IResultCode errorCode) {
+    public static void gtZero(Integer num, IResultCode resultCode) {
         if (num == null || num <= 0) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * 大于O
-     *
      * @param num       the num
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void gtZero(Integer num, IResultCode errorCode, Object... params) {
+    public static void gtZero(Integer num, IResultCode resultCode, Object... params) {
         if (num == null || num <= 0) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * 大于等于O
-     *
      * @param num       the num
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void geZero(Integer num, IResultCode errorCode) {
+    public static void geZero(Integer num, IResultCode resultCode) {
         if (num == null || num < 0) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * 大于等于O
-     *
      * @param num       the num
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void geZero(Integer num, IResultCode errorCode, Object... params) {
+    public static void geZero(Integer num, IResultCode resultCode, Object... params) {
         if (num == null || num < 0) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * num1大于num2
-     *
      * @param num1      the num 1
      * @param num2      the num 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void gt(Integer num1, Integer num2, IResultCode errorCode) {
+    public static void gt(Integer num1, Integer num2, IResultCode resultCode) {
         if (num1 <= num2) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * num1大于num2
-     *
      * @param num1      the num 1
      * @param num2      the num 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void gt(Integer num1, Integer num2, IResultCode errorCode, Object... params) {
+    public static void gt(Integer num1, Integer num2, IResultCode resultCode, Object... params) {
         if (num1 <= num2) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * num1大于等于num2
-     *
      * @param num1      the num 1
      * @param num2      the num 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void ge(Integer num1, Integer num2, IResultCode errorCode) {
+    public static void ge(Integer num1, Integer num2, IResultCode resultCode) {
         if (num1 < num2) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * num1大于等于num2
-     *
      * @param num1      the num 1
      * @param num2      the num 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void ge(Integer num1, Integer num2, IResultCode errorCode, Object... params) {
+    public static void ge(Integer num1, Integer num2, IResultCode resultCode, Object... params) {
         if (num1 < num2) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * obj1 eq obj2
-     *
      * @param obj1      the obj 1
      * @param obj2      the obj 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void eq(@NotNull Object obj1, Object obj2, IResultCode errorCode) {
+    public static void eq(@NotNull Object obj1, Object obj2, IResultCode resultCode) {
         if (!obj1.equals(obj2)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * obj1 eq obj2
-     *
      * @param obj1      the obj 1
      * @param obj2      the obj 2
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void eq(@NotNull Object obj1, Object obj2, IResultCode errorCode, Object... params) {
+    public static void eq(@NotNull Object obj1, Object obj2, IResultCode resultCode, Object... params) {
         if (!obj1.equals(obj2)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Is true.
-     *
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isTrue(boolean condition, IResultCode errorCode) {
+    public static void isTrue(boolean condition, IResultCode resultCode) {
         if (!condition) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
-     * Is true.
-     *
+     * Is true
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isTrue(boolean condition, IResultCode errorCode, Object... params) {
+    public static void isTrue(boolean condition, IResultCode resultCode, Object... params) {
         if (!condition) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
-     * Is false.
-     *
+     * Is false
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isFalse(boolean condition, IResultCode errorCode) {
+    public static void isFalse(boolean condition, IResultCode resultCode) {
         if (condition) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
-     * Is false.
-     *
+     * Is false
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isFalse(boolean condition, IResultCode errorCode, Object... params) {
+    public static void isFalse(boolean condition, IResultCode resultCode, Object... params) {
         if (condition) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Is null.
-     *
-     * @param errorCode the error codes
+     * @param resultCode the error codes
      * @param target    target
      */
-    public static void isNull(Object target, IResultCode errorCode) {
+    public static void isNull(Object target, IResultCode resultCode) {
         if (!ObjectUtils.isEmpty(target)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Is null.
-     *
-     * @param errorCode the error codes
+     * @param resultCode the error codes
      * @param target    target
      */
-    public static void isNull(Object target, IResultCode errorCode, Object... params) {
+    public static void isNull(Object target, IResultCode resultCode, Object... params) {
         if (!ObjectUtils.isEmpty(target)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Fail.
-     *
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void fail(boolean condition, IResultCode errorCode) {
+    public static void fail(boolean condition, IResultCode resultCode) {
         if (condition) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Fail.
-     *
      * @param condition the condition
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void fail(boolean condition, IResultCode errorCode, Object... params) {
+    public static void fail(boolean condition, IResultCode resultCode, Object... params) {
         if (condition) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
+        }
+    }
+
+    /**
+     * Not empty
+     * @param array     the array
+     * @param resultCode the error code
+     */
+    public static void notEmpty(Object[] array, IResultCode resultCode) {
+        if (ObjectUtils.isEmpty(array)) {
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Not empty.
-     *
      * @param array     the array
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void notEmpty(Object[] array, IResultCode errorCode) {
+    public static void notEmpty(Object[] array, IResultCode resultCode, Object... params) {
         if (ObjectUtils.isEmpty(array)) {
-            AssertUtils.fail(errorCode);
-        }
-    }
-
-    /**
-     * Not empty.
-     *
-     * @param array     the array
-     * @param errorCode the error code
-     */
-    public static void notEmpty(Object[] array, IResultCode errorCode, Object... params) {
-        if (ObjectUtils.isEmpty(array)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * No null elements.
-     *
      * @param array     the array
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void noNullElements(Object[] array, IResultCode errorCode) {
+    public static void noNullElements(Object[] array, IResultCode resultCode) {
         if (array != null) {
             for (Object element : array) {
                 if (element == null) {
-                    AssertUtils.fail(errorCode);
+                    AssertUtils.fail(resultCode);
                 }
             }
         }
     }
 
     /**
-     * No null elements.
-     *
+     * No null elements
      * @param array     the array
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void noNullElements(Object[] array, IResultCode errorCode, Object... params) {
+    public static void noNullElements(Object[] array, IResultCode resultCode, Object... params) {
         if (array != null) {
             for (Object element : array) {
                 if (element == null) {
-                    AssertUtils.fail(errorCode, params);
+                    AssertUtils.fail(resultCode, params);
                 }
             }
         }
@@ -318,129 +293,119 @@ public class AssertUtils extends Asserts {
 
     /**
      * Not empty.
-     *
      * @param collection the collection
-     * @param errorCode  the error code
+     * @param resultCode  the error code
      */
-    public static void notEmpty(Collection<?> collection, IResultCode errorCode) {
+    public static void notEmpty(Collection<?> collection, IResultCode resultCode) {
         if (!CollectionUtils.isEmpty(collection)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
-     * Not empty.
-     *
+     * Not empty
      * @param collection the collection
-     * @param errorCode  the error code
+     * @param resultCode  the error code
      */
-    public static void notEmpty(Collection<?> collection, IResultCode errorCode, Object... params) {
+    public static void notEmpty(Collection<?> collection, IResultCode resultCode, Object... params) {
         if (!CollectionUtils.isEmpty(collection)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
+        }
+    }
+
+    /**
+     * Not empty
+     * @param map       the map
+     * @param resultCode the error code
+     */
+    public static void notEmpty(Map<?, ?> map, IResultCode resultCode) {
+        if (ObjectUtils.isEmpty(map)) {
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Not empty.
-     *
      * @param map       the map
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void notEmpty(Map<?, ?> map, IResultCode errorCode) {
+    public static void notEmpty(Map<?, ?> map, IResultCode resultCode, Object... params) {
         if (ObjectUtils.isEmpty(map)) {
-            AssertUtils.fail(errorCode);
-        }
-    }
-
-    /**
-     * Not empty.
-     *
-     * @param map       the map
-     * @param errorCode the error code
-     */
-    public static void notEmpty(Map<?, ?> map, IResultCode errorCode, Object... params) {
-        if (ObjectUtils.isEmpty(map)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Is instance of.
-     *
      * @param type      the type
      * @param obj       the obj
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isInstanceOf(Class<?> type, Object obj, IResultCode errorCode) {
-        AssertUtils.notNull(type, errorCode);
+    public static void isInstanceOf(Class<?> type, Object obj, IResultCode resultCode) {
+        AssertUtils.notNull(type, resultCode);
         if (!type.isInstance(obj)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Is instance of.
-     *
      * @param type      the type
      * @param obj       the obj
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isInstanceOf(Class<?> type, Object obj, IResultCode errorCode, Object... params) {
-        AssertUtils.notNull(type, errorCode);
+    public static void isInstanceOf(Class<?> type, Object obj, IResultCode resultCode, Object... params) {
+        AssertUtils.notNull(type, resultCode);
         if (!type.isInstance(obj)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Not null.
-     *
-     * @param errorCode the error codes
+     * @param resultCode the error codes
      * @param target    target
      */
-    public static void notNull(Object target, IResultCode errorCode) {
+    public static void notNull(Object target, IResultCode resultCode) {
         if (ObjectUtils.isEmpty(target)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Not null.
-     *
-     * @param errorCode the error codes
+     * @param resultCode the error codes
      * @param target    target
      */
-    public static void notNull(Object target, IResultCode errorCode, Object... params) {
+    public static void notNull(Object target, IResultCode resultCode, Object... params) {
         if (ObjectUtils.isEmpty(target)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 
     /**
      * Is assignable.
-     *
      * @param superType the super type
      * @param subType   the sub type
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode errorCode) {
-        AssertUtils.notNull(superType, errorCode);
+    public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode resultCode) {
+        AssertUtils.notNull(superType, resultCode);
         if (subType == null || !superType.isAssignableFrom(subType)) {
-            AssertUtils.fail(errorCode);
+            AssertUtils.fail(resultCode);
         }
     }
 
     /**
      * Is assignable.
-     *
      * @param superType the super type
      * @param subType   the sub type
-     * @param errorCode the error code
+     * @param resultCode the error code
      */
-    public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode errorCode, Object... params) {
-        AssertUtils.notNull(superType, errorCode);
+    public static void isAssignable(Class<?> superType, Class<?> subType, IResultCode resultCode, Object... params) {
+        AssertUtils.notNull(superType, resultCode);
         if (subType == null || !superType.isAssignableFrom(subType)) {
-            AssertUtils.fail(errorCode, params);
+            AssertUtils.fail(resultCode, params);
         }
     }
 

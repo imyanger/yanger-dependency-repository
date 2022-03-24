@@ -1,9 +1,8 @@
 package com.yanger.starter.mongo.autoconfigure.sync;
 
 import com.google.common.collect.Lists;
-
 import com.mongodb.ConnectionString;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.basic.exception.PropertiesException;
 import com.yanger.starter.mongo.annotation.MongoCollection;
@@ -11,11 +10,13 @@ import com.yanger.starter.mongo.core.MongoBean;
 import com.yanger.starter.mongo.exception.MongoException;
 import com.yanger.starter.mongo.factory.MongoProviderFactory;
 import com.yanger.starter.mongo.index.CustomMongoPersistentEntityIndexCreator;
+import com.yanger.starter.mongo.property.MongoProperties;
 import com.yanger.starter.mongo.scanner.EntityScanner;
 import com.yanger.starter.mongo.spi.MongoLauncherInitiation;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.tools.StringTools;
-
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -32,12 +33,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
-import org.springframework.data.mongodb.core.convert.DbRefResolver;
-import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
-import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
-import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
-import org.springframework.data.mongodb.core.convert.MongoConverter;
-import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
+import org.springframework.data.mongodb.core.convert.*;
 import org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.lang.Nullable;
@@ -48,9 +44,6 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * mongodb 自动配置类
@@ -64,11 +57,10 @@ import lombok.extern.slf4j.Slf4j;
 @EnableConfigurationProperties(MongoProperties.class)
 @ConditionalOnClass(value = {MongoLauncherInitiation.class})
 @Import(value = {MongoDataAutoConfiguration.class})
-public class MongoAutoConfiguration implements YangerAutoConfiguration {
+public class MongoAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * Mongo provider factory (返回默认的数据源对应的 MongoTemplate).
-     *
      * @param mongoProperties    the mongo properties
      * @param applicationContext application context
      * @param context            context
@@ -148,7 +140,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 添加默认数据源
-     *
      * @param datasource datasource
      */
     private void addDefaultDatasource(@NotNull Map<String, String> datasource) {
@@ -158,8 +149,7 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
     }
 
     /**
-     * Init datasource *
-     *
+     * Init datasource
      * @param datasourceName     datasource name
      * @param datasourceUri      datasource uri
      * @param mongoProperties    mongo properties
@@ -195,7 +185,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 将 mongoTemplate 注入到 IoC, bean name = datasource + MongoTemplate
-     *
      * @param datasourceName     datasource name
      * @param applicationContext application context
      * @param mongoTemplate      mongo template
@@ -210,7 +199,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 新增集合时自动创建索引
-     *
      * @param mongoProperties    mongo properties
      * @param applicationContext application context
      * @param context            context
@@ -241,7 +229,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 使用默认数据源管理实务
-     *
      * @param mongoTemplate mongo template
      * @return the mongo transaction manager
      */
@@ -253,7 +240,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * Create mongo db factory simple mongo db factory
-     *
      * @param dataSourceUri data source uri
      * @return the simple mongo db factory
      */
@@ -265,7 +251,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 配置转换器
-     *
      * @param factory         factory
      * @param context         context
      * @param conversions     conversions
@@ -292,7 +277,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * Create mongo template mongo template
-     *
      * @param mongoDbFactory mongo db factory
      * @param mongoConverter mongo converter
      * @return the mongo template
@@ -308,7 +292,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
      * 扫描实体, 设置 className 和 mongoTemplate 之间的关系.
      * 如果没有使用 @EnableEntityScanner 或使用了但是没有配置 basePackages 等属性, 则默认扫描启动类所在包及子包;
      * 如果配置了 yanger.mongo.scan-path 和 @EnableEntityScanner, 将优先使用 yanger.mongo.scan-path;
-     *
      * @param scanPath           scan path
      * @param applicationContext application context
      */
@@ -352,7 +335,6 @@ public class MongoAutoConfiguration implements YangerAutoConfiguration {
     /**
      * 构建 MongoCollection 注解映射的实体, 如果 datasource 未设置, 则使用默认数据源
      * 如果 collectionName 为配置, 将使用类名(驼峰转下划线) 命名
-     *
      * @param clazz           clazz
      * @param mongoCollection the mongo collection
      * @return the mongo bean

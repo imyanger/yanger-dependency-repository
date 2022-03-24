@@ -1,12 +1,11 @@
 package com.yanger.starter.mongo.listener;
 
 import com.google.common.collect.Sets;
-
 import com.yanger.starter.mongo.datasource.MongoDataSource;
 import com.yanger.starter.mongo.mapper.MongoPO;
 import com.yanger.starter.mongo.util.IndexUtils;
 import com.yanger.tools.general.tools.StringTools;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -15,8 +14,6 @@ import org.springframework.data.mongodb.core.mapping.event.BeforeSaveEvent;
 
 import java.util.Set;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 自动生成索引, 解决直接使用 collection name 时不创建索引的问题
  * @Author yanger
@@ -24,12 +21,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class AutoCreateIndexEventListener extends AbstractMongoEventListener<MongoPO<?, ?>> {
+
     /** 缓存已处理过的 collection */
     private final Set<String> initIndexedCollectionNames = Sets.newHashSetWithExpectedSize(8);
 
     /**
      * 判断 DB 是否存在指定的 collection name, 不存在则创建索引
-     *
      * @param event event
      * @see MongoPO
      */

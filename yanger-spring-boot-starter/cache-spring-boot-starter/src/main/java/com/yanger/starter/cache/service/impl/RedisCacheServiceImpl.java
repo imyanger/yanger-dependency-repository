@@ -37,7 +37,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Instantiates a new Redis service.
-     *
      * @param cache                        cache
      * @param redisTemplate                the redis template
      * @param keyExpirationListenerAdapter key expiration listener adapter
@@ -52,8 +51,7 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
     }
 
     /**
-     * 根据key 获取过期时间
-     *
+     * 根据 key 获取过期时间
      * @param key 键 不能为 null
      * @return 时间(秒) 返回0代表为永久有效;如果该key已经过期,将返回"-2";
      */
@@ -64,7 +62,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key   键
      * @param value 值
      * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -88,7 +85,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 普通缓存放入
-     *
      * @param key   键
      * @param value 值
      * @return true成功 false失败
@@ -106,7 +102,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key      键
      * @param value    值
      * @param time     时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -115,13 +110,12 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
      */
     @Override
     public Boolean set(String key, Object value, Long time, Consumer<String> consumer) {
-        this.addHander(key, consumer);
+        this.addHandler(key, consumer);
         return this.set(key, value, time);
     }
 
     /**
      * 普通缓存放入
-     *
      * @param key      键
      * @param value    值
      * @param consumer consumer
@@ -129,17 +123,16 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
      */
     @Override
     public Boolean set(String key, Object value, Consumer<String> consumer) {
-        this.addHander(key, consumer);
+        this.addHandler(key, consumer);
         return this.set(key, value);
     }
 
     /**
-     * Add hander
-     *
+     * Add handler
      * @param key      key
      * @param consumer consumer
      */
-    private void addHander(String key, Consumer<String> consumer) {
+    private void addHandler(String key, Consumer<String> consumer) {
         this.keyExpirationListenerAdapter.addHander(key, new KeyExpirationHander() {
 
             /**
@@ -159,7 +152,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 递增
-     *
      * @param key   键
      * @param delta 要增加几(大于0)
      * @return long long
@@ -172,7 +164,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 递减
-     *
      * @param key   键
      * @param delta 要减少几(小于0)
      * @return long long
@@ -185,7 +176,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 获取缓存
-     *
      * @param <T>   the type parameter
      * @param key   redis的key
      * @param clazz value的class类型
@@ -209,7 +199,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * 获取泛型
-     *
      * @param key 键
      * @return 值 object
      */
@@ -220,7 +209,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hset
-     *
      * @param key   key
      * @param field field
      * @param value value
@@ -240,7 +228,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hget
-     *
      * @param key   key
      * @param field field
      * @return the object
@@ -252,7 +239,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hget
-     *
      * @param <T>   parameter
      * @param key   key
      * @param field field
@@ -275,7 +261,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hlen
-     *
      * @param key key
      * @return the long
      */
@@ -286,7 +271,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hkeys
-     *
      * @param key key
      * @return the set
      */
@@ -297,7 +281,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hvals
-     *
      * @param key key
      * @return the list
      */
@@ -308,7 +291,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hvals
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -335,7 +317,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hexists
-     *
      * @param key   key
      * @param field field
      * @return the boolean
@@ -347,7 +328,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Hdel
-     *
      * @param key   key
      * @param filed filed
      * @return the long
@@ -359,7 +339,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Lpush
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -377,7 +356,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Rpush
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -395,7 +373,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Llen
-     *
      * @param key key
      * @return the long
      */
@@ -406,7 +383,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Lpop
-     *
      * @param key key
      * @return the object
      */
@@ -417,7 +393,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Lpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -440,7 +415,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Rpop
-     *
      * @param key key
      * @return the object
      */
@@ -451,7 +425,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Rpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -474,7 +447,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Sadd
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -492,7 +464,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Scard
-     *
      * @param key key
      * @return the long
      */
@@ -503,7 +474,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Srem
-     *
      * @param key   key
      * @param value value
      * @return the long
@@ -515,7 +485,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Spop
-     *
      * @param key key
      * @return the object
      */
@@ -526,7 +495,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Spop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -549,7 +517,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Smembers
-     *
      * @param key key
      * @return the set
      */
@@ -560,7 +527,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Smembers
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -587,7 +553,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Zadd
-     *
      * @param key   key
      * @param score score
      * @param value value
@@ -600,7 +565,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Zcard
-     *
      * @param key key
      * @return the long
      */
@@ -611,7 +575,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Zscore
-     *
      * @param key   key
      * @param value value
      * @return the double
@@ -623,7 +586,6 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
 
     /**
      * Zrem
-     *
      * @param key   key
      * @param value value
      * @return the long
@@ -632,4 +594,5 @@ public class RedisCacheServiceImpl extends AbstractCacheService {
     public Long zrem(String key, Object... value) {
         return this.redisTemplate.opsForZSet().remove(key, value);
     }
+
 }

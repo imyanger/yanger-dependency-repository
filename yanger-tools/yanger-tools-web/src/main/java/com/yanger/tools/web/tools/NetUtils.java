@@ -1,17 +1,17 @@
 package com.yanger.tools.web.tools;
 
 import com.yanger.tools.general.constant.StringPool;
-
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
 
-import java.io.*;
-import java.net.*;
-
 import javax.servlet.http.HttpServletRequest;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.UnknownHostException;
 
 /**
  * NET工具类
@@ -33,7 +33,6 @@ public class NetUtils extends INetUtils {
 
     /**
      * 检查本机 TCP/UDP 端口是否可用, 可用返回 true, 否则返回 false
-     *
      * @param port port
      * @return the boolean
      */
@@ -52,8 +51,7 @@ public class NetUtils extends INetUtils {
     }
 
     /**
-     * 获取请求方 ip
-     *
+     * 获取请求 ip
      * @param request HttpServletRequest
      * @return ip string
      */

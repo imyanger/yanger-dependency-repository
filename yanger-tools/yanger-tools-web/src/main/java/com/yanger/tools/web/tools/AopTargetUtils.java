@@ -1,13 +1,12 @@
 package com.yanger.tools.web.tools;
 
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.framework.AopProxy;
 import org.springframework.aop.support.AopUtils;
 
 import java.lang.reflect.Field;
-
-import lombok.experimental.UtilityClass;
 
 /**
  * Aop获取代理对象
@@ -19,7 +18,6 @@ public class AopTargetUtils {
 
     /**
      * 获取 目标对象
-     *
      * @param proxy 代理对象
      * @return target
      * @throws Exception exception
@@ -39,8 +37,7 @@ public class AopTargetUtils {
     }
 
     /**
-     * Gets cglib proxy target object *
-     *
+     * Gets cglib proxy target object
      * @param proxy proxy
      * @return the cglib proxy target object
      * @throws Exception exception
@@ -57,8 +54,7 @@ public class AopTargetUtils {
     }
 
     /**
-     * Gets jdk dynamic proxy target object *
-     *
+     * Gets jdk dynamic proxy target object
      * @param proxy proxy
      * @return the jdk dynamic proxy target object
      * @throws Exception exception

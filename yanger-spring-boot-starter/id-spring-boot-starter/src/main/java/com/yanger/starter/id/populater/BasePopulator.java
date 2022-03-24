@@ -4,7 +4,6 @@ import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.util.TimeUtils;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +29,6 @@ public abstract class BasePopulator implements IdPopulator, ResetPopulator {
      * 检查当前时间是否已经到了下一个时间单位:
      * 为 true 则将序列号清零;
      * 为 false 则对序列号进行累加, 如果累加后越界则需要等待下一秒再产生 id.
-     *
      * @param id     id
      * @param idMeta id meta
      */

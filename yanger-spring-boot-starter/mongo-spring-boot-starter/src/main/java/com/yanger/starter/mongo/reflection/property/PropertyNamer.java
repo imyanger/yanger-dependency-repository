@@ -1,22 +1,23 @@
 package com.yanger.starter.mongo.reflection.property;
 
 import com.yanger.starter.mongo.reflection.ReflectionException;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public final class PropertyNamer {
+
     /** BOOLEAN_FIELD_PREFIX */
     private static final String BOOLEAN_FIELD_PREFIX = "is";
+
     /** GET_FIELD_PREFIX */
     private static final String GET_FIELD_PREFIX = "get";
+
     /** SET_FIELD_PREFIX */
     private static final String SET_FIELD_PREFIX = "set";
 
@@ -30,7 +31,6 @@ public final class PropertyNamer {
 
     /**
      * Method to property string
-     *
      * @param name name
      * @return the string
      */
@@ -53,7 +53,6 @@ public final class PropertyNamer {
 
     /**
      * Is property boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -63,7 +62,6 @@ public final class PropertyNamer {
 
     /**
      * Is getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -73,7 +71,6 @@ public final class PropertyNamer {
 
     /**
      * Is setter boolean
-     *
      * @param name name
      * @return the boolean
      */

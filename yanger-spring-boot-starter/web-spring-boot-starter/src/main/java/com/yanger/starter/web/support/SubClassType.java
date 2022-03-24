@@ -8,8 +8,7 @@ package com.yanger.starter.web.support;
 public interface SubClassType {
 
     /**
-     * Gets clazz *
-     *
+     * Gets clazz
      * @return the clazz
      */
     Class<?> getSubClass();

@@ -2,16 +2,14 @@ package com.yanger.starter.mybatis.listener;
 
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.constant.FullyQualifiedName;
-import com.yanger.starter.basic.listen.YangerApplicationListener;
+import com.yanger.starter.basic.listener.BaseApplicationListener;
 import com.yanger.tools.general.constant.StringPool;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.context.event.ApplicationContextInitializedEvent;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 配置加载完成后检查是否存在 datasource 配置, 如果不不存在, 则排除 datasource 自动配置, 避免启动失败
@@ -19,14 +17,13 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2021/1/29 9:40
  */
 @Slf4j
-public class DatasourceInitializeListener implements YangerApplicationListener {
+public class DatasourceInitializeListener implements BaseApplicationListener {
 
     /** Inited */
     private static boolean inited = false;
 
     /**
-     * Gets order *
-     *
+     * Gets order
      * @return the order
      */
     @Override
@@ -36,13 +33,12 @@ public class DatasourceInitializeListener implements YangerApplicationListener {
 
     /**
      * On application context initialized event
-     *
      * @param event event
      */
     @Override
     public void onApplicationContextInitializedEvent(@NotNull ApplicationContextInitializedEvent event) {
         if (!inited) {
-            YangerApplicationListener.Runner.executeAtFirst(this.key(event, this.getClass()), () -> {
+            BaseApplicationListener.Runner.executeAtFirst(this.key(event, this.getClass()), () -> {
                 ConfigurableEnvironment environment = event.getApplicationContext().getEnvironment();
                 String datasourceUrl = environment.getProperty("spring.datasource.url");
                 if (StringUtils.isBlank(datasourceUrl)) {

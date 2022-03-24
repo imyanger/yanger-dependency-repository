@@ -1,14 +1,12 @@
 package com.yanger.starter.mongo.util;
 
 import com.google.common.collect.Lists;
-
 import com.yanger.starter.mongo.conditions.query.LambdaQueryWrapper;
 import com.yanger.starter.mongo.conditions.query.QueryWrapper;
 import com.yanger.starter.mongo.conditions.update.LambdaUpdateWrapper;
 import com.yanger.starter.mongo.conditions.update.UpdateWrapper;
 import com.yanger.starter.mongo.enums.Operator;
 import com.yanger.starter.mongo.mapper.Model;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -35,7 +33,6 @@ public final class Wrappers {
 
     /**
      * 获取 QueryWrapper&lt;T&gt;
-     *
      * @param <M> 实体类泛型
      * @return QueryWrapper &lt;T&gt;
      */
@@ -47,7 +44,6 @@ public final class Wrappers {
 
     /**
      * 获取 QueryWrapper&lt;T&gt;
-     *
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return QueryWrapper &lt;T&gt;
@@ -60,7 +56,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaQueryWrapper&lt;T&gt;
-     *
      * @param <M> 实体类泛型
      * @return LambdaQueryWrapper &lt;T&gt;
      */
@@ -72,7 +67,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaQueryWrapper&lt;T&gt;
-     *
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return LambdaQueryWrapper &lt;T&gt;
@@ -85,7 +79,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaQueryWrapper&lt;T&gt;
-     *
      * @param <M>         实体类泛型
      * @param entityClass 实体类class
      * @return LambdaQueryWrapper &lt;T&gt;
@@ -98,7 +91,6 @@ public final class Wrappers {
 
     /**
      * 获取 UpdateWrapper&lt;T&gt;
-     *
      * @param <M> 实体类泛型
      * @return UpdateWrapper &lt;T&gt;
      */
@@ -110,7 +102,6 @@ public final class Wrappers {
 
     /**
      * 获取 UpdateWrapper&lt;T&gt;
-     *
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return UpdateWrapper &lt;T&gt;
@@ -123,7 +114,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaUpdateWrapper&lt;T&gt;
-     *
      * @param <M> 实体类泛型
      * @return LambdaUpdateWrapper &lt;T&gt;
      */
@@ -135,7 +125,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaUpdateWrapper&lt;T&gt;
-     *
      * @param <M>    实体类泛型
      * @param entity 实体类
      * @return LambdaUpdateWrapper &lt;T&gt;
@@ -148,7 +137,6 @@ public final class Wrappers {
 
     /**
      * 获取 LambdaUpdateWrapper&lt;T&gt;
-     *
      * @param <M>         实体类泛型
      * @param entityClass 实体类class
      * @return LambdaUpdateWrapper &lt;T&gt;
@@ -161,7 +149,6 @@ public final class Wrappers {
 
     /**
      * 获取 EmptyWrapper&lt;T&gt;
-     *
      * @param <M> 任意泛型
      * @return EmptyWrapper &lt;T&gt;
      * @see EmptyWrapper
@@ -192,7 +179,6 @@ public final class Wrappers {
 
         /**
          * Sets entity *
-         *
          * @param entity entity
          * @return the entity
          */
@@ -203,7 +189,6 @@ public final class Wrappers {
 
         /**
          * Sets entity class *
-         *
          * @param entityClass entity class
          * @return the entity class
          */
@@ -236,7 +221,6 @@ public final class Wrappers {
 
     /**
      * Gen or criteria list
-     *
      * @param key   key
      * @param value value
      * @return the list
@@ -252,7 +236,6 @@ public final class Wrappers {
 
     /**
      * Gen or criteria list
-     *
      * @param key   key
      * @param value value
      * @return the list
@@ -265,7 +248,6 @@ public final class Wrappers {
 
     /**
      * Gen or criteria list
-     *
      * @param key       key
      * @param value     value
      * @param operators operators

@@ -10,12 +10,11 @@ import com.yanger.starter.basic.entity.BaseQuery;
 import com.yanger.starter.mybatis.injector.MybatisSqlMethod;
 import com.yanger.starter.mybatis.support.Condition;
 import com.yanger.tools.web.tools.BeanUtils;
-
 import org.apache.ibatis.session.SqlSession;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.*;
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
@@ -29,8 +28,7 @@ import java.util.List;
 public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> implements BaseService<T> {
 
     /**
-     * Save ignore boolean
-     *
+     * 插入如果中已经存在相同的记录,则忽略当前新数据
      * @param entity entity
      * @return the boolean
      */
@@ -40,8 +38,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
-     * Save replace boolean
-     *
+     * 表示插入替换数据,需求表中有PrimaryKey,或者unique索引,如果数据库已经存在数据,则用新数据替换,如果没有数据效果则和insert into一样;
      * @param entity entity
      * @return the boolean
      */
@@ -51,8 +48,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
-     * Save ignore batch boolean
-     *
+     * 插入（批量）,插入如果中已经存在相同的记录,则忽略当前新数据
      * @param entityList entity list
      * @param batchSize  batch size
      * @return the boolean
@@ -64,8 +60,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
-     * Save replace batch boolean
-     *
+     * 插入（批量）,表示插入替换数据,需求表中有PrimaryKey,或者unique索引,如果数据库已经存在数据,则用新数据替换,如果没有数据效果则和insert into一样;
      * @param entityList entity list
      * @param batchSize  batch size
      * @return the boolean
@@ -77,8 +72,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
-     * Save batch boolean
-     *
+     * 批量保存
      * @param entityList entity list
      * @param batchSize  batch size
      * @param sqlMethod  sql method
@@ -101,8 +95,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
-     * Mybatis sql statement string.
-     *
+     * Mybatis sql statement.
      * @param sqlMethod ignore
      * @return sql string
      */
@@ -112,7 +105,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 插入数据，使用自定义id（即使是自增id的情况）
-     *
      * @param entity 实体对象
      * @return 更改的条数 int
      */
@@ -123,7 +115,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param page  分页参数
      * @param query 业务查询参数
@@ -141,7 +132,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param pageNo   当前页
      * @param pageSize 一页条数
      * @return the {@link IPage} 的子类 {@link Page}
@@ -156,7 +146,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
@@ -168,7 +157,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * List
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数
      * @return the list
@@ -183,7 +171,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param <D>    {@link BaseDTO} 子类
      * @param <Q>    {@link BaseQuery} 子类
      * @param page   分页参数
@@ -199,7 +186,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param <D>      {@link BaseDTO} 子类
      * @param pageNo   当前页
      * @param pageSize 页数大小
@@ -216,7 +202,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 分页查询接口
-     *
      * @param <D>    {@link BaseDTO} 子类
      * @param <Q>    {@link BaseQuery} 子类
      * @param query  业务查询参数
@@ -230,7 +215,6 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
 
     /**
      * 根据条件查询所有记录
-     *
      * @param <D>    {@link BaseDTO} 子类
      * @param <Q>    {@link BaseQuery} 子类
      * @param query  业务查询参数

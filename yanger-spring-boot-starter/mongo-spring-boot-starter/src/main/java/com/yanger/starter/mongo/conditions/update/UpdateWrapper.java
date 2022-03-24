@@ -22,7 +22,6 @@ public class UpdateWrapper<M extends Model<M>> extends AbstractWrapper<M, String
 
     /**
      * Update wrapper
-     *
      * @param entity entity
      */
     public UpdateWrapper(M entity) {
@@ -32,7 +31,6 @@ public class UpdateWrapper<M extends Model<M>> extends AbstractWrapper<M, String
 
     /**
      * 返回一个支持 lambda 函数写法的 wrapper
-     *
      * @return the lambda update wrapper
      */
     public LambdaUpdateWrapper<M> lambda() {
@@ -41,7 +39,6 @@ public class UpdateWrapper<M extends Model<M>> extends AbstractWrapper<M, String
 
     /**
      * Instance update wrapper
-     *
      * @return the update wrapper
      */
     @Override

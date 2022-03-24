@@ -5,7 +5,6 @@ import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
 import com.yanger.tools.web.tools.NetUtils;
-
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 
@@ -21,7 +20,6 @@ public class DruidLauncherInitiation implements LauncherInitiation {
 
     /**
      * 加载默认配置
-     *
      * @param env               系统变量 Environment
      * @param appName           服务名
      * @return the chain map
@@ -66,8 +64,7 @@ public class DruidLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets order *
-     *
+     * Gets order
      * @return the order
      */
     @Override
@@ -76,8 +73,7 @@ public class DruidLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets name *
-     *
+     * Gets name
      * @return the name
      */
     @Override

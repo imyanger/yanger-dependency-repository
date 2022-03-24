@@ -5,7 +5,6 @@ import com.yanger.starter.mongo.mapper.Model;
 import com.yanger.starter.mongo.support.SFunction;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -22,7 +21,6 @@ public class LambdaQueryWrapper<M extends Model<M>> extends AbstractLambdaWrappe
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaQuery(entity)
-     *
      * @param entity entity
      */
     public LambdaQueryWrapper(M entity) {
@@ -31,7 +29,6 @@ public class LambdaQueryWrapper<M extends Model<M>> extends AbstractLambdaWrappe
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaQuery(entity)
-     *
      * @param entityClass entity class
      */
     public LambdaQueryWrapper(Class<M> entityClass) {
@@ -40,7 +37,6 @@ public class LambdaQueryWrapper<M extends Model<M>> extends AbstractLambdaWrappe
 
     /**
      * 不建议直接 new 该实例, 使用 Wrappers.lambdaQuery(...)
-     *
      * @param entity      entity
      * @param entityClass entity class
      */
@@ -51,7 +47,6 @@ public class LambdaQueryWrapper<M extends Model<M>> extends AbstractLambdaWrappe
 
     /**
      * Instance lambda query wrapper
-     *
      * @return the lambda query wrapper
      */
     @Override

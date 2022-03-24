@@ -1,18 +1,14 @@
 package com.yanger.starter.cache.autoconfigure;
 
+import com.yanger.starter.cache.property.CacheProperties;
+import io.lettuce.core.RedisURI;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.data.redis.connection.RedisClusterConfiguration;
-import org.springframework.data.redis.connection.RedisNode;
-import org.springframework.data.redis.connection.RedisPassword;
-import org.springframework.data.redis.connection.RedisSentinelConfiguration;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import io.lettuce.core.RedisURI;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Redis 连接 配置
@@ -27,7 +23,6 @@ abstract class RedisConnectionConfiguration {
 
     /**
      * Redis connection configuration
-     *
      * @param cacheProperties cache properties
      */
     @Contract(pure = true)
@@ -37,7 +32,6 @@ abstract class RedisConnectionConfiguration {
 
     /**
      * 单机配置
-     *
      * @param redisURI redis uri
      * @return the standalone config
      */
@@ -53,7 +47,6 @@ abstract class RedisConnectionConfiguration {
 
     /**
      * 哨兵配置
-     *
      * @param redisURI redis uri
      * @return the sentinel config
      */
@@ -72,7 +65,6 @@ abstract class RedisConnectionConfiguration {
 
     /**
      * 集群配置
-     *
      * @param uriList uri list
      * @return {@literal null} if no cluster settings are set.
      */

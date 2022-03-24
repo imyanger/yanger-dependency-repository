@@ -1,8 +1,9 @@
 package com.yanger.starter.id.config;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.id.enums.ProviderType;
+import com.yanger.starter.id.property.IdProperties;
 import com.yanger.starter.id.provider.DbMachineIdProvider;
 import com.yanger.starter.id.provider.IpConfigurableMachineIdProvider;
 import com.yanger.starter.id.provider.MachineIdProvider;
@@ -10,7 +11,7 @@ import com.yanger.starter.id.provider.PropertyMachineIdProvider;
 import com.yanger.starter.id.service.IdService;
 import com.yanger.starter.id.service.IdServiceImpl;
 import com.yanger.starter.id.service.SnowflakeIdServiceImpl;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -22,8 +23,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.beans.PropertyVetoException;
 import java.util.concurrent.ThreadLocalRandom;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * id 生成配置装配
  * @Author yanger
@@ -32,11 +31,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @EnableConfigurationProperties(IdProperties.class)
-public class IdAutoConfiguration implements YangerAutoConfiguration {
+public class IdAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 基于配置生成 machineId，需要在部署的每一台机器上配置不同的机器号
-     *
      * @param idProperties id properties
      */
     @Bean
@@ -50,7 +48,6 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 通过所有机器列表为每一个机器生成一个唯一的 id, 适合服务节点较少的情况
-     *
      * @param idProperties id properties
      */
     @Bean
@@ -63,7 +60,6 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 雪花算法生成 id
-     *
      * @param idProperties id properties
      */
     @Bean
@@ -76,7 +72,6 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * 依赖数据库分配机器 id，生成 id
-     *
      * @param idProperties id properties
      */
     @Bean
@@ -124,7 +119,6 @@ public class IdAutoConfiguration implements YangerAutoConfiguration {
 
     /**
      * Build id service
-     *
      * @param idProperties      id properties
      * @param machineIdProvider machine id provider
      */

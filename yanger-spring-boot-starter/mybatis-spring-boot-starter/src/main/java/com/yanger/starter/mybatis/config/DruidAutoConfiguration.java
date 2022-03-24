@@ -2,13 +2,11 @@ package com.yanger.starter.mybatis.config;
 
 import com.alibaba.druid.wall.WallConfig;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
-
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Druid连接池配置
@@ -18,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @ConditionalOnClass(MybatisPlusAutoConfiguration.class)
-public class DruidAutoConfiguration implements YangerAutoConfiguration {
+public class DruidAutoConfiguration implements BaseAutoConfiguration {
 
     @Bean
     public WallConfig wallConfig() {

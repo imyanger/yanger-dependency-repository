@@ -1,32 +1,26 @@
 package com.yanger.starter.web.support;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.starter.web.util.WebUtils;
 import com.yanger.tools.web.tools.IoUtils;
-
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
-
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 /**
  * request 包装类, 用于自定义 header, body, params
@@ -72,7 +66,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * Instantiates a new Request wrapper.
-     *
      * @param request the request
      */
     public CacheRequestEnhanceWrapper(ContentCachingRequestWrapper request) {
@@ -94,8 +87,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets reader *
-     *
+     * Gets reader
      * @return the reader
      */
     @Override
@@ -107,7 +99,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
      * 通过判断 content-type 类型来从不同的地方获取数据
      * 1. application/x-www-form-urlencoded --> RequestParameters
      * 2. application/json --> inputstream
-     *
      * @return the input streams
      * @see ServletServerHttpRequest#getBody() ServletServerHttpRequest#getBody()
      */
@@ -118,7 +109,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * add a header with given name and value
-     *
      * @param name  the name
      * @param value the value
      */
@@ -127,8 +117,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets header *
-     *
+     * Gets header
      * @param name name
      * @return the header
      */
@@ -142,8 +131,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets header names *
-     *
+     * Gets header names
      * @return the header names
      */
     @Override
@@ -154,8 +142,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets headers *
-     *
+     * Gets headers
      * @param name name
      * @return the headers
      */
@@ -172,7 +159,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
      * 通过判断 content-type 类型来从不同的地方获取数据
      * 1. application/x-www-form-urlencoded --> RequestParameters
      * 2. application/json --> inputstream
-     *
      * @param name the name
      * @return the parameters
      * @see ServletServerHttpRequest#getBody()
@@ -185,7 +171,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * Get parameter values string [ ]
-     *
      * @param key key
      * @return the string [ ]
      */
@@ -196,7 +181,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * Sets parameter.
-     *
      * @param key   the key
      * @param value the value
      */
@@ -209,7 +193,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * Sets parameter.
-     *
      * @param key   the key
      * @param value the value
      */
@@ -221,8 +204,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Sets parameter.
-     *
+     * Sets parameter
      * @param key   the key
      * @param value the value
      */
@@ -234,8 +216,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets parameter map *
-     *
+     * Gets parameter map
      * @return the parameter map
      */
     @Override
@@ -244,8 +225,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets parameter names *
-     *
+     * Gets parameter names
      * @return the parameter names
      */
     @Override
@@ -263,7 +243,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
         /**
          * Instantiates a new My enumeration.
-         *
          * @param iterator the iterator
          */
         @Contract(pure = true)
@@ -273,7 +252,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
         /**
          * Has more elements boolean
-         *
          * @return the boolean
          */
         @Override
@@ -282,8 +260,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
         }
 
         /**
-         * Next element e
-         *
+         * Next element
          * @return the e
          */
         @Override
@@ -294,8 +271,7 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
     }
 
     /**
-     * Gets content type *
-     *
+     * Gets content type
      * @return the content type
      */
     @Override
@@ -305,7 +281,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * 修改请求类型
-     *
      * @param contentType the content type
      */
     public void setContentType(String contentType) {
@@ -315,7 +290,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * 获取最原始的 request
-     *
      * @param request request
      * @return HttpServletRequest org request
      */
@@ -329,7 +303,6 @@ public class CacheRequestEnhanceWrapper extends HttpServletRequestWrapper {
 
     /**
      * 获取最原始的request
-     *
      * @return HttpServletRequest org request
      */
     private ServletRequest getOrgRequest() {

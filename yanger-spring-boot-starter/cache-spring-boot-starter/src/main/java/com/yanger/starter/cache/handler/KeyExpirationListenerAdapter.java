@@ -1,15 +1,13 @@
 package com.yanger.starter.cache.handler;
 
 import com.yanger.starter.basic.event.BaseEventHandler;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.redis.core.RedisKeyExpiredEvent;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 过期时间处理器
@@ -24,7 +22,6 @@ public class KeyExpirationListenerAdapter extends BaseEventHandler<RedisKeyExpir
 
     /**
      * Add hander
-     *
      * @param key    key
      * @param hander hander
      */
@@ -33,8 +30,7 @@ public class KeyExpirationListenerAdapter extends BaseEventHandler<RedisKeyExpir
     }
 
     /**
-     * Handler.
-     *
+     * Handler
      * @param event the event
      */
     @Override

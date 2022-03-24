@@ -4,7 +4,6 @@ import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.util.TimeUtils;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -42,7 +41,6 @@ public class AtomicIdPopulator implements IdPopulator, ResetPopulator {
      * 2. 基于原来的变量计算新的时间和序列号, 计算逻辑和 {@link LockIdPopulator} 与 {@link SyncIdPopulator} 一致;
      * 3. 计算后使用 CAS 操作更新原来的变量, 在更新过程中需要传递保存原来的变量;
      * 4. 吐过保存原来的变量被其他线程改变, 则需要重新拿到最新的变量并在此计算和尝试更新;
-     *
      * @param id     id
      * @param idMeta id meta
      */
@@ -77,7 +75,6 @@ public class AtomicIdPopulator implements IdPopulator, ResetPopulator {
             if (this.variant.compareAndSet(varOld, varNew)) {
                 id.setSeq(sequence);
                 id.setTime(timestamp);
-
                 break;
             }
 

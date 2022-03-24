@@ -4,7 +4,6 @@ import com.yanger.starter.mongo.reflection.invoker.GetFieldInvoker;
 import com.yanger.starter.mongo.reflection.invoker.Invoker;
 import com.yanger.starter.mongo.reflection.invoker.MethodInvoker;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +15,6 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -24,12 +22,12 @@ public final class MetaClass {
 
     /** Reflector factory */
     private final ReflectorFactory reflectorFactory;
+
     /** Reflector */
     private final Reflector reflector;
 
     /**
      * Meta class
-     *
      * @param type             type
      * @param reflectorFactory reflector factory
      */
@@ -40,7 +38,6 @@ public final class MetaClass {
 
     /**
      * For class meta class
-     *
      * @param type             type
      * @param reflectorFactory reflector factory
      * @return the meta class
@@ -52,7 +49,6 @@ public final class MetaClass {
 
     /**
      * Meta class for property meta class
-     *
      * @param name name
      * @return the meta class
      */
@@ -63,7 +59,6 @@ public final class MetaClass {
 
     /**
      * Find property string
-     *
      * @param name name
      * @return the string
      */
@@ -74,7 +69,6 @@ public final class MetaClass {
 
     /**
      * Find property string
-     *
      * @param name                name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -88,7 +82,6 @@ public final class MetaClass {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     public String[] getGetterNames() {
@@ -97,7 +90,6 @@ public final class MetaClass {
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     public String[] getSetterNames() {
@@ -105,8 +97,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
@@ -121,8 +112,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -137,7 +127,6 @@ public final class MetaClass {
 
     /**
      * Meta class for property meta class
-     *
      * @param prop prop
      * @return the meta class
      */
@@ -147,8 +136,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param prop prop
      * @return the getter type
      */
@@ -172,8 +160,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets generic getter type *
-     *
+     * Gets generic getter type
      * @param propertyName property name
      * @return the generic getter type
      */
@@ -197,7 +184,6 @@ public final class MetaClass {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -217,7 +203,6 @@ public final class MetaClass {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -236,8 +221,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets get invoker *
-     *
+     * Gets get invoker
      * @param name name
      * @return the get invoker
      */
@@ -246,8 +230,7 @@ public final class MetaClass {
     }
 
     /**
-     * Gets set invoker *
-     *
+     * Gets set invoker
      * @param name name
      * @return the set invoker
      */
@@ -257,7 +240,6 @@ public final class MetaClass {
 
     /**
      * Build property string builder
-     *
      * @param name    name
      * @param builder builder
      * @return the string builder
@@ -283,7 +265,6 @@ public final class MetaClass {
 
     /**
      * Has default constructor boolean
-     *
      * @return the boolean
      */
     public boolean hasDefaultConstructor() {

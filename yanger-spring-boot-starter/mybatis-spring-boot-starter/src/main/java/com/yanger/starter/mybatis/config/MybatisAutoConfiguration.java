@@ -8,9 +8,8 @@ import com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler;
 import com.baomidou.mybatisplus.extension.plugins.IllegalSQLInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.SqlExplainInterceptor;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.constant.ConfigKey;
-import com.yanger.starter.basic.enums.LibraryEnum;
 import com.yanger.starter.mybatis.handler.GeneralEnumTypeHandler;
 import com.yanger.starter.mybatis.handler.SerializableIdTypeHandler;
 import com.yanger.starter.mybatis.handler.TimeMetaHandler;
@@ -18,8 +17,9 @@ import com.yanger.starter.mybatis.injector.MybatisSqlInjector;
 import com.yanger.starter.mybatis.plugins.PerformanceInterceptor;
 import com.yanger.starter.mybatis.plugins.SensitiveFieldDecryptInterceptor;
 import com.yanger.starter.mybatis.plugins.SensitiveFieldEncryptInterceptor;
+import com.yanger.starter.mybatis.property.MybatisProperties;
 import com.yanger.starter.mybatis.utils.SqlUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -28,9 +28,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.io.*;
-
-import lombok.extern.slf4j.Slf4j;
+import java.io.Serializable;
 
 /**
  * mybatis 自动配置类
@@ -41,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @ConditionalOnClass(MybatisPlusAutoConfiguration.class)
 @EnableConfigurationProperties(MybatisProperties.class)
-public class MybatisAutoConfiguration implements YangerAutoConfiguration {
+public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 非法 SQL 语句拦截器
@@ -177,16 +175,6 @@ public class MybatisAutoConfiguration implements YangerAutoConfiguration {
     @ConditionalOnMissingBean(TimeMetaHandler.class)
     public MetaObjectHandler timeMetaHandler() {
         return new TimeMetaHandler();
-    }
-
-    /**
-     * Gets library type *
-     *
-     * @return the library type
-     */
-    @Override
-    public LibraryEnum getLibraryType() {
-        return LibraryEnum.DRUID;
     }
 
 }

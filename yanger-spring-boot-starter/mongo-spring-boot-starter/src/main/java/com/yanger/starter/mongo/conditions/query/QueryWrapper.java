@@ -4,7 +4,6 @@ import com.yanger.starter.mongo.conditions.AbstractWrapper;
 import com.yanger.starter.mongo.mapper.Model;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -21,7 +20,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
 
     /**
      * Query wrapper
-     *
      * @param entity entity
      */
     public QueryWrapper(M entity) {
@@ -30,7 +28,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
 
     /**
      * Query wrapper
-     *
      * @param entity      entity
      * @param entityClass entity class
      */
@@ -41,7 +38,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
 
     /**
      * 返回一个支持 lambda 函数写法的 wrapper
-     *
      * @return the lambda query wrapper
      */
     public LambdaQueryWrapper<M> lambda() {
@@ -50,7 +46,6 @@ public class QueryWrapper<M extends Model<M>> extends AbstractWrapper<M, Object,
 
     /**
      * Instance query wrapper
-     *
      * @return the query wrapper
      */
     @Override

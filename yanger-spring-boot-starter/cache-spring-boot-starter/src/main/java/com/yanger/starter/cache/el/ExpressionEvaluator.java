@@ -31,7 +31,6 @@ public class ExpressionEvaluator extends CachedExpressionEvaluator {
 
     /**
      * Create evaluation context
-     *
      * @param object      object
      * @param targetClass target class
      * @param method      method
@@ -46,7 +45,6 @@ public class ExpressionEvaluator extends CachedExpressionEvaluator {
 
     /**
      * Key
-     *
      * @param conditionExpression condition expression
      * @param elementKey          element key
      * @param evalContext         eval context
@@ -57,8 +55,7 @@ public class ExpressionEvaluator extends CachedExpressionEvaluator {
     }
 
     /**
-     * Gets target method *
-     *
+     * Gets target method
      * @param targetClass target class
      * @param method      method
      * @return the target method

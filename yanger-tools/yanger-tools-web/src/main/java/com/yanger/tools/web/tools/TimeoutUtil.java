@@ -1,17 +1,10 @@
 package com.yanger.tools.web.tools;
 
-import org.jetbrains.annotations.Contract;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
+
+import java.util.concurrent.*;
 
 /**
  * 简单超时工具类
@@ -27,7 +20,6 @@ public final class TimeoutUtil {
 
     /**
      * Process
-     *
      * @param <T>     parameter
      * @param task    task
      * @param timeout timeout

@@ -2,19 +2,18 @@ package com.yanger.tools.web.tools;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
-
 import com.yanger.tools.general.constant.Charsets;
 import com.yanger.tools.web.exception.BasicException;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
-import java.net.*;
-import java.nio.charset.Charset;
-import java.util.Map;
-
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.util.Map;
 
 /**
  * url处理工具类
@@ -27,7 +26,6 @@ public class UrlUtils extends org.springframework.web.util.UriUtils {
 
     /**
      * url 编码,同js decodeURIComponent
-     *
      * @param source  url
      * @param charset 字符集
      * @return 编码后的url string
@@ -39,7 +37,6 @@ public class UrlUtils extends org.springframework.web.util.UriUtils {
 
     /**
      * url 解码
-     *
      * @param source  url
      * @param charset 字符集
      * @return 解码url string
@@ -51,7 +48,6 @@ public class UrlUtils extends org.springframework.web.util.UriUtils {
 
     /**
      * 获取 url 路径
-     *
      * @param uriStr 路径
      * @return url路径 path
      */
@@ -69,7 +65,6 @@ public class UrlUtils extends org.springframework.web.util.UriUtils {
 
     /**
      * map 转为 url 参数, 默认需要参数编码
-     *
      * @param source source
      * @return the string
      */
@@ -80,7 +75,6 @@ public class UrlUtils extends org.springframework.web.util.UriUtils {
 
     /**
      * map 转为 url 参数
-     *
      * @param source     source
      * @param urlEncoder url encoder
      * @return the string

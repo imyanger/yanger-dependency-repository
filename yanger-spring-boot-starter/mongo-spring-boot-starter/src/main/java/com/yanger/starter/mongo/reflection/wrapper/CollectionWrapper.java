@@ -3,14 +3,12 @@ package com.yanger.starter.mongo.reflection.wrapper;
 import com.yanger.starter.mongo.reflection.MetaObject;
 import com.yanger.starter.mongo.reflection.factory.ObjectFactory;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-
 import org.jetbrains.annotations.Contract;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -21,7 +19,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Collection wrapper
-     *
      * @param metaObject meta object
      * @param object     object
      */
@@ -32,7 +29,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Get object
-     *
      * @param prop prop
      * @return the object
      */
@@ -42,8 +38,7 @@ public class CollectionWrapper implements ObjectWrapper {
     }
 
     /**
-     * Set *
-     *
+     * Set
      * @param prop  prop
      * @param value value
      */
@@ -54,7 +49,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Find property string
-     *
      * @param name                name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -66,7 +60,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -76,7 +69,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     @Override
@@ -85,8 +77,7 @@ public class CollectionWrapper implements ObjectWrapper {
     }
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
@@ -96,8 +87,7 @@ public class CollectionWrapper implements ObjectWrapper {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -108,7 +98,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -119,7 +108,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -130,7 +118,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Instantiate property value meta object
-     *
      * @param name          name
      * @param prop          prop
      * @param objectFactory object factory
@@ -143,7 +130,6 @@ public class CollectionWrapper implements ObjectWrapper {
 
     /**
      * Is collection boolean
-     *
      * @return the boolean
      */
     @Override
@@ -152,8 +138,7 @@ public class CollectionWrapper implements ObjectWrapper {
     }
 
     /**
-     * Add *
-     *
+     * Add
      * @param element element
      */
     @Override
@@ -162,8 +147,7 @@ public class CollectionWrapper implements ObjectWrapper {
     }
 
     /**
-     * Add all *
-     *
+     * Add all
      * @param <E>     parameter
      * @param element element
      */

@@ -8,7 +8,7 @@ import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.annotation.RequestSingleParam;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.ObjectUtils;
-
+import lombok.SneakyThrows;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.MethodParameter;
@@ -16,8 +16,6 @@ import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.http.HttpInputMessage;
 
 import java.util.Map;
-
-import lombok.SneakyThrows;
 
 /**
  * 处理 @RequestSingleParam
@@ -30,7 +28,6 @@ public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMet
 
     /**
      * Request single param handler method argument resolver
-     *
      * @param objectMapper               object mapper
      * @param globalEnumConverterFactory global enum converter factory
      */
@@ -42,7 +39,6 @@ public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMet
 
     /**
      * Supports annotation
-     *
      * @return the class
      */
     @Override
@@ -52,7 +48,6 @@ public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMet
 
     /**
      * Bundle argument
-     *
      * @param parameter    parameter
      * @param javaType     java type
      * @param inputMessage input message
@@ -71,7 +66,7 @@ public class RequestSingleParamHandlerMethodArgumentResolver extends AbstractMet
         Map<Object, Object> map = JsonUtils.toMap(inputMessage.getBody(), String.class, Object.class);
 
         if (annotation.required() && ObjectUtils.isNull(map.get(key))) {
-            throw new BasicException("[{}] is required", annotation.value());
+            throw BasicException.of("[{}] is required", annotation.value());
         }
 
         Class<?> rawClass = javaType.getRawClass();

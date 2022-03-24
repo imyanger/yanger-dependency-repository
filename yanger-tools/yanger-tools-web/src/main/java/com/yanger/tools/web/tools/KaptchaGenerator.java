@@ -2,16 +2,6 @@ package com.yanger.tools.web.tools;
 
 import com.google.code.kaptcha.Producer;
 import com.google.code.kaptcha.util.Config;
-
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.Base64;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.concurrent.ThreadLocalRandom;
-
-import javax.imageio.ImageIO;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +9,16 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Base64;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author 验证码生成器
@@ -45,7 +45,6 @@ public class KaptchaGenerator {
 
     /**
      * 获取验证码信息
-     *
      * @return the optional
      */
     public Optional<KaptchaData> create() {
@@ -116,8 +115,7 @@ public class KaptchaGenerator {
 
 
     /**
-     * Gets producer *
-     *
+     * Gets producer
      * @return Producer producer
      */
     private Producer getProducer() {

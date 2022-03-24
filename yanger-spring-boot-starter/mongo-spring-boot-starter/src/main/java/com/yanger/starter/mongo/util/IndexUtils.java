@@ -1,12 +1,12 @@
 package com.yanger.starter.mongo.util;
 
 import com.google.common.collect.Lists;
-
 import com.yanger.starter.basic.context.EarlySpringContext;
 import com.yanger.starter.mongo.factory.MongoProviderFactory;
 import com.yanger.starter.mongo.index.CustomMongoPersistentEntityIndexResolver;
 import com.yanger.tools.web.tools.ObjectUtils;
-
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -17,24 +17,20 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import java.util.Arrays;
 import java.util.List;
 
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 @Slf4j
 @UtilityClass
 public class IndexUtils {
+
     /** mongoMappingContext */
     private static MongoMappingContext mongoMappingContext;
 
     /**
      * 为指定的实体添加索引:
      * 1. 如果传 collectionName, 将使用 clazz 的 collectionName
-     *
      * @param mongoTemplate  mongo template
      * @param clazz          clazz
      * @param collectionName collection name
@@ -63,4 +59,5 @@ public class IndexUtils {
             log.warn(ex.getMessage());
         }
     }
+
 }

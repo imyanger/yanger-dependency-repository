@@ -1,13 +1,11 @@
 package com.yanger.starter.id.provider;
 
+import cn.hutool.core.text.StrFormatter;
 import com.yanger.tools.web.tools.NetUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.StringUtils;
-
-import cn.hutool.core.text.StrFormatter;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 依赖数据库分配机器 id
@@ -92,8 +90,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
     }
 
     /**
-     * Gets machine id *
-     *
+     * Gets machine id
      * @return the machine id
      */
     @Override
@@ -102,8 +99,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
     }
 
     /**
-     * Sets machine id *
-     *
+     * Sets machine id
      * @param machineId machine id
      */
     public void setMachineId(long machineId) {
@@ -111,8 +107,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
     }
 
     /**
-     * Gets jdbc template *
-     *
+     * Gets jdbc template
      * @return the jdbc template
      */
     public JdbcTemplate getJdbcTemplate() {
@@ -120,8 +115,7 @@ public class DbMachineIdProvider implements MachineIdProvider {
     }
 
     /**
-     * Sets jdbc template *
-     *
+     * Sets jdbc template
      * @param jdbcTemplate jdbc template
      */
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {

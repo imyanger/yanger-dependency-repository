@@ -2,14 +2,10 @@ package com.yanger.tools.web.tools;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.FileUrlResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
+import org.springframework.core.io.*;
 import org.springframework.util.Assert;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * 资源工具类
@@ -36,7 +32,6 @@ public class ResourceUtils extends org.springframework.util.ResourceUtils {
      * 5. classpath*:
      * 6. C:/dir1/ and /Users/lcm
      * </p>
-     *
      * @param resourceLocation 资源路径
      * @return {Resource}
      * @throws IOException IOException

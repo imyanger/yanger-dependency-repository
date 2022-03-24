@@ -4,12 +4,10 @@ import com.yanger.starter.basic.annotation.AutoService;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.spi.LauncherInitiation;
 import com.yanger.tools.web.support.ChainMap;
-
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * 通过 SPI 加载 mybatis 默认配置
@@ -21,7 +19,6 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
 
     /**
      * 加载默认配置
-     *
      * @param env               系统变量 Environment
      * @param appName           服务名
      * @return the chain map
@@ -43,8 +40,7 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets order *
-     *
+     * Gets order
      * @return the order
      */
     @Override
@@ -53,8 +49,7 @@ public class MybatisLauncherInitiation implements LauncherInitiation {
     }
 
     /**
-     * Gets name *
-     *
+     * Gets name
      * @return the name
      */
     @Override

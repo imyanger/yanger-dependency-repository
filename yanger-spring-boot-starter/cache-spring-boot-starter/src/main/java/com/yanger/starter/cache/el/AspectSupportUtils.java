@@ -20,8 +20,7 @@ public class AspectSupportUtils {
     private static final ExpressionEvaluator EVALUATOR = new ExpressionEvaluator();
 
     /**
-     * Gets key value *
-     *
+     * Gets key value
      * @param joinPoint     join point
      * @param keyExpression key expression
      * @return the key value
@@ -36,7 +35,6 @@ public class AspectSupportUtils {
 
     /**
      * 如果存在 EL 表达式占位符, 则解析 EL 表达式, 不存在则返回 "", 需要保证 key 冲突问题.
-     *
      * @param object        object
      * @param args          args
      * @param clazz         clazz

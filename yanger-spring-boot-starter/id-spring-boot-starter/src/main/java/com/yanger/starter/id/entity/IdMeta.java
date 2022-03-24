@@ -29,7 +29,6 @@ public class IdMeta {
 
     /**
      * Id meta
-     *
      * @param machineBits    machine bits
      * @param seqBits        seq bits
      * @param timeBits       time bits
@@ -49,8 +48,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets machine bits *
-     *
+     * Gets machine bits
      * @return the machine bits
      */
     public byte getMachineBits() {
@@ -58,8 +56,7 @@ public class IdMeta {
     }
 
     /**
-     * Sets machine bits *
-     *
+     * Sets machine bits
      * @param machineBits machine bits
      */
     public void setMachineBits(byte machineBits) {
@@ -67,8 +64,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets machine bits mask *
-     *
+     * Gets machine bits mask
      * @return the machine bits mask
      */
     public long getMachineBitsMask() {
@@ -76,8 +72,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets seq bits *
-     *
+     * Gets seq bits
      * @return the seq bits
      */
     public byte getSeqBits() {
@@ -86,7 +81,6 @@ public class IdMeta {
 
     /**
      * Sets seq bits
-     *
      * @param seqBits seq bits
      */
     public void setSeqBits(byte seqBits) {
@@ -94,8 +88,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets seq bits start pos *
-     *
+     * Gets seq bits start pos
      * @return the seq bits start pos
      */
     public long getSeqBitsStartPos() {
@@ -104,7 +97,6 @@ public class IdMeta {
 
     /**
      * Gets seq bits mask
-     *
      * @return the seq bits mask
      */
     public long getSeqBitsMask() {
@@ -113,7 +105,6 @@ public class IdMeta {
 
     /**
      * Gets time bits
-     *
      * @return the time bits
      */
     public byte getTimeBits() {
@@ -121,8 +112,7 @@ public class IdMeta {
     }
 
     /**
-     * Sets time bits *
-     *
+     * Sets time bits
      * @param timeBits time bits
      */
     public void setTimeBits(byte timeBits) {
@@ -130,8 +120,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets time bits start pos *
-     *
+     * Gets time bits start pos
      * @return the time bits start pos
      */
     public long getTimeBitsStartPos() {
@@ -139,8 +128,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets time bits mask *
-     *
+     * Gets time bits mask
      * @return the time bits mask
      */
     public long getTimeBitsMask() {
@@ -148,8 +136,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets gen method bits *
-     *
+     * Gets gen method bits
      * @return the gen method bits
      */
     public byte getDeployTypeBits() {
@@ -157,8 +144,7 @@ public class IdMeta {
     }
 
     /**
-     * Sets gen method bits *
-     *
+     * Sets gen method bits
      * @param deployTypeBits gen method bits
      */
     public void setDeployTypeBits(byte deployTypeBits) {
@@ -166,8 +152,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets gen method bits start pos *
-     *
+     * Gets gen method bits start pos
      * @return the gen method bits start pos
      */
     public long getGenMethodBitsStartPos() {
@@ -175,8 +160,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets gen method bits mask *
-     *
+     * Gets gen method bits mask
      * @return the gen method bits mask
      */
     public long getGenMethodBitsMask() {
@@ -184,8 +168,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets type bits *
-     *
+     * Gets type bits
      * @return the type bits
      */
     public byte getIdTypeBits() {
@@ -193,8 +176,7 @@ public class IdMeta {
     }
 
     /**
-     * Sets type bits *
-     *
+     * Sets type bits
      * @param idTypeBits type bits
      */
     public void setIdTypeBits(byte idTypeBits) {
@@ -202,8 +184,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets type bits start pos *
-     *
+     * Gets type bits start pos
      * @return the type bits start pos
      */
     public long getTypeBitsStartPos() {
@@ -211,8 +192,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets type bits mask *
-     *
+     * Gets type bits mask
      * @return the type bits mask
      */
     public long getTypeBitsMask() {
@@ -220,8 +200,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets version bits *
-     *
+     * Gets version bits
      * @return the version bits
      */
     public byte getVersionBits() {
@@ -229,8 +208,7 @@ public class IdMeta {
     }
 
     /**
-     * Sets version bits *
-     *
+     * Sets version bits
      * @param versionBits version bits
      */
     public void setVersionBits(byte versionBits) {
@@ -239,7 +217,6 @@ public class IdMeta {
 
     /**
      * Gets version bits start pos
-     *
      * @return the version bits start pos
      */
     public long getVersionBitsStartPos() {
@@ -247,8 +224,7 @@ public class IdMeta {
     }
 
     /**
-     * Gets version bits mask *
-     *
+     * Gets version bits mask
      * @return the version bits mask
      */
     public long getVersionBitsMask() {

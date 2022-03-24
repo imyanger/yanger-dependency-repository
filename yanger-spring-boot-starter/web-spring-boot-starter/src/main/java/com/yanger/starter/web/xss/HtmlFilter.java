@@ -1,9 +1,8 @@
 package com.yanger.starter.web.xss;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.tools.general.constant.StringPool;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,8 +14,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * HTML filtering utility for protecting against XSS (Cross Site Scripting).

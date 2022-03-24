@@ -4,18 +4,10 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.GenericArrayType;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
-import java.lang.reflect.WildcardType;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -31,7 +23,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve field type type
-     *
      * @param field   field
      * @param srcType src type
      * @return The field type as {@link Type}. If it has type parameters in the declaration,     they will be resolved to the actual
@@ -45,7 +36,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve return type type
-     *
      * @param method  method
      * @param srcType src type
      * @return The return type of the method as {@link Type}. If it has type parameters in the declaration,     they will be resolved to
@@ -59,7 +49,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve param types type @ not null [ ]
-     *
      * @param method  method
      * @param srcType src type
      * @return The parameter types of the method as an array of {@link Type}s. If they have type parameters in the declaration,     they
@@ -77,7 +66,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve type type
-     *
      * @param type           type
      * @param srcType        src type
      * @param declaringClass declaring class
@@ -98,7 +86,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve generic array type type
-     *
      * @param genericArrayType generic array type
      * @param srcType          src type
      * @param declaringClass   declaring class
@@ -123,7 +110,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve parameterized type parameterized type
-     *
      * @param parameterizedType parameterized type
      * @param srcType           src type
      * @param declaringClass    declaring class
@@ -140,7 +126,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve wildcard type type
-     *
      * @param wildcardType   wildcard type
      * @param srcType        src type
      * @param declaringClass declaring class
@@ -154,7 +139,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve wildcard type bounds type @ not null [ ]
-     *
      * @param bounds         bounds
      * @param srcType        src type
      * @param declaringClass declaring class
@@ -178,7 +162,6 @@ public final class TypeParameterResolver {
 
     /**
      * Resolve type var type
-     *
      * @param typeVar        type var
      * @param srcType        src type
      * @param declaringClass declaring class
@@ -223,7 +206,6 @@ public final class TypeParameterResolver {
 
     /**
      * Scan super types type
-     *
      * @param typeVar        type var
      * @param srcType        src type
      * @param declaringClass declaring class
@@ -261,7 +243,6 @@ public final class TypeParameterResolver {
 
     /**
      * Translate parent type vars parameterized type
-     *
      * @param srcType    src type
      * @param srcClass   src class
      * @param parentType parent type
@@ -291,6 +272,7 @@ public final class TypeParameterResolver {
     }
 
     static class ParameterizedTypeImpl implements ParameterizedType {
+
         /** Raw type */
         private final Class<?> rawType;
 
@@ -302,7 +284,6 @@ public final class TypeParameterResolver {
 
         /**
          * Parameterized type
-         *
          * @param rawType             raw type
          * @param ownerType           owner type
          * @param actualTypeArguments actual type arguments
@@ -317,7 +298,6 @@ public final class TypeParameterResolver {
 
         /**
          * Get actual type arguments type [ ]
-         *
          * @return the type [ ]
          */
         @Override
@@ -326,8 +306,7 @@ public final class TypeParameterResolver {
         }
 
         /**
-         * Gets raw type *
-         *
+         * Gets raw type
          * @return the raw type
          */
         @Override
@@ -336,8 +315,7 @@ public final class TypeParameterResolver {
         }
 
         /**
-         * Gets owner type *
-         *
+         * Gets owner type
          * @return the owner type
          */
         @Override
@@ -347,7 +325,6 @@ public final class TypeParameterResolver {
 
         /**
          * To string string
-         *
          * @return the string
          */
         @Override
@@ -363,6 +340,7 @@ public final class TypeParameterResolver {
     }
 
     static class WildcardTypeImpl implements WildcardType {
+
         /** Lower bounds */
         private final Type[] lowerBounds;
 
@@ -371,7 +349,6 @@ public final class TypeParameterResolver {
 
         /**
          * Wildcard type
-         *
          * @param lowerBounds lower bounds
          * @param upperBounds upper bounds
          */
@@ -383,7 +360,6 @@ public final class TypeParameterResolver {
 
         /**
          * Get upper bounds type [ ]
-         *
          * @return the type [ ]
          */
         @Override
@@ -393,7 +369,6 @@ public final class TypeParameterResolver {
 
         /**
          * Get lower bounds type [ ]
-         *
          * @return the type [ ]
          */
         @Override
@@ -403,12 +378,12 @@ public final class TypeParameterResolver {
     }
 
     static class GenericArrayTypeImpl implements GenericArrayType {
+
         /** Generic component type */
         private final Type genericComponentType;
 
         /**
          * Generic array type
-         *
          * @param genericComponentType generic component type
          */
         @Contract(pure = true)
@@ -418,8 +393,7 @@ public final class TypeParameterResolver {
         }
 
         /**
-         * Gets generic component type *
-         *
+         * Gets generic component type
          * @return the generic component type
          */
         @Override
@@ -427,4 +401,5 @@ public final class TypeParameterResolver {
             return this.genericComponentType;
         }
     }
+
 }

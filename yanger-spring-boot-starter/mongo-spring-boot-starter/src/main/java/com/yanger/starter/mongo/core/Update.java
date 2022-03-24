@@ -1,11 +1,9 @@
 package com.yanger.starter.mongo.core;
 
 import com.yanger.starter.mongo.util.FieldConvertUtils;
-
 import org.jetbrains.annotations.Contract;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -18,7 +16,6 @@ public class Update {
 
     /**
      * Instantiates a new Update.
-     *
      * @param update the update
      */
     @Contract(pure = true)
@@ -28,7 +25,6 @@ public class Update {
 
     /**
      * Set org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
@@ -40,7 +36,6 @@ public class Update {
 
     /**
      * Sets on insert.
-     *
      * @param key   the key
      * @param value the value
      * @return the on insert
@@ -52,7 +47,6 @@ public class Update {
 
     /**
      * Unset org . springframework . data . mongodb . core . query . update.
-     *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
      */
@@ -63,7 +57,6 @@ public class Update {
 
     /**
      * Inc org . springframework . data . mongodb . core . query . update.
-     *
      * @param key the key
      * @param inc the inc
      * @return the org . springframework . data . mongodb . core . query . update
@@ -75,7 +68,6 @@ public class Update {
 
     /**
      * Push org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
@@ -87,7 +79,6 @@ public class Update {
 
     /**
      * Push all org . springframework . data . mongodb . core . query . update.
-     *
      * @param key    the key
      * @param values the values
      * @return the org . springframework . data . mongodb . core . query . update
@@ -100,7 +91,6 @@ public class Update {
 
     /**
      * Add to set org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
@@ -112,7 +102,6 @@ public class Update {
 
     /**
      * Pop org . springframework . data . mongodb . core . query . update.
-     *
      * @param key the key
      * @param pos the pos
      * @return the org . springframework . data . mongodb . core . query . update
@@ -125,7 +114,6 @@ public class Update {
 
     /**
      * Pull org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
@@ -137,7 +125,6 @@ public class Update {
 
     /**
      * Pull all org . springframework . data . mongodb . core . query . update.
-     *
      * @param key    the key
      * @param values the values
      * @return the org . springframework . data . mongodb . core . query . update
@@ -149,7 +136,6 @@ public class Update {
 
     /**
      * Rename org . springframework . data . mongodb . core . query . update.
-     *
      * @param oldName the old name
      * @param newName the new name
      * @return the org . springframework . data . mongodb . core . query . update
@@ -162,7 +148,6 @@ public class Update {
 
     /**
      * Current date org . springframework . data . mongodb . core . query . update.
-     *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
      */
@@ -173,7 +158,6 @@ public class Update {
 
     /**
      * Current timestamp org . springframework . data . mongodb . core . query . update.
-     *
      * @param key the key
      * @return the org . springframework . data . mongodb . core . query . update
      */
@@ -184,7 +168,6 @@ public class Update {
 
     /**
      * Multiply org . springframework . data . mongodb . core . query . update.
-     *
      * @param key        the key
      * @param multiplier the multiplier
      * @return the org . springframework . data . mongodb . core . query . update
@@ -196,7 +179,6 @@ public class Update {
 
     /**
      * Max org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update
@@ -208,7 +190,6 @@ public class Update {
 
     /**
      * Min org . springframework . data . mongodb . core . query . update.
-     *
      * @param key   the key
      * @param value the value
      * @return the org . springframework . data . mongodb . core . query . update

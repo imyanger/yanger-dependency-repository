@@ -1,24 +1,20 @@
 package com.yanger.starter.web.xss;
 
 import com.google.common.collect.Sets;
-
 import com.yanger.starter.web.support.CacheRequestEnhanceWrapper;
 import com.yanger.starter.web.util.WebUtils;
 import com.yanger.tools.general.constant.Charsets;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
+import javax.servlet.ServletInputStream;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-
-import javax.servlet.ServletInputStream;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * xss 过滤处理, 在 cache request 的基础上对 xss 进行处理
@@ -47,7 +43,6 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
 
     /**
      * Instantiates a new Xss http servlet request wrapper.
-     *
      * @param request the request
      */
     XssHttpServletRequestWrapper(ContentCachingRequestWrapper request) {
@@ -55,8 +50,7 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
     }
 
     /**
-     * Gets input stream *
-     *
+     * Gets input stream
      * @return the input stream
      */
     @Override
@@ -85,8 +79,7 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
     }
 
     /**
-     * Gets header *
-     *
+     * Gets header
      * @param name name
      * @return the header
      */
@@ -100,8 +93,7 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
     }
 
     /**
-     * Gets parameter *
-     *
+     * Gets parameter
      * @param name name
      * @return the parameter
      */
@@ -116,7 +108,6 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
 
     /**
      * Get parameter values string [ ]
-     *
      * @param name name
      * @return the string [ ]
      */
@@ -134,8 +125,7 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
     }
 
     /**
-     * Gets parameter map *
-     *
+     * Gets parameter map
      * @return the parameter map
      */
     @Override
@@ -154,7 +144,6 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
 
     /**
      * Xss encode string
-     *
      * @param input input
      * @return the string
      */
@@ -164,7 +153,6 @@ public class XssHttpServletRequestWrapper extends CacheRequestEnhanceWrapper {
 
     /**
      * sql 注入过滤
-     *
      * @param value value
      * @return the string
      */

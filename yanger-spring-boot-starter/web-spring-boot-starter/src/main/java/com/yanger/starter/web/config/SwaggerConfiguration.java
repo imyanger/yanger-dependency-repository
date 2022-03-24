@@ -1,10 +1,9 @@
 package com.yanger.starter.web.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,7 +21,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 @EnableKnife4j
 @EnableOpenApi
-public class SwaggerConfiguration {
+public class SwaggerConfiguration implements BaseAutoConfiguration {
 
     @Bean
     public Docket createRestApi() {

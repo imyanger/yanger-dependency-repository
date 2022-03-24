@@ -1,16 +1,14 @@
 package com.yanger.starter.id.provider;
 
+import cn.hutool.core.text.StrFormatter;
 import com.yanger.tools.web.tools.NetUtils;
-
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import cn.hutool.core.text.StrFormatter;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 通过所有机器列表为每一个机器生成一个唯一的 id, 适合服务节点较少的情况
@@ -33,7 +31,6 @@ public class IpConfigurableMachineIdProvider implements MachineIdProvider {
 
     /**
      * Ip configurable machine id provider
-     *
      * @param ips ips
      */
     public IpConfigurableMachineIdProvider(String ips) {
@@ -69,8 +66,7 @@ public class IpConfigurableMachineIdProvider implements MachineIdProvider {
     }
 
     /**
-     * Sets ips *
-     *
+     * Sets ips
      * @param ips ips
      */
     public void setIps(String ips) {

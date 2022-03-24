@@ -5,13 +5,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yanger.starter.basic.annotation.AutoService;
 import com.yanger.starter.basic.util.JsonUtils;
-
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.data.redis.util.ByteUtils;
-
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 /**
 
@@ -37,7 +35,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder {
 
     /**
      * Jackson value decoder
-     *
      * @param useIdentityNumber use identity number
      */
     private JacksonValueDecoder(boolean useIdentityNumber) {
@@ -46,7 +43,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder {
 
     /**
      * Do apply object
-     *
      * @param buffer buffer
      * @return the object
      */
@@ -74,7 +70,6 @@ public class JacksonValueDecoder extends CacheAbstractValueDecoder {
 
     /**
      * 所有的数据全部被 {@link CacheValueHolder} 包装
-     *
      * @param <T>    parameter
      * @param source can be {@literal null}.
      * @return {@literal null} for empty source.

@@ -16,6 +16,9 @@
 
 package com.yanger.starter.mongo.scanner;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -28,15 +31,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 import java.lang.annotation.Annotation;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import java.util.*;
 
 /**
  * An entity scanner that searches the classpath from an {@link  @EntityScan} specified packages.
@@ -48,6 +43,7 @@ public class EntityScanner {
 
     /** Context */
     private final ApplicationContext context;
+
     /** Scanner packages */
     @Setter
     @Getter
@@ -55,7 +51,6 @@ public class EntityScanner {
 
     /**
      * Create a new {@link EntityScanner} instance.
-     *
      * @param context the source application context
      */
     @Contract(pure = true)
@@ -67,7 +62,6 @@ public class EntityScanner {
 
     /**
      * Scan for entities with the specified annotations.
-     *
      * @param annotationTypes the annotation types used on the entities
      * @return a set of entity classes
      * @throws ClassNotFoundException if an entity class cannot be loaded
@@ -97,7 +91,6 @@ public class EntityScanner {
 
     /**
      * 如果不存在 EntityScanPackages bean, 则使用启动类所在的包和子包
-     *
      * @return the packages
      */
     private List<String> initPackages() {

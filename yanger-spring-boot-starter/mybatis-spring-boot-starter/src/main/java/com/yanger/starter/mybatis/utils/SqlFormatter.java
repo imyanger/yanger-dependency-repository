@@ -2,11 +2,7 @@ package com.yanger.starter.mybatis.utils;
 
 import org.jetbrains.annotations.Contract;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Locale;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Hibernate BasicFormatterImpl
@@ -82,7 +78,6 @@ public class SqlFormatter {
 
     /**
      * Format string
-     *
      * @param source source
      * @return the string
      */
@@ -129,7 +124,6 @@ public class SqlFormatter {
 
         /**
          * Format process
-         *
          * @param sql sql
          */
         FormatProcess(String sql) {
@@ -141,8 +135,7 @@ public class SqlFormatter {
         }
 
         /**
-         * Is function name boolean
-         *
+         * Is function name
          * @param tok tok
          * @return the boolean
          */
@@ -434,8 +427,7 @@ public class SqlFormatter {
         }
 
         /**
-         * Is whitespace boolean
-         *
+         * Is whitespace
          * @param token token
          * @return the boolean
          */

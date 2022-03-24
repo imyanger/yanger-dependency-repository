@@ -2,10 +2,13 @@ package com.yanger.starter.cache.autoconfigure;
 
 import com.alicp.jetcache.autoconfigure.LettuceFactory;
 import com.alicp.jetcache.autoconfigure.RedisLettuceAutoConfiguration;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.util.JsonUtils;
+import com.yanger.starter.cache.property.CacheProperties;
 import com.yanger.tools.general.format.StringFormat;
-
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
+import io.lettuce.core.resource.ClientResources;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -23,13 +26,10 @@ import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurat
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 
-import java.net.*;
+import java.net.URI;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import io.lettuce.core.RedisClient;
-import io.lettuce.core.RedisURI;
-import io.lettuce.core.resource.ClientResources;
 
 /**
  * Lettuce 装配
@@ -39,7 +39,7 @@ import io.lettuce.core.resource.ClientResources;
 @Configuration
 @EnableConfigurationProperties(CacheProperties.class)
 @Conditional(RedisLettuceAutoConfiguration.RedisLettuceCondition.class)
-public class LettuceConnectionConfiguration extends RedisConnectionConfiguration implements YangerAutoConfiguration {
+public class LettuceConnectionConfiguration extends RedisConnectionConfiguration implements BaseAutoConfiguration {
 
     /** 使用远程默认的 area 来生成 template */
     private final CacheProperties.Area defaultArea;
@@ -49,7 +49,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * Lettuce connection configuration
-     *
      * @param cacheProperties    cache properties
      * @param builderCustomizers builder customizers
      */
@@ -72,7 +71,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * 此 bean 可不用配置, 此处为了防止 idea 找不到 bean 这里手动注入 IoC (Spring 可自动通过 LettuceFactory 注入)
-     *
      * @param lettuceFactory lettuce factory
      * @return the redis client
      * @throws Exception exception
@@ -84,7 +82,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * Lettuce client resources client resources
-     *
      * @param redisClient redis client
      * @return the client resources
      * @see LettuceConnectionConfiguration#defaultClient() LettuceConnectionConfiguration#defaultClient()
@@ -97,7 +94,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * Redis connection factory lettuce connection factory
-     *
      * @param clientResources client resources
      * @return the lettuce connection factory
      * @throws UnknownHostException unknown host exception
@@ -111,7 +107,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * Create lettuce connection factory lettuce connection factory
-     *
      * @param clientConfiguration client configuration
      * @param uris                uris
      * @return the lettuce connection factory
@@ -138,8 +133,7 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
     }
 
     /**
-     * Gets lettuce client configuration *
-     *
+     * Gets lettuce client configuration
      * @param clientResources client resources
      * @param pool            pool
      * @return the lettuce client configuration
@@ -154,7 +148,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
     /**
      * Create builder lettuce client configuration builder
-     *
      * @param pool pool
      * @return the lettuce client configuration builder
      */
@@ -167,8 +160,7 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
     }
 
     /**
-     * Customize *
-     *
+     * Customize
      * @param builder builder
      */
     private void customize(LettuceClientConfiguration.LettuceClientConfigurationBuilder builder) {
@@ -182,7 +174,6 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
 
         /**
          * Create builder lettuce client configuration builder
-         *
          * @param properties properties
          * @return the lettuce client configuration builder
          */
@@ -191,8 +182,7 @@ public class LettuceConnectionConfiguration extends RedisConnectionConfiguration
         }
 
         /**
-         * Gets pool config *
-         *
+         * Gets pool config
          * @param properties properties
          * @return the pool config
          */

@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.yanger.starter.basic.util.JsonUtils;
-
 import org.jetbrains.annotations.NotNull;
 import org.springframework.cache.support.NullValue;
 import org.springframework.lang.Nullable;
@@ -53,7 +52,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
 
     /**
      * 使用给定名称配置默认类型的 ObjectMapper, 对于空字符串, 将使用默认的 JsonTypeInfo.Id.CLASS
-     *
      * @param classPropertyTypeName class property type name
      */
     @SuppressWarnings("deprecation")
@@ -71,7 +69,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
 
     /**
      * 序列化 value 逻辑, 如果 userIdentityNumber 为 true, 则会在序列化为 byte[] 前加上版本号, 用于新旧版本的兼容处理
-     *
      * @param value value
      * @return the byte [ ]
      */
@@ -126,7 +123,6 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
 
         /**
          * Null value serializer
-         *
          * @param classIdentifier can be {@literal null} and will be defaulted to {@code @class}.
          */
         NullValueSerializer(@Nullable String classIdentifier) {
@@ -136,8 +132,7 @@ public class JacksonValueEncoder extends AbstractValueEncoder {
         }
 
         /**
-         * Serialize *
-         *
+         * Serialize
          * @param value    value
          * @param jgen     jgen
          * @param provider provider

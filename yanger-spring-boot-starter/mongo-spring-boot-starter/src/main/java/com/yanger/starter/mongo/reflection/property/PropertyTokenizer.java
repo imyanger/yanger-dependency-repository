@@ -1,33 +1,34 @@
 package com.yanger.starter.mongo.reflection.property;
 
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
-import lombok.Getter;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
+
     /** Indexed name */
     @Getter
     private final String indexedName;
+
     /** Children */
     @Getter
     private final String children;
+
     /** Name */
     @Getter
     private String name;
+
     /** Index */
     @Getter
     private String index;
 
     /**
      * Property tokenizer
-     *
      * @param fullname fullname
      */
     public PropertyTokenizer(@NotNull String fullname) {
@@ -74,4 +75,5 @@ public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
     public void remove() {
         throw new UnsupportedOperationException("Remove is not supported, as it has no meaning in the context of properties.");
     }
+
 }

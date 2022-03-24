@@ -3,13 +3,14 @@ package com.yanger.starter.mongo.enums;
 import org.jetbrains.annotations.Contract;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public enum Order {
+
     /** Desc order */
     desc(-1),
+
     /** Asc order */
     asc(1);
 
@@ -18,7 +19,6 @@ public enum Order {
 
     /**
      * Order
-     *
      * @param orderValue order value
      */
     @Contract(pure = true)
@@ -27,12 +27,12 @@ public enum Order {
     }
 
     /**
-     * Gets order value *
-     *
+     * Gets order value
      * @return the order value
      */
     @Contract(pure = true)
     public int getOrderValue() {
         return orderValue;
     }
+
 }

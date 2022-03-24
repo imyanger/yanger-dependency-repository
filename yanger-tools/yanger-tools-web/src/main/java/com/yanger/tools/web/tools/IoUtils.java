@@ -2,14 +2,15 @@ package com.yanger.tools.web.tools;
 
 import com.yanger.tools.general.constant.Charsets;
 import com.yanger.tools.web.exception.Exceptions;
-
+import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.lang.Nullable;
 
-import java.io.*;
-
-import lombok.experimental.UtilityClass;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * IO工具类
@@ -21,7 +22,6 @@ public class IoUtils extends org.springframework.util.StreamUtils {
 
     /**
      * byte[] 转 String, 编码默认 UTF-8
-     *
      * @param input input
      * @return the string
      */
@@ -32,7 +32,6 @@ public class IoUtils extends org.springframework.util.StreamUtils {
 
     /**
      * 使用指定的字符编码以字符串形式获取 byte[] 的内容
-     *
      * @param input    the byte array to read from
      * @param encoding the encoding to use, null means platform default
      * @return the requested String
@@ -46,7 +45,6 @@ public class IoUtils extends org.springframework.util.StreamUtils {
 
     /**
      * InputStream to String utf-8
-     *
      * @param input the <code>InputStream</code> to read from
      * @return the requested String
      */
@@ -57,7 +55,6 @@ public class IoUtils extends org.springframework.util.StreamUtils {
 
     /**
      * InputStream to String
-     *
      * @param input   the <code>InputStream</code> to read from
      * @param charset the <code>Charsets</code>
      * @return the requested String
@@ -75,7 +72,6 @@ public class IoUtils extends org.springframework.util.StreamUtils {
 
     /**
      * closeQuietly
-     *
      * @param closeable 自动关闭
      */
     public static void closeQuietly(@Nullable Closeable closeable) {
@@ -89,8 +85,7 @@ public class IoUtils extends org.springframework.util.StreamUtils {
     }
 
     /**
-     * To byte array byte [ ].
-     *
+     * To byte array byte [ ]
      * @param input the input
      * @return the byte [ ]
      */
@@ -109,8 +104,7 @@ public class IoUtils extends org.springframework.util.StreamUtils {
      * Writes chars from a <code>String</code> to bytes on an
      * <code>OutputStream</code> using the specified character encoding.
      * <p>
-     * This method uses {@link String#getBytes(String)}.
-     *
+     * This method uses {@link String#getBytes(String)}
      * @param data     the <code>String</code> to write, null ignored
      * @param output   the <code>OutputStream</code> to write to
      * @param encoding the encoding to use, null means platform default

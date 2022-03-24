@@ -1,10 +1,9 @@
 package com.yanger.starter.id.entity;
 
+import lombok.Data;
 import org.jetbrains.annotations.Contract;
 
-import java.io.*;
-
-import lombok.Data;
+import java.io.Serializable;
 
 /**
  * ID 对象
@@ -41,7 +40,6 @@ public class Id implements Serializable {
 
     /**
      * Id
-     *
      * @param machine    machine
      * @param seq        seq
      * @param time       time

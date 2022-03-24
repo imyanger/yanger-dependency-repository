@@ -2,7 +2,6 @@ package com.yanger.starter.id.populater;
 
 import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
-
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -18,7 +17,6 @@ public class SyncIdPopulator extends BasePopulator {
 
     /**
      * Populate id
-     *
      * @param id     id
      * @param idMeta id meta
      */

@@ -10,16 +10,14 @@ import com.yanger.starter.mongo.datasource.MongoDataSource;
 import com.yanger.starter.mongo.exception.MongoException;
 import com.yanger.starter.mongo.factory.MongoProviderFactory;
 import com.yanger.starter.mongo.util.Wrappers;
-
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.List;
-
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 /**
  * ActiveRecord 模式 CRUD
@@ -30,14 +28,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuppressWarnings("unchecked")
 public abstract class Model<M extends Model<M>> implements Serializable {
+
     /** serialVersionUID */
     private static final long serialVersionUID = 1L;
+
     /** ID */
     public static final String MONGO_ID = "_id";
 
     /**
      * Template mongo template
-     *
      * @param claz claz
      * @return the mongo template
      */
@@ -47,7 +46,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Collection string
-     *
      * @param claz claz
      * @return the string
      */
@@ -80,7 +78,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 插入指定的 collection
-     *
      * @param collectionName collection name
      * @return the m
      */
@@ -91,7 +88,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 插入 OR 更新
-     *
      * @param wrapper wrapper
      * @param update  update
      * @return the boolean
@@ -120,7 +116,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 执行更新
-     *
      * @param wrapper wrapper
      * @return the boolean
      */
@@ -140,7 +135,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 删除记录
-     *
      * @param wrapper wrapper
      * @return the long 被删除的数量
      */
@@ -162,7 +156,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 根据 ID 删除
-     *
      * @param id 主键ID
      * @return the boolean
      */
@@ -194,7 +187,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 根据 ID 查询
-     *
      * @param id 主键ID
      * @return the t
      */
@@ -208,7 +200,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Select list list
-     *
      * @return the list
      */
     public List<M> selectList() {
@@ -218,7 +209,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 查询总记录数
-     *
      * @param wrapper wrapper
      * @return the list
      */
@@ -230,7 +220,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Select one m
-     *
      * @return the m
      */
     public M selectOne() {
@@ -240,7 +229,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 查询一条记录
-     *
      * @param wrapper wrapper
      * @return the t
      */
@@ -252,7 +240,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 翻页查询
-     *
      * @param <E>     parameter
      * @param page    翻页条件
      * @param wrapper wrapper   不含 limit 查询条件
@@ -271,7 +258,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Select count long
-     *
      * @return the long
      */
     public Long selectCount() {
@@ -281,7 +267,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 查询总数
-     *
      * @param wrapper wrapper
      * @return the integer
      */
@@ -293,7 +278,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Check id boolean
-     *
      * @param id id
      * @return the boolean
      */
@@ -306,7 +290,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Exists boolean.
-     *
      * @param wrapper the wrapper
      * @return the boolean
      */
@@ -315,4 +298,5 @@ public abstract class Model<M extends Model<M>> implements Serializable {
                                                 this.getClass(),
                                                 MongoProviderFactory.collectionName(this.getClass()));
     }
+
 }

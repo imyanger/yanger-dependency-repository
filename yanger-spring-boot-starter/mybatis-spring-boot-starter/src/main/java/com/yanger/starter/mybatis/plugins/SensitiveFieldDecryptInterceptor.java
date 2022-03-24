@@ -3,17 +3,13 @@ package com.yanger.starter.mybatis.plugins;
 import com.yanger.starter.basic.entity.BaseDTO;
 import com.yanger.starter.mybatis.annotation.SensitiveField;
 import com.yanger.starter.mybatis.entity.BasePO;
-import com.yanger.tools.web.tools.AesUtils;
+import com.yanger.tools.web.tools.AesKit;
 import com.yanger.tools.web.tools.Base64Utils;
 import com.yanger.tools.web.tools.ReflectionUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.mapping.SqlCommandType;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Plugin;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.util.StringUtils;
@@ -22,8 +18,6 @@ import java.lang.reflect.Field;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 敏感字符解密
@@ -39,7 +33,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
 
     /**
      * Sensitive field encrypt intercepter
-     *
      * @param sensitiveKey sensitive key
      */
     @Contract(pure = true)
@@ -49,7 +42,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
 
     /**
      * Intercept
-     *
      * @param invocation invocation
      * @return the object
      * @throws Throwable throwable
@@ -72,7 +64,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
     /**
      * Process
      * 加密处理，目前递归
-     *
      * @param o o
      */
     private void process(Object o) {
@@ -80,7 +71,7 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
             Object fieldValue = ReflectionUtils.getFieldValue(o, field.getName());
             if (!StringUtils.isEmpty(fieldValue)) {
                 try {
-                    String decrypt = AesUtils.decryptToStr(
+                    String decrypt = AesKit.decryptToStr(
                         Base64Utils.decodeFromString(String.valueOf(fieldValue)),
                         this.sensitiveKey);
 
@@ -94,7 +85,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
 
     /**
      * Plugin
-     *
      * @param target target
      * @return the object
      */
@@ -104,8 +94,7 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
     }
 
     /**
-     * Sets properties *
-     *
+     * Sets properties
      * @param properties properties
      */
     @Override
@@ -115,7 +104,6 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
 
     /**
      * Decrypt field
-     *
      * @param declaredFields declared fields
      * @param parameter      parameter
      * @param sqlCommandType sql command type
@@ -127,7 +115,7 @@ public class SensitiveFieldDecryptInterceptor implements Interceptor {
             if (field.isAnnotationPresent(SensitiveField.class)) {
                 // 如果使用了加密注解，对加密内容进行解密
                 Object fieldValue = ReflectionUtils.getFieldValue(parameter, field.getName());
-                String decrypt = AesUtils.decryptToStr(Base64Utils.decodeFromString(String.valueOf(fieldValue)),
+                String decrypt = AesKit.decryptToStr(Base64Utils.decodeFromString(String.valueOf(fieldValue)),
                                                        this.sensitiveKey);
                 ReflectionUtils.setFieldValue(parameter, field.getName(), decrypt);
             }

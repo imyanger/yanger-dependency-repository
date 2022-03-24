@@ -2,16 +2,11 @@ package com.yanger.starter.mongo.index;
 
 import com.yanger.starter.mongo.annotation.MongoCollection;
 import com.yanger.starter.mongo.annotation.MongoColumn;
-
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mapping.context.MappingContext;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexResolver;
+import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.MongoPersistentEntity;
 import org.springframework.data.mongodb.core.mapping.MongoPersistentProperty;
 import org.springframework.data.util.TypeInformation;
@@ -29,12 +24,12 @@ import java.util.stream.Collectors;
  * @Date 2020/12/29 17:32
  */
 public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEntityIndexResolver {
+
     /** Mapping context */
     private final MappingContext<? extends MongoPersistentEntity<?>, MongoPersistentProperty> mappingContext;
 
     /**
      * Create new {@link MongoPersistentEntityIndexResolver}.
-     *
      * @param mappingContext must not be {@literal null}.
      */
     @Contract("null -> fail")
@@ -47,7 +42,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
 
     /**
      * 返回 mongo 实体的 IndexDefinitionHolder 迭代器, 用于创建索引
-     *
      * @param typeInformation type information
      * @return the iterable
      */
@@ -60,7 +54,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
     /**
      * 父类默认扫描 {@link Indexed}, 当只使用 {@link MongoColumn} 且没有配置 index 字段时, 会导致生成一个空的 IndexDefinitionHolder 从而导致 NPE,
      * 因此这里对最终的 index 列表做一次排空处理.
-     *
      * @param root root
      * @return the list
      */
@@ -74,7 +67,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
     /**
      * 复合索引处理, 因为使用了 {@link MongoCollection} 复合注解, 会解析 {@link CompoundIndexes} 的 def, 如果为空将会抛出异常, 这里通过覆写原有逻辑,
      * 实现使用 {@link MongoCollection} 复合注解时未定义 def 时不创建索引.
-     *
      * @param dotPath            dot path
      * @param fallbackCollection fallback collection
      * @param entity             entity
@@ -107,7 +99,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
 
     /**
      * 处理字段索引
-     *
      * @param dotPath            dot path
      * @param collection         collection
      * @param persistentProperty persistent property
@@ -132,7 +123,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
 
     /**
      * 处理 HashIndexed 索引
-     *
      * @param dotPath            dot path
      * @param collection         collection
      * @param persistentProperty persistent property
@@ -150,7 +140,6 @@ public class CustomMongoPersistentEntityIndexResolver extends MongoPersistentEnt
 
     /**
      * 处理 GeoSpatialIndexed 索引
-     *
      * @param dotPath            dot path
      * @param collection         collection
      * @param persistentProperty persistent property

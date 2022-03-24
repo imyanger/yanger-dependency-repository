@@ -2,19 +2,13 @@ package com.yanger.starter.mongo.reflection;
 
 import com.yanger.starter.mongo.reflection.factory.ObjectFactory;
 import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
-import com.yanger.starter.mongo.reflection.wrapper.BeanWrapper;
-import com.yanger.starter.mongo.reflection.wrapper.CollectionWrapper;
-import com.yanger.starter.mongo.reflection.wrapper.MapWrapper;
-import com.yanger.starter.mongo.reflection.wrapper.ObjectWrapper;
-import com.yanger.starter.mongo.reflection.wrapper.ObjectWrapperFactory;
-
+import com.yanger.starter.mongo.reflection.wrapper.*;
+import lombok.Getter;
 import org.jetbrains.annotations.Contract;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
-import lombok.Getter;
 
 /**
  * 实体元数据包装对象
@@ -26,22 +20,25 @@ public final class MetaObject {
     /** Original object */
     @Getter
     private final Object originalObject;
+
     /** Object wrapper */
     @Getter
     private final ObjectWrapper objectWrapper;
+
     /** Object factory */
     @Getter
     private final ObjectFactory objectFactory;
+
     /** Object wrapper factory */
     @Getter
     private final ObjectWrapperFactory objectWrapperFactory;
+
     /** Reflector factory */
     @Getter
     private final ReflectorFactory reflectorFactory;
 
     /**
      * Meta object
-     *
      * @param object               object
      * @param objectFactory        object factory
      * @param objectWrapperFactory object wrapper factory
@@ -72,7 +69,6 @@ public final class MetaObject {
 
     /**
      * For object meta object
-     *
      * @param object               object
      * @param objectFactory        object factory
      * @param objectWrapperFactory object wrapper factory
@@ -93,7 +89,6 @@ public final class MetaObject {
 
     /**
      * Find property string
-     *
      * @param propName            prop name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -104,7 +99,6 @@ public final class MetaObject {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     public String[] getGetterNames() {
@@ -113,7 +107,6 @@ public final class MetaObject {
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     public String[] getSetterNames() {
@@ -121,8 +114,7 @@ public final class MetaObject {
     }
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
@@ -131,8 +123,7 @@ public final class MetaObject {
     }
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -142,7 +133,6 @@ public final class MetaObject {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -152,7 +142,6 @@ public final class MetaObject {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -161,8 +150,7 @@ public final class MetaObject {
     }
 
     /**
-     * Gets value *
-     *
+     * Gets value
      * @param name name
      * @return the value
      */
@@ -181,8 +169,7 @@ public final class MetaObject {
     }
 
     /**
-     * Sets value *
-     *
+     * Sets value
      * @param name  name
      * @param value value
      */
@@ -206,7 +193,6 @@ public final class MetaObject {
 
     /**
      * Meta object for property meta object
-     *
      * @param name name
      * @return the meta object
      */
@@ -218,7 +204,6 @@ public final class MetaObject {
 
     /**
      * Is collection boolean
-     *
      * @return the boolean
      */
     public boolean isCollection() {
@@ -226,8 +211,7 @@ public final class MetaObject {
     }
 
     /**
-     * Add *
-     *
+     * Add
      * @param element element
      */
     public void add(Object element) {
@@ -235,8 +219,7 @@ public final class MetaObject {
     }
 
     /**
-     * Add all *
-     *
+     * Add all
      * @param <E>  parameter
      * @param list list
      */

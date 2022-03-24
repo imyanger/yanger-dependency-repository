@@ -4,13 +4,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public class DefaultReflectorFactory implements ReflectorFactory {
+
     /** Reflector map */
     private final ConcurrentMap<Class<?>, Reflector> reflectorMap = new ConcurrentHashMap<>();
+
     /** Class cache enabled */
     private boolean classCacheEnabled = true;
 
@@ -22,7 +23,6 @@ public class DefaultReflectorFactory implements ReflectorFactory {
 
     /**
      * Is class cache enabled boolean
-     *
      * @return the boolean
      */
     @Override
@@ -31,8 +31,7 @@ public class DefaultReflectorFactory implements ReflectorFactory {
     }
 
     /**
-     * Sets class cache enabled *
-     *
+     * Sets class cache enabled
      * @param classCacheEnabled class cache enabled
      */
     @Override
@@ -42,7 +41,6 @@ public class DefaultReflectorFactory implements ReflectorFactory {
 
     /**
      * Find for class reflector
-     *
      * @param type type
      * @return the reflector
      */

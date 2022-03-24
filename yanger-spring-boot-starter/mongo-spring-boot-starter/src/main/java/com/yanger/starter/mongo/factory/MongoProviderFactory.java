@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.yanger.starter.mongo.core.MongoBean;
 import com.yanger.starter.mongo.exception.MongoException;
 import com.yanger.tools.web.tools.ObjectUtils;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,8 +14,6 @@ import org.springframework.util.Assert;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 管理 mongoTemplate
  * @Author yanger
@@ -23,16 +21,18 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class MongoProviderFactory {
+
     /** datasourceName <--> MongoTemplate */
     private static final Map<String, MongoTemplate> CONFIGURE_WITH_MONGO_TEMPLATES = new ConcurrentHashMap<>();
+
     /** MONGO_TRANSACTION_TEMPLATE */
     private static final Map<MongoTemplate, TransactionTemplate> MONGO_TRANSACTION_TEMPLATE = new ConcurrentHashMap<>();
+
     /** className <--> MongoBean */
     private static final Map<String, MongoBean> ANNOTATION_TO_BEAN_MAP = new ConcurrentHashMap<>();
 
     /**
      * Gets configure with mongo templates.
-     *
      * @return the configure with mongo templates
      */
     @Contract(pure = true)
@@ -41,8 +41,7 @@ public class MongoProviderFactory {
     }
 
     /**
-     * Gets mongo transaction manager *
-     *
+     * Gets mongo transaction manager
      * @return the mongo transaction manager
      */
     @Contract(pure = true)
@@ -51,8 +50,7 @@ public class MongoProviderFactory {
     }
 
     /**
-     * Gets entity withmongo templates.
-     *
+     * Gets entity withmongo templates
      * @return the entity withmongo templates
      */
     @Contract(pure = true)
@@ -62,7 +60,6 @@ public class MongoProviderFactory {
 
     /**
      * Add mongo template.
-     *
      * @param datasourceName the datasource name
      * @param mongoTemplate  the mongo template
      */
@@ -75,7 +72,6 @@ public class MongoProviderFactory {
 
     /**
      * Gets mongo template.
-     *
      * @param datasourceName the datasource name
      * @return the mongo template
      */
@@ -89,7 +85,6 @@ public class MongoProviderFactory {
 
     /**
      * Add mongo transaction manager *
-     *
      * @param mongoTemplate           mongo template
      * @param mongoTransactionManager mongo transaction manager
      */
@@ -102,7 +97,6 @@ public class MongoProviderFactory {
 
     /**
      * Gets mongo transaction manager *
-     *
      * @param mongoTemplate mongo template
      * @return the mongo template
      */
@@ -116,7 +110,6 @@ public class MongoProviderFactory {
 
     /**
      * Add mongo template.
-     *
      * @param className the class name
      * @param mongoBean the mongo bean
      */
@@ -128,7 +121,6 @@ public class MongoProviderFactory {
 
     /**
      * Collection name string.
-     *
      * @param className the class name
      * @return the string
      */
@@ -138,7 +130,6 @@ public class MongoProviderFactory {
 
     /**
      * Gets mongo template.
-     *
      * @param className the class name
      * @return the mongo template
      */
@@ -152,11 +143,11 @@ public class MongoProviderFactory {
 
     /**
      * Collection name string.
-     *
      * @param claz the claz
      * @return the string
      */
     public static String collectionName(@NotNull Class<?> claz) {
         return collectionName(claz.getName());
     }
+
 }

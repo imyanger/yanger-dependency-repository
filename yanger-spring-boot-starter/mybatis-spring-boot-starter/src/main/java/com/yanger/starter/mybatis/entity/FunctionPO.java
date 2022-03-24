@@ -37,13 +37,12 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     @TableField(value = AuditTime.UPDATE_TIME, fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
-    /** 状态字段: 正常(1)，禁用(0)，已删除(1) */
+    /** 状态字段: 正常(1)，禁用(0)，已删除(-1) */
     @TableField(value = DataStatus.STATUS)
     private StatusEnum status = StatusEnum.NORMAL;
 
     /**
-     * Gets deleted *
-     *
+     * Gets deleted
      * @return the deleted
      */
     @Override
@@ -52,8 +51,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets deleted *
-     *
+     * Sets deleted
      * @param deleted deleted
      * @return the deleted
      */
@@ -64,8 +62,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Gets create time *
-     *
+     * Gets create time
      * @return the create time
      */
     @Override
@@ -74,8 +71,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets create time *
-     *
+     * Sets create time
      * @param createTime create time
      * @return the create time
      */
@@ -86,8 +82,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Gets update time *
-     *
+     * Gets update time
      * @return the update time
      */
     @Override
@@ -96,8 +91,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets update time *
-     *
+     * Sets update time
      * @param updateTime update time
      * @return the update time
      */
@@ -109,7 +103,6 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
 
     /**
      * Gets status
-     *
      * @return the status
      */
     @Override
@@ -118,8 +111,7 @@ public abstract class FunctionPO<T extends Serializable, M extends Model<M>> ext
     }
 
     /**
-     * Sets deleted *
-     *
+     * Sets deleted
      * @param status status
      * @return the status
      */

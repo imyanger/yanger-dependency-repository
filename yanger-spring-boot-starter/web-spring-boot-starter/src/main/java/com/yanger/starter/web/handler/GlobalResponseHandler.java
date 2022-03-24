@@ -1,10 +1,9 @@
 package com.yanger.starter.web.handler;
 
 import com.yanger.starter.basic.util.JsonUtils;
-import com.yanger.starter.web.annotation.IgnoreReponseAdvice;
+import com.yanger.starter.web.annotation.IgnoreResponseAdvice;
 import com.yanger.tools.web.entity.R;
 import com.yanger.tools.web.entity.Result;
-
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -22,21 +21,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
-     * @throws
      * 判断支持的类型
      * @Author yanger
      * @Date 2021/1/25 18:31
-     * @param: methodParameter
-     * @param: aClass
-     * @return: boolean
+     * @param methodParameter
+     * @param aClass
+     * @return boolean
      */
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
         // 检查注解是否存在，存在则忽略拦截
-        if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreReponseAdvice.class)) {
+        if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return false;
         }
-        if (methodParameter.getMethod().isAnnotationPresent(IgnoreReponseAdvice.class)) {
+        if (methodParameter.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return false;
         }
         // swagger请求不处理
@@ -60,7 +58,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         }
         // String特殊处理，否则会抛异常
         if (o instanceof String) {
-            return JsonUtils.toJson(R.succeed(o)).toString();
+            return JsonUtils.toJson(R.succeed(o));
         }
         return R.succeed(o);
     }

@@ -1,7 +1,6 @@
 package com.yanger.starter.cache.support;
 
 import com.alibaba.fastjson.JSON;
-
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 
@@ -19,7 +18,6 @@ public class FastjsonKeyConvertor implements Function<Object, Object>, RedisSeri
 
     /**
      * Apply
-     *
      * @param originalKey original key
      * @return the object
      */
@@ -36,7 +34,6 @@ public class FastjsonKeyConvertor implements Function<Object, Object>, RedisSeri
 
     /**
      * Serialize
-     *
      * @param s s
      * @return the byte [ ]
      * @throws SerializationException serialization exception
@@ -55,7 +52,6 @@ public class FastjsonKeyConvertor implements Function<Object, Object>, RedisSeri
 
     /**
      * Deserialize
-     *
      * @param bytes bytes
      * @return the string
      * @throws SerializationException serialization exception

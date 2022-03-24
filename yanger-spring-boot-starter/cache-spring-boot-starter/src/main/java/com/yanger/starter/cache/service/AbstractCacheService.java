@@ -32,7 +32,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Abstract cache service
-     *
      * @param cache cache
      */
     @Contract(pure = true)
@@ -42,7 +41,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 指定缓存失效时间
-     *
      * @param key  键
      * @param time 时间(秒)
      * @return boolean boolean
@@ -60,7 +58,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 根据key 获取过期时间 (本地缓存不能获取过期时间)
-     *
      * @param key 键 不能为 null
      * @return 时间(秒) 返回0代表为永久有效;如果该key已经过期,将返回"-2";
      */
@@ -71,7 +68,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 判断key是否存在
-     *
      * @param key 键
      * @return true 存在 false不存在
      */
@@ -82,7 +78,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key   键
      * @param value 值
      * @param time  时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -96,7 +91,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 普通缓存放入
-     *
      * @param key   键
      * @param value 值
      * @return true成功 false失败
@@ -109,7 +103,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 普通缓存放入并设置时间
-     *
      * @param key      键
      * @param value    值
      * @param time     时间(秒) time要大于0 如果time小于等于0 将设置无限期
@@ -123,7 +116,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 普通缓存放入
-     *
      * @param key      键
      * @param value    值
      * @param consumer consumer
@@ -136,7 +128,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 递增
-     *
      * @param key   键
      * @param delta 要增加几(大于0)
      * @return long long
@@ -148,7 +139,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 递减
-     *
      * @param key   键
      * @param delta 要减少几(小于0)
      * @return long long
@@ -160,7 +150,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 删除缓存
-     *
      * @param keys keys
      */
     @Override
@@ -172,7 +161,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 删除缓存
-     *
      * @param key key
      * @return the boolean
      */
@@ -183,7 +171,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 获取缓存
-     *
      * @param <T>   parameter
      * @param key   redis的key
      * @param clazz value的class类型
@@ -197,7 +184,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * 获取泛型
-     *
      * @param key 键
      * @return 值 object
      */
@@ -207,8 +193,7 @@ public abstract class AbstractCacheService implements CacheService {
     }
 
     /**
-     * Sets if absent *
-     *
+     * Sets if absent
      * @param key   key
      * @param value value
      * @return the if absent
@@ -219,8 +204,7 @@ public abstract class AbstractCacheService implements CacheService {
     }
 
     /**
-     * Sets if absent *
-     *
+     * Sets if absent
      * @param key        key
      * @param value      value
      * @param expireTime expire time
@@ -234,7 +218,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hset
-     *
      * @param key   key
      * @param field field
      * @param value value
@@ -247,7 +230,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hget
-     *
      * @param key   key
      * @param field field
      * @return the object
@@ -259,7 +241,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hget
-     *
      * @param <T>   parameter
      * @param key   key
      * @param field field
@@ -273,7 +254,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hlen
-     *
      * @param key key
      * @return the long
      */
@@ -284,7 +264,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hkeys
-     *
      * @param key key
      * @return the set
      */
@@ -295,7 +274,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hvals
-     *
      * @param key key
      * @return the list
      */
@@ -306,7 +284,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hvals
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -319,7 +296,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hexists
-     *
      * @param key   key
      * @param field field
      * @return the boolean
@@ -331,7 +307,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Hdel
-     *
      * @param key   key
      * @param filed filed
      * @return the long
@@ -343,7 +318,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Lpop
-     *
      * @param key key
      * @return the object
      */
@@ -354,7 +328,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Llen
-     *
      * @param key key
      * @return the long
      */
@@ -365,7 +338,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Lpush
-     *
      * @param key   key
      * @param value value
      * @return the long
@@ -377,7 +349,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Rpush
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -389,7 +360,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Lpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -402,7 +372,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Rpop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -415,7 +384,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Rpop
-     *
      * @param key key
      * @return the object
      */
@@ -426,7 +394,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Sadd
-     *
      * @param key   key
      * @param value value
      * @return the boolean
@@ -438,7 +405,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Scard
-     *
      * @param key key
      * @return the long
      */
@@ -449,7 +415,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Srem
-     *
      * @param key   key
      * @param value value
      * @return the long
@@ -461,7 +426,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Spop
-     *
      * @param key key
      * @return the object
      */
@@ -472,7 +436,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Spop
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -485,7 +448,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Smembers
-     *
      * @param key key
      * @return the set
      */
@@ -496,7 +458,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Smembers
-     *
      * @param <T>   parameter
      * @param key   key
      * @param clazz clazz
@@ -509,7 +470,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Zadd
-     *
      * @param key   key
      * @param score score
      * @param value value
@@ -522,7 +482,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Zcard
-     *
      * @param key key
      * @return the long
      */
@@ -533,7 +492,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Zscore
-     *
      * @param key   key
      * @param value value
      * @return the double
@@ -545,7 +503,6 @@ public abstract class AbstractCacheService implements CacheService {
 
     /**
      * Zrem
-     *
      * @param key   key
      * @param value value
      * @return the long

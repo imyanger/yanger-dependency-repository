@@ -5,10 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yanger.starter.basic.entity.BaseDTO;
 import com.yanger.starter.basic.entity.BaseQuery;
-
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,9 +17,9 @@ import java.util.List;
  * @Date 2021/1/28 19:08
  */
 public interface BaseService<T> extends IService<T> {
+
     /**
      * 插入如果中已经存在相同的记录,则忽略当前新数据
-     *
      * @param entity entity
      * @return 是否成功 boolean
      */
@@ -28,7 +27,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 表示插入替换数据,需求表中有PrimaryKey,或者unique索引,如果数据库已经存在数据,则用新数据替换,如果没有数据效果则和insert into一样;
-     *
      * @param entity entity
      * @return 是否成功 boolean
      */
@@ -36,7 +34,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 插入（批量）,插入如果中已经存在相同的记录,则忽略当前新数据
-     *
      * @param entityList 实体对象集合
      * @return 是否成功 boolean
      */
@@ -47,7 +44,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 插入（批量）,插入如果中已经存在相同的记录,则忽略当前新数据
-     *
      * @param entityList 实体对象集合
      * @param batchSize  批次大小
      * @return 是否成功 boolean
@@ -56,7 +52,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 插入（批量）,表示插入替换数据,需求表中有PrimaryKey,或者unique索引,如果数据库已经存在数据,则用新数据替换,如果没有数据效果则和insert into一样;
-     *
      * @param entityList 实体对象集合
      * @return 是否成功 boolean
      */
@@ -67,7 +62,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 插入（批量）,表示插入替换数据,需求表中有PrimaryKey,或者unique索引,如果数据库已经存在数据,则用新数据替换,如果没有数据效果则和insert into一样;
-     *
      * @param entityList 实体对象集合
      * @param batchSize  批次大小
      * @return 是否成功 boolean
@@ -76,7 +70,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 插入数据，使用自定义id（即使是自增id的情况）
-     *
      * @param entity 实体对象
      * @return 更改的条数 int
      */
@@ -84,7 +77,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param page  分页参数
      * @param query 业务查询参数
@@ -94,7 +86,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param pageNo    当前页
      * @param pageSize  一页条数
      * @return the {@link IPage} 的子类 {@link Page}
@@ -103,7 +94,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
@@ -112,7 +102,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * List
-     *
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数
      * @return the list
@@ -121,7 +110,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param <D>    {@link BaseDTO} 子类
      * @param <Q>    {@link BaseQuery} 子类
      * @param page   分页参数
@@ -133,7 +121,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param page  当前页
      * @param limit 一页条数
      * @param dClass 查询对象的泛型类型 {@link BaseDTO} 子类
@@ -143,7 +130,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * 分页查询接口
-     *
      * @param <D>   {@link BaseDTO} 子类
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数
@@ -154,7 +140,6 @@ public interface BaseService<T> extends IService<T> {
 
     /**
      * List
-     *
      * @param <D>   {@link BaseDTO} 子类
      * @param <Q>   {@link BaseQuery} 子类
      * @param query 业务查询参数

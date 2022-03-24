@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 登录用户信息获取注解
+ * 登录用户信息获取注解， 方法参数使用 @LoginUser AuthUser authUser
  * @Author yanger
  * @Date 2020/9/15 15:38
  */

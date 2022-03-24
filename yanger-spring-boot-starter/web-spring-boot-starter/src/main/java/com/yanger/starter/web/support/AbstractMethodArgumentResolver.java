@@ -9,7 +9,6 @@ import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.tools.web.exception.AssertUtils;
 import com.yanger.tools.web.exception.BasicException;
 import com.yanger.tools.web.tools.ObjectUtils;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.GenericTypeResolver;
@@ -26,13 +25,12 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import java.io.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Objects;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
  * rest 接口参数自定义处理与绑定
@@ -49,7 +47,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
 
     /**
      * Request single param handler method argument resolver
-     *
      * @param objectMapper               object mapper
      * @param globalEnumConverterFactory global enum converter factory
      */
@@ -63,7 +60,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
     /**
      * Supports parameter boolean
      * HandlerMethodArgumentResolverComposite#getArgumentResolver
-     *
      * @param parameter parameter
      * @return the boolean
      */
@@ -84,7 +80,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
     @Override
     public Object resolveArgument(@NotNull MethodParameter parameter, ModelAndViewContainer mavContainer,
                                   @NotNull NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
-
         A annotation = parameter.getParameterAnnotation(this.supportsAnnotation());
         HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
 
@@ -103,13 +98,12 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
             Type type = parameter.getGenericParameterType();
             return this.read(parameter, type, inputMessage, annotation);
         } catch (Exception ex) {
-            throw new BasicException("参数绑定失败: [{}]", ex.getMessage());
+            throw BasicException.of("参数绑定失败: [{}]", ex.getMessage());
         }
     }
 
     /**
      * Check
-     *
      * @param annotation request single param
      * @param request    request
      */
@@ -125,7 +119,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
     /**
      * Create input message servlet server http request
      * AbstractMessageConverterMethodArgumentResolver#createInputMessage
-     *
      * @param request request
      * @return the servlet server http request
      */
@@ -137,7 +130,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
 
     /**
      * Read object
-     *
      * @param parameter    parameter
      * @param type         type
      * @param inputMessage input message
@@ -157,7 +149,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
     /**
      * Read java type object
      * AbstractJackson2HttpMessageConverter#readJavaType
-     *
      * @param parameter    parameter
      * @param javaType     java type
      * @param inputMessage input message
@@ -184,14 +175,12 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
 
     /**
      * Supports annotation
-     *
      * @return the class
      */
     protected abstract Class<A> supportsAnnotation();
 
     /**
      * Bundle argument
-     *
      * @param parameter    parameter
      * @param javaType     java type
      * @param inputMessage input message
@@ -202,7 +191,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
 
     /**
      * Convert
-     *
      * @param <T>          parameter
      * @param clazz        clazz
      * @param targetObject target object

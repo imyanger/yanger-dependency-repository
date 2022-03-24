@@ -1,10 +1,10 @@
 package com.yanger.starter.web.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.starter.web.jackson.JavaTimeModule;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -15,8 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * Jackson配置类
  * @Author yanger
@@ -26,16 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @ConditionalOnClass(value = {ObjectMapper.class})
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
-public class JacksonConfiguration implements YangerAutoConfiguration {
+public class JacksonConfiguration implements BaseAutoConfiguration {
 
     /** Jackson properties */
     private JacksonProperties jacksonProperties;
 
-    /**
-     * Jackson configuration
-     *
-     * @param jacksonPropertiesObjectProvider jackson properties object provider
-     */
     public JacksonConfiguration(@NotNull ObjectProvider<JacksonProperties> jacksonPropertiesObjectProvider) {
         if (jacksonPropertiesObjectProvider.getIfAvailable() != null) {
             this.jacksonProperties = jacksonPropertiesObjectProvider.getIfAvailable();
@@ -43,8 +36,7 @@ public class JacksonConfiguration implements YangerAutoConfiguration {
     }
 
     /**
-     * Object mapper object mapper.
-     *
+     * Object mapper object mapper
      * @return the object mapper
      */
     @Bean

@@ -1,12 +1,10 @@
 package com.yanger.starter.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.util.Date;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 处理新增和更新的基础数据填充, 配合 BaseEntity 和 MyBatisPlusConfig 使用
@@ -18,7 +16,6 @@ public class TimeMetaHandler implements MetaObjectHandler {
 
     /**
      * 新增数据执行
-     *
      * @param metaObject the meta object
      */
     @Override
@@ -29,7 +26,6 @@ public class TimeMetaHandler implements MetaObjectHandler {
 
     /**
      * 更新数据执行
-     *
      * @param metaObject the meta object
      */
     @Override

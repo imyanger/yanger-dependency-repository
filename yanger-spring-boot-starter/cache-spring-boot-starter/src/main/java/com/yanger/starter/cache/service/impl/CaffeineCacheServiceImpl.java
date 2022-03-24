@@ -9,9 +9,9 @@ import com.yanger.starter.cache.service.AbstractCacheService;
  * @Date 2021/3/1 18:47
  */
 public class CaffeineCacheServiceImpl extends AbstractCacheService {
+
     /**
      * Abstract cache service
-     *
      * @param cache cache
      */
     public CaffeineCacheServiceImpl(Cache<String, Object> cache) {

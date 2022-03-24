@@ -1,7 +1,6 @@
 package com.yanger.starter.mongo.convert;
 
 import com.yanger.starter.mongo.enums.EnableEnum;
-
 import org.springframework.data.convert.ReadingConverter;
 
 /**

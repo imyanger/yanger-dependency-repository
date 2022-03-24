@@ -18,7 +18,6 @@ public class ExpressionRootObject {
 
     /**
      * Expression root object
-     *
      * @param object object
      * @param args   args
      */

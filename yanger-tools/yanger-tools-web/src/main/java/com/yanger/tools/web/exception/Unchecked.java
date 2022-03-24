@@ -20,13 +20,11 @@ import java.util.function.Supplier;
 public class Unchecked {
 
     /**
-     * Function function.
-     *
+     * unchecked function
      * @param <T>    the type parameter
      * @param <R>    the type parameter
      * @param mapper the mapper
      * @return the function
-
      */
     @NotNull
     @Contract(pure = true)
@@ -42,12 +40,10 @@ public class Unchecked {
     }
 
     /**
-     * Consumer consumer.
-     *
+     * unchecked consumer
      * @param <T>    the type parameter
      * @param mapper the mapper
      * @return the consumer
-
      */
     @NotNull
     @Contract(pure = true)
@@ -63,12 +59,10 @@ public class Unchecked {
     }
 
     /**
-     * Supplier supplier.
-     *
+     * unchecked supplier
      * @param <T>    the type parameter
      * @param mapper the mapper
      * @return the supplier
-
      */
     @NotNull
     @Contract(pure = true)
@@ -84,11 +78,9 @@ public class Unchecked {
     }
 
     /**
-     * Runnable runnable.
-     *
+     * unchecked runnable
      * @param runnable the runnable
      * @return the runnable
-
      */
     @NotNull
     @Contract(pure = true)
@@ -104,12 +96,10 @@ public class Unchecked {
     }
 
     /**
-     * Callable callable.
-     *
+     * unchecked callable
      * @param <T>      the type parameter
      * @param callable the callable
      * @return the callable
-
      */
     @NotNull
     @Contract(pure = true)
@@ -125,12 +115,10 @@ public class Unchecked {
     }
 
     /**
-     * Comparator comparator.
-     *
+     * unchecked comparator
      * @param <T>        the type parameter
      * @param comparator the comparator
      * @return the comparator
-
      */
     @NotNull
     @Contract(pure = true)

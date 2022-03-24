@@ -1,7 +1,6 @@
 package com.yanger.starter.web.util;
 
 import com.google.common.collect.Maps;
-
 import com.yanger.starter.basic.util.JsonUtils;
 import com.yanger.tools.general.constant.CharPool;
 import com.yanger.tools.general.constant.Charsets;
@@ -11,7 +10,9 @@ import com.yanger.tools.web.tools.ClassUtils;
 import com.yanger.tools.web.tools.IoUtils;
 import com.yanger.tools.web.tools.NetUtils;
 import com.yanger.tools.web.tools.NumberUtils;
-
+import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -26,28 +27,20 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
-import java.io.*;
-import java.net.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
-
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 /**
- * 用于处理HTTP请求的工具类
+ * 用于处理 HTTP 请求的工具类
  * @Author yanger
  * @Date 2020/11/25 18:35
  */
@@ -63,7 +56,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     /**
      * 判断是否ajax请求
      * spring ajax 返回含有 ResponseBody 或者 RestController注解
-     *
      * @param handlerMethod HandlerMethod
      * @return 是否ajax请求 boolean
      */
@@ -74,7 +66,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 读取cookie
-     *
      * @param name cookie name
      * @return cookie value
      */
@@ -85,7 +76,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取 HttpServletRequest
-     *
      * @return {HttpServletRequest}
      */
     @NotNull
@@ -97,7 +87,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 读取cookie
-     *
      * @param request HttpServletRequest
      * @param name    cookie name
      * @return cookie value
@@ -110,7 +99,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取COOKIE
-     *
      * @param request the request
      * @param name    the name
      * @return the cookie
@@ -130,7 +118,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 清除 某个指定的cookie
-     *
      * @param response HttpServletResponse
      * @param key      cookie key
      */
@@ -140,7 +127,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 设置cookie
-     *
      * @param response        HttpServletResponse
      * @param name            cookie name
      * @param value           cookie value
@@ -156,7 +142,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 返回json
-     *
      * @param response HttpServletResponse
      * @param result   结果对象
      */
@@ -166,7 +151,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 返回json
-     *
      * @param response    HttpServletResponse
      * @param result      结果对象
      * @param contentType contentType
@@ -183,7 +167,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取ip
-     *
      * @return {String}
      */
     public static String getIp() {
@@ -223,7 +206,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取请求的 url: http[s]://www.xxx.xx[:port]
-     *
      * @return the string
      */
     public static @NotNull
@@ -232,8 +214,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     }
 
     /**
-     * Gets url *
-     *
+     * Gets url
      * @param request request
      * @return the url
      */
@@ -250,7 +231,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /***
      * 获取 request 中 json 字符串的内容
-     *
      * @param request request
      * @return 字符串内容 request param string
 
@@ -265,7 +245,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取 request 请求内容
-     *
      * @param request request
      * @return String request str
      * @throws IOException IOException
@@ -282,7 +261,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取 request 请求内容
-     *
      * @param request request
      * @param buffer  buffer
      * @return String request str
@@ -308,7 +286,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取 request 请求的 byte[] 数组
-     *
      * @param request request
      * @return byte[] byte [ ]
      * @throws IOException IOException
@@ -334,7 +311,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取客户端IP地址,此方法用在proxy环境中
-     *
      * @param req the req
      * @return remote addr
      */
@@ -366,7 +342,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 判断字符串是否是一个IP地址
-     *
      * @param addr the addr
      * @return boolean boolean
      */
@@ -394,7 +369,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 判断是否为搜索引擎
-     *
      * @param req the req
      * @return boolean boolean
      */
@@ -424,7 +398,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取COOKIE
-     *
      * @param request the request
      * @param name    the name
      * @return the cookie value
@@ -445,7 +418,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 设置COOKIE
-     *
      * @param request  the request
      * @param response the response
      * @param name     the name
@@ -459,7 +431,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 设置COOKIE
-     *
      * @param request      the request
      * @param response     the response
      * @param name         the name
@@ -490,7 +461,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     /**
      * 获取用户访问URL中的根域名
      * 例如: www.dlog.cn -> dlog.cn
-     *
      * @param host the host
      * @return domain of server name
      */
@@ -526,7 +496,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * Makeup string
-     *
      * @param ps ps
      * @return the string
      */
@@ -544,7 +513,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * Delete cookie.
-     *
      * @param request      the request
      * @param response     the response
      * @param name         the name
@@ -557,7 +525,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取HTTP端口
-     *
      * @param req the req
      * @return http port
      */
@@ -571,7 +538,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取浏览器提交的整形参数
-     *
      * @param req          the req
      * @param param        the param
      * @param defaultValue the default value
@@ -583,7 +549,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取浏览器提交的整形参数
-     *
      * @param req          the req
      * @param param        the param
      * @param defaultValue the default value
@@ -595,7 +560,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取浏览器提交的字符串参数?
-     *
      * @param req          the req
      * @param param        the param
      * @param defaultValue the default value
@@ -608,7 +572,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      *  获取请求参数
-     *
      * @param request the request
      * @return parameters map
      */
@@ -633,7 +596,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * Get header map.
-     *
      * @param request the request
      * @return the map
      */
@@ -652,7 +614,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * Get header string
-     *
      * @param headerName header name
      * @return the string
      */
@@ -663,7 +624,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 是否multipart/form-data or application/octet-stream表单提交方式
-     *
      * @param request the request
      * @return boolean boolean
      */
@@ -681,7 +641,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * Build query params map map.
-     *
      * @param request the request
      * @return the map
      */
@@ -718,8 +677,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     }
 
     /**
-     * Gets typesafe request map *
-     *
+     * Gets typesafe request map
      * @param request request
      * @return the typesafe request map
      */
@@ -740,7 +698,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 获取请求 Body, 注意: 调用此方法后还需要二次读取 request时, HttpServletRequest 必须为 CacheRequestWrapper
-     *
      * @param request the request
      * @return the string
      */
@@ -756,7 +713,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 将 url 参数转换成 map
-     *
      * @param param aa=11&bb=22&cc=33
      * @return url params
      */
@@ -781,7 +737,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 将 map 转换成 url
-     *
      * @param map map
      * @return url params by map
      */
@@ -802,8 +757,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     }
 
     /**
-     * Gets cache input stream *
-     *
+     * Gets cache input stream
      * @param body body
      * @return the cache input stream
      */
@@ -836,7 +790,6 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 
     /**
      * 将 url 参数解析为 map
-     *
      * @param url the url
      * @return the query params
      */
@@ -859,4 +812,5 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
         }
         return Collections.emptyMap();
     }
+
 }

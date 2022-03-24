@@ -3,8 +3,8 @@ package com.yanger.starter.web.handler;
 import com.yanger.tools.web.entity.R;
 import com.yanger.tools.web.entity.Result;
 import com.yanger.tools.web.exception.BasicException;
-import com.yanger.tools.web.support.ResultCode;
-
+import com.yanger.tools.web.support.DefaultResultCode;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.validation.BindException;
@@ -15,12 +15,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.Set;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-
-import lombok.extern.slf4j.Slf4j;
+import java.util.Set;
 
 /**
  * 统一异常处理
@@ -35,17 +32,17 @@ public class GlobalExceptionHandler {
      * Exception 异常处理
      */
     @ExceptionHandler(Exception.class)
-    public Result exceptionHandler(Exception e) {
+    public Result<?> exceptionHandler(Exception e) {
         log.error("服务器异常", e);
-        return R.failed(ResultCode.ERROR);
+        return R.failed(DefaultResultCode.ERROR);
     }
 
     /**
      * BasicException 异常处理
      */
     @ExceptionHandler(BasicException.class)
-    public Result businessExceptionHandler(BasicException e) {
-        return R.failed(e.getResultCode(), e.getMessage());
+    public Result<?> businessExceptionHandler(BasicException e) {
+        return R.failed(e.getCode(), e.getMessage());
     }
 
     /**
@@ -56,7 +53,7 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = e.getBindingResult();
         String msg = getBindingResultFirstMsg(bindingResult);
         log.warn("参数绑定校验异常: {} params: {}", msg, bindingResult.getTarget());
-        return R.failed(ResultCode.PARAMETER_ERROR_PERCH, msg);
+        return R.failed(DefaultResultCode.PARAMETER_ERROR_PERCH, msg);
     }
 
     /**
@@ -67,13 +64,12 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = e.getBindingResult();
         String msg = getBindingResultFirstMsg(bindingResult);
         log.warn("参数绑定校验异常: {} params: {}", msg, bindingResult.getTarget());
-        return R.failed(ResultCode.PARAMETER_ERROR_PERCH, msg);
+        return R.failed(DefaultResultCode.PARAMETER_ERROR_PERCH, msg);
     }
 
     /**
      * ConstraintViolationException 异常处理方式，获取单条描述
-     *
-     * @param e e
+     * @param e ConstraintViolationException
      * @return the result
 
      */
@@ -91,7 +87,7 @@ public class GlobalExceptionHandler {
             msg = e.getMessage();
         }
         log.warn("参数校验失败: [{}]", msg);
-        return R.failed(ResultCode.PARAMETER_ERROR_PERCH, msg);
+        return R.failed(DefaultResultCode.PARAMETER_ERROR_PERCH, msg);
     }
 
     /**

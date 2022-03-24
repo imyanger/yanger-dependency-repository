@@ -4,11 +4,9 @@ import com.yanger.starter.id.entity.Id;
 import com.yanger.starter.id.entity.IdMeta;
 import com.yanger.starter.id.enums.IdType;
 import com.yanger.starter.id.factory.IdMetaFactory;
-
+import lombok.Data;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-
-import lombok.Data;
 
 /**
  * ID 对象和长整型 id 互转
@@ -75,7 +73,6 @@ public class IdConverterImpl implements IdConverter {
 
     /**
      * 使用无符号右移将长整型 id 反解为 {@link Id}
-     *
      * @param id     id
      * @param idMeta id meta
      * @return the id

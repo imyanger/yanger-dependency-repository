@@ -8,7 +8,6 @@ import com.yanger.starter.id.populater.AtomicIdPopulator;
 import com.yanger.starter.id.populater.IdPopulator;
 import com.yanger.starter.id.populater.LockIdPopulator;
 import com.yanger.starter.id.populater.SyncIdPopulator;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -32,7 +31,6 @@ public class IdServiceImpl extends AbstractIdServiceImpl {
 
     /**
      * Id service
-     *
      * @param type type
      */
     public IdServiceImpl(String type) {
@@ -42,7 +40,6 @@ public class IdServiceImpl extends AbstractIdServiceImpl {
 
     /**
      * Id service
-     *
      * @param type type
      */
     public IdServiceImpl(IdType type) {
@@ -71,7 +68,6 @@ public class IdServiceImpl extends AbstractIdServiceImpl {
 
     /**
      * Populate id
-     *
      * @param id id
      */
     @Override
@@ -80,8 +76,7 @@ public class IdServiceImpl extends AbstractIdServiceImpl {
     }
 
     /**
-     * Sets id populator *
-     *
+     * Sets id populator
      * @param idPopulator id populator
      */
     public void setIdPopulator(IdPopulator idPopulator) {

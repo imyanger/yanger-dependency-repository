@@ -1,8 +1,12 @@
 package com.yanger.starter.log.dynamic;
 
-import com.yanger.starter.log.config.LogbackProperties;
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.LoggerContext;
+import com.yanger.starter.log.property.LogbackProperties;
 import com.yanger.tools.web.exception.BasicException;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.LoggerContext;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 动态修改日志等级
@@ -30,7 +28,7 @@ public class LevelApi {
     @Resource
     private LogbackProperties LogbackProperties;
 
-    @GetMapping(value = "logLevel/{logLevel}")
+    @GetMapping(value = "dynamic/logLevel/{logLevel}")
     @ApiOperation(value="动态修改日志等级", tags={"LevelApi：更改日志等级接口"}, notes="动态修改日志等级，logLevel 参数传入日志级别")
     public void changeLogLevel(@PathVariable("logLevel") String logLevel){
         if(!LogbackProperties.isDynamicLogEnabled()) {

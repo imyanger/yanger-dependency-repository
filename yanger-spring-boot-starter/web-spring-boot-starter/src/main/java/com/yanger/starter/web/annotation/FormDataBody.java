@@ -1,13 +1,9 @@
 package com.yanger.starter.web.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
- * TODO
+ * 表格数据抽象
  * @Author yanger
  * @Date 2021/1/27 18:52
  */

@@ -14,8 +14,7 @@ public class PropertyMachineIdsProvider implements MachineIdsProvider {
     private int currentIndex;
 
     /**
-     * Gets next machine id *
-     *
+     * Gets next machine id
      * @return the next machine id
      */
     @Override
@@ -24,8 +23,7 @@ public class PropertyMachineIdsProvider implements MachineIdsProvider {
     }
 
     /**
-     * Gets machine id *
-     *
+     * Gets machine id
      * @return the machine id
      */
     @Override
@@ -34,8 +32,7 @@ public class PropertyMachineIdsProvider implements MachineIdsProvider {
     }
 
     /**
-     * Sets machine ids *
-     *
+     * Sets machine ids
      * @param machineIds machine ids
      */
     public void setMachineIds(long[] machineIds) {

@@ -1,34 +1,15 @@
 package com.yanger.starter.mongo.reflection;
 
 import com.google.common.collect.Maps;
-
-import com.yanger.starter.mongo.reflection.invoker.AmbiguousMethodInvoker;
-import com.yanger.starter.mongo.reflection.invoker.GetFieldInvoker;
-import com.yanger.starter.mongo.reflection.invoker.Invoker;
-import com.yanger.starter.mongo.reflection.invoker.MethodInvoker;
-import com.yanger.starter.mongo.reflection.invoker.SetFieldInvoker;
+import com.yanger.starter.mongo.reflection.invoker.*;
 import com.yanger.starter.mongo.reflection.property.PropertyNamer;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.GenericArrayType;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.ReflectPermission;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 /**
@@ -41,26 +22,33 @@ public class Reflector {
 
     /** Type */
     private final Class<?> type;
+
     /** Readable property names */
     private final String[] readablePropertyNames;
+
     /** Writable property names */
     private final String[] writablePropertyNames;
+
     /** Set methods */
     private final Map<String, Invoker> setMethods = Maps.newHashMap();
+
     /** Get methods */
     private final Map<String, Invoker> getMethods = Maps.newHashMap();
+
     /** Set types */
     private final Map<String, Class<?>> setTypes = Maps.newHashMap();
+
     /** Get types */
     private final Map<String, Class<?>> getTypes = Maps.newHashMap();
+
     /** Case insensitive property map */
     private final Map<String, String> caseInsensitivePropertyMap = Maps.newHashMap();
+
     /** Default constructor */
     private Constructor<?> defaultConstructor;
 
     /**
      * Reflector
-     *
      * @param clazz clazz
      */
     public Reflector(Class<?> clazz) {
@@ -81,7 +69,6 @@ public class Reflector {
 
     /**
      * Checks whether can control member accessible.
-     *
      * @return If can control member accessible, it return {@literal true}
      */
     public static boolean canControlMemberAccessible() {
@@ -97,8 +84,7 @@ public class Reflector {
     }
 
     /**
-     * Add default constructor *
-     *
+     * Add default constructor
      * @param clazz clazz
      */
     private void addDefaultConstructor(@NotNull Class<?> clazz) {
@@ -108,8 +94,7 @@ public class Reflector {
     }
 
     /**
-     * Add get methods *
-     *
+     * Add get methods
      * @param clazz clazz
      */
     private void addGetMethods(Class<?> clazz) {
@@ -121,8 +106,7 @@ public class Reflector {
     }
 
     /**
-     * Resolve getter conflicts *
-     *
+     * Resolve getter conflicts
      * @param conflictingGetters conflicting getters
      */
     @SuppressWarnings("checkstyle:EmptyBlock")
@@ -159,8 +143,7 @@ public class Reflector {
     }
 
     /**
-     * Add get method *
-     *
+     * Add get method
      * @param name        name
      * @param method      method
      * @param isAmbiguous is ambiguous
@@ -178,8 +161,7 @@ public class Reflector {
     }
 
     /**
-     * Add set methods *
-     *
+     * Add set methods
      * @param clazz clazz
      */
     private void addSetMethods(Class<?> clazz) {
@@ -191,8 +173,7 @@ public class Reflector {
     }
 
     /**
-     * Add method conflict *
-     *
+     * Add method conflict
      * @param conflictingMethods conflicting methods
      * @param name               name
      * @param method             method
@@ -205,8 +186,7 @@ public class Reflector {
     }
 
     /**
-     * Resolve setter conflicts *
-     *
+     * Resolve setter conflicts
      * @param conflictingSetters conflicting setters
      */
     private void resolveSetterConflicts(@NotNull Map<String, List<Method>> conflictingSetters) {
@@ -235,7 +215,6 @@ public class Reflector {
 
     /**
      * Pick better setter method
-     *
      * @param setter1  setter 1
      * @param setter2  setter 2
      * @param property property
@@ -266,8 +245,7 @@ public class Reflector {
     }
 
     /**
-     * Add set method *
-     *
+     * Add set method
      * @param name   name
      * @param method method
      */
@@ -280,7 +258,6 @@ public class Reflector {
 
     /**
      * Type to class class
-     *
      * @param src src
      * @return the class
      */
@@ -306,8 +283,7 @@ public class Reflector {
     }
 
     /**
-     * Add fields *
-     *
+     * Add fields
      * @param clazz clazz
      */
     private void addFields(@NotNull Class<?> clazz) {
@@ -332,8 +308,7 @@ public class Reflector {
     }
 
     /**
-     * Add set field *
-     *
+     * Add set field
      * @param field field
      */
     private void addSetField(@NotNull Field field) {
@@ -345,8 +320,7 @@ public class Reflector {
     }
 
     /**
-     * Add get field *
-     *
+     * Add get field
      * @param field field
      */
     private void addGetField(@NotNull Field field) {
@@ -359,7 +333,6 @@ public class Reflector {
 
     /**
      * Is valid property name boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -372,7 +345,6 @@ public class Reflector {
      * declared in this class and any superclass.
      * We use this method, instead of the simpler <code>Class.getMethods()</code>,
      * because we want to look for private methods as well.
-     *
      * @param clazz The class
      * @return An array containing all methods in this class
      */
@@ -398,8 +370,7 @@ public class Reflector {
     }
 
     /**
-     * Add unique methods *
-     *
+     * Add unique methods
      * @param uniqueMethods unique methods
      * @param methods       methods
      */
@@ -418,8 +389,7 @@ public class Reflector {
     }
 
     /**
-     * Gets signature *
-     *
+     * Gets signature
      * @param method method
      * @return the signature
      */
@@ -437,7 +407,6 @@ public class Reflector {
 
     /**
      * Gets the name of the class the instance provides information for.
-     *
      * @return The class name
      */
     public Class<?> getType() {
@@ -445,8 +414,7 @@ public class Reflector {
     }
 
     /**
-     * Gets default constructor *
-     *
+     * Gets default constructor
      * @return the default constructor
      */
     public Constructor<?> getDefaultConstructor() {
@@ -459,7 +427,6 @@ public class Reflector {
 
     /**
      * Has default constructor boolean
-     *
      * @return the boolean
      */
     public boolean hasDefaultConstructor() {
@@ -467,8 +434,7 @@ public class Reflector {
     }
 
     /**
-     * Gets set invoker *
-     *
+     * Gets set invoker
      * @param propertyName property name
      * @return the set invoker
      */
@@ -481,8 +447,7 @@ public class Reflector {
     }
 
     /**
-     * Gets get invoker *
-     *
+     * Gets get invoker
      * @param propertyName property name
      * @return the get invoker
      */
@@ -496,7 +461,6 @@ public class Reflector {
 
     /**
      * Gets the type for a property setter.
-     *
      * @param propertyName - the name of the property
      * @return The Class of the property setter
      */
@@ -510,7 +474,6 @@ public class Reflector {
 
     /**
      * Gets the type for a property getter.
-     *
      * @param propertyName - the name of the property
      * @return The Class of the property getter
      */
@@ -524,7 +487,6 @@ public class Reflector {
 
     /**
      * Gets an array of the readable properties for an object.
-     *
      * @return The array
      */
     public String[] getGetablePropertyNames() {
@@ -533,7 +495,6 @@ public class Reflector {
 
     /**
      * Gets an array of the writable properties for an object.
-     *
      * @return The array
      */
     public String[] getSetablePropertyNames() {
@@ -542,7 +503,6 @@ public class Reflector {
 
     /**
      * Check to see if a class has a writable property by name.
-     *
      * @param propertyName - the name of the property to check
      * @return True if the object has a writable property by the name
      */
@@ -552,7 +512,6 @@ public class Reflector {
 
     /**
      * Check to see if a class has a readable property by name.
-     *
      * @param propertyName - the name of the property to check
      * @return True if the object has a readable property by the name
      */
@@ -562,11 +521,11 @@ public class Reflector {
 
     /**
      * Find property name string
-     *
      * @param name name
      * @return the string
      */
     public String findPropertyName(@NotNull String name) {
         return this.caseInsensitivePropertyMap.get(name.toUpperCase(Locale.ENGLISH));
     }
+
 }

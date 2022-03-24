@@ -1,6 +1,6 @@
 package com.yanger.starter.mongo.autoconfigure.sync;
 
-import com.yanger.starter.basic.boost.YangerAutoConfiguration;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.mongo.handler.DefaultTimeMetaHandler;
 import com.yanger.starter.mongo.handler.MetaObjectHandler;
@@ -8,8 +8,9 @@ import com.yanger.starter.mongo.listener.AutoCreateIndexEventListener;
 import com.yanger.starter.mongo.listener.AutoCreateKeyEventListener;
 import com.yanger.starter.mongo.listener.AutoCreateTimeEventListener;
 import com.yanger.starter.mongo.listener.AutoIncrementKeyEventListener;
+import com.yanger.starter.mongo.property.MongoProperties;
 import com.yanger.starter.mongo.spi.MongoLauncherInitiation;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -22,10 +23,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -35,14 +33,13 @@ import lombok.extern.slf4j.Slf4j;
 @EnableConfigurationProperties(MongoProperties.class)
 @ConditionalOnClass(value = {MongoLauncherInitiation.class})
 @Import(value = {MongoAutoConfiguration.class})
-public class MongoEventListenerAutoConfiguration implements YangerAutoConfiguration {
+public class MongoEventListenerAutoConfiguration implements BaseAutoConfiguration {
 
     /** Meta object handler */
     private MetaObjectHandler metaObjectHandler;
 
     /**
      * Mongo event l istener auto configuration
-     *
      * @param metaObjectHandlerObjectProvider meta object handler object provider
      */
     public MongoEventListenerAutoConfiguration(@NotNull ObjectProvider<MetaObjectHandler> metaObjectHandlerObjectProvider) {
@@ -54,7 +51,6 @@ public class MongoEventListenerAutoConfiguration implements YangerAutoConfigurat
 
     /**
      * 自动生成 id 且自增
-     *
      * @param mongoTemplate mongo template
      * @return the abstract mongo event listener
      */
@@ -66,7 +62,6 @@ public class MongoEventListenerAutoConfiguration implements YangerAutoConfigurat
 
     /**
      * 自动生成 id (默认开启)
-     *
      * @param properties properties
      * @return the abstract mongo event listener
      */
@@ -78,7 +73,6 @@ public class MongoEventListenerAutoConfiguration implements YangerAutoConfigurat
 
     /**
      * 自动填充 create time 和 update time
-     *
      * @return the abstract mongo event listener
      */
     @Bean
@@ -89,7 +83,6 @@ public class MongoEventListenerAutoConfiguration implements YangerAutoConfigurat
 
     /**
      * 分表时自动创建索引
-     *
      * @return the abstract mongo event listener
      */
     @Bean

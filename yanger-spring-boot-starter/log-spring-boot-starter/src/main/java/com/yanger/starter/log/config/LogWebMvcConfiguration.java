@@ -1,13 +1,12 @@
 package com.yanger.starter.log.config;
 
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.log.interceptor.LogInterceptor;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * web配置类
@@ -16,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Configuration
-public class LogWebMvcConfiguration implements WebMvcConfigurer {
+public class LogWebMvcConfiguration implements WebMvcConfigurer, BaseAutoConfiguration {
 
     /** 时间打印拦截器 */
     @Autowired(required = false)

@@ -3,6 +3,7 @@ package com.yanger.starter.web.config;
 import com.fasterxml.jackson.core.json.PackageVersion;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.basic.convert.EntityEnumDeserializer;
 import com.yanger.starter.basic.convert.EntityEnumSerializer;
@@ -12,6 +13,7 @@ import com.yanger.starter.basic.enums.SerializeEnum;
 import com.yanger.starter.web.handler.LoginInterceptor;
 import com.yanger.starter.web.handler.LoginUserResolver;
 import com.yanger.starter.web.jackson.MappingApiJackson2HttpMessageConverter;
+import com.yanger.starter.web.property.XssProperties;
 import com.yanger.starter.web.support.FormdataBodyArgumentResolver;
 import com.yanger.starter.web.support.RequestAbstractFormMethodArgumentResolver;
 import com.yanger.starter.web.support.RequestSingleParamHandlerMethodArgumentResolver;
@@ -19,7 +21,7 @@ import com.yanger.starter.web.xss.XssFilter;
 import com.yanger.tools.general.constant.Charsets;
 import com.yanger.tools.general.constant.StringPool;
 import com.yanger.tools.general.tools.StringTools;
-
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
@@ -35,12 +37,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.http.converter.BufferedImageHttpMessageConverter;
-import org.springframework.http.converter.ByteArrayHttpMessageConverter;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.ResourceHttpMessageConverter;
-import org.springframework.http.converter.ResourceRegionHttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -48,14 +45,11 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.Resource;
+import javax.servlet.Filter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
-import javax.annotation.Resource;
-import javax.servlet.Filter;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * web配置类
@@ -66,7 +60,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @AutoConfigureAfter(JacksonConfiguration.class)
 @EnableConfigurationProperties(value = {ServerProperties.class, XssProperties.class})
-public class WebMvcConfiguration implements WebMvcConfigurer {
+public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfigurer {
 
     @Resource
     private Environment environment;
@@ -221,7 +215,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     }
 
     /**
-     * Sets url patterns *
+     * Sets url patterns
      *
      * @param filter logging rb
      * @param order  order
@@ -231,7 +225,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     }
 
     /**
-     * Sets url patterns *
+     * Sets url patterns
      *
      * @param filter      filter
      * @param order       order

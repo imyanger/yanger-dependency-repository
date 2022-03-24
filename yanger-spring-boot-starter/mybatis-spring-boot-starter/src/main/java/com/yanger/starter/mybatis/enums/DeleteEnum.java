@@ -1,7 +1,6 @@
 package com.yanger.starter.mybatis.enums;
 
 import com.yanger.starter.basic.enums.SerializeEnum;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

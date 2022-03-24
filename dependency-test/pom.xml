@@ -32,6 +32,7 @@
 
     <modules>
         <module>test001-general-test</module>
+        <module>test002-web-test</module>
         <module>spring-boot-starter-test</module>
     </modules>
 

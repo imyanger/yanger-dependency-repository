@@ -1,27 +1,28 @@
 package com.yanger.starter.mongo.enums;
 
 import com.yanger.starter.mongo.exception.QueryException;
-
 import org.springframework.data.mongodb.core.query.Criteria;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
 public enum Between {
+
     /** Eq between */
     EQ,
+
     /** Neq between */
     NEQ,
+
     /** Feq between */
     FEQ,
+
     /** Eeq between */
     EEQ;
 
     /**
-     * Between *
-     *
+     * Between
      * @param criteria criteria
      * @param begin    begin
      * @param end      end
@@ -44,4 +45,5 @@ public enum Between {
                 throw new QueryException("no Between enum");
         }
     }
+
 }

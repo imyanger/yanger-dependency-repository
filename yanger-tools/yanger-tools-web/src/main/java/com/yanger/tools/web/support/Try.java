@@ -1,7 +1,6 @@
 package com.yanger.tools.web.support;
 
 import com.yanger.tools.web.exception.BasicException;
-
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +16,6 @@ public class Try {
 
     /**
      * Of function.
-     *
      * @param <T>    the type parameter
      * @param <R>    the type parameter
      * @param mapper the mapper
@@ -39,7 +37,6 @@ public class Try {
 
     /**
      * The interface Unchecked function.
-     *
      * @param <T> the type parameter
      * @param <R> the type parameter
      * @date 2020.01.27 14:52
@@ -47,15 +44,16 @@ public class Try {
      */
     @FunctionalInterface
     public interface UncheckedFunction<T, R> {
+
         /**
          * 调用
-         *
          * @param t t
          * @return R r
          * @throws Exception Exception
          * @Author yanger
          */
         R apply(T t) throws Exception;
+
     }
 
 }

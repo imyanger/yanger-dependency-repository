@@ -8,7 +8,6 @@ import com.yanger.starter.mongo.reflection.property.PropertyTokenizer;
 import java.util.List;
 
 /**
-
  * @Author yanger
  * @Date 2020/12/29 17:32
  */
@@ -16,15 +15,13 @@ public interface ObjectWrapper {
 
     /**
      * Get object
-     *
      * @param prop prop
      * @return the object
      */
     Object get(PropertyTokenizer prop);
 
     /**
-     * Set *
-     *
+     * Set
      * @param prop  prop
      * @param value value
      */
@@ -32,7 +29,6 @@ public interface ObjectWrapper {
 
     /**
      * Find property string
-     *
      * @param name                name
      * @param useCamelCaseMapping use camel case mapping
      * @return the string
@@ -41,29 +37,25 @@ public interface ObjectWrapper {
 
     /**
      * Get getter names string [ ]
-     *
      * @return the string [ ]
      */
     String[] getGetterNames();
 
     /**
      * Get setter names string [ ]
-     *
      * @return the string [ ]
      */
     String[] getSetterNames();
 
     /**
-     * Gets setter type *
-     *
+     * Gets setter type
      * @param name name
      * @return the setter type
      */
     Class<?> getSetterType(String name);
 
     /**
-     * Gets getter type *
-     *
+     * Gets getter type
      * @param name name
      * @return the getter type
      */
@@ -71,7 +63,6 @@ public interface ObjectWrapper {
 
     /**
      * Has setter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -79,7 +70,6 @@ public interface ObjectWrapper {
 
     /**
      * Has getter boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -87,7 +77,6 @@ public interface ObjectWrapper {
 
     /**
      * Instantiate property value meta object
-     *
      * @param name          name
      * @param prop          prop
      * @param objectFactory object factory
@@ -103,15 +92,13 @@ public interface ObjectWrapper {
     boolean isCollection();
 
     /**
-     * Add *
-     *
+     * Add
      * @param element element
      */
     void add(Object element);
 
     /**
-     * Add all *
-     *
+     * Add all
      * @param <E>     parameter
      * @param element element
      */
