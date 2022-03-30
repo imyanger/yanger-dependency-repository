@@ -115,7 +115,7 @@ public final class ConfigKey {
     public static class MybatisConfigKey {
 
         /** sql 日志 */
-        public static final String ENABLE_LOG = "yanger.mybatis.enable.log";
+        public static final String ENABLE_LOG = "yanger.mybatis.enable-log";
 
         /** 分页默认起始页 */
         public static final String PAGE = "yanger.mybatis.page";
@@ -124,13 +124,13 @@ public final class ConfigKey {
         public static final String LIMIT = "yanger.mybatis.limit";
 
         /** 单页限制 默认不限制 */
-        public static final String SINGLE_PAGE_LIMIT  = "yanger.mybatis.single.page.limit";
+        public static final String SINGLE_PAGE_LIMIT  = "yanger.mybatis.single-page-limit";
 
         /** 是否开启敏感数据加密 */
         public static final String ENABLE_SENSITIVE = "yanger.mybatis.enable-sensitive";
 
         /** 敏感数据加密 AES_KEY */
-        public static final String SENSITIVE_KEY  = "yanger.mybatis.sensitive.key";
+        public static final String SENSITIVE_KEY  = "yanger.mybatis.sensitive-key";
 
         /** sql 检查插件 */
         public static final String ENABLE_ILLEGAL_SQL_INTERCEPTOR = "yanger.mybatis.enable-illegal-sql-interceptor";
@@ -408,6 +408,29 @@ public final class ConfigKey {
 
         /** 是否开启 SerializeEnumContainer，默认不开启 */
         public static final String ENUM_ENABLE = "yanger.serialize-enum.enable";
+
+    }
+
+    /** 动态数据源配置 yanger-spring-boot-starter/mybatis-spring-boot-starter/src/main/java/com/yanger/starter/mybatis/property/DynamicDataSourceProperties.java */
+    public static class DynamicDataSourceConfigKey {
+
+        /** 是否开启动态数据源，默认不开启 */
+        public static final String DYNAMIC_ENABLE = "spring.datasource.dynamic-enable";
+
+        /** 动态数据源 see @com.yanger.starter.mybatis.property.DynamicDataSource.java */
+        public static final String DYNAMIC_DATA_SOURCE = "spring.datasource.dynamic";
+
+        /** 是否开启动态读写分离，默认不开启 */
+        public static final String DYNAMIC_READ_WRITE_ENABLE = "spring.datasource.dynamic-read-write-enable";
+
+        /** 读库数据源 see @com.yanger.starter.mybatis.property.DynamicDataSource.java */
+        public static final String DYNAMIC_READ_DATA_SOURCE = "spring.datasource.dynamic-read";
+
+        /** 写库数据源 see @com.yanger.starter.mybatis.property.DynamicDataSource.java */
+        public static final String DYNAMIC_WRITE_DATA_SOURCE = "spring.datasource.dynamic-write";
+
+        /** 是否开启按包读取数据源，默认不开启 */
+        public static final String DYNAMIC_PACKAGE_ENABLE = "spring.datasource.dynamic-package-enable";
 
     }
 

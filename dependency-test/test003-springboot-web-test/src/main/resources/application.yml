@@ -6,6 +6,44 @@ yanger:
     enable: false
   serialize-enum:
     enable: true
+  mybatis:
+    enable-log: true
+
 spring:
-  profiles:
-    active: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dynamic:
+      db1:
+        url: jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+      db2:
+        url: jdbc:mysql://localhost:3306/sa?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        effect-package: com.yanger.test.dao
+      db3:
+        url: jdbc:mysql://localhost:3306/www?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        effect-package: com.yanger.test.mapper
+        default-enable: true
+    dynamic-enable: true
+    dynamic-read-write-enable: true
+    dynamic-package-enable: true
+    dynamic-write:
+      url: jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    dynamic-read:
+      url: jdbc:mysql://localhost:3306/sa?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver

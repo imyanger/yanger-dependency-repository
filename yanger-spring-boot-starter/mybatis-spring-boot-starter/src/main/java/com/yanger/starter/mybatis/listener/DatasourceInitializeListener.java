@@ -41,7 +41,15 @@ public class DatasourceInitializeListener implements BaseApplicationListener {
             BaseApplicationListener.Runner.executeAtFirst(this.key(event, this.getClass()), () -> {
                 ConfigurableEnvironment environment = event.getApplicationContext().getEnvironment();
                 String datasourceUrl = environment.getProperty("spring.datasource.url");
-                if (StringUtils.isBlank(datasourceUrl)) {
+                boolean dynamicEnable = Boolean.parseBoolean(environment.getProperty(ConfigKey.DynamicDataSourceConfigKey.DYNAMIC_ENABLE));
+                boolean dynamicReadWriteEnable = Boolean.parseBoolean(environment.getProperty(ConfigKey.DynamicDataSourceConfigKey.DYNAMIC_READ_WRITE_ENABLE));
+                if(dynamicEnable) {
+                    log.info("已开启动态数据源 spring.datasource.dynamic-enable = true，请注意 spring.datasource.dynamic 多数据源信息");
+                }
+                if(dynamicReadWriteEnable) {
+                    log.info("已开启动态读写数据源 spring.datasource.dynamic-read-write-enable = true，请注意 spring.datasource.dynamic-read && dynamic-write 读写数据源信息");
+                }
+                if (StringUtils.isBlank(datasourceUrl) && (!dynamicEnable || !dynamicReadWriteEnable)) {
                     log.error("未检测到 JDBC 配置，但是引入了 JDBC 相关依赖包，将会禁用 datasource 相关自动装配，如有 dao 层将注入失败，请根据业务处理此错误");
                     String property = System.getProperty(ConfigKey.SpringConfigKey.AUTOCONFIGURE_EXCLUDE);
                     String value;

@@ -3,6 +3,8 @@ package com.yanger.starter.mybatis.property;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.Map;
+
 /**
  * 数据库配置
  * @Author yanger
@@ -38,5 +40,21 @@ public class MybatisProperties {
 
     /** SQL执行分析插件, 拦截一些整表操作 */
     private boolean enableSqlExplainInterceptor = Boolean.FALSE;
+
+
+    /** 开启动态多数据源 */
+    private Boolean dynamicEnable = false;
+
+    /** 多数据源 */
+    private Map<String, DataSourceDetail> dynamic;
+
+    /** 开启读写分离 */
+    private Boolean dynamicReadWriteEnable = false;
+
+    /** 动态读库 */
+    private DataSourceDetail dynamicRead;
+
+    /** 动态写库 */
+    private DataSourceDetail dynamicWrite;
 
 }

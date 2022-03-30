@@ -57,7 +57,7 @@ public interface IResultCode extends Serializable {
      */
     default String generateMessage(Object... customerMessage) {
         String message = getMessage();
-        if (customerMessage == null) {
+        if (customerMessage == null || customerMessage.length == 0) {
             return message;
         }
         Object first = customerMessage[0];

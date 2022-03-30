@@ -121,7 +121,7 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(SensitiveFieldDecryptInterceptor.class)
     @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
-    public SensitiveFieldDecryptInterceptor sensitiveFieldDecryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
+    public SensitiveFieldDecryptInterceptor sensitiveFieldDecryptInterceptor(@NotNull MybatisProperties mybatisProperties) {
         return new SensitiveFieldDecryptInterceptor(mybatisProperties.getSensitiveKey());
     }
 
@@ -134,7 +134,7 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(SensitiveFieldEncryptInterceptor.class)
     @ConditionalOnProperty(value = ConfigKey.MybatisConfigKey.ENABLE_SENSITIVE, havingValue = "true", matchIfMissing = true)
-    public SensitiveFieldEncryptInterceptor sensitiveFieldEncryptIntercepter(@NotNull MybatisProperties mybatisProperties) {
+    public SensitiveFieldEncryptInterceptor sensitiveFieldEncryptInterceptor(@NotNull MybatisProperties mybatisProperties) {
         SqlUtils.setSensitiveKey(mybatisProperties.getSensitiveKey());
         return new SensitiveFieldEncryptInterceptor(mybatisProperties.getSensitiveKey());
     }
