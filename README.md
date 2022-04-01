@@ -7,8 +7,8 @@
 
 - [x] [code-generator：代码生成工具](./yanger-code-generator/README.md)
 - [x] yanger-common-tools：公共工具
-  - [x] [yanger-general-tools：通用的工具类](./yanger-common-tools/yanger-general-tools/README.md)
-  - [x] [yanger-web-tools：web开发的工具类](./yanger-common-tools/yanger-web-tools/README.md)
+  - [x] [yanger-general-tools：通用的工具类](./yanger-tools/yanger-tools-general/README.md)
+  - [x] [yanger-web-tools：web开发的工具类](./yanger-tools/yanger-tools-web/README.md)
 
 - [x] 通用的 SpringBoot starter
   - [x] [base-spring-boot-starter：基础 SpringBoot starter](./yanger-spring-boot-starter/base-spring-boot-starter/README.md)
