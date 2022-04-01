@@ -5,7 +5,7 @@
 
 #### 依赖项目
 
-- [x] [code-generator：代码生成工具](./code-generator/README.md)
+- [x] [code-generator：代码生成工具](./yanger-code-generator/README.md)
 - [x] yanger-common-tools：公共工具
   - [x] [yanger-general-tools：通用的工具类](./yanger-common-tools/yanger-general-tools/README.md)
   - [x] [yanger-web-tools：web开发的工具类](./yanger-common-tools/yanger-web-tools/README.md)
