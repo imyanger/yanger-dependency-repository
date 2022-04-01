@@ -40,7 +40,6 @@ public class IdConverterImpl implements IdConverter {
 
     /**
      * 通过 {@link IdMeta} 获取每个属性所在 {@link Id} 的位置, 然后通过左移将各个属性拼接为一个长整型数字 id.
-     *
      * @param id     id
      * @param idMeta id meta
      * @return the long

@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2020/12/18 10:36
  */
 @Slf4j
-public class BasicException extends RuntimeException implements IResultCode{
+public class BasicException extends RuntimeException implements IResultCode {
 
     private static final long serialVersionUID = 3076052230646484392L;
 

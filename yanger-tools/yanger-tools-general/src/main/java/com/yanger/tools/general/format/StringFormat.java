@@ -25,7 +25,6 @@ public class StringFormat {
      * 通常使用:        format("this is {} for {}", "a", "b") =》 this is a for b<br>
      * 转义{}:        format("this is \\{} for {}", "a", "b") =》 this is \{} for a<br>
      * 转义\:         format("this is \\\\{} for {}", "a", "b") =》 this is \a for b<br>
-     *
      * @param strPattern 字符串模板
      * @param argArray   参数列表
      * @return 结果 string
@@ -86,7 +85,6 @@ public class StringFormat {
 
     /**
      * 同时兼容 {} 和 {0} 2 种格式
-     *
      * @param value  value
      * @param params params
      * @return the string
@@ -102,7 +100,6 @@ public class StringFormat {
 
     /**
      * To str string
-     *
      * @param str str
      * @return the string
      * @Author yanger
@@ -114,7 +111,6 @@ public class StringFormat {
 
     /**
      * 强转string,并去掉多余空格
-     *
      * @param str          字符串
      * @param defaultValue 默认值
      * @return String string

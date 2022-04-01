@@ -70,7 +70,6 @@ public abstract class AbstractMethodArgumentResolver<A extends Annotation> imple
 
     /**
      * Resolve argument object
-     *
      * @param parameter     parameter
      * @param mavContainer  mav container
      * @param webRequest    web request

@@ -116,7 +116,6 @@ public @interface MongoColumn {
      * db.hybrid.createIndex( { h2: 1} , { name: the value myBean.getIndexName() returned } )
      * </code>
      * </pre>
-     *
      * @return string string
      */
     @AliasFor(value = "name", annotation = Indexed.class)
@@ -167,7 +166,6 @@ public @interface MongoColumn {
      *
      * &#0064;Indexed(expireAfter = "#{&#0064;mySpringBean.timeout}") String expireAfterTimeoutObtainedFromSpringBean;
      * </pre>
-     *
      * @return empty by default.
      */
     String expireAfter() default "";

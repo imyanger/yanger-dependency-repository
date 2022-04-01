@@ -65,12 +65,6 @@
             <artifactId>transmittable-thread-local</artifactId>
             <version>${alibaba-thread-local.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.github.houbb</groupId>
-            <artifactId>idoc-core</artifactId>
-            <version>0.1.0</version>
-        </dependency>
     </dependencies>
 
 </project>

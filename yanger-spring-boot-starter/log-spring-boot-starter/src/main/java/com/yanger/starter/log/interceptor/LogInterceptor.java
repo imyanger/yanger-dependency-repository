@@ -30,7 +30,6 @@ public class LogInterceptor implements HandlerInterceptor {
 
     /**
      * 打印请求数据
-     *
      * @param request      request
      * @param response     response
      * @param handler      handler
@@ -59,13 +58,12 @@ public class LogInterceptor implements HandlerInterceptor {
                     .build();
                 logHandler.handler(request, response, h, modelAndView, logInfo);
             }
-            log.info("{}[{}-{}]({}) 执行耗时{}ms", description, simpleClassName, methodName, request.getRequestURI(), exeTimes);
+            log.info("call {}[{}-{}]({}) 执行耗时{}ms", description, simpleClassName, methodName, request.getRequestURI(), exeTimes);
         }
     }
 
     /**
      * 获取请求开始时间
-     *
      * @param request  request
      * @param response response
      * @param handler  handler

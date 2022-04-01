@@ -23,7 +23,6 @@ public class LogWebMvcConfiguration implements WebMvcConfigurer, BaseAutoConfigu
 
     /**
      * 注册拦截器
-     *
      * @param registry registry
      */
     @Override

@@ -86,7 +86,6 @@ public interface ObjectWrapper {
 
     /**
      * Is collection boolean
-     *
      * @return the boolean
      */
     boolean isCollection();

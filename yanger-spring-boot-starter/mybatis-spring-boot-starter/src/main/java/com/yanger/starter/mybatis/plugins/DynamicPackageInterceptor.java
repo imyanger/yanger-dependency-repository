@@ -28,7 +28,6 @@ public class DynamicPackageInterceptor implements Interceptor {
 
     /**
      * Intercept object
-     *
      * @param invocation invocation
      * @return the object
      * @throws Throwable throwable

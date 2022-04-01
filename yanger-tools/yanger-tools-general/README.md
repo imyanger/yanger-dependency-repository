@@ -1,5 +1,14 @@
 ## General tools
 包含一些常用的工具类，可作用于简单的 java 工程（不包含 web 依赖）。
+pom 引入：
+````java
+    <dependency>
+        <groupId>com.yanger</groupId>
+        <artifactId>tools-general</artifactId>
+        <version>${yanger-tools.version}</version>
+    </dependency>
+````
+目前 1.0.0.RELEASE 版本，<yanger-tools.version>1.0.0.RELEASE</yanger-tools.version>。
 
 
 ### 1. constant

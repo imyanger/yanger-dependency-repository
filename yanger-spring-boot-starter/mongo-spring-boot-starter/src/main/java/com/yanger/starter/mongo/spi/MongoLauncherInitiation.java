@@ -69,7 +69,6 @@ public class MongoLauncherInitiation implements LauncherInitiation {
 
     /**
      * Gets name
-     *
      * @return the name
      */
     @Override

@@ -79,7 +79,6 @@ public class DataTypeUtils {
      * log.info("{}", convert(Set.class, Arrays.asList(new Long[]{1L,1L,2L})));
      * log.info("{}", convert(Set.class, new Long[]{1L,1L,2L}));
      * log.info("{}", convert(BigDecimal[].class, new Object[]{(byte)1,1,1L,"1"}));
-     *
      * @param <T>       the type parameter
      * @param destClazz 预期将要输出为何种数据类型
      * @param srcObj    输入任意类型的数据
@@ -825,7 +824,6 @@ public class DataTypeUtils {
 
         /**
          * Instantiates a new Data type exception.
-         *
          * @param message the message
          */
         DataTypeException(String message) {

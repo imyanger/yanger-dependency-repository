@@ -558,7 +558,6 @@ public class ImageUtils {
 
         /**
          * Instantiates a new image position.
-         *
          * @param width     the width
          * @param height    the height
          * @param boxWidth  the box width
@@ -593,7 +592,6 @@ public class ImageUtils {
 
         /**
          * Gets the x.
-         *
          * @return the x
          */
         public int getX() {
@@ -602,7 +600,6 @@ public class ImageUtils {
 
         /**
          * Gets the x.
-         *
          * @param x 横向偏移
          * @return the x
          */
@@ -612,7 +609,6 @@ public class ImageUtils {
 
         /**
          * Gets the y.
-         *
          * @return the y
          */
         public int getY() {
@@ -621,7 +617,6 @@ public class ImageUtils {
 
         /**
          * Gets the y.
-         *
          * @param y 纵向偏移
          * @return the y
          */

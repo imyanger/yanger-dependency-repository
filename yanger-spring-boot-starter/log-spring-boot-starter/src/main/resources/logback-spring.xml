@@ -14,7 +14,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符, %X输出MDC信息 -->
-            <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %customColor(%-5level) %10logger\(%file:%line\) %msg%n</Pattern>
+            <Pattern>[%property{APP_NAME}] [%X{TRACE_ID}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %customColor(%-5level) %10logger\(%file:%line\) %msg%n</Pattern>
         </encoder>
     </appender>
 
@@ -30,7 +30,7 @@
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符，%X输出MDC信息-->
-            <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
+            <Pattern>[%property{APP_NAME}] [%X{TRACE_ID}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
         </encoder>
         <!--日志文件最大的大小-->
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
@@ -44,7 +44,7 @@
             <FileNamePattern>${LOG_HOME}/error/${APP_NAME}-%d{yyyy-MM-dd}-error.log</FileNamePattern>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
+            <Pattern>[%property{APP_NAME}] [%X{TRACE_ID}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
@@ -57,7 +57,7 @@
             <FileNamePattern>${LOG_HOME}/info/${APP_NAME}-%d{yyyy-MM-dd}-info.log</FileNamePattern>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>[%property{APP_NAME}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
+            <Pattern>[%property{APP_NAME}] [%X{TRACE_ID}] [%thread] %date{yyyy-MM-dd HH:mm:ss} %-5level %10logger\(%file:%line\) %msg%n</Pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>

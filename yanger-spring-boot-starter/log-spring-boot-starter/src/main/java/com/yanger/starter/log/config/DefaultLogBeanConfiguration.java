@@ -3,6 +3,7 @@ package com.yanger.starter.log.config;
 import com.yanger.starter.basic.config.BaseAutoConfiguration;
 import com.yanger.starter.basic.constant.ConfigKey;
 import com.yanger.starter.log.dynamic.LevelApi;
+import com.yanger.starter.log.filter.TraceIdFilter;
 import com.yanger.starter.log.interceptor.LogInterceptor;
 import com.yanger.starter.log.property.LogbackProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -16,6 +17,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class DefaultLogBeanConfiguration implements BaseAutoConfiguration {
+
+    @Bean
+    public TraceIdFilter traceIdFilter() {
+        return new TraceIdFilter();
+    }
 
     @Bean
     public LogbackProperties logbackProperties() {

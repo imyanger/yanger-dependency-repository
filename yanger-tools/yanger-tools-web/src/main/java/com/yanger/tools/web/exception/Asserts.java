@@ -33,7 +33,6 @@ public abstract class Asserts {
 
     /**
      * Null safe get exception
-     *
      * @param messageSupplier message supplier
      * @return the exception
      */
@@ -620,7 +619,6 @@ public abstract class Asserts {
 
     /**
      * Is assignable
-     *
      * @param superType super type
      * @param subType   sub type
      */

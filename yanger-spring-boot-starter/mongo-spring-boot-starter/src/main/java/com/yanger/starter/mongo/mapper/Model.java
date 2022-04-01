@@ -55,21 +55,18 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Init model.
-     *
      * @return the model
      */
     protected abstract Model<M> init();
 
     /**
      * 主键值
-     *
      * @return the serializable
      */
     public abstract Serializable getId();
 
     /**
      * 插入（字段选择插入）
-     *
      * @return the boolean
      */
     public M insert() {
@@ -106,7 +103,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 更新（字段选择更新）
-     *
      * @return the boolean
      */
     public M updateById() {
@@ -125,7 +121,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * Delete boolean. 最终还是解析实体, 获取 _id 来删除数据
-     *
      * @return the long
      */
     public Long delete() {
@@ -147,7 +142,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 根据主键删除
-     *
      * @return the boolean
      */
     public Long deleteById() {
@@ -169,7 +163,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 查询所有
-     *
      * @return the list
      */
     public List<M> selectAll() {
@@ -178,7 +171,6 @@ public abstract class Model<M extends Model<M>> implements Serializable {
 
     /**
      * 根据主键查询
-     *
      * @return the t
      */
     public M selectById() {

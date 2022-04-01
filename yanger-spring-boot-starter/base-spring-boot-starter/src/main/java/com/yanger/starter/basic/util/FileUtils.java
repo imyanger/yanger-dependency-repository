@@ -341,7 +341,6 @@ public class FileUtils extends org.springframework.util.FileCopyUtils {
      * <li>A directory to be deleted does not have to be empty.</li>
      * <li>No exceptions are thrown when a file or directory cannot be deleted.</li>
      * </ul>
-     *
      * @param file file or directory to delete, can be {@code null}
      * @return {@code true} if the file or directory was deleted, otherwise {@code false}
      */

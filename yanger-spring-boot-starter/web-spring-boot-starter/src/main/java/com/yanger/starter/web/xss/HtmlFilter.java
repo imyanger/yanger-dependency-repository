@@ -190,7 +190,6 @@ public final class HtmlFilter {
 
     /**
      * Set debug flag to true. Otherwise use default settings. See the default constructor.
-     *
      * @param debug turn debug on with a true argument
      */
     public HtmlFilter(boolean debug) {
@@ -237,7 +236,6 @@ public final class HtmlFilter {
 
     /**
      * Map-parameter configurable constructor.
-     *
      * @param conf map containing configuration. keys match field names.
      */
     @SuppressWarnings("unchecked")
@@ -267,7 +265,6 @@ public final class HtmlFilter {
 
     /**
      * Chr string.
-     *
      * @param decimal the decimal
      * @return the string
      */
@@ -279,7 +276,6 @@ public final class HtmlFilter {
 
     /**
      * Html special chars string.
-     *
      * @param s the s
      * @return the string
      */
@@ -294,7 +290,6 @@ public final class HtmlFilter {
 
     /**
      * Regex replace string
-     *
      * @param regexPattern regex pattern
      * @param replacement  replacement
      * @param s            s
@@ -307,7 +302,6 @@ public final class HtmlFilter {
 
     /**
      * In array boolean
-     *
      * @param s     s
      * @param array array
      * @return the boolean
@@ -332,8 +326,7 @@ public final class HtmlFilter {
     }
 
     /**
-     * Debug *
-     *
+     * Debug
      * @param msg msg
      */
     private void debug(String msg) {
@@ -345,7 +338,6 @@ public final class HtmlFilter {
     /**
      * given a user submitted input String, filter out any invalid or restricted
      * html.
-     *
      * @param input text (i.e. submitted by a user) than may contain html
      * @return "clean" version of input, with only valid, whitelisted html elements allowed
      */
@@ -377,7 +369,6 @@ public final class HtmlFilter {
 
     /**
      * Is always make tags boolean.
-     *
      * @return the boolean
      */
     @Contract(pure = true)
@@ -387,7 +378,6 @@ public final class HtmlFilter {
 
     /**
      * Is strip comments boolean.
-     *
      * @return the boolean
      */
     @Contract(pure = true)
@@ -397,7 +387,6 @@ public final class HtmlFilter {
 
     /**
      * Escape comments string
-     *
      * @param s s
      * @return the string
      */
@@ -416,7 +405,6 @@ public final class HtmlFilter {
 
     /**
      * Balance html string
-     *
      * @param s s
      * @return the string
      */
@@ -449,7 +437,6 @@ public final class HtmlFilter {
 
     /**
      * Check tags string
-     *
      * @param s s
      * @return the string
      */
@@ -482,7 +469,6 @@ public final class HtmlFilter {
 
     /**
      * Process remove blanks string
-     *
      * @param s s
      * @return the string
      */
@@ -504,7 +490,6 @@ public final class HtmlFilter {
 
     /**
      * Process tag string
-     *
      * @param s s
      * @return the string
      */
@@ -582,7 +567,6 @@ public final class HtmlFilter {
 
     /**
      * Process param protocol string
-     *
      * @param s s
      * @return the string
      */
@@ -605,7 +589,6 @@ public final class HtmlFilter {
 
     /**
      * Decode entities string
-     *
      * @param s s
      * @return the string
      */
@@ -636,8 +619,7 @@ public final class HtmlFilter {
     }
 
     /**
-     * Gets string *
-     *
+     * Gets string
      * @param buf buf
      * @param m   m
      * @return the string
@@ -657,7 +639,6 @@ public final class HtmlFilter {
 
     /**
      * Validate entities string
-     *
      * @param s s
      * @return the string
      */
@@ -678,7 +659,6 @@ public final class HtmlFilter {
 
     /**
      * Encode quotes string
-     *
      * @param s s
      * @return the string
      */
@@ -701,7 +681,6 @@ public final class HtmlFilter {
 
     /**
      * Check entity string
-     *
      * @param preamble preamble
      * @param term     term
      * @return the string
@@ -717,7 +696,6 @@ public final class HtmlFilter {
 
     /**
      * Is valid entity boolean
-     *
      * @param entity entity
      * @return the boolean
      */
@@ -728,7 +706,6 @@ public final class HtmlFilter {
 
     /**
      * Allowed boolean
-     *
      * @param name name
      * @return the boolean
      */
@@ -738,7 +715,6 @@ public final class HtmlFilter {
 
     /**
      * Allowed attribute boolean
-     *
      * @param name      name
      * @param paramName param name
      * @return the boolean

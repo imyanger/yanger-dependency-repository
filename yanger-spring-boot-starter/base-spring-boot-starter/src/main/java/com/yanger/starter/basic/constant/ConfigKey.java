@@ -329,8 +329,20 @@ public final class ConfigKey {
         /** 是否允许动态修改日志 */
         public static final String DYNAMIC_LOG_ENABLED = "yanger.logger.dynamic-log-enabled";
 
-        /** 是否打印api调用日志：线上建议关闭 */
+        /** 是否打印 api 调用日志：线上建议关闭 */
         public static final String API_LOG_ENABLED = "yanger.logger.api-log-enabled";
+
+        /** 是否开启 logbook 打印请求日志 */
+        public static final String LOGBOOK_FILTER_ENABLED = "logbook.filter.enabled";
+
+        /** logbook 日志级别 */
+        public static final String LOGBOOK_WRITE_LEVEL = "logbook.write.level";
+
+        /** logbook 日志风格， json curl http 可选 */
+        public static final String LOGBOOK_FORMAT_STYLE = "logbook.format.style";
+
+        /** logbook 请求级别 */
+        public static final String LOGGING_LEVEL_ORG_ZALANDO_LOGBOOK = "logging.level.org.zalando.logbook";
 
     }
 

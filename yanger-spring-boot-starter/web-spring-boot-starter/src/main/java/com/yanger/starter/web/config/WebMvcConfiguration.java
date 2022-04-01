@@ -102,7 +102,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * 注册拦截器
-     *
      * @param registry registry
      */
     @Override
@@ -118,7 +117,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * 注册解析器
-     *
      * @param resolvers resolvers
      */
     @Override
@@ -161,7 +159,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
     /**
      * 前端传入的时间字符串, 自动转换为 Date 类型, 只针对普通的字段,
      * 如果是 @RequestBody 中的字段, 将使用 {@link MappingApiJackson2HttpMessageConverter} 使用 jackson 进行转换
-     *
      * @param registry the registry
      */
     @Override
@@ -174,7 +171,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * 使用 JACKSON 作为JSON MessageConverter
-     *
      * @param converters converters
      */
     @Override
@@ -205,7 +201,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * Build url patterns
-     *
      * @return the list
      */
     private @NotNull @Unmodifiable List<String> buildUrlPatterns() {
@@ -216,7 +211,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * Sets url patterns
-     *
      * @param filter logging rb
      * @param order  order
      */
@@ -226,7 +220,6 @@ public class WebMvcConfiguration  implements BaseAutoConfiguration, WebMvcConfig
 
     /**
      * Sets url patterns
-     *
      * @param filter      filter
      * @param order       order
      * @param urlPatterns url patterns

@@ -3,6 +3,7 @@ package com.yanger.test.controller;
 import com.yanger.test.module.TestVo;
 import com.yanger.test.result.MyResultCode;
 import com.yanger.tools.web.entity.R;
+import com.yanger.tools.web.support.DefaultResultCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,10 @@ public class RController {
     @GetMapping("resultCode")
     public R<TestVo> resultCode(){
         return R.failed(MyResultCode.PARAMETER_ERROR_PERCH, "请参数数字");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(R.failed(DefaultResultCode.PARAMETER_ERROR_PERCH, "请传入数字"));
     }
 
 }

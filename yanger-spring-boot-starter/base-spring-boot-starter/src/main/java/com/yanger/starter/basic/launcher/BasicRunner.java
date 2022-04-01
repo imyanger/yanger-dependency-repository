@@ -109,7 +109,6 @@ public final class BasicRunner {
      * 1. 默认通过 jar 启动应用, 从 MANIFEST.MF 中获取 Project-Name 的值
      * 2. File 启动，spring.application.name ->文件名
      * 获取不到则使用模块名
-     *
      * @return the properties
      */
     private static void loadApplicationName() {
@@ -205,7 +204,6 @@ public final class BasicRunner {
     /**
      * 启动 Spring 应用程序
      * java -jar app.jar --spring.profiles.active=prod --server.port=2333
-     *
      * @param appName         application name
      * @param source          The sources
      * @param applicationType application type
@@ -221,7 +219,6 @@ public final class BasicRunner {
 
     /**
      * 设置 默认配置和 profiles, 用 SPI 加载其他包的组件
-     *
      * @param appName         the app name
      * @param source          the source
      * @param applicationType application type
@@ -280,7 +277,6 @@ public final class BasicRunner {
 
     /**
      * Properties -> map
-     *
      * @param properties properties
      * @return the map from properties
      */

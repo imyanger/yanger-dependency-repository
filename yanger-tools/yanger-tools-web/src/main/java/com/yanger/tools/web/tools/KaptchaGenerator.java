@@ -67,7 +67,6 @@ public class KaptchaGenerator {
 
     /**
      * 获取计算型验证码信息
-     *
      * @return the optional
      */
     public Optional<KaptchaData> createCal() {

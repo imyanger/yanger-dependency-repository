@@ -90,7 +90,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * sql 注入
-     *
      * @return the sql injector
      */
     @Bean
@@ -100,7 +99,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * mybatis-plus SQL执行效率插件 (生产环境可以关闭)
-     *
      * @return the performance interceptor
      */
     @Bean
@@ -114,7 +112,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 敏感字符加密
-     *
      * @param mybatisProperties mybatis properties
      * @return the sensitive field decrypt intercepter
      */
@@ -127,7 +124,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 敏感字符解密
-     *
      * @param mybatisProperties mybatis properties
      * @return the sensitive field encrypt intercepter
      */
@@ -141,7 +137,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 使用 MybatisEnumTypeHandler 代替默认的 EnumTypeHandler, 实现 EntityEnum 子类的类型转换(数据库存 value, 返回 Entity)
-     *
      * @return the configuration customizer
      */
     @Bean
@@ -155,7 +150,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * id 类型转换
-     *
      * @return the configuration customizer
      */
     @Bean
@@ -168,7 +162,6 @@ public class MybatisAutoConfiguration implements BaseAutoConfiguration {
 
     /**
      * 自动创建时间和更新时间
-     *
      * @return global config
      */
     @Bean

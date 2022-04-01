@@ -25,7 +25,6 @@ public class JwtUtils {
 
     /**
      * 根据对象生成token
-     *
      * @param object
      * @author YangHao
      * @date 2018年9月23日-下午4:28:57

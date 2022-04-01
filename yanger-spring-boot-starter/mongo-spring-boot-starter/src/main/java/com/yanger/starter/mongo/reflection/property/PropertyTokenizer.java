@@ -50,7 +50,6 @@ public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
 
     /**
      * Has next boolean
-     *
      * @return the boolean
      */
     @Override
@@ -60,7 +59,6 @@ public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
 
     /**
      * Next property tokenizer
-     *
      * @return the property tokenizer
      */
     @Override

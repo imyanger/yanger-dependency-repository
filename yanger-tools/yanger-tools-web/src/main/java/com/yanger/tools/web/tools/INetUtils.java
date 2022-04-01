@@ -67,8 +67,7 @@ public abstract class INetUtils {
     public static final int MAX_PORT = 65535;
 
     /**
-     * Gets random port *
-     *
+     * Gets random port
      * @return the random port
      */
     public static int getRandomPort() {
@@ -76,8 +75,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets available port *
-     *
+     * Gets available port
      * @return the available port
      */
     public static int getAvailablePort() {
@@ -90,8 +88,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets available port *
-     *
+     * Gets available port
      * @param port port
      * @return the available port
      */
@@ -110,7 +107,6 @@ public abstract class INetUtils {
 
     /**
      * Is invalid port
-     *
      * @param port port
      * @return the boolean
      */
@@ -121,7 +117,6 @@ public abstract class INetUtils {
 
     /**
      * Is valid address
-     *
      * @param address address
      * @return the boolean
      */
@@ -131,7 +126,6 @@ public abstract class INetUtils {
 
     /**
      * Is local host
-     *
      * @param host host
      * @return the boolean
      */
@@ -144,7 +138,6 @@ public abstract class INetUtils {
 
     /**
      * Is any host
-     *
      * @param host host
      * @return the boolean
      */
@@ -155,7 +148,6 @@ public abstract class INetUtils {
 
     /**
      * Is invalid local host
-     *
      * @param host host
      * @return the boolean
      */
@@ -170,7 +162,6 @@ public abstract class INetUtils {
 
     /**
      * Is valid local host
-     *
      * @param host host
      * @return the boolean
      */
@@ -180,8 +171,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets local socket address *
-     *
+     * Gets local socket address
      * @param host host
      * @param port port
      * @return the local socket address
@@ -194,7 +184,6 @@ public abstract class INetUtils {
 
     /**
      * Is valid v 4 address
-     *
      * @param address address
      * @return the boolean
      */
@@ -212,7 +201,6 @@ public abstract class INetUtils {
 
     /**
      * Check if an ipv6 address
-     *
      * @return true if it is reachable
      */
     @Contract(pure = true)
@@ -230,7 +218,6 @@ public abstract class INetUtils {
      * <p>
      * The %5 after ipv6 address is called scope id.
      * see java doc of {@link Inet6Address} for more details.
-     *
      * @param address the input address
      * @return the normalized address, with scope id converted to int
      */
@@ -249,8 +236,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets local host *
-     *
+     * Gets local host
      * @return the local host
      */
     public static String getLocalHost() {
@@ -260,7 +246,6 @@ public abstract class INetUtils {
 
     /**
      * Find first valid IP from local network card
-     *
      * @return first valid local IP
      */
     public static InetAddress getLocalAddress() {
@@ -274,7 +259,6 @@ public abstract class INetUtils {
 
     /**
      * To valid address
-     *
      * @param address address
      * @return the optional
      */
@@ -308,7 +292,6 @@ public abstract class INetUtils {
      * 224.xxx.xxx.xxx 到 239.xxx.xxx.xxx 属于组播地址
      * 比较特殊的 255.255.255.255 属于广播地址
      * 除此之外的地址就是点对点的可用的公开 IPv4 地址
-     *
      * @return the local host lan address
      * @throws UnknownHostException If the LAN address of the machine cannot be found.
      */
@@ -359,8 +342,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets host name *
-     *
+     * Gets host name
      * @param address address
      * @return the host name
      */
@@ -386,8 +368,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets ip by host *
-     *
+     * Gets ip by host
      * @param hostName host name
      * @return ip address or hostName if UnknownHostException
      */
@@ -401,7 +382,6 @@ public abstract class INetUtils {
 
     /**
      * To address string
-     *
      * @param address address
      * @return the string
      */
@@ -411,7 +391,6 @@ public abstract class INetUtils {
 
     /**
      * To address
-     *
      * @param address address
      * @return the inet socket address
      */
@@ -432,7 +411,6 @@ public abstract class INetUtils {
 
     /**
      * To url
-     *
      * @param protocol protocol
      * @param host     host
      * @param port     port
@@ -452,7 +430,6 @@ public abstract class INetUtils {
 
     /**
      * Join multicast group
-     *
      * @param multicastSocket  multicast socket
      * @param multicastAddress multicast address
      * @throws IOException io exception
@@ -464,8 +441,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Sets interface *
-     *
+     * Sets interface
      * @param multicastSocket multicast socket
      * @param preferIpv6      prefer ipv 6
      * @throws IOException io exception
@@ -506,7 +482,6 @@ public abstract class INetUtils {
 
     /**
      * Match ip expression
-     *
      * @param pattern pattern
      * @param host    host
      * @param port    port
@@ -526,7 +501,6 @@ public abstract class INetUtils {
 
     /**
      * Match ip range
-     *
      * @param pattern pattern
      * @param host    host
      * @param port    port
@@ -596,7 +570,6 @@ public abstract class INetUtils {
 
     /**
      * Ip pattern contain expression
-     *
      * @param pattern pattern
      * @return the boolean
      */
@@ -606,7 +579,6 @@ public abstract class INetUtils {
 
     /**
      * Check host pattern
-     *
      * @param pattern pattern
      * @param mask    mask
      * @param isIpv4  is ipv 4
@@ -629,7 +601,6 @@ public abstract class INetUtils {
 
     /**
      * Get pattern host and port
-     *
      * @param pattern pattern
      * @param isIpv4  is ipv 4
      * @return the string [ ]
@@ -657,8 +628,7 @@ public abstract class INetUtils {
     }
 
     /**
-     * Gets num of ip segment *
-     *
+     * Gets num of ip segment
      * @param ipSegment ip segment
      * @param isIpv4    is ipv 4
      * @return the num of ip segment

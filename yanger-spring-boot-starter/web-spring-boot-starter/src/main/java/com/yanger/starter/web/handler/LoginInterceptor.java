@@ -36,7 +36,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     /**
      * Post handle
-     *
      * @param request      request
      * @param response     response
      * @param handler      handler
@@ -60,7 +59,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     /**
      * 登录拦截
-     *
      * @param request  request
      * @param response response
      * @param handler  handler
@@ -102,7 +100,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     /**
      * 返回json信息
-     *
      * @param response response
      * @param msg      msg
      * @throws IOException io exception

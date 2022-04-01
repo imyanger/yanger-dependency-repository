@@ -19,21 +19,18 @@ public interface IResultCode extends Serializable {
 
     /**
      * 获取返回状态码
-     *
      * @return String code
      */
     Integer getCode();
 
     /**
      * 获取返回消息, 可使用占位符
-     *
      * @return String message
      */
     String getMessage();
 
     /**
      * Name
-     *
      * @return the string
      */
     default String getModuleMarker() {
@@ -42,7 +39,6 @@ public interface IResultCode extends Serializable {
 
     /**
      * 根据错误码生成一定规则的错误编码【项目标识-错误码】
-     *
      * @return the string
      */
     default String generateCode() {

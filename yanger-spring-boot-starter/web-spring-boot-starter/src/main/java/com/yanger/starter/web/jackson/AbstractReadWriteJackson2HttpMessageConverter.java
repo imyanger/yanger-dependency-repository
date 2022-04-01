@@ -59,7 +59,6 @@ public abstract class AbstractReadWriteJackson2HttpMessageConverter extends Abst
 
     /**
      * Instantiates a new Abstract read write jackson 2 http message converter.
-     *
      * @param readObjectMapper  the read object mapper
      * @param writeObjectMapper the write object mapper
      */

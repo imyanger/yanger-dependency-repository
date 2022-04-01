@@ -62,4 +62,21 @@ public class ConfigDefaultValue {
 
     }
 
+    /** SerializeEnumContainer 配置默认值 */
+    public static class LogBookConfigValue {
+
+        /** 是否开启 logbook 打印请求日志，默认 开启 */
+        public static final Boolean ENABLE = true;
+
+        /** logbook 日志级别 */
+        public static final String LOGBOOK_WRITE_LEVEL = "info";
+
+        /** logbook 日志风格， json curl http 可选 */
+        public static final String LOGBOOK_FORMAT_STYLE = "json";
+
+        /** logbook 请求级别 */
+        public static final String LOGGING_LEVEL_ORG_ZALANDO_LOGBOOK = "trace";
+
+    }
+
 }

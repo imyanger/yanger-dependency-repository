@@ -128,7 +128,6 @@ public abstract class BeanCopier {
 
         /**
          * Sets target
-         *
          * @param target the target
          */
         public void setTarget(@NotNull Class<?> target) {

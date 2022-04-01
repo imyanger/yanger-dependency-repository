@@ -20,7 +20,6 @@ public class StringToDateConverter implements Converter<String, Date> {
 
     /**
      * Convert date
-     *
      * @param source source
      * @return the date
      */

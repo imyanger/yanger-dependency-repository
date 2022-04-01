@@ -168,8 +168,7 @@ public final class Wrappers {
         private static final long serialVersionUID = -2515957613998092272L;
 
         /**
-         * Gets entity *
-         *
+         * Gets entity
          * @return the entity
          */
         @Override
@@ -178,7 +177,7 @@ public final class Wrappers {
         }
 
         /**
-         * Sets entity *
+         * Sets entity
          * @param entity entity
          * @return the entity
          */
@@ -188,7 +187,7 @@ public final class Wrappers {
         }
 
         /**
-         * Sets entity class *
+         * Sets entity class
          * @param entityClass entity class
          * @return the entity class
          */
@@ -198,8 +197,7 @@ public final class Wrappers {
         }
 
         /**
-         * Gets entity class *
-         *
+         * Gets entity class
          * @return the entity class
          */
         @Override
@@ -209,7 +207,6 @@ public final class Wrappers {
 
         /**
          * Instance empty wrapper
-         *
          * @return the empty wrapper
          */
         @Override

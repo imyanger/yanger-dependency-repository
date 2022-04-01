@@ -56,7 +56,6 @@ public class MethodInvoker implements Invoker {
 
     /**
      * Gets type
-     *
      * @return the type
      */
     @Override

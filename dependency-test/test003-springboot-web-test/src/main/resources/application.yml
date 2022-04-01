@@ -8,6 +8,23 @@ yanger:
     enable: true
   mybatis:
     enable-log: true
+  logger:
+    api-log-enabled: true
+
+##logbook配置
+logbook:
+  filter:
+    enabled: true
+#  write:
+#    level: info #logbook日志输入级别
+#  format:
+#    style: json #这个值还可以是 http、json等
+#
+#logging:
+#  level:
+#    org:
+#      zalando:
+#        logbook: trace
 
 spring:
   datasource:

@@ -19,8 +19,7 @@ public interface Invoker {
     Object invoke(Object target, Object[] args) throws IllegalAccessException, InvocationTargetException;
 
     /**
-     * Gets type *
-     *
+     * Gets type
      * @return the type
      */
     Class<?> getType();
