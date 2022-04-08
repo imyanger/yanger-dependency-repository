@@ -121,7 +121,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the {@link IPage} 的子类 {@link Page}
      */
     @Override
-    public <Q extends BaseQuery<Long>> IPage<T> page(IPage<T> page, Q query) {
+    public <Q extends BaseQuery> IPage<T> page(IPage<T> page, Q query) {
         QueryWrapper<T> queryWrapper = new QueryWrapper<>();
         Type sType = this.getClass().getGenericSuperclass();
         Type[] generics = ((ParameterizedType) sType).getActualTypeArguments();
@@ -138,7 +138,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      */
     @Override
     public IPage<T> page(Integer pageNo, Integer pageSize) {
-        BaseQuery<Long> baseQuery = new BaseQuery<>();
+        BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageNo);
         baseQuery.setPageSize(pageSize);
         return this.page(baseQuery);
@@ -151,7 +151,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the {@link IPage} 的子类 {@link Page}
      */
     @Override
-    public <Q extends BaseQuery<Long>> IPage<T> page(Q query) {
+    public <Q extends BaseQuery> IPage<T> page(Q query) {
         return this.page(Condition.getPage(query), query);
     }
 
@@ -162,7 +162,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the list
      */
     @Override
-    public <Q extends BaseQuery<Long>> List<T> list(Q query) {
+    public <Q extends BaseQuery> List<T> list(Q query) {
         query.setPageSize(-1);
         IPage<T> page = Condition.getPage(query);
         return this.page(page, query).getRecords();
@@ -179,7 +179,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the {@link IPage} 的子类 {@link Page}
      */
     @Override
-    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(IPage<T> page, Q query, Class<D> dClass) {
+    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> IPage<D> page(IPage<T> page, Q query, Class<D> dClass) {
         IPage<T> tPage = page(page, query);
         return tPage.convert(t -> BeanUtils.copy(t, dClass));
     }
@@ -194,7 +194,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      */
     @Override
     public <D extends BaseDTO<? extends Serializable>> IPage<D> page(Integer pageNo, Integer pageSize, Class<D> dClass) {
-        BaseQuery<Long> baseQuery = new BaseQuery<>();
+        BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageNo);
         baseQuery.setPageSize(pageSize);
         return this.page(baseQuery, dClass);
@@ -209,7 +209,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the {@link IPage} 的子类 {@link Page}
      */
     @Override
-    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(Q query, Class<D> dClass) {
+    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> IPage<D> page(Q query, Class<D> dClass) {
         return this.page(Condition.getPage(query), query, dClass);
     }
 
@@ -222,7 +222,7 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> extends ServiceImpl<M, T> 
      * @return the list
      */
     @Override
-    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> List<D> list(@NotNull Q query, Class<D> dClass) {
+    public <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> List<D> list(@NotNull Q query, Class<D> dClass) {
         query.setPageSize(-1);
         IPage<T> page = Condition.getPage(query);
         return this.page(page, query, dClass).getRecords();

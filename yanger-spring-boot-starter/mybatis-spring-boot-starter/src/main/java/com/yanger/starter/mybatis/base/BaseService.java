@@ -82,7 +82,7 @@ public interface BaseService<T> extends IService<T> {
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
      */
-    <Q extends BaseQuery<Long>> IPage<T> page(IPage<T> page, Q query);
+    <Q extends BaseQuery> IPage<T> page(IPage<T> page, Q query);
 
     /**
      * 分页查询接口
@@ -98,7 +98,7 @@ public interface BaseService<T> extends IService<T> {
      * @param query 业务查询参数
      * @return the {@link IPage} 的子类 {@link Page}
      */
-    <Q extends BaseQuery<Long>> IPage<T> page(Q query);
+    <Q extends BaseQuery> IPage<T> page(Q query);
 
     /**
      * List
@@ -106,7 +106,7 @@ public interface BaseService<T> extends IService<T> {
      * @param query 业务查询参数
      * @return the list
      */
-    <Q extends BaseQuery<Long>> List<T> list(Q query);
+    <Q extends BaseQuery> List<T> list(Q query);
 
     /**
      * 分页查询接口
@@ -117,7 +117,7 @@ public interface BaseService<T> extends IService<T> {
      * @param dClass 查询对象的泛型类型 {@link BaseDTO} 子类
      * @return the {@link IPage} 的子类 {@link Page}
      */
-    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(IPage<T> page, Q query, Class<D> dClass);
+    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> IPage<D> page(IPage<T> page, Q query, Class<D> dClass);
 
     /**
      * 分页查询接口
@@ -136,7 +136,7 @@ public interface BaseService<T> extends IService<T> {
      * @param dClass 查询对象的泛型类型 {@link BaseDTO} 子类
      * @return the {@link IPage} 的子类 {@link Page}
      */
-    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> IPage<D> page(Q query, Class<D> dClass);
+    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> IPage<D> page(Q query, Class<D> dClass);
 
     /**
      * List
@@ -146,6 +146,6 @@ public interface BaseService<T> extends IService<T> {
      * @param dClass 查询对象的泛型类型 {@link BaseDTO} 子类
      * @return the list
      */
-    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery<Long>> List<D> list(Q query, Class<D> dClass);
+    <D extends BaseDTO<? extends Serializable>, Q extends BaseQuery> List<D> list(Q query, Class<D> dClass);
 
 }

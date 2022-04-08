@@ -1,7 +1,10 @@
 package com.yanger.starter.basic.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
@@ -18,8 +21,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Accessors(chain = true)
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-public class BaseQuery<T extends Serializable> extends AbstractBaseEntity<T> {
+public class BaseQuery implements Serializable {
 
     private static final long serialVersionUID = -3550589993340031894L;
 
