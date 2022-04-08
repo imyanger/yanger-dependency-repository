@@ -8,22 +8,22 @@ package com.yanger.tools.web.support;
 public enum DefaultResultCode implements IResultCode {
 
     /** token过期 */
-    TOKE_INVALID(-200, "token过期"),
+    TOKE_INVALID(100, "token过期"),
 
     /** token过期 */
-    TOKE_INVALID_EMPTY(-201, null),
+    TOKE_INVALID_EMPTY(101, null),
 
     /** token过期 */
-    TOKE_INVALID_PERCH(-202, "token过期，{}"),
+    TOKE_INVALID_PERCH(102, "token过期，{}"),
 
     /** 权限不足 */
-    AUTHORITY_INVALID(-100, "权限不足"),
+    AUTHORITY_INVALID(300, "权限不足"),
 
     /** 权限不足 */
-    AUTHORITY_INVALID_EMPTY(-101, null),
+    AUTHORITY_INVALID_EMPTY(301, null),
 
     /** 权限不足 */
-    AUTHORITY_INVALID_PERCH(-102, "权限不足，{}"),
+    AUTHORITY_INVALID_PERCH(302, "权限不足，{}"),
 
     /** 处理成功 */
     OK(200, "处理成功"),

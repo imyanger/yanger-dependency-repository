@@ -47,9 +47,10 @@ public class IndexApi extends BaseApi {
 
     @PostMapping("login")
     @ApiOperation(value="用户登录", tags={"IndexApi：登录相关接口"}, notes="用户登录")
-    public void login(@RequestBody LoginData loginData) {
+    public AuthUser login(@RequestBody LoginData loginData) {
         AuthUser authUser = loginService.login(loginData, request);
         setToken(authUser);
+        return authUser;
     }
 
     /**
@@ -61,7 +62,7 @@ public class IndexApi extends BaseApi {
      */
     @PostMapping("wxMiniLogin")
     @ApiOperation(value="微信小程序授权登录", tags={"IndexApi：登录相关接口"}, notes="微信小程序授权登录")
-    public void wxLogin(@RequestBody WxLoginData wxLoginData) {
+    public AuthUser wxLogin(@RequestBody WxLoginData wxLoginData) {
         try {
             WxMaProperties.Config config = wxMaProperties.getConfigs().stream()
                     .filter(s -> StringUtils.equals(s.getAppSign(), wxLoginData.getAppSign())).findAny().orElse(null);
@@ -72,6 +73,7 @@ public class IndexApi extends BaseApi {
             wxLoginData.setOpenId(sessionResult.getOpenid());
             AuthUser authUser = loginService.wxLogin(wxLoginData, request);
             setToken(authUser);
+            return authUser;
         } catch (WxErrorException e) {
             throw new BasicException("微信授权失败");
         }
@@ -86,9 +88,10 @@ public class IndexApi extends BaseApi {
      */
     @PostMapping("wxAppLogin")
     @ApiOperation(value="手机微信登录", tags={"IndexApi：登录相关接口"}, notes="手机微信登录")
-    public void wxAppLogin(@RequestBody WxLoginData wxLoginData) {
+    public AuthUser wxAppLogin(@RequestBody WxLoginData wxLoginData) {
         AuthUser authUser = loginService.wxLogin(wxLoginData, request);
         setToken(authUser);
+        return authUser;
     }
 
     /**

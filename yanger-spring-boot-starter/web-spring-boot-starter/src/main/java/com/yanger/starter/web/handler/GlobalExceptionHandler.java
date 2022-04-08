@@ -42,7 +42,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BasicException.class)
     public Result<?> businessExceptionHandler(BasicException e) {
-        return R.failed(e.getCode(), e.getMessage());
+        log.warn("There is BasicException: {}", e.getMessage());
+        return R.failed(e.getCode(), e.getSimpleMessage(), null, e.getModuleMarker());
     }
 
     /**
