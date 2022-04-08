@@ -20,7 +20,7 @@ public class AuthUser {
     private Long userId;
 
     /** 用户姓名 */
-    private String userName;
+    private String name;
 
     /** 用户账号 */
     private String userCode;
