@@ -23,7 +23,7 @@ public class AuthUser {
     private String name;
 
     /** 用户账号 */
-    private String userCode;
+    private String username;
 
     /** 手机号码 */
     private String mobile;

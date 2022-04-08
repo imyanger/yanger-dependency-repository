@@ -23,7 +23,7 @@ public class WxLoginData implements Serializable {
 
     /** 用户名 */
     @ApiModelProperty("用户名")
-    private String userName;
+    private String username;
 
     /** 头像图片 */
     @ApiModelProperty("头像图片")

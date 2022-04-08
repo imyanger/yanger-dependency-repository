@@ -15,7 +15,7 @@ public class LoginData {
 
     /** 登录账号 */
     @ApiModelProperty("登录账号")
-    private String userCode;
+    private String username;
 
     /** 登录密码 */
     @ApiModelProperty("登录密码")
