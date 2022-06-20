@@ -27,7 +27,7 @@ public class EnumApi {
 
     @GetMapping(value = EndpointConst.GET_SERIALIZE_ENUM_CONTAINER_URL)
     @ApiOperation(value="获取 SerializeEnum 枚举数据获取接口", tags={"EnumApi：SerializeEnum 枚举数据获取接口"}, notes="获取 SerializeEnum 枚举数据获取接口")
-    public R<Map<String, List<SerializeEnumData>>> login() {
+    public R<Map<String, List<SerializeEnumData>>> getEnums() {
         if (enumProperties.getEnable()) {
             return R.succeed(SerializeEnumContainer.context());
         } else {

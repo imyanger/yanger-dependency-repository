@@ -2,8 +2,6 @@ package com.yanger.test;
 
 import com.yanger.starter.basic.launcher.BasicApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.zalando.logbook.BodyFilter;
 
 /**
  * @Author yanger

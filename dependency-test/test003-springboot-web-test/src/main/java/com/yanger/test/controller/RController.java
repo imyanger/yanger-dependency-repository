@@ -32,7 +32,8 @@ public class RController {
     }
 
     @GetMapping("enum")
-    public R<TestVo> enumTest(){
+    public R<TestVo> enumTest(TestEnum testEnum){
+        System.out.println(testEnum);
         return R.succeed(TestVo.builder().name("test").age(12).testEnum(TestEnum.A).build());
     }
 
